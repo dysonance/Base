@@ -1,0 +1,14 @@
+# autocomplete without caring about character case
+set completion-ignore-case off
+
+# dont have to press twice to get autocomplete options
+set show-all-if-ambiguous on
+
+# iterate through autocomplete options one at a time
+#TAB: menu-complete
+
+# set readline to display completions using colors to indicate file types
+set colored-stats on
+
+# more responsive key sequence timeout
+set keyseq-timeout 0.01
