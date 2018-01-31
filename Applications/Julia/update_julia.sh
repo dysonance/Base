@@ -32,11 +32,11 @@ if [ ! -d "0.6" ]; then
     git fetch --all
     git checkout release-0.6
     git pull
-    make -C deps getall && make -j $CPU && ./julia -e "Pkg.update()"
+    make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia -e "Pkg.update()"
 else
     cd 0.6
     git pull
-    make -j $CPU && ./julia -e "Pkg.update()"
+    make -j $CPU CFLAGS=-Wno-error && ./julia -e "Pkg.update()"
 fi
 
 # current/nightly version
@@ -44,11 +44,11 @@ cd $JULIA_INSTALL_DIR
 if [ ! -d "master" ]; then
     git clone https://github.com/JuliaLang/julia.git master
     cd master
-    make -C deps getall && make -j $CPU && ./julia -e "Pkg.update()"
+    make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia -e "Pkg.update()"
 else
     cd master
     git pull
-    make -j $CPU && ./julia -e "Pkg.update()"
+    make -j $CPU CFLAGS=-Wno-error && ./julia -e "Pkg.update()"
 fi
 
 cd $JULIA_INSTALL_DIR
