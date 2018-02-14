@@ -44,11 +44,11 @@ cd $JULIA_INSTALL_DIR
 if [ ! -d "master" ]; then
     git clone https://github.com/JuliaLang/julia.git master
     cd master
-    make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia -e "Pkg.update()"
+    make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia -e "using Pkg; Pkg.update()"
 else
     cd master
     git pull
-    make -j $CPU CFLAGS=-Wno-error && ./julia -e "Pkg.update()"
+    make -j $CPU CFLAGS=-Wno-error && ./julia -e "using Pkg; Pkg.update()"
 fi
 
 cd $JULIA_INSTALL_DIR
