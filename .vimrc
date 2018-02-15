@@ -20,6 +20,7 @@ Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 
 " workflow utilities
+Plug 'vim-airline/vim-airline'     " more informative vim status bar
 Plug 'airblade/vim-gitgutter'      " git diffs in the gutter
 Plug 'tpope/vim-fugitive'          " git command line interface simplification
 Plug 'jpalardy/vim-slime'          " allow connection to a REPL running in a slime/tmux session
@@ -36,7 +37,6 @@ Plug 'octol/vim-cpp-enhanced-highlight' " more intelligent c++ syntax highlighti
 Plug 'fatih/vim-go'                     " go language support
 Plug 'JuliaEditorSupport/julia-vim'     " Julia language support
 Plug 'vim-scripts/Vim-R-plugin'         " R language support improved
-"Plug 'jalvesaq/Nvim-R'                  " R language communication with console
 Plug 'plasticboy/vim-markdown'          " Markdown language support
 Plug 'vim-pandoc/vim-pandoc'            " required for Rmd support
 Plug 'vim-pandoc/vim-pandoc-syntax'     " required for Rmd support
@@ -235,6 +235,10 @@ nnoremap <C-T> :shell<CR>
 " }}}
 
 " Package Configurations {{{
+
+" Vim Airline {{{
+let g:airline#extensions#tabline#enabled=1
+" }}}
 
 " " Nvim-R {{{
 " let R_in_buffer=0
