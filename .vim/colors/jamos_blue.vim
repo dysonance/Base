@@ -2,7 +2,7 @@
 highlight Normal     ctermfg=White   ctermbg=DarkBlue
 highlight Comment    ctermfg=Blue    ctermbg=NONE
 highlight Identifier ctermfg=White   ctermbg=NONE
-highlight Function   ctermfg=Magenta ctermbg=NONE
+highlight Function   ctermfg=Yellow  ctermbg=NONE
 
 " Constant highlighting group
 highlight Constant  ctermfg=Red   ctermbg=NONE
@@ -21,12 +21,12 @@ highlight Keyword     ctermfg=Magenta    ctermbg=NONE
 highlight PreProc     ctermfg=DarkYellow ctermbg=NONE
 
 " Special highlighting group
-highlight Special     ctermfg=Magenta  ctermbg=NONE
-highlight Delimiter   ctermfg=Yellow   ctermbg=NONE
-highlight SpecialChar ctermfg=Magenta  ctermbg=NONE
-highlight Tag         ctermfg=Magenta  ctermbg=NONE
-highlight Todo        ctermfg=Yellow   ctermbg=Black
-highlight Type        ctermfg=DarkCyan ctermbg=NONE
+highlight Special     ctermfg=Magenta    ctermbg=NONE
+highlight Delimiter   ctermfg=Cyan       ctermbg=NONE
+highlight SpecialChar ctermfg=DarkYellow ctermbg=NONE
+highlight Tag         ctermfg=Magenta    ctermbg=NONE
+highlight Todo        ctermfg=Yellow     ctermbg=Black
+highlight Type        ctermfg=Magenta    ctermbg=NONE
 
 " Other random highlights
 highlight CursorLine ctermfg=NONE  ctermbg=Black
