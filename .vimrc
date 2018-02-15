@@ -21,6 +21,8 @@ Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 
 " workflow utilities
 Plug 'vim-airline/vim-airline'     " more informative vim status bar
+Plug 'chrisbra/csv.vim'            " improved csv viewing/editing interface
+Plug 'jreybert/vimagit'            " improved git repo workflow within vim
 Plug 'airblade/vim-gitgutter'      " git diffs in the gutter
 Plug 'tpope/vim-fugitive'          " git command line interface simplification
 Plug 'jpalardy/vim-slime'          " allow connection to a REPL running in a slime/tmux session
