@@ -236,11 +236,11 @@ nnoremap <C-T> :shell<CR>
 
 " Package Configurations {{{
 
-" Nvim-R {{{
-let R_in_buffer=0
-let R_applescript=0
-let R_tmux_split=1
-" }}}
+" " Nvim-R {{{
+" let R_in_buffer=0
+" let R_applescript=0
+" let R_tmux_split=1
+" " }}}
 
 " {{{Auto-Pairs Settings
 
@@ -252,6 +252,8 @@ let R_tmux_split=1
 " Git Gutter Settings {{{
 let g:gitgutter_realtime=0  " dont update gutter in realtime to stop lag (will update on save)
 set updatetime=100  " redo gutter git diff every 100 ms (1/10 sec)
+"let g:gitgutter_sign_column_always=1  " keep the git gutter sign column on all the time (less distracting)
+set signcolumn=yes
 " }}}
 
 " Syntastic Settings{{{
