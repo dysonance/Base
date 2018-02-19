@@ -5,6 +5,7 @@ filetype off
 set rtp=$HOME/Applications/vim/runtime
 set rtp+=$HOME/.vim
 set rtp+=$HOME/.vim/autoload/plug.vim
+set rtp+=$HOME/.vim/after
 set rtp+=$HOME/go/src/github.com/golang/lint/misc/vim
 call plug#begin('~/.vim/plugged')
 
@@ -238,8 +239,11 @@ nnoremap <C-T> :shell<CR>
 
 " Package Configurations {{{
 
-" Vim Airline {{{
+" Airline {{{
+
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail'
+
 " }}}
 
 " " Nvim-R {{{
@@ -255,14 +259,17 @@ let g:airline#extensions#tabline#enabled=1
 
 " }}}
 
-" Git Gutter Settings {{{
+" Git Gutter {{{
+
 let g:gitgutter_realtime=0  " dont update gutter in realtime to stop lag (will update on save)
 set updatetime=100  " redo gutter git diff every 100 ms (1/10 sec)
 "let g:gitgutter_sign_column_always=1  " keep the git gutter sign column on all the time (less distracting)
-set signcolumn=yes
+"set signcolumn=yes
+
 " }}}
 
-" Syntastic Settings{{{
+" Syntastic {{{
+
 " General
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
