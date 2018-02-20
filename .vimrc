@@ -2,7 +2,6 @@
 set nocompatible
 
 filetype off
-set rtp=$HOME/Applications/vim/runtime
 set rtp+=$HOME/.vim
 set rtp+=$HOME/.vim/autoload/plug.vim
 set rtp+=$HOME/.vim/after
