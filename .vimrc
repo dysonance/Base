@@ -12,14 +12,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'  " Vundle plugin management
 
-" editing utilities
+" Editing Utilities {{{
+
 Plug 'jiangmiao/auto-pairs'     " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'       " easily surround chunks of text with delimiters
 Plug 'Valloric/YouCompleteMe'   " code completion functionality (see pre-requisites on GitHub)
 Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 
-" workflow utilities
+" }}}
+
+" Workflow Utilities {{{
+
 Plug 'vim-airline/vim-airline'     " more informative vim status bar
 Plug 'chrisbra/csv.vim'            " improved csv viewing/editing interface
 Plug 'jreybert/vimagit'            " improved git repo workflow within vim
@@ -34,7 +38,10 @@ Plug 'AndrewRadev/linediff.vim'    " vimdiff groups of lines right next to each 
 Plug 'ctrlpvim/ctrlp.vim'          " fuzzy search utility
 Plug 'mhinz/vim-grepper'           " easily search for patterns in files
 
-" language support
+" }}}
+
+" Language Support {{{
+
 Plug 'octol/vim-cpp-enhanced-highlight' " more intelligent c++ syntax highlighting
 Plug 'fatih/vim-go'                     " go language support
 Plug 'JuliaEditorSupport/julia-vim'     " Julia language support
@@ -44,6 +51,8 @@ Plug 'vim-pandoc/vim-pandoc'            " required for Rmd support
 Plug 'vim-pandoc/vim-pandoc-syntax'     " required for Rmd support
 Plug 'vim-pandoc/vim-rmarkdown'         " support for RMarkdown and KnitR
 Plug 'rhysd/vim-clang-format'           " clang auto-formatting for certain languages
+
+" }}}
 
 " }}}
 
@@ -91,6 +100,7 @@ autocmd FileType r set softtabstop=2  " R-language specific formatting settings
 autocmd FileType r set shiftwidth=2  " R-language specific formatting settings
 autocmd FileType Rmd set nospell  " dont check spelling in rmarkdown files
 autocmd FileType md set nospell  " dont check spelling in markdown files
+autocmd FileType pandoc set nospell  " dont check spelling in markdown files
 set backspace=indent,eol,start  " make backspace work like most apps
 set expandtab  " tabs are spaces
 
@@ -234,6 +244,23 @@ nnoremap <C-T> :shell<CR>
 
 " }}}
 
+" F-Key Mappings {{{
+
+autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
+            \ --verbose
+            \ --listings
+            \ --number-sections
+            \ --table-of-contents
+            \ && open %:r.pdf
+            \ <CR>
+
+autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
+autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
+autocmd Filetype cpp nnoremap <F5> :execute ":SlimeSend1 MAIN"<CR>
+autocmd Filetype sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+
+" }}}
+
 " }}}
 
 " Package Configurations {{{
@@ -340,7 +367,10 @@ let g:cpp_no_function_highlight = 1
 " }}}
 
 " {{{ Slime Settings
-let g:slime_target="tmux"  " screen is the default
+
+let g:slime_target="tmux"      " screen is the default
+let g:slime_preserve_curpose=0 " dont preserve current cursor position when sending text
+
 " }}}
 
 " Clang Format {{{
@@ -386,6 +416,15 @@ let g:ctrlp_show_hidden=1
 
 " ignore git ignored files
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" }}}
+
+" Pandoc {{{
+
+let g:pandoc#command#autoexec_command="Pandoc pdf"
+let g:pandoc#command#latex_engine="xelatex"
+let g:pandoc#command#autoexec_on_writes=1
+let g:pandoc#command#prefer_pdf=1
 
 " }}}
 
