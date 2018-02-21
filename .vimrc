@@ -37,6 +37,7 @@ Plug 'octref/RootIgnore'           " auto-add project gitignore files to vim wil
 Plug 'AndrewRadev/linediff.vim'    " vimdiff groups of lines right next to each other
 Plug 'ctrlpvim/ctrlp.vim'          " fuzzy search utility
 Plug 'mhinz/vim-grepper'           " easily search for patterns in files
+Plug 'vim-scripts/dbext.vim'       " vim sql client plugin for running queries
 
 " }}}
 
@@ -116,9 +117,6 @@ set smartindent
 " yank to clipboard
 if has("clipboard")
   set clipboard=unnamed  " copy to system clipboard
-"  if has("unnamedplus")  " X11 support
-"    set clipboard+=unnamedplus
-"  endif
 endif
 
 set ruler  " always show the current cursor position
@@ -141,6 +139,10 @@ let r_syntax_folding=1  " allow syntax folding in the Vim-R plugin
 if &diff
     set diffopt+=iwhite
 endif
+
+" code formatting options
+autocmd FileType sql setl formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
+autocmd FileType r setl formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 
 " }}}
 
@@ -276,9 +278,10 @@ let g:airline#extensions#tabline#formatter='unique_tail'
 " let R_in_buffer=0
 " let R_applescript=0
 " let R_tmux_split=1
+
 " " }}}
 
-" {{{Auto-Pairs Settings
+" Auto-Pairs {{{
 
 " let g:AutoPairs={'(' : ')', '[' : ']', '{' : '}',"'" : "'",'"' : '"', '`' : '`', '<' : '>'}
 " let g:AutoPairsMoveCharacter="()[]{}<>\"'"
@@ -343,7 +346,8 @@ au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 " }}}
 
-" YouCompleteMe Settings{{{
+" YouCompleteMe {{{
+
 let g:ycm_confirm_extra_conf=0  " dont ask to reload conf every time
 let g:ycm_show_diagnostics_ui=0
 let g:ycm_global_ycm_extra_conf='/Users/jacobamos/.ycm_extra_conf.py'
@@ -354,6 +358,7 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 " insert mode
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 " }}}
 
 " C++ Enhanced Highlighting {{{
@@ -380,8 +385,10 @@ let g:clang_format#detect_file_style=1
 " }}}
 
 " Nerd Tree {{{
+
 "let loaded_netrwPlugin=1
 let NERDTreeRespectWildIgnore=1
+
 " }}}
 
 " Nerd Commenter {{{
