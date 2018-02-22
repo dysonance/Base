@@ -62,35 +62,38 @@ call plug#end()
 " }}}
 
 " Visual Tweaks {{{
-filetype plugin indent on  " enable filetype plugins and indentations
-syntax enable  " enable syntax highlighting
+
+filetype plugin indent on " enable filetype plugins and indentations
+syntax enable             " enable syntax highlighting
 set term=screen-256color
 
 " status line tweakes
+
 set laststatus=2
 set statusline=
-set statusline +=%*\ %n\ %*            "buffer number
-set statusline +=%*%{&ff}%*            "file format
-set statusline +=%*%y%*                "file type
-set statusline +=%*\ %<%F%*            "full path
-set statusline +=%*%m%*                "modified flag
-set statusline +=%*%=%5l%*             "current line
-set statusline +=%*/%L%*               "total lines
-set statusline +=%*%4v\ %*             "virtual column number
+set statusline +=%*\ %n\ %* " buffer number
+set statusline +=%*%{&ff}%* " file format
+set statusline +=%*%y%*     " file type
+set statusline +=%*\ %<%F%* " full path
+set statusline +=%*%m%*     " modified flag
+set statusline +=%*%=%5l%*  " current line
+set statusline +=%*/%L%*    " total lines
+set statusline +=%*%4v\ %*  " virtual column number
 
 " general tweaks
-colorscheme jamos_blue  " colorscheme of choice
-set number  " show line numbers
-set cino+=(0  " align function arguments
-set nowrap  " stop line wrapping
-set showcmd  " show last entered command in bottom bar
-set lazyredraw  " redraw only when necessary
-set showmatch  " highlight matching brackets/parens
-set mat=1  " 1/10 of a second to blink when matching brackets
-set noerrorbells  " no audible bell on errors
-set cursorline  " highlight line (next cmd removes underline)
+
+colorscheme jamos_blue " colorscheme of choice
+set number             " show line numbers
+set cino+=(0           " align function arguments
+set nowrap             " stop line wrapping
+set showcmd            " show last entered command in bottom bar
+set lazyredraw         " redraw only when necessary
+set showmatch          " highlight matching brackets/parens
+set mat=1              " 1/10 of a second to blink when matching brackets
+set noerrorbells       " no audible bell on errors
+set cursorline         " highlight line (next cmd removes underline)
 hi CursorLine cterm=NONE
-set hlsearch  " highlight search results
+set hlsearch           " highlight search results
 
 " tabs and whitespace {{{
 set tabstop=4  " number of visual spaces per tab
@@ -321,8 +324,7 @@ let g:syntastic_cpp_include_dirs=[
             \'/Users/jacobamos/gitbase/goose_cpp/src',
             \'/Users/jacobamos/gitbase/goose_cpp/src/goose',
             \'/Users/jacobamos/R_LIBS/RcppArmadillo/include',
-            \'/Users/jacobamos/R_LIBS/Rcpp/include',
-            \'/Users/jacobamos/gitbase/aaGoose/src'
+            \'/Users/jacobamos/R_LIBS/Rcpp/include'
             \]
 let g:syntastic_cpp_check_header=1
 let g:syntastic_c_compiler='clang'
