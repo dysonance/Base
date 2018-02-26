@@ -82,7 +82,7 @@ set statusline +=%*%4v\ %*  " virtual column number
 
 " general tweaks
 
-colorscheme jamos_black " colorscheme of choice
+colorscheme jamos_blue  " colorscheme of choice
 set number              " show line numbers
 set cino+=(0            " align function arguments
 set nowrap              " stop line wrapping
@@ -94,18 +94,21 @@ set noerrorbells        " no audible bell on errors
 set cursorline          " highlight line (next cmd removes underline)
 set hlsearch            " highlight search results
 
-" tabs and whitespace {{{
-set tabstop=4  " number of visual spaces per tab
-set softtabstop=4  " number of spaces in tab when editing
-set shiftwidth=4  " number of columns for reindent operations (<< and >>)
-autocmd FileType r set tabstop=2  " R-language specific formatting settings
-autocmd FileType r set softtabstop=2  " R-language specific formatting settings
-autocmd FileType r set shiftwidth=2  " R-language specific formatting settings
-autocmd FileType Rmd set nospell  " dont check spelling in rmarkdown files
-autocmd FileType md set nospell  " dont check spelling in markdown files
-autocmd FileType pandoc set nospell  " dont check spelling in markdown files
-set backspace=indent,eol,start  " make backspace work like most apps
-set expandtab  " tabs are spaces
+                                                " tabs and whitespace {{{
+set tabstop=4                                   " number of visual spaces per tab
+set softtabstop=4                               " number of spaces in tab when editing
+set shiftwidth=4                                " number of columns for reindent operations (<< and >>)
+autocmd FileType r setlocal tabstop=2           " R-language specific formatting settings
+autocmd FileType r setlocal softtabstop=2       " R-language specific formatting settings
+autocmd FileType r setlocal shiftwidth=2        " R-language specific formatting settings
+autocmd FileType fortran setlocal shiftwidth=3  " fortran-specific formatting settings
+autocmd FileType fortran setlocal tabstop=3     " fortran-specific formatting settings
+autocmd FileType fortran setlocal softtabstop=3 " fortran-specific formatting settings
+autocmd FileType Rmd setlocal nospell           " dont check spelling in rmarkdown files
+autocmd FileType md setlocal nospell            " dont check spelling in markdown files
+autocmd FileType pandoc setlocal nospell        " dont check spelling in markdown files
+set backspace=indent,eol,start                  " make backspace work like most apps
+set expandtab                                   " tabs are spaces
 
 " }}}
 " }}}
@@ -143,8 +146,9 @@ if &diff
 endif
 
 " code formatting options
-autocmd FileType sql setl formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
-autocmd FileType r setl formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
+autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
+autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
+autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
 
 " }}}
 
@@ -188,6 +192,9 @@ nmap ga <Plug>(EasyAlign)
 " }}}
 
 " Leader Mappings {{{
+
+" search for next git merge conflict
+"nnoremap <leader>mc /HEAD\|====\|>>>>\|<<<<\|||||<CR>
 
 " Local (within scope) variable replacement
 nnoremap <leader>fr :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -260,8 +267,8 @@ autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
 
 autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
-autocmd Filetype cpp nnoremap <F5> :execute ":SlimeSend1 MAIN"<CR>
-autocmd Filetype sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 MAIN"<CR>
+autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
 
 " }}}
 
@@ -341,9 +348,9 @@ let g:go_highlight_build_constraints = 1
 
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
-au Filetype go nnoremap <leader>v :vsplit <CR>:exe "GoDef" <CR>
-au Filetype go nnoremap <leader>s :split <CR>:exe "GoDef"<CR>
-au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+au FileType go nnoremap <leader>v :vsplit <CR>:exe "GoDef" <CR>
+au FileType go nnoremap <leader>s :split <CR>:exe "GoDef"<CR>
+au FileType go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 " }}}
 
