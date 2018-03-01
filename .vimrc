@@ -66,7 +66,7 @@ call plug#end()
 
 filetype plugin indent on " enable filetype plugins and indentations
 syntax enable             " enable syntax highlighting
-set term=screen-256color
+" set term=screen-256color
 
 " status line tweakes
 
@@ -280,6 +280,13 @@ autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<
 " }}}
 
 " Package Configurations {{{
+
+" NeoVim Configurations {{{
+
+let g:python_host_prog='/usr/bin/python'
+let g:python3_host_prog='/usr/local/bin/python3'
+
+" }}}
 
 " Airline {{{
 
