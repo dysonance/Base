@@ -194,7 +194,7 @@ nmap ga <Plug>(EasyAlign)
 " Leader Mappings {{{
 
 " search for next git merge conflict
-"nnoremap <leader>mc /HEAD\|====\|>>>>\|<<<<\|||||<CR>
+nnoremap <leader>mc /\<HEAD\>\\|<<<<\\|>>>>\\|====\\|\|\|\|\|<CR>
 
 " Local (within scope) variable replacement
 nnoremap <leader>fr :%s/\<<C-r><C-w>\>//g<Left><Left>
