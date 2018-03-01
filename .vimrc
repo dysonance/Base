@@ -38,6 +38,7 @@ Plug 'AndrewRadev/linediff.vim'    " vimdiff groups of lines right next to each 
 Plug 'ctrlpvim/ctrlp.vim'          " fuzzy search utility
 Plug 'mhinz/vim-grepper'           " easily search for patterns in files
 Plug 'vim-scripts/dbext.vim'       " vim sql client plugin for running queries
+Plug 'rizzatti/dash.vim'           " mac dash documentation app integration
 
 " }}}
 
@@ -193,6 +194,9 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+" dash app integration (note: noremap doesnt work with this)
+nmap <silent> <leader>dd <Plug>DashSearch
+
 " search for next git merge conflict
 nnoremap <leader>mc /\<HEAD\>\\|<<<<\\|>>>>\\|====\\|\|\|\|\|<CR>
 
@@ -268,6 +272,7 @@ autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
 autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
 autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 MAIN"<CR>
+autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 CLEAN; MAIN"<CR>
 autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
 
 " }}}
