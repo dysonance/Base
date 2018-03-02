@@ -194,6 +194,11 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+" merge conflict resolution shortcuts
+nmap <leader>dgr :diffget REMOTE \| diffupdate<CR>
+nmap <leader>dgl :diffget LOCAL \| diffupdate<CR>
+nmap <leader>dgb :diffget BASE \| diffupdate<CR>
+
 " dash app integration (note: noremap doesnt work with this)
 nmap <silent> <leader>dd <Plug>DashSearch
 
