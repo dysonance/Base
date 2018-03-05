@@ -341,7 +341,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_cpp_include_dirs=[
             \'/Library/Frameworks/R.framework/Resources/include',
             \'/usr/local/include',
-            \'/Users/jacobamos/gitbase/goose_cpp/include/armadillo-7.960.1/include',
+            \'/Users/jacobamos/gitbase/goose_cpp/include/armadillo-code/include',
             \'/Users/jacobamos/gitbase/goose_cpp/include/googletest-release-1.8.0/googletest/include',
             \'/Users/jacobamos/gitbase/goose_cpp/include/gsl-2.4/include',
             \'/Users/jacobamos/gitbase/goose_cpp/src',
