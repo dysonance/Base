@@ -1,0 +1,199 @@
+" Visual Tweaks {{{
+
+filetype plugin indent on " enable filetype plugins and indentations
+syntax enable             " enable syntax highlighting
+" set term=screen-256color
+
+" status line tweakes
+
+set laststatus=2
+set statusline=
+set statusline +=%*\ %n\ %* " buffer number
+set statusline +=%*%{&ff}%* " file format
+set statusline +=%*%y%*     " file type
+set statusline +=%*\ %<%F%* " full path
+set statusline +=%*%m%*     " modified flag
+set statusline +=%*%=%5l%*  " current line
+set statusline +=%*/%L%*    " total lines
+set statusline +=%*%4v\ %*  " virtual column number
+
+" general tweaks
+
+colorscheme jamos_blue  " colorscheme of choice
+set number              " show line numbers
+set cino+=(0            " align function arguments
+set nowrap              " stop line wrapping
+set showcmd             " show last entered command in bottom bar
+set lazyredraw          " redraw only when necessary
+set showmatch           " highlight matching brackets/parens
+set mat=1               " 1/10 of a second to blink when matching brackets
+set noerrorbells        " no audible bell on errors
+set cursorline          " highlight line (next cmd removes underline)
+set hlsearch            " highlight search results
+
+                                                " tabs and whitespace {{{
+set tabstop=4                                   " number of visual spaces per tab
+set softtabstop=4                               " number of spaces in tab when editing
+set shiftwidth=4                                " number of columns for reindent operations (<< and >>)
+autocmd FileType r setlocal tabstop=2           " R-language specific formatting settings
+autocmd FileType r setlocal softtabstop=2       " R-language specific formatting settings
+autocmd FileType r setlocal shiftwidth=2        " R-language specific formatting settings
+autocmd FileType fortran setlocal shiftwidth=3  " fortran-specific formatting settings
+autocmd FileType fortran setlocal tabstop=3     " fortran-specific formatting settings
+autocmd FileType fortran setlocal softtabstop=3 " fortran-specific formatting settings
+autocmd FileType Rmd setlocal nospell           " dont check spelling in rmarkdown files
+autocmd FileType md setlocal nospell            " dont check spelling in markdown files
+autocmd FileType pandoc setlocal nospell        " dont check spelling in markdown files
+set backspace=indent,eol,start                  " make backspace work like most apps
+set expandtab                                   " tabs are spaces
+
+" }}}
+" }}}
+
+" Functional Tweaks {{{
+
+set noswapfile  " dont create temporary swap files
+set autoindent
+set smartindent
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed  " copy to system clipboard
+endif
+
+set ruler  " always show the current cursor position
+set incsearch  " make search act like in modern web browsers
+set autoread  " automatically read when a file is changed externally
+set regexpengine=1  " newer regular expression engine (versions 7.4+)
+
+" automatically resize scale windows when terminal is resized
+autocmd VimResized * :wincmd =
+
+" code folding
+set foldenable  " enable code folding
+set foldmethod=syntax " fold based on language syntax
+set foldlevelstart=99  " fold level at file open (0=everything folded, 99=nothing)
+set foldnestmax=99  " maximum fold nesting
+set modelines=1  " check last line of file for a modeline so vimrc can be folded
+let r_syntax_folding=1  " allow syntax folding in the Vim-R plugin
+
+" ignore whitespace in diff mode but not in standard vim
+if &diff
+    set diffopt+=iwhite
+endif
+
+" code formatting options
+autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
+autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
+autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
+
+" }}}
+
+" Key Mappings {{{
+
+" General Mappings {{{
+
+" Global variable replacement
+"nnoremap gR gD::%s/<C-R>///gc<left><left><left>
+
+" Undo the Vim R plugin annoying underscore to arrow mapping
+let vimrplugin_assign=0
+
+" space toggles current fold
+nnoremap <space> za
+
+" visually select text entered when last in insert mode
+nnoremap gV [v`]
+
+" make the `#` key still use `n` to move forward and `N` to move backwards
+nnoremap # *NN
+
+" re-select visual block after indenting
+" (normally vim will deselect and go back to normal mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" fast pane splitting and focus switching
+nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
+nnoremap <expr><silent> _ !v:count ? "<C-W>s<C-W><Down>"  : '_'
+nnoremap <Tab> <C-W>w
+nnoremap <S-Tab> <C-W>W
+
+" ctrl+h to turn off highlighting
+nnoremap <Esc><Esc> :nohl<CR>
+
+" }}}
+
+" Leader Mappings {{{
+
+" merge conflict resolution shortcuts
+nmap <leader>dgr :diffget REMOTE \| diffupdate<CR>
+nmap <leader>dgl :diffget LOCAL \| diffupdate<CR>
+nmap <leader>dgb :diffget BASE \| diffupdate<CR>
+
+" dash app integration (note: noremap doesnt work with this)
+nmap <silent> <leader>dd <Plug>DashSearch
+
+" search for next git merge conflict
+nnoremap <leader>mc /\<HEAD\>\\|<<<<\\|>>>>\\|====\\|\|\|\|\|<CR>
+
+" Local (within scope) variable replacement
+nnoremap <leader>fr :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" lzz shortcut
+nnoremap <leader>lzz :!lzz %<CR><CR>
+
+" git add entire current file to staged index
+nnoremap <leader>ga :!git add %<CR><CR>
+nnoremap <leader>gp :!git push<CR>
+
+" quick isolation of the currently focused file
+nnoremap <leader><Esc><Esc> :only<CR>
+
+" }}}
+
+" Control Key Mappings {{{
+
+" reselct visual selection after incrementing or decrementing numbers
+vnoremap <C-A> <C-A>gv
+vnoremap <C-X> <C-X>gv
+
+" faster buffer management
+nnoremap <C-L> :bn<CR>
+nnoremap <C-H> :bp<CR>
+nnoremap <C-K> :bd<CR>
+
+" ctrl+t to access terminal
+nnoremap <C-T> :shell<CR>
+
+" }}}
+
+" F-Key Mappings {{{
+
+autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
+            \ --verbose
+            \ --listings
+            \ --number-sections
+            \ --table-of-contents
+            \ && open %:r.pdf
+            \ <CR>
+
+autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
+autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
+autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 MAIN"<CR>
+autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 CLEAN; MAIN"<CR>
+autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+
+" }}}
+
+" }}}
+
+" Miscellaneous Preferences {{{
+
+" lzz files interpreted as cpp files
+autocmd BufNewFile,BufRead *.lzz set filetype=cpp
+
+" }}}
+
+" Make vim use triple bracket fold markers in vimrc
+" vim:foldmethod=marker:foldlevel=0
