@@ -276,8 +276,9 @@ autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
 
 autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
-autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 MAIN"<CR>
-autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 CLEAN; MAIN"<CR>
+autocmd FileType cpp nnoremap <F3> :execute ":SlimeSend1 TEST"<CR>
+autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 BUILD"<CR>
+autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 RUN"<CR>
 autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
 
 " }}}
