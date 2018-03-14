@@ -10,8 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin List {{{
 
-Plug 'VundleVim/Vundle.vim'  " Vundle plugin management
-
 " Editing Utilities {{{
 
 Plug 'jiangmiao/auto-pairs'     " auto-insertion of brackets/quotes
@@ -31,6 +29,7 @@ Plug 'airblade/vim-gitgutter'      " git diffs in the gutter
 Plug 'tpope/vim-fugitive'          " git command line interface simplification
 Plug 'jpalardy/vim-slime'          " allow connection to a REPL running in a slime/tmux session
 Plug 'vim-syntastic/syntastic'     " Linter/syntax checker for Vim
+" Plug 'w0rp/ale'                    " asynchronous lint engine
 Plug 'scrooloose/nerdtree'         " file explorer side bar
 Plug 'Xuyuanp/nerdtree-git-plugin' " add git indications to nerd tree sidebar
 Plug 'octref/RootIgnore'           " auto-add project gitignore files to vim wildignore
@@ -301,13 +300,6 @@ let g:airline#extensions#tabline#formatter='unique_tail'
 
 " }}}
 
-" " Nvim-R {{{
-" let R_in_buffer=0
-" let R_applescript=0
-" let R_tmux_split=1
-
-" " }}}
-
 " Auto-Pairs {{{
 
 " let g:AutoPairs={'(' : ')', '[' : ']', '{' : '}',"'" : "'",'"' : '"', '`' : '`', '<' : '>'}
@@ -376,7 +368,7 @@ au FileType go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 let g:ycm_confirm_extra_conf=0  " dont ask to reload conf every time
 let g:ycm_show_diagnostics_ui=0
-let g:ycm_global_ycm_extra_conf='/Users/jacobamos/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf='/Users/jacobamos/.ycm_extra_conf.py'
 set completeopt=menu,menuone  " turn off the preview/documentation window
 let g:ycm_autoclose_preview_window_after_insertion=1
 " If you prefer the Omni-Completion tip window to close when a selection is
