@@ -159,6 +159,9 @@ autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ 
 " Global variable replacement
 "nnoremap gR gD::%s/<C-R>///gc<left><left><left>
 
+" shortcut to replace word by pasting before it, deleting it, and adding a space
+nnoremap R Pldwi<Space><Esc>
+
 " Undo the Vim R plugin annoying underscore to arrow mapping
 let vimrplugin_assign=0
 
