@@ -1,7 +1,10 @@
 #!/bin/bash
 
+cd $HOME/Preferences
+
 brew update
 brew upgrade
+brew list > brew_list.txt
 
 vim -c ":PlugUpdate | :qa"
 
