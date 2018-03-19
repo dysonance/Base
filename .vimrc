@@ -337,13 +337,13 @@ let g:syntastic_enable_signs=1
 let g:syntastic_cpp_include_dirs=[
             \'/Library/Frameworks/R.framework/Resources/include',
             \'/usr/local/include',
-            \'/Users/jacobamos/gitbase/goose_cpp/include/armadillo-code/include',
-            \'/Users/jacobamos/gitbase/goose_cpp/include/googletest-release-1.8.0/googletest/include',
-            \'/Users/jacobamos/gitbase/goose_cpp/include/gsl-2.4/include',
-            \'/Users/jacobamos/gitbase/goose_cpp/src',
-            \'/Users/jacobamos/gitbase/goose_cpp/src/goose',
-            \'/Users/jacobamos/R_LIBS/RcppArmadillo/include',
-            \'/Users/jacobamos/R_LIBS/Rcpp/include'
+            \'/Users/jacob.amos/gitbase/goose_cpp/include/armadillo-code/include',
+            \'/Users/jacob.amos/gitbase/goose_cpp/include/googletest-release-1.8.0/googletest/include',
+            \'/Users/jacob.amos/gitbase/goose_cpp/include/gsl-2.4/include',
+            \'/Users/jacob.amos/gitbase/goose_cpp/src',
+            \'/Users/jacob.amos/gitbase/goose_cpp/src/goose',
+            \'/Users/jacob.amos/R_LIBS/RcppArmadillo/include',
+            \'/Users/jacob.amos/R_LIBS/Rcpp/include'
             \]
 let g:syntastic_cpp_check_header=1
 let g:syntastic_c_compiler='clang'
@@ -351,6 +351,7 @@ let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
 let g:syntastic_c_auto_refresh_includes=1
 let g:syntastic_quiet_messages={"regex": 'invalid preprocessing directive\|should have comment or be unexported'}
+let g:syntastic_python_checkers=['python3', 'pep8']
 
 " Go language
 let g:go_highlight_functions = 1
@@ -371,7 +372,7 @@ au FileType go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 let g:ycm_confirm_extra_conf=0  " dont ask to reload conf every time
 let g:ycm_show_diagnostics_ui=0
-" let g:ycm_global_ycm_extra_conf='/Users/jacobamos/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf='/Users/jacob.amos/.ycm_extra_conf.py'
 set completeopt=menu,menuone  " turn off the preview/documentation window
 let g:ycm_autoclose_preview_window_after_insertion=1
 " If you prefer the Omni-Completion tip window to close when a selection is
