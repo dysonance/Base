@@ -32,6 +32,7 @@ log4cpp
 lua
 luajit
 make
+markdown
 mpfr
 node
 openssl
@@ -42,6 +43,7 @@ pgformatter
 pkg-config
 postgresql
 python
+python3
 readline
 reattach-to-user-namespace
 ruby
