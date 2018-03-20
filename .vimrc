@@ -282,6 +282,7 @@ autocmd FileType cpp nnoremap <F3> :execute ":SlimeSend1 TEST"<CR>
 autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 BUILD"<CR>
 autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 RUN"<CR>
 autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+autocmd FileType sql nnoremap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
 
 " }}}
 
