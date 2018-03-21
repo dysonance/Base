@@ -1,3 +1,5 @@
+autoconf
+automake
 clang-format
 cmake
 cscope
@@ -33,6 +35,7 @@ lua
 luajit
 make
 markdown
+mono
 mpfr
 node
 openssl
@@ -43,7 +46,6 @@ pgformatter
 pkg-config
 postgresql
 python
-python3
 readline
 reattach-to-user-namespace
 ruby
