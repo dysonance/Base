@@ -51,6 +51,7 @@ reattach-to-user-namespace
 ruby
 rust
 screen
+shfmt
 sqlite
 ta-lib
 tmux
