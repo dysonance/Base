@@ -156,7 +156,7 @@ autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ 
 
 " General Mappings {{{
 
-nnoremap Q :q<CR>
+nnoremap Q :qa<CR>
 
 " Global variable replacement
 "nnoremap gR gD::%s/<C-R>///gc<left><left><left>
