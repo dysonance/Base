@@ -29,7 +29,8 @@ highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
 highlight Type        ctermfg=Magenta    ctermbg=NONE  cterm=NONE
 
 " Other random highlights
-highlight CursorLine ctermfg=NONE  ctermbg=Black     cterm=NONE
+set cursorline
+highlight CursorLine ctermfg=NONE  ctermbg=NONE      cterm=underline
 highlight StatusLine ctermfg=Blue  ctermbg=Cyan      cterm=NONE
 highlight LineNR     ctermfg=Grey  ctermbg=NONE      cterm=NONE
 highlight Pmenu      ctermfg=Black ctermbg=Cyan      cterm=NONE
