@@ -198,26 +198,26 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+" quick isolation of the currently focused file
+nnoremap <leader><Esc><Esc> :only<CR>
+
+" clang format shortcut
+nnoremap <leader>cf :ClangFormat<CR>
+
+" dash app integration (note: noremap doesnt work with this)
+nmap <silent> <leader>dd <Plug>DashSearch
+
 " merge conflict resolution shortcuts
 nmap <leader>dgr :diffget REMOTE \| diffupdate<CR>
 nmap <leader>dgl :diffget LOCAL \| diffupdate<CR>
 nmap <leader>dgb :diffget BASE \| diffupdate<CR>
 
-" dash app integration (note: noremap doesnt work with this)
-nmap <silent> <leader>dd <Plug>DashSearch
-
-" search for next git merge conflict
-nnoremap <leader>mc /\<HEAD\>\\|<<<<\\|>>>>\\|====\\|\|\|\|\|<CR>
-
 " Local (within scope) variable replacement
 nnoremap <leader>fr :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-" syntastic reset shortcut
-nnoremap <leader>sr :SyntasticReset<CR>
-nnoremap <leader>st :SyntasticToggleMode<CR>
-
-" clang format shortcut
-nnoremap <leader>cf :ClangFormat<CR>
+" vim line diff plugin shortcuts
+vnoremap <leader>ldf :Linediff<CR>
+nnoremap <leader>ldr :LinediffReset<CR>
 
 " lzz shortcut
 nnoremap <leader>lzz :!lzz %<CR><CR>
@@ -226,26 +226,25 @@ nnoremap <leader>lzz :!lzz %<CR><CR>
 nnoremap <leader>ga :!git add %<CR><CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :!git push<CR>
-
-vnoremap <leader>ldf :Linediff<CR>
-nnoremap <leader>ldr :LinediffReset<CR>
-
-" Convert each name_like_this to nameLikeThis in current line
-" (convert *s*nake case to *c*amel case)
-nnoremap <leader>sc :s#_\(\l\)#\u\1#g<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
 
 " go to definition in golang
-nnoremap <leader>gd :GoDef<CR>
+nnoremap <leader>god :GoDef<CR>
 
 " easier grepper command accessibility
 nnoremap <leader>gr :Grepper<CR>
+
+" search for next git merge conflict
+nnoremap <leader>mc /\<HEAD\>\\|<<<<\\|>>>>\\|====\\|\|\|\|\|<CR>
 
 " easier error jumping
 nnoremap <leader>ne :lne<CR>
 nnoremap <leader>pe :lN<CR>
 
-" quick isolation of the currently focused file
-nnoremap <leader><Esc><Esc> :only<CR>
+" syntastic reset shortcut
+nnoremap <leader>sr :SyntasticReset<CR>
+nnoremap <leader>st :SyntasticToggleMode<CR>
 
 " }}}
 
