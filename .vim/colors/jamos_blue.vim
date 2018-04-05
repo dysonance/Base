@@ -46,8 +46,8 @@ highlight WarningMsg ctermfg=NONE ctermbg=DarkYellow cterm=NONE
 
 " Diff highlights
 highlight DiffAdd    ctermfg=NONE ctermbg=DarkGreen cterm=NONE
-highlight DiffChange ctermfg=NONE ctermbg=Blue      cterm=NONE
+highlight DiffChange ctermfg=NONE ctermbg=Black     cterm=NONE
 highlight DiffDelete ctermfg=NONE ctermbg=DarkRed   cterm=NONE
-highlight DiffText   ctermfg=NONE ctermbg=Black     cterm=NONE
+highlight DiffText   ctermfg=NONE ctermbg=Blue      cterm=NONE
 
 syntax enable
