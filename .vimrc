@@ -307,8 +307,9 @@ let g:airline#extensions#tabline#formatter='unique_tail'
 
 " Auto-Pairs {{{
 
-let g:AutoPairs={'(' : ')', '[' : ']', '{' : '}',"'" : "'",'"' : '"', '`' : '`', '<' : '>'}
-let g:AutoPairsMoveCharacter="()[]{}<>\"'"
+" " NOTE: including angle brackets will mess with greater than / less than
+" let g:AutoPairs={'(' : ')', '[' : ']', '{' : '}',"'" : "'",'"' : '"', '`' : '`', '<' : '>'}
+" let g:AutoPairsMoveCharacter="()[]{}<>\"'"
 
 " }}}
 
