@@ -308,8 +308,8 @@ let g:airline#extensions#tabline#formatter='unique_tail'
 
 " Auto-Pairs {{{
 
-" let g:AutoPairs={'(' : ')', '[' : ']', '{' : '}',"'" : "'",'"' : '"', '`' : '`', '<' : '>'}
-" let g:AutoPairsMoveCharacter="()[]{}<>\"'"
+let g:AutoPairs={'(' : ')', '[' : ']', '{' : '}',"'" : "'",'"' : '"', '`' : '`', '<' : '>'}
+let g:AutoPairsMoveCharacter="()[]{}<>\"'"
 
 " }}}
 
