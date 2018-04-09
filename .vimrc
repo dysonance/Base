@@ -221,6 +221,7 @@ nnoremap <leader>ldr :LinediffReset<CR>
 
 " lzz shortcut
 nnoremap <leader>lzz :!lzz %<CR><CR>
+nnoremap <leader>LZZ :!find `git root` \| grep \"\\.lzz\" \| xargs lzz
 
 " git add entire current file to staged index
 nnoremap <leader>ga :!git add %<CR><CR>
