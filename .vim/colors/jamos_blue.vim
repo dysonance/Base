@@ -30,7 +30,7 @@ highlight Type        ctermfg=Magenta    ctermbg=NONE  cterm=NONE
 
 " Other random highlights
 set cursorline
-highlight CursorLine ctermfg=NONE  ctermbg=NONE      cterm=underline
+highlight CursorLine ctermfg=NONE  ctermbg=Black     cterm=NONE
 highlight StatusLine ctermfg=Blue  ctermbg=Cyan      cterm=NONE
 highlight LineNR     ctermfg=Grey  ctermbg=NONE      cterm=NONE
 highlight Pmenu      ctermfg=Black ctermbg=Cyan      cterm=NONE
