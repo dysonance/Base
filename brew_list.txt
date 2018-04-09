@@ -40,6 +40,7 @@ mono
 mpfr
 node
 openssl
+p7zip
 pandoc
 pcre
 perl
