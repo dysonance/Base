@@ -1,5 +1,5 @@
 .First = function(){
-  options(width=160)
+  options(width=140)
   options(scipen=1e3)
   options(shiny.port=8080)
   options(shiny.launch.browser=FALSE)
