@@ -167,7 +167,7 @@ nnoremap R Pldwi<Esc>bye
 let vimrplugin_assign=0
 
 " space toggles current fold
-nnoremap <space> za
+nnoremap <space> zA
 
 " visually select text entered when last in insert mode
 nnoremap gV [v`]
@@ -204,7 +204,7 @@ nnoremap <leader><Esc><Esc> :only<CR>
 nnoremap <leader>cf :ClangFormat<CR>
 
 " dash app integration (note: noremap doesnt work with this)
-nmap <silent> <leader>dd <Plug>DashSearch
+nmap <silent> <F1> <Plug>DashSearch
 
 " merge conflict resolution shortcuts
 nmap <leader>dgr :diffget REMOTE \| diffupdate<CR>
