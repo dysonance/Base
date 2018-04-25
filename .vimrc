@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'       " easily surround chunks of text with delimiters
 Plug 'Valloric/YouCompleteMe'   " code completion functionality (see pre-requisites on GitHub)
 Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
+Plug 'Chiel92/vim-autoformat'   " consolidated formatting utilities plugin
 
 " }}}
 
@@ -167,7 +168,7 @@ nnoremap R Pldwi<Esc>bye
 let vimrplugin_assign=0
 
 " space toggles current fold
-nnoremap <space> zA
+nnoremap <space> za
 
 " visually select text entered when last in insert mode
 nnoremap gV [v`]
@@ -284,6 +285,7 @@ autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 BUILD"<CR>
 autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 RUN"<CR>
 autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
 autocmd FileType sql nnoremap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
+autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
 
 " }}}
 
