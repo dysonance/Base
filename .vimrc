@@ -424,6 +424,7 @@ let g:cpp_no_function_highlight = 0
 
 let g:slime_target="tmux"      " screen is the default
 let g:slime_preserve_curpose=0 " dont preserve current cursor position when sending text
+let g:slime_python_ipython=1   " allow pasting more than one line at a time in ipython
 
 " }}}
 
