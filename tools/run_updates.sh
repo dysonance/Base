@@ -4,7 +4,7 @@ cd $HOME/Preferences
 
 brew update
 brew upgrade
-brew list > brew_list.txt
+brew list > data/brew_list.txt
 
 vim -c ":PlugUpdate | :qa"
 
