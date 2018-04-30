@@ -38,7 +38,7 @@ Plug 'AndrewRadev/linediff.vim'    " vimdiff groups of lines right next to each 
 Plug 'ctrlpvim/ctrlp.vim'          " fuzzy search utility
 Plug 'mhinz/vim-grepper'           " easily search for patterns in files
 Plug 'rizzatti/dash.vim'           " mac dash documentation app integration
-" Plug 'python-mode/python-mode'     " python workflow utilities (linting, completion, formatting)
+Plug 'python-mode/python-mode'     " python workflow utilities (linting, completion, formatting)
 
 " }}}
 
