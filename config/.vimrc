@@ -125,21 +125,22 @@ if has("clipboard")
   set clipboard=unnamed  " copy to system clipboard
 endif
 
-set ruler  " always show the current cursor position
-set incsearch  " make search act like in modern web browsers
-set autoread  " automatically read when a file is changed externally
-set regexpengine=1  " newer regular expression engine (versions 7.4+)
+set ruler          " always show the current cursor position
+set incsearch      " make search act like in modern web browsers
+set autoread       " automatically read when a file is changed externally
+set regexpengine=1 " newer regular expression engine (versions 7.4+)
 
 " automatically resize scale windows when terminal is resized
 autocmd VimResized * :wincmd =
 
 " code folding
-set foldenable  " enable code folding
-set foldmethod=syntax " fold based on language syntax
+
+set foldenable         " enable code folding
+set foldmethod=indent  " fold based on language syntax
 set foldlevelstart=99  " fold level at file open (0=everything folded, 99=nothing)
-set foldnestmax=99  " maximum fold nesting
-set modelines=1  " check last line of file for a modeline so vimrc can be folded
-let r_syntax_folding=1  " allow syntax folding in the Vim-R plugin
+set foldnestmax=99     " maximum fold nesting
+set modelines=1        " check last line of file for a modeline so vimrc can be folded
+let r_syntax_folding=1 " allow syntax folding in the Vim-R plugin
 
 " ignore whitespace in diff mode but not in standard vim
 if &diff
@@ -150,6 +151,7 @@ endif
 autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
+autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
 
 " }}}
 
