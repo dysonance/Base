@@ -303,6 +303,8 @@ let g:pymode_python='python3'
 let g:pymode_lint=0
 let g:pymode_options_colorcolumn=0
 let g:pymode_rope=0
+let g:pymode_run=0
+let g:pymode_breakpoint=0
 
 " }}}
 
