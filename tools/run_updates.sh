@@ -9,7 +9,7 @@ brew list > data/brew_list.txt
 vim -c ":PlugUpdate | :qa"
 
 cd $HOME/.vim/plugged/YouCompleteMe
-./install.py --all
+python3 install.py --all
 cd -
 
 cd $HOME/Applications/Julia
