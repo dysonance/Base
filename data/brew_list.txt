@@ -13,7 +13,6 @@ gd
 gdbm
 gettext
 git
-glances
 gmp
 go
 graphviz
