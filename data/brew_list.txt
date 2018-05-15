@@ -1,63 +1,65 @@
-autoconf
-automake
-clang-format
-cmake
-cscope
-ctags
-dep
-doxygen
-fontconfig
-freetype
-gcc
-gd
-gdbm
-gettext
-git
-gmp
-go
-graphviz
-htop
-icu4c
-isl
-jpeg
-libevent
-libffi
-libidn2
-libmpc
-libpng
-libssh2
-libtiff
-libtool
-libunistring
-libyaml
-log4cpp
-lua
-luajit
-make
-markdown
-mono
-mpfr
-node
-openssl
-p7zip
-pandoc
-pcre
-perl
-pgformatter
-pkg-config
-postgresql
-python
-readline
-reattach-to-user-namespace
-ruby
-rust
-screen
-shfmt
-sqlite
-ta-lib
-tmux
-tree
-vim
-webp
-wget
-xz
+autoconf 2.69
+automake 1.16.1
+clang-format 2018-01-11
+cmake 3.11.1
+cscope 15.8b
+ctags 5.8_1
+dep 0.4.1_1
+doxygen 1.8.14
+fontconfig 2.13.0
+freetype 2.9.1
+gcc 8.1.0
+gd 2.2.5
+gdbm 1.14.1_1
+gettext 0.19.8.1
+git 2.17.0
+gmp 6.1.2_2
+go 1.10.2
+gotags 1.4.1
+graphviz 2.40.1
+htop 2.2.0
+icu4c 61.1
+isl 0.19
+jpeg 9c
+libevent 2.1.8
+libffi 3.2.1
+libidn2 2.0.4
+libmpc 1.1.0
+libpng 1.6.34
+libssh2 1.8.0
+libtiff 4.0.9_3
+libtool 2.4.6_1
+libunistring 0.9.9
+libyaml 0.1.7
+log4cpp 1.1.3
+lua 5.3.4_3
+luajit 2.0.5
+make 4.2.1_1
+markdown 1.0.1
+mono 5.4.1.6
+mpfr 4.0.1
+node 10.1.0
+openssl 1.0.2o_1
+p7zip 16.02_1
+pandoc 2.2.1
+pcre 8.42
+perl 5.26.2
+pgformatter 3.0
+pkg-config 0.29.2
+postgresql 10.4
+pybind11 2.2.3
+python 3.6.5
+readline 7.0.3_1
+reattach-to-user-namespace 2.6
+ruby 2.5.1
+rust 1.26.0
+screen 4.6.2
+shfmt 2.3.0
+sqlite 3.23.1
+ta-lib 0.4.0
+tmux 2.7
+tree 1.7.0
+vim 8.0.1800
+webp 1.0.0
+wget 1.19.5
+xz 5.2.4
