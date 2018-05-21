@@ -53,6 +53,7 @@ Plug 'vim-pandoc/vim-pandoc'            " required for Rmd support
 Plug 'vim-pandoc/vim-pandoc-syntax'     " required for Rmd support
 Plug 'vim-pandoc/vim-rmarkdown'         " support for RMarkdown and KnitR
 Plug 'rhysd/vim-clang-format'           " clang auto-formatting for certain languages
+Plug 'vim-python/python-syntax'         " enhanced python syntax highlighting
 
 " }}}
 
@@ -295,6 +296,21 @@ autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufna
 " }}}
 
 " Package Configurations {{{
+
+" Python Syntax {{{
+
+let g:python_highlight_builtins=1
+let g:python_highlight_exceptions=1
+let g:python_highlight_string_formatting=1
+let g:python_highlight_string_format=1
+let g:python_highlight_string_templates=1
+let g:python_highlight_indent_errors=1
+let g:python_highlight_space_errors=1
+let g:python_highlight_class_vars=1
+let g:python_highlight_operators=1
+let g:python_highlight_all=1
+
+" }}}
 
 " Python Mode {{{
 
