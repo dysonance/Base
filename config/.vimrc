@@ -39,6 +39,7 @@ Plug 'ctrlpvim/ctrlp.vim'          " fuzzy search utility
 Plug 'mhinz/vim-grepper'           " easily search for patterns in files
 Plug 'rizzatti/dash.vim'           " mac dash documentation app integration
 Plug 'python-mode/python-mode'     " python workflow utilities (linting, completion, formatting)
+Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use braces for scope
 
 " }}}
 
@@ -296,6 +297,14 @@ autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufna
 " }}}
 
 " Package Configurations {{{
+
+" Braceless {{{
+
+autocmd FileType python BracelessEnable +indent
+
+" autocmd FileType julia BracelessEnable +indent
+
+" }}}
 
 " Python Syntax {{{
 
