@@ -21,4 +21,6 @@ c.InteractiveShellApp.exec_lines = [
     'import datetime as dt',
     'from pylab import *',
     'ion()',
+    'pd.set_option("display.width", 140)',
+    'pd.set_option("display.max_columns", 500)'
 ]
