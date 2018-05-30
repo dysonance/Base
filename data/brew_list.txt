@@ -13,7 +13,7 @@ gcc 8.1.0
 gd 2.2.5
 gdbm 1.14.1_1
 gettext 0.19.8.1
-git 2.17.0
+git 2.17.1 2.17.0
 gmp 6.1.2_2
 gnupg 2.2.7
 gnutls 3.5.18
@@ -49,7 +49,7 @@ markdown 1.0.1
 mono 5.4.1.6
 mpfr 4.0.1
 nettle 3.4
-node 10.1.0 10.2.1
+node 10.1.0 10.2.1 10.3.0
 npth 1.5
 openssl 1.0.2o_1
 p11-kit 0.23.10 0.23.11
@@ -66,7 +66,7 @@ python 3.6.4_4 3.6.5
 readline 7.0.3_1
 reattach-to-user-namespace 2.6
 ruby 2.5.1
-rust 1.26.0
+rust 1.26.0 1.26.1
 screen 4.6.2
 shfmt 2.3.0 2.4.0
 sqlite 3.23.1
