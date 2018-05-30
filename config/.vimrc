@@ -17,8 +17,6 @@ Plug 'tpope/vim-surround'       " easily surround chunks of text with delimiters
 Plug 'Valloric/YouCompleteMe'   " code completion functionality (see pre-requisites on GitHub)
 Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
-Plug 'Chiel92/vim-autoformat'   " consolidated formatting utilities plugin
-Plug 'rhysd/vim-clang-format'   " clang auto-formatting for certain languages
 
 " }}}
 
@@ -154,6 +152,7 @@ autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-c
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
 autocmd FileType python setlocal formatprg=/usr/local/bin/black\ --line-length\ 120\ --quiet\ -
+autocmd FileType cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file\ -
 
 " }}}
 
@@ -205,9 +204,6 @@ nmap ga <Plug>(EasyAlign)
 
 " quick isolation of the currently focused file
 nnoremap <leader><Esc><Esc> :only<CR>
-
-" clang format shortcut
-nnoremap <leader>cf :ClangFormat<CR>
 
 " dash app integration (note: noremap doesnt work with this)
 nmap <silent> <F1> <Plug>DashSearch
