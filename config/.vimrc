@@ -18,6 +18,7 @@ Plug 'Valloric/YouCompleteMe'   " code completion functionality (see pre-requisi
 Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 Plug 'Chiel92/vim-autoformat'   " consolidated formatting utilities plugin
+Plug 'rhysd/vim-clang-format'   " clang auto-formatting for certain languages
 
 " }}}
 
@@ -53,7 +54,6 @@ Plug 'plasticboy/vim-markdown'          " Markdown language support
 Plug 'vim-pandoc/vim-pandoc'            " required for Rmd support
 Plug 'vim-pandoc/vim-pandoc-syntax'     " required for Rmd support
 Plug 'vim-pandoc/vim-rmarkdown'         " support for RMarkdown and KnitR
-Plug 'rhysd/vim-clang-format'           " clang auto-formatting for certain languages
 Plug 'vim-python/python-syntax'         " enhanced python syntax highlighting
 
 " }}}
@@ -153,7 +153,7 @@ endif
 autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
-autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
+autocmd FileType python setlocal formatprg=/usr/local/bin/black\ --line-length\ 120\ --quiet\ -
 
 " }}}
 
