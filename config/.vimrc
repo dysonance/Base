@@ -160,6 +160,14 @@ autocmd FileType cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file
 
 " General Mappings {{{
 
+" refactoring / variable replacement
+" local (scope) refactor
+nmap gr gd[{V%::s/<C-R>///gc<Left><Left><Left>
+autocmd FileType python nmap gr gdViM::s/<C-R>///gc<Left><Left><Left>
+" global refactor
+nmap gR gDVG::s/<C-R>///gc<Left><Left><Left>
+
+" faster quit
 nnoremap Q :q<CR>
 
 " Global variable replacement
