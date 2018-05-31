@@ -151,7 +151,7 @@ endif
 autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
-autocmd FileType python setlocal formatprg=/usr/local/bin/black\ --line-length\ 120\ --quiet\ -
+autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
 autocmd FileType cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file\ -
 
 " }}}
