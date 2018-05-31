@@ -60,6 +60,12 @@ Plug 'vim-python/python-syntax'         " enhanced python syntax highlighting
 
 call plug#end()
 
+" Optional Vim Packages {{
+
+runtime macros/matchit.vim  " extended `%` logical navigation
+
+" }}
+
 " }}}
 
 " Visual Tweaks {{{
