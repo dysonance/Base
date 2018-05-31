@@ -72,9 +72,8 @@ runtime macros/matchit.vim  " extended `%` logical navigation
 
 filetype plugin indent on " enable filetype plugins and indentations
 syntax enable             " enable syntax highlighting
-" set term=screen-256color
 
-" status line tweakes
+" Status Line Tweakes {{{
 
 set laststatus=2
 set statusline=
@@ -87,21 +86,28 @@ set statusline +=%*%=%5l%*  " current line
 set statusline +=%*/%L%*    " total lines
 set statusline +=%*%4v\ %*  " virtual column number
 
-" general tweaks
+" }}}
 
-colorscheme jamos_blue  " colorscheme of choice
-set number              " show line numbers
-set cino+=(0            " align function arguments
-set nowrap              " stop line wrapping
-set showcmd             " show last entered command in bottom bar
-set lazyredraw          " redraw only when necessary
-set showmatch           " highlight matching brackets/parens
-set mat=1               " 1/10 of a second to blink when matching brackets
-set noerrorbells        " no audible bell on errors
-set cursorline          " highlight line (next cmd removes underline)
-set hlsearch            " highlight search results
+" General Tweaks {{{
 
-                                                " tabs and whitespace {{{
+colorscheme jamos_blue                                             " colorscheme of choice
+syntax match customTodo contained '\<\(TODO\|FIXME\|NOTE\|XXX\)\>' " add words for todo highlights
+hi def link customTodo Todo
+set number                                                         " show line numbers
+set cino+=(0                                                       " align function arguments
+set nowrap                                                         " stop line wrapping
+set showcmd                                                        " show last entered command in bottom bar
+set lazyredraw                                                     " redraw only when necessary
+set showmatch                                                      " highlight matching brackets/parens
+set mat=1                                                          " 1/10 of a second to blink when matching brackets
+set noerrorbells                                                   " no audible bell on errors
+set cursorline                                                     " highlight line (next cmd removes underline)
+set hlsearch                                                       " highlight search results
+
+" }}}
+
+" Tabs And Whitespace {{{
+
 set tabstop=4                                   " number of visual spaces per tab
 set softtabstop=4                               " number of spaces in tab when editing
 set shiftwidth=4                                " number of columns for reindent operations (<< and >>)
@@ -118,28 +124,28 @@ set backspace=indent,eol,start                  " make backspace work like most 
 set expandtab                                   " tabs are spaces
 
 " }}}
+
 " }}}
 
 " Functional Tweaks {{{
 
-set noswapfile  " dont create temporary swap files
-set autoindent
-set smartindent
-
-" yank to clipboard
+set noswapfile                 " dont create temporary swap files
+set autoindent                 " keep indent from current line when starting new line
+set smartindent                " make indenting logic smarter using language syntax
+set ruler                      " always show the current cursor position
+set incsearch                  " make search act like in modern web browsers
+set autoread                   " automatically read when a file is changed externally
+set regexpengine=1             " newer regular expression engine (versions 7.4+)
+autocmd VimResized * :wincmd = " automatically resize scale windows when terminal is resized
 if has("clipboard")
-  set clipboard=unnamed  " copy to system clipboard
+  set clipboard=unnamed        " copy to system clipboard
+endif
+if &diff
+    set diffopt+=iwhite        " ignore whitespace in diff mode but not in standard vim
 endif
 
-set ruler          " always show the current cursor position
-set incsearch      " make search act like in modern web browsers
-set autoread       " automatically read when a file is changed externally
-set regexpengine=1 " newer regular expression engine (versions 7.4+)
 
-" automatically resize scale windows when terminal is resized
-autocmd VimResized * :wincmd =
-
-" code folding
+" Code Folding {{{
 
 set foldenable         " enable code folding
 set foldmethod=indent  " fold based on language syntax
@@ -148,10 +154,7 @@ set foldnestmax=99     " maximum fold nesting
 set modelines=1        " check last line of file for a modeline so vimrc can be folded
 let r_syntax_folding=1 " allow syntax folding in the Vim-R plugin
 
-" ignore whitespace in diff mode but not in standard vim
-if &diff
-    set diffopt+=iwhite
-endif
+" }}}
 
 " code formatting options
 autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
