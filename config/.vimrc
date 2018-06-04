@@ -17,6 +17,8 @@ Plug 'tpope/vim-surround'       " easily surround chunks of text with delimiters
 Plug 'Valloric/YouCompleteMe'   " code completion functionality (see pre-requisites on GitHub)
 Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
+Plug 'rhysd/vim-clang-format'   " clang format whole file
+Plug 'ambv/black'               " python formatter
 
 " }}}
 
@@ -147,12 +149,13 @@ endif
 
 " Code Folding {{{
 
-set foldenable         " enable code folding
-set foldmethod=indent  " fold based on language syntax
-set foldlevelstart=99  " fold level at file open (0=everything folded, 99=nothing)
-set foldnestmax=99     " maximum fold nesting
-set modelines=1        " check last line of file for a modeline so vimrc can be folded
-let r_syntax_folding=1 " allow syntax folding in the Vim-R plugin
+set foldenable                                " enable code folding
+set foldmethod=indent                         " fold based on language syntax
+set foldlevelstart=99                         " fold level at file open (0=everything folded, 99=nothing)
+set foldnestmax=99                            " maximum fold nesting
+set modelines=1                               " check last line of file for a modeline so vimrc can be folded
+let r_syntax_folding=1                        " allow syntax folding in the Vim-R plugin
+autocmd FileType python set foldmethod=indent " overwrite pymode indent method
 
 " }}}
 
@@ -218,6 +221,12 @@ nmap ga <Plug>(EasyAlign)
 " }}}
 
 " Leader Mappings {{{
+
+" format current file
+autocmd FileType cpp nmap <Leader>fmt :ClangFormat<CR>
+autocmd FileType python nmap <Leader>fmt :Black<CR>
+nmap <Leader>cf :ClangFormat<CR>
+let g:black_linelength=120
 
 " quick isolation of the currently focused file
 nnoremap <leader><Esc><Esc> :only<CR>

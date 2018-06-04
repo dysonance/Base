@@ -2,7 +2,7 @@ adns 1.5.1
 autoconf 2.69
 automake 1.16.1
 clang-format 2018-01-11 2018-04-24
-cmake 3.11.2 3.11.1
+cmake 3.11.2 3.11.3 3.11.1
 cscope 15.8b
 ctags 5.8_1
 dep 0.4.1_1
@@ -71,6 +71,7 @@ screen 4.6.2
 shfmt 2.3.0 2.4.0
 sqlite 3.23.1
 ta-lib 0.4.0
+tig 2.3.3
 tmux 2.7
 tree 1.7.0
 vim 8.0.1850 8.1.0001 8.0.1800
