@@ -303,7 +303,7 @@ autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
             \ --number-sections
             \ --table-of-contents
             \ && open %:r.pdf
-            \ <CR>
+            \ | <CR>
 
 autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
