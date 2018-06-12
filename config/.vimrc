@@ -257,9 +257,6 @@ nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
-" go to definition in golang
-nnoremap <leader>god :GoDef<CR>
-
 " easier grepper command accessibility
 nnoremap <leader>gr :Grepper<CR>
 
