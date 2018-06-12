@@ -424,7 +424,7 @@ let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
 let g:syntastic_c_auto_refresh_includes=1
 let g:syntastic_quiet_messages={"regex": 'invalid preprocessing directive\|should have comment or be unexported'}
-let g:syntastic_python_checkers=['python3']
+let g:syntastic_python_checkers=['python3', 'pyflakes']
 
 " Go language
 let g:go_highlight_functions = 1
