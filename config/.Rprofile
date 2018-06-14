@@ -22,3 +22,10 @@
                      zero.limit=1e-8,
                      verbose=FALSE)
 }
+
+.Last = function(){
+  if (interactive()){
+    history_file = if (Sys.getenv("RHISTFILE") == "") "~/.Rhistory" else Sys.getenv("R_HISTFILE")
+    try(savehistory(history_file))
+  }
+}
