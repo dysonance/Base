@@ -21,6 +21,23 @@
                      error=c(1,1,11),
                      zero.limit=1e-8,
                      verbose=FALSE)
+
+  # custom utility functions
+
+  diffmat = function(x){
+    D = matrix(as.numeric(NA), NROW(x), NROW(x))
+    for (i in 1:NROW(x)){
+      d = x[[i]] - x[-i]
+      D[i,-i] = d
+    }
+    if (!all(is.na(diag(D)))){
+      stop("Not all diagonal elements zero")
+    }
+    diag(D) = 0
+    if (!is.null(names(x))) colnames(D) = rownames(D) = names(x)
+    return(D)
+  }
+
 }
 
 .Last = function(){
