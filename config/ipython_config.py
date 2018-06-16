@@ -16,6 +16,7 @@ c.InteractiveShell.editor = "vim"
 c.InteractiveShellApp.exec_lines = [
     "%load_ext autoreload",
     "%autoreload 2",
+    "import os",
     "import numpy as np",
     "import pandas as pd",
     "import datetime as dt",
