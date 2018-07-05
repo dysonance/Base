@@ -10,7 +10,8 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin List {{{
 
-" Editing Utilities {{{
+
+" Editing Utilities
 
 Plug 'jiangmiao/auto-pairs'     " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'       " easily surround chunks of text with delimiters
@@ -20,9 +21,8 @@ Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 Plug 'rhysd/vim-clang-format'   " clang format whole file
 Plug 'ambv/black'               " python formatter
 
-" }}}
 
-" Workflow Utilities {{{
+" Workflow Utilities
 
 Plug 'embear/vim-localvimrc'       " enable use of vimrc files local to directory
 Plug 'vim-airline/vim-airline'     " more informative vim status bar
@@ -42,9 +42,8 @@ Plug 'rizzatti/dash.vim'           " mac dash documentation app integration
 Plug 'python-mode/python-mode'     " python workflow utilities (linting, completion, formatting)
 Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use braces for scope
 
-" }}}
 
-" Language Support {{{
+" Language Support
 
 Plug 'octol/vim-cpp-enhanced-highlight' " more intelligent c++ syntax highlighting
 Plug 'fatih/vim-go'                     " go language support
@@ -56,7 +55,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'     " required for Rmd support
 Plug 'vim-pandoc/vim-rmarkdown'         " support for RMarkdown and KnitR
 Plug 'vim-python/python-syntax'         " enhanced python syntax highlighting
 
-" }}}
 
 " }}}
 
@@ -282,10 +280,22 @@ vnoremap <C-X> <C-X>gv
 " toggle the nerd tree side bar file explorer menu
 nnoremap <C-N> :NERDTreeToggle<CR>
 
-" faster buffer management
-nnoremap <C-L> :bn<CR>
-nnoremap <C-H> :bp<CR>
-nnoremap <C-K> :bd<CR>
+" faster buffer/tab navigation
+nnoremap <C-J> :b#<CR>
+nnoremap <C-H> :bprevious<CR>
+nnoremap <C-L> :bnext<CR>
+nnoremap <C-K> :bdelete<CR>
+
+" these extend the above similar google chrome tab switching style
+nnoremap <C-1> :bfirst<CR>
+nnoremap <C-2> :b2<CR>
+nnoremap <C-3> :b3<CR>
+nnoremap <C-4> :b4<CR>
+nnoremap <C-5> :b5<CR>
+nnoremap <C-6> :b6<CR>
+nnoremap <C-7> :b7<CR>
+nnoremap <C-8> :b8<CR>
+nnoremap <C-9> :blast<CR>
 
 " ctrl+t to access terminal
 nnoremap <C-T> :shell<CR>
