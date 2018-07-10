@@ -1,7 +1,10 @@
 " Visual Tweaks {{{
 
+filetype plugin indent on " enable filetype plugins and indentations
+syntax enable             " enable syntax highlighting
 
-" Status Line {{{
+" Status Line Tweakes {{{
+
 set laststatus=2
 set statusline=
 set statusline +=%*\ %n\ %* " buffer number
@@ -12,26 +15,28 @@ set statusline +=%*%m%*     " modified flag
 set statusline +=%*%=%5l%*  " current line
 set statusline +=%*/%L%*    " total lines
 set statusline +=%*%4v\ %*  " virtual column number
-" }}}
-
-" General {{{
-
-filetype plugin indent on " enable filetype plugins and indentations
-set number                " show line numbers
-set cino+=(0              " align function arguments
-set nowrap                " stop line wrapping
-set showcmd               " show last entered command in bottom bar
-set lazyredraw            " redraw only when necessary
-set showmatch             " highlight matching brackets/parens
-set mat=1                 " 1/10 of a second to blink when matching brackets
-set noerrorbells          " no audible bell on errors
-set cursorline            " highlight line (next cmd removes underline)
-set hlsearch              " highlight search results
-filetype plugin indent on " enable filetype plugins and indentations
 
 " }}}
 
-" Tabs / Whitespace {{{
+" General Tweaks {{{
+
+colorscheme jamos_blue                                             " colorscheme of choice
+syntax match customTodo contained '\<\(TODO\|FIXME\|NOTE\|XXX\)\>' " add words for todo highlights
+hi def link customTodo Todo
+set number                                                         " show line numbers
+set cino+=(0                                                       " align function arguments
+set nowrap                                                         " stop line wrapping
+set showcmd                                                        " show last entered command in bottom bar
+set lazyredraw                                                     " redraw only when necessary
+set showmatch                                                      " highlight matching brackets/parens
+set mat=1                                                          " 1/10 of a second to blink when matching brackets
+set noerrorbells                                                   " no audible bell on errors
+set cursorline                                                     " highlight line (next cmd removes underline)
+set hlsearch                                                       " highlight search results
+
+" }}}
+
+" Tabs And Whitespace {{{
 
 set tabstop=4                                   " number of visual spaces per tab
 set softtabstop=4                               " number of spaces in tab when editing
@@ -50,97 +55,44 @@ set expandtab                                   " tabs are spaces
 
 " }}}
 
-" Colors {{{
-
-syntax enable
-" General highlighting
-highlight Normal     ctermfg=White  ctermbg=DarkBlue cterm=NONE
-highlight Comment    ctermfg=Blue   ctermbg=NONE     cterm=NONE
-highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
-highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
-" Constant highlighting group
-highlight Constant  ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Number    ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Float     ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Boolean   ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight String    ctermfg=Green ctermbg=NONE cterm=NONE
-highlight Character ctermfg=Green ctermbg=NONE cterm=NONE
-" Statement highlighting group
-highlight Statement   ctermfg=Cyan       ctermbg=NONE cterm=NONE
-highlight Conditional ctermfg=Cyan       ctermbg=NONE cterm=NONE
-highlight Repeat      ctermfg=Cyan       ctermbg=NONE cterm=NONE
-highlight Operator    ctermfg=Yellow     ctermbg=NONE cterm=NONE
-highlight Keyword     ctermfg=Magenta    ctermbg=NONE cterm=NONE
-highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
-" Special highlighting group
-highlight Special     ctermfg=Magenta    ctermbg=NONE  cterm=NONE
-highlight Delimiter   ctermfg=Cyan       ctermbg=NONE  cterm=NONE
-highlight SpecialChar ctermfg=DarkYellow ctermbg=NONE  cterm=NONE
-highlight Tag         ctermfg=Magenta    ctermbg=NONE  cterm=NONE
-highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
-highlight Type        ctermfg=Magenta    ctermbg=NONE  cterm=NONE
-" Other random highlights
-highlight CursorLine ctermfg=NONE  ctermbg=Black     cterm=NONE
-highlight StatusLine ctermfg=Blue  ctermbg=Cyan      cterm=NONE
-highlight LineNR     ctermfg=Grey  ctermbg=NONE      cterm=NONE
-highlight Pmenu      ctermfg=Black ctermbg=Cyan      cterm=NONE
-highlight PmenuSel   ctermfg=White ctermbg=DarkCyan  cterm=NONE
-highlight Visual     ctermfg=NONE  ctermbg=DarkGrey  cterm=NONE
-highlight IncSearch  ctermfg=Black ctermbg=DarkGreen cterm=NONE
-highlight Search     ctermfg=Black ctermbg=DarkGreen cterm=NONE
-highlight MatchParen ctermfg=Grey  ctermbg=Blue      cterm=NONE
-" Errors and warnings highlighting
-highlight ErrorMsg   ctermfg=NONE ctermbg=DarkRed    cterm=NONE
-highlight Error      ctermfg=NONE ctermbg=DarkRed    cterm=NONE
-highlight WarningMsg ctermfg=NONE ctermbg=DarkYellow cterm=NONE
-" Diff highlights
-highlight DiffAdd    ctermfg=NONE ctermbg=DarkGreen cterm=NONE
-highlight DiffChange ctermfg=NONE ctermbg=Blue      cterm=NONE
-highlight DiffDelete ctermfg=NONE ctermbg=DarkRed   cterm=NONE
-highlight DiffText   ctermfg=NONE ctermbg=Black     cterm=NONE
-
-" }}}
-
-" }}}
-
 " }}}
 
 " Functional Tweaks {{{
 
-set noswapfile  " dont create temporary swap files
-set autoindent
-set smartindent
-
-" yank to clipboard
+set noswapfile                 " dont create temporary swap files
+set autoindent                 " keep indent from current line when starting new line
+set smartindent                " make indenting logic smarter using language syntax
+set ruler                      " always show the current cursor position
+set incsearch                  " make search act like in modern web browsers
+set autoread                   " automatically read when a file is changed externally
+set regexpengine=1             " newer regular expression engine (versions 7.4+)
+autocmd VimResized * :wincmd = " automatically resize scale windows when terminal is resized
 if has("clipboard")
-  set clipboard=unnamed  " copy to system clipboard
+  set clipboard=unnamed        " copy to system clipboard
 endif
-
-set ruler  " always show the current cursor position
-set incsearch  " make search act like in modern web browsers
-set autoread  " automatically read when a file is changed externally
-set regexpengine=1  " newer regular expression engine (versions 7.4+)
-
-" automatically resize scale windows when terminal is resized
-autocmd VimResized * :wincmd =
-
-" code folding
-set foldenable  " enable code folding
-set foldmethod=syntax " fold based on language syntax
-set foldlevelstart=99  " fold level at file open (0=everything folded, 99=nothing)
-set foldnestmax=99  " maximum fold nesting
-set modelines=1  " check last line of file for a modeline so vimrc can be folded
-let r_syntax_folding=1  " allow syntax folding in the Vim-R plugin
-
-" ignore whitespace in diff mode but not in standard vim
 if &diff
-    set diffopt+=iwhite
+    set diffopt+=iwhite        " ignore whitespace in diff mode but not in standard vim
 endif
+
+
+" Code Folding {{{
+
+set foldenable                                " enable code folding
+set foldmethod=indent                         " fold based on language syntax
+set foldlevelstart=99                         " fold level at file open (0=everything folded, 99=nothing)
+set foldnestmax=99                            " maximum fold nesting
+set modelines=1                               " check last line of file for a modeline so vimrc can be folded
+let r_syntax_folding=1                        " allow syntax folding in the Vim-R plugin
+autocmd FileType python set foldmethod=indent " overwrite pymode indent method
+
+" }}}
 
 " code formatting options
 autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
+autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
+autocmd FileType cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file\ -
 
 " }}}
 
@@ -148,8 +100,18 @@ autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ 
 
 " General Mappings {{{
 
+" refactoring / variable replacement
+" local (scope) refactor
+nmap gr gd[{V%::s/<C-R>///gc<Left><Left><Left>
+autocmd FileType python nmap gr gdViM::s/<C-R>///gc<Left><Left><Left>
+" global refactor
+nmap gR gDVG::s/<C-R>///gc<Left><Left><Left>
+
 " Global variable replacement
 "nnoremap gR gD::%s/<C-R>///gc<left><left><left>
+
+" shortcut to replace word by pasting before it, deleting it, and adding a space
+nnoremap R Pldwi<Esc>bye
 
 " Undo the Vim R plugin annoying underscore to arrow mapping
 let vimrplugin_assign=0
@@ -177,33 +139,59 @@ nnoremap <S-Tab> <C-W>W
 " ctrl+h to turn off highlighting
 nnoremap <Esc><Esc> :nohl<CR>
 
+" easy align initializer keymap
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 " }}}
 
-" Leader Mappings {{{
+" leader Mappings {{{
+
+" format current file
+autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
+autocmd FileType python nmap <leader>fmt :Black<CR>
+nmap <leader>cf :ClangFormat<CR>
+let g:black_linelength=120
+
+" quick isolation of the currently focused file
+nnoremap <leader><Esc><Esc> :only<CR>
 
 " merge conflict resolution shortcuts
 nmap <leader>dgr :diffget REMOTE \| diffupdate<CR>
 nmap <leader>dgl :diffget LOCAL \| diffupdate<CR>
 nmap <leader>dgb :diffget BASE \| diffupdate<CR>
 
-" dash app integration (note: noremap doesnt work with this)
-nmap <silent> <leader>dd <Plug>DashSearch
+" Local (within scope) variable replacement
+nnoremap <leader>fr :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" vim line diff plugin shortcuts
+vnoremap <leader>ldf :Linediff<CR>
+nnoremap <leader>ldr :LinediffReset<CR>
+
+" lzz shortcut
+nnoremap <leader>lzz :!lzz %<CR><CR>
+nnoremap <leader>LZZ :!find `git root` \| grep \"\\.lzz\" \| xargs lzz
+
+" git add entire current file to staged index
+nnoremap <leader>ga :!git add %<CR><CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gp :!git push<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+
+" easier grepper command accessibility
+nnoremap <leader>gr :Grepper<CR>
 
 " search for next git merge conflict
 nnoremap <leader>mc /\<HEAD\>\\|<<<<\\|>>>>\\|====\\|\|\|\|\|<CR>
 
-" Local (within scope) variable replacement
-nnoremap <leader>fr :%s/\<<C-r><C-w>\>//g<Left><Left>
+" easier error jumping
+nnoremap <leader>ne :lne<CR>
+nnoremap <leader>pe :lN<CR>
 
-" lzz shortcut
-nnoremap <leader>lzz :!lzz %<CR><CR>
-
-" git add entire current file to staged index
-nnoremap <leader>ga :!git add %<CR><CR>
-nnoremap <leader>gp :!git push<CR>
-
-" quick isolation of the currently focused file
-nnoremap <leader><Esc><Esc> :only<CR>
+" syntastic reset shortcut
+nnoremap <leader>sr :SyntasticReset<CR>
+nnoremap <leader>st :SyntasticToggleMode<CR>
 
 " }}}
 
@@ -213,10 +201,25 @@ nnoremap <leader><Esc><Esc> :only<CR>
 vnoremap <C-A> <C-A>gv
 vnoremap <C-X> <C-X>gv
 
-" faster buffer management
-nnoremap <C-L> :bn<CR>
-nnoremap <C-H> :bp<CR>
-nnoremap <C-K> :bd<CR>
+" toggle the nerd tree side bar file explorer menu
+nnoremap <C-N> :NERDTreeToggle<CR>
+
+" faster buffer/tab navigation
+nnoremap <C-J> :b#<CR>
+nnoremap <C-H> :bprevious<CR>
+nnoremap <C-L> :bnext<CR>
+nnoremap <C-K> :bdelete<CR>
+
+" these extend the above similar google chrome tab switching style
+nnoremap <C-1> :bfirst<CR>
+nnoremap <C-2> :b2<CR>
+nnoremap <C-3> :b3<CR>
+nnoremap <C-4> :b4<CR>
+nnoremap <C-5> :b5<CR>
+nnoremap <C-6> :b6<CR>
+nnoremap <C-7> :b7<CR>
+nnoremap <C-8> :b8<CR>
+nnoremap <C-9> :blast<CR>
 
 " ctrl+t to access terminal
 nnoremap <C-T> :shell<CR>
@@ -225,19 +228,45 @@ nnoremap <C-T> :shell<CR>
 
 " F-Key Mappings {{{
 
+"nmap <F1> K
+nmap <silent> <leader><F1> <Plug>DashSearch
+nmap <silent> <leader>dd <Plug>DashSearch
+
 autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
             \ --verbose
             \ --listings
             \ --number-sections
             \ --table-of-contents
             \ && open %:r.pdf
-            \ <CR>
+            \ | <CR>
 
+nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
+nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
+nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
+
+autocmd FileType r nnoremap <silent> <F1> :!R -e "?<cword>"<CR>
+autocmd FileType r nnoremap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
 autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
+
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
-autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 MAIN"<CR>
-autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 CLEAN; MAIN"<CR>
-autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+
+autocmd FileType cpp set keywordprg=cppman
+autocmd FileType cpp nnoremap <silent> <F1> :!cppman <cword><CR>
+autocmd FileType cpp nnoremap <F3> :execute ":SlimeSend1 test cpp"<CR>
+autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 build cpp"<CR>
+autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 run cpp"<CR>
+
+autocmd FileType sh nnoremap <silent> <F1> :!man <cword><CR>
+autocmd FileType sh nnoremap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
+
+autocmd FileType sql nnoremap <silent> <F1> :!psql postgres -c "\\h <cword>"<CR>
+autocmd FileType sql nnoremap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
+
+autocmd FileType python nnoremap <silent> <F1> :!ipython -c "?<cword>"<CR>
+autocmd FileType python nnoremap <F3> :execute ":SlimeSend1 test python<CR>
+autocmd FileType python nnoremap <F4> :execute ":SlimeSend1 build python<CR>
+autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
 
 " }}}
 
@@ -249,6 +278,5 @@ autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 ./" . bufname("%") . ""<
 autocmd BufNewFile,BufRead *.lzz set filetype=cpp
 
 " }}}
-
 " Make vim use triple bracket fold markers in vimrc
 " vim:foldmethod=marker:foldlevel=0
