@@ -44,6 +44,7 @@ Plug 'ctrlpvim/ctrlp.vim'          " fuzzy search utility
 Plug 'mhinz/vim-grepper'           " easily search for patterns in files
 Plug 'rizzatti/dash.vim'           " mac dash documentation app integration
 Plug 'python-mode/python-mode'     " python workflow utilities (linting, completion, formatting)
+Plug 'davidhalter/jedi-vim'        " jedi python autocompletion/documentation library
 Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use braces for scope
 
 
@@ -181,9 +182,6 @@ autocmd FileType python nmap gr gdViM::s/<C-R>///gc<Left><Left><Left>
 " global refactor
 nmap gR gDVG::s/<C-R>///gc<Left><Left><Left>
 
-" faster quit
-nnoremap Q :q<CR>
-
 " Global variable replacement
 "nnoremap gR gD::%s/<C-R>///gc<left><left><left>
 
@@ -222,19 +220,16 @@ nmap ga <Plug>(EasyAlign)
 
 " }}}
 
-" Leader Mappings {{{
+" leader Mappings {{{
 
 " format current file
-autocmd FileType cpp nmap <Leader>fmt :ClangFormat<CR>
-autocmd FileType python nmap <Leader>fmt :Black<CR>
-nmap <Leader>cf :ClangFormat<CR>
+autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
+autocmd FileType python nmap <leader>fmt :Black<CR>
+nmap <leader>cf :ClangFormat<CR>
 let g:black_linelength=120
 
 " quick isolation of the currently focused file
 nnoremap <leader><Esc><Esc> :only<CR>
-
-" dash app integration (note: noremap doesnt work with this)
-nmap <silent> <F1> <Plug>DashSearch
 
 " merge conflict resolution shortcuts
 nmap <leader>dgr :diffget REMOTE \| diffupdate<CR>
@@ -308,6 +303,10 @@ nnoremap <C-T> :shell<CR>
 
 " F-Key Mappings {{{
 
+"nmap <F1> K
+nmap <silent> <leader><F1> <Plug>DashSearch
+nmap <silent> <leader>dd <Plug>DashSearch
+
 autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
             \ --verbose
             \ --listings
@@ -316,22 +315,33 @@ autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
             \ && open %:r.pdf
             \ | <CR>
 
-nnoremap <Leader><F3> :execute ":SlimeSend1 TEST"<CR>
-nnoremap <Leader><F4> :execute ":SlimeSend1 BUILD"<CR>
-nnoremap <Leader><F5> :execute ":SlimeSend1 RUN"<CR>
+nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
+nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
+nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
 
-autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
+autocmd FileType r nnoremap <silent> <F1> :!R -e "?<cword>"<CR>
 autocmd FileType r nnoremap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
+autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
+
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
+
+autocmd FileType cpp set keywordprg=cppman
+autocmd FileType cpp nnoremap <silent> <F1> :!cppman <cword><CR>
 autocmd FileType cpp nnoremap <F3> :execute ":SlimeSend1 test cpp"<CR>
 autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 build cpp"<CR>
 autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 run cpp"<CR>
-autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
+
+autocmd FileType sh nnoremap <silent> <F1> :!man <cword><CR>
 autocmd FileType sh nnoremap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
+
+autocmd FileType sql nnoremap <silent> <F1> :!psql postgres -c "\\h <cword>"<CR>
 autocmd FileType sql nnoremap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
-autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
-autocmd FileType python nnoremap <F4> :execute ":SlimeSend1 build python<CR>
+
+autocmd FileType python nnoremap <silent> <F1> :!ipython -c "?<cword>"<CR>
 autocmd FileType python nnoremap <F3> :execute ":SlimeSend1 test python<CR>
+autocmd FileType python nnoremap <F4> :execute ":SlimeSend1 build python<CR>
+autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
 
 " }}}
 
@@ -371,6 +381,23 @@ let g:pymode_options_colorcolumn=0
 let g:pymode_rope=0
 let g:pymode_run=0
 let g:pymode_breakpoint=0
+
+" }}}
+
+" Vim Jedi (Python) {{{
+
+" NOTE: jedi and pymode can conflict so you may need to decide between them
+"let g:jedi#completions_enabled=0
+
+let g:jedi#popup_select_first=0    " dont auto-select first autocompletion
+let g:jedi#show_call_signatures="" " dont show call signatures (distracting)
+let g:jedi#use_tabs_not_buffers=1
+let g:jedi#use_splits_not_buffers="winwidth"
+
+" shortcuts/keymaps
+let g:jedi#documentation_command="K"
+let g:jedi#goto_definitions_command=""
+let g:jedi#rename_command=""
 
 " }}}
 
