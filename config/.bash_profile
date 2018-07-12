@@ -27,3 +27,4 @@ export PS1
 export PATH=$HOME/Applications/Julia/0.6/usr/bin/:$PATH
 alias julia-0.6="$HOME/Applications/Julia/0.6/usr/bin/julia"
 alias julia-master="$HOME/Applications/Julia/master/usr/bin/julia"
+alias jl="julia --quiet --compile=all --optimize=3 --inline=yes -g2 --depwarn=no"

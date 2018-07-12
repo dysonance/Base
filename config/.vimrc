@@ -304,7 +304,7 @@ nnoremap <C-T> :shell<CR>
 " F-Key Mappings {{{
 
 "nmap <F1> K
-nmap <silent> <leader><F1> <Plug>DashSearch
+nmap <silent> <F1> <Plug>DashSearch
 nmap <silent> <leader>dd <Plug>DashSearch
 
 autocmd FileType pandoc nnoremap <F5> :!clear; pandoc % -o %:r.pdf
@@ -319,26 +319,26 @@ nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
 nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
 
-autocmd FileType r nnoremap <silent> <F1> :!R -e "?<cword>"<CR>
+autocmd FileType r nnoremap <silent> <leader><F1> :!R -e "?<cword>"<CR>
 autocmd FileType r nnoremap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
 autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
 
 autocmd FileType cpp set keywordprg=cppman
-autocmd FileType cpp nnoremap <silent> <F1> :!cppman <cword><CR>
+autocmd FileType cpp nnoremap <silent> <leader><F1> :!cppman <cword><CR>
 autocmd FileType cpp nnoremap <F3> :execute ":SlimeSend1 test cpp"<CR>
 autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 build cpp"<CR>
 autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 run cpp"<CR>
 
-autocmd FileType sh nnoremap <silent> <F1> :!man <cword><CR>
+autocmd FileType sh nnoremap <silent> <leader><F1> :!man <cword><CR>
 autocmd FileType sh nnoremap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
 autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
 
-autocmd FileType sql nnoremap <silent> <F1> :!psql postgres -c "\\h <cword>"<CR>
+autocmd FileType sql nnoremap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
 autocmd FileType sql nnoremap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
 
-autocmd FileType python nnoremap <silent> <F1> :!ipython -c "?<cword>"<CR>
+autocmd FileType python nnoremap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd FileType python nnoremap <F3> :execute ":SlimeSend1 test python<CR>
 autocmd FileType python nnoremap <F4> :execute ":SlimeSend1 build python<CR>
 autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
