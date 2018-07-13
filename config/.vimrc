@@ -323,6 +323,7 @@ autocmd FileType r nnoremap <silent> <leader><F1> :!R -e "?<cword>"<CR>
 autocmd FileType r nnoremap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
 autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 
+autocmd FileType julia nnoremap <F3> :execute ":SlimeSend1 julia --color=yes -e \"Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
 autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
 
 autocmd FileType cpp set keywordprg=cppman
