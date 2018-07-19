@@ -586,8 +586,8 @@ autocmd FileType sql nnoremap <silent> <leader><F1> :!psql postgres -c "\\h <cwo
 autocmd FileType sql nnoremap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
 
 autocmd FileType python nnoremap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
-autocmd FileType python nnoremap <F3> :execute ":SlimeSend1 test python<CR>
-autocmd FileType python nnoremap <F4> :execute ":SlimeSend1 build python<CR>
+autocmd FileType python nnoremap <F3> :execute ":SlimeSend1 test python"<CR>
+autocmd FileType python nnoremap <F4> :execute ":SlimeSend1 build python"<CR>
 autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
 
 " }}}
