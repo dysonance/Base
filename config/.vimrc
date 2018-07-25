@@ -182,19 +182,6 @@ let g:syntastic_enable_signs=1
 " let g:syntastic_r_checkers=['lintr']
 
 " C++ / Rcpp / RcppArmadillo
-let g:syntastic_cpp_include_dirs=[
-            \'/Library/Frameworks/R.framework/Resources/include',
-            \'/usr/local/include',
-            \'/Users/jacob.amos/gitbase/goose_cpp/include/armadillo-code/include',
-            \'/Users/jacob.amos/gitbase/goose_cpp/include/googletest-release-1.8.0/googletest/include',
-            \'/Users/jacob.amos/gitbase/goose_cpp/include/gsl-2.4/include',
-            \'/Users/jacob.amos/gitbase/goose_cpp/include/pybind11/include',
-            \'/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/include/python3.6m',
-            \'/Users/jacob.amos/gitbase/goose_cpp/src',
-            \'/Users/jacob.amos/gitbase/goose_cpp/src/goose',
-            \'/Users/jacob.amos/R_LIBS/RcppArmadillo/include',
-            \'/Users/jacob.amos/R_LIBS/Rcpp/include'
-            \]
 let g:syntastic_cpp_check_header=1
 let g:syntastic_c_compiler='clang'
 let g:syntastic_cpp_compiler='clang++'
