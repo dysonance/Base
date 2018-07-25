@@ -11,3 +11,4 @@
     cane = "commit --amend --no-edit"
     root = "rev-parse --show-toplevel"
     stap = "!f() { git stash apply stash^{/$*}; }; f"
+    summ = "log --stat --pretty=format:'%an %s %ad %H'"
