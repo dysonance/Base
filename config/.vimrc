@@ -55,15 +55,15 @@ Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use 
 
 " Language Support
 
-Plug 'octol/vim-cpp-enhanced-highlight' " more intelligent c++ syntax highlighting
-Plug 'fatih/vim-go'                     " go language support
-Plug 'JuliaEditorSupport/julia-vim'     " Julia language support
-Plug 'vim-scripts/Vim-R-plugin'         " R language support improved
-Plug 'plasticboy/vim-markdown'          " Markdown language support
-Plug 'vim-pandoc/vim-pandoc'            " required for Rmd support
-Plug 'vim-pandoc/vim-pandoc-syntax'     " required for Rmd support
-Plug 'vim-pandoc/vim-rmarkdown'         " support for RMarkdown and KnitR
-Plug 'vim-python/python-syntax'         " enhanced python syntax highlighting
+Plug 'octol/vim-cpp-enhanced-highlight'            " more intelligent c++ syntax highlighting
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
+Plug 'JuliaEditorSupport/julia-vim'                " Julia language support
+Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
+Plug 'plasticboy/vim-markdown'                     " Markdown language support
+Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support
+Plug 'vim-pandoc/vim-pandoc-syntax'                " required for Rmd support
+Plug 'vim-pandoc/vim-rmarkdown'                    " support for RMarkdown and KnitR
+Plug 'vim-python/python-syntax'                    " enhanced python syntax highlighting
 
 " }}}
 
@@ -546,30 +546,42 @@ nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
 nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
 
-autocmd FileType r nnoremap <silent> <leader><F1> :!R -e "?<cword>"<CR>
-autocmd FileType r nnoremap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
-autocmd FileType r nnoremap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
+autocmd FileType r nmap <silent> <leader><F1> :!R -e "?<cword>"<CR>
+autocmd FileType r nmap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
+autocmd FileType r nmap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
+autocmd FileType r nmap <F6> :SlimeSend<CR>
+autocmd FileType r nmap <F7> :SlimeSendCurrentLine<CR>j
+autocmd FileType r nmap <F8> :SlimeSendCurrentLine<CR>
 
-autocmd FileType julia nnoremap <F3> :execute ":SlimeSend1 julia --color=yes -e \"Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
-autocmd FileType julia nnoremap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
+autocmd FileType julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
+autocmd FileType julia nmap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
+autocmd FileType julia nmap <F6> :SlimeSend<CR>
+autocmd FileType julia nmap <F7> :SlimeSendCurrentLine<CR>j
+autocmd FileType julia nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd FileType cpp set keywordprg=cppman
-autocmd FileType cpp nnoremap <silent> <leader><F1> :!cppman <cword><CR>
-autocmd FileType cpp nnoremap <F3> :execute ":SlimeSend1 test cpp"<CR>
-autocmd FileType cpp nnoremap <F4> :execute ":SlimeSend1 build cpp"<CR>
-autocmd FileType cpp nnoremap <F5> :execute ":SlimeSend1 run cpp"<CR>
+autocmd FileType cpp nmap <silent> <leader><F1> :!cppman <cword><CR>
+autocmd FileType cpp nmap <F3> :execute ":SlimeSend1 test cpp"<CR>
+autocmd FileType cpp nmap <F4> :execute ":SlimeSend1 build cpp"<CR>
+autocmd FileType cpp nmap <F5> :execute ":SlimeSend1 run cpp"<CR>
 
-autocmd FileType sh nnoremap <silent> <leader><F1> :!man <cword><CR>
-autocmd FileType sh nnoremap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
-autocmd FileType sh nnoremap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
+autocmd FileType sh nmap <silent> <leader><F1> :!man <cword><CR>
+autocmd FileType sh nmap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
+autocmd FileType sh nmap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
+autocmd FileType sh nmap <F6> :SlimeSend<CR>
+autocmd FileType sh nmap <F7> :SlimeSendCurrentLine<CR>j
+autocmd FileType sh nmap <F8> :SlimeSendCurrentLine<CR>
 
-autocmd FileType sql nnoremap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
-autocmd FileType sql nnoremap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
+autocmd FileType sql nmap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
+autocmd FileType sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
 
-autocmd FileType python nnoremap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
-autocmd FileType python nnoremap <F3> :execute ":SlimeSend1 test python"<CR>
-autocmd FileType python nnoremap <F4> :execute ":SlimeSend1 build python"<CR>
-autocmd FileType python nnoremap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
+autocmd FileType python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
+autocmd FileType python nmap <F3> :execute ":SlimeSend1 test python"<CR>
+autocmd FileType python nmap <F4> :execute ":SlimeSend1 build python"<CR>
+autocmd FileType python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
+autocmd FileType python nmap <F6> :SlimeSend<CR>
+autocmd FileType python nmap <F7> :SlimeSendCurrentLine<CR>j
+autocmd FileType python nmap <F8> :SlimeSendCurrentLine<CR>
 
 " }}}
 
