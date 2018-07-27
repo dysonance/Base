@@ -518,17 +518,6 @@ nnoremap <C-H> :bprevious<CR>
 nnoremap <C-L> :bnext<CR>
 nnoremap <C-K> :bdelete<CR>
 
-" these extend the above similar google chrome tab switching style
-nnoremap <C-1> :bfirst<CR>
-nnoremap <C-2> :b2<CR>
-nnoremap <C-3> :b3<CR>
-nnoremap <C-4> :b4<CR>
-nnoremap <C-5> :b5<CR>
-nnoremap <C-6> :b6<CR>
-nnoremap <C-7> :b7<CR>
-nnoremap <C-8> :b8<CR>
-nnoremap <C-9> :blast<CR>
-
 " ctrl+t to access terminal
 nnoremap <C-T> :shell<CR>
 
@@ -574,6 +563,9 @@ autocmd FileType sh nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd FileType sql nmap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
 autocmd FileType sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
+autocmd FileType sql nmap <F6> :SlimeSend<CR>
+autocmd FileType sql nmap <F7> :SlimeSendCurrentLine<CR>j
+autocmd FileType sql nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd FileType python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd FileType python nmap <F3> :execute ":SlimeSend1 test python"<CR>
