@@ -12,3 +12,4 @@
     root = "rev-parse --show-toplevel"
     stap = "!f() { git stash apply stash^{/$*}; }; f"
     summ = "log --stat --pretty=format:'%an %s %ad %H'"
+    review = "!f() { _destination=${1-master}; vim $(git diff $_destination --name-only) -c \"Gdiff $_destination\"; }; f"
