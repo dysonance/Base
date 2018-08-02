@@ -176,32 +176,28 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors=1
 let g:syntastic_enable_signs=1
+let g:syntastic_quiet_messages={"regex": 'invalid preprocessing directive\|should have comment or be unexported'}
+autocmd filetype qf setlocal wrap
 
-" R (these are all annoying formatting things)
-" let g:syntastic_enable_r_lintr_checker=0
-" let g:syntastic_r_checkers=['lintr']
-
-" C++ / Rcpp / RcppArmadillo
-let g:syntastic_cpp_check_header=1
+" C/C++
 let g:syntastic_c_compiler='clang'
+let g:syntastic_c_auto_refresh_includes=1
+
+let g:syntastic_cpp_check_header=1
+let g:syntastic_cpp_auto_refresh_includes=1
 let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
-let g:syntastic_c_auto_refresh_includes=1
-let g:syntastic_quiet_messages={"regex": 'invalid preprocessing directive\|should have comment or be unexported'}
+
+" Python
 let g:syntastic_python_checkers=['python3', 'pyflakes']
 
-" Go language
+" Go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
-
-au FileType go nnoremap <leader>v :vsplit <CR>:exe "GoDef" <CR>
-au FileType go nnoremap <leader>s :split <CR>:exe "GoDef"<CR>
-au FileType go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 " }}}
 
