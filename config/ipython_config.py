@@ -3,6 +3,7 @@
 
 import numpy as np
 import pandas as pd
+from IPython.terminal.prompts import Prompts, Token
 
 # np.core.arrayprint._line_width = 140
 np.set_printoptions(linewidth=140)
@@ -25,3 +26,17 @@ c.InteractiveShellApp.exec_lines = [
     'pd.set_option("display.width", 140)',
     'pd.set_option("display.max_columns", 500)',
 ]
+
+
+class CustomPrompt(Prompts):
+    def in_prompt_tokens(self, cli=None):
+        return [(Token.Prompt, ":> ")]
+
+    def continuation_prompt_tokens(self, cli=None, width=None):
+        return [(Token.Prompt, "   ")]
+
+    def out_prompt_tokens(self):
+        return [(Token.Prompt, "")]
+
+
+c.TerminalInteractiveShell.prompts_class = CustomPrompt
