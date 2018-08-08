@@ -77,6 +77,61 @@ runtime macros/matchit.vim  " extended `%` logical navigation
 
 " Package Configurations {{{
 
+" Syntastic {{{
+
+" General
+
+" let g:syntastic_debug=3  " turn on to see diagnostics when checking
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors=1
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_messages={"regex": 'invalid preprocessing directive\|should have comment or be unexported'}
+autocmd filetype qf setlocal wrap
+
+" C/C++
+let g:syntastic_c_compiler='clang'
+let g:syntastic_c_auto_refresh_includes=1
+
+let g:syntastic_cpp_config_file='.syntastic_cpp_config'
+let g:syntastic_cpp_check_header=1
+let g:syntastic_cpp_auto_refresh_includes=1
+let g:syntastic_cpp_compiler='clang++'
+let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
+
+" Python
+let g:syntastic_python_checkers=['python3', 'pyflakes']
+
+" Go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+
+" }}}
+
+" YouCompleteMe {{{
+
+let g:ycm_complete_in_strings=0                       " dont autocomplete strings
+let g:ycm_collect_identifiers_from_tags_files=1       " use the tags file from ctags command
+let g:ycm_python_binary_path='/usr/local/bin/python3' " use python 3 instead of system python
+let g:ycm_max_num_candidates=20                       " maximum number of completion options to use (default 50)
+let g:ycm_min_num_identifier_candidate_chars=2        " min chars id candidate must have to appear
+let g:ycm_confirm_extra_conf=0                        " dont ask to reload conf every time
+set completeopt=menu,menuone                          " turn off the preview/documentation window
+let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_error_symbol='E'
+let g:ycm_warning_symbol='W'
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" }}}
+
 " Braceless {{{
 
 autocmd FileType python BracelessEnable +indent
@@ -164,58 +219,6 @@ let g:gitgutter_realtime=0  " dont update gutter in realtime to stop lag (will u
 set updatetime=100  " redo gutter git diff every 100 ms (1/10 sec)
 "let g:gitgutter_sign_column_always=1  " keep the git gutter sign column on all the time (less distracting)
 "set signcolumn=yes
-
-" }}}
-
-" Syntastic {{{
-
-" General
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors=1
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_messages={"regex": 'invalid preprocessing directive\|should have comment or be unexported'}
-autocmd filetype qf setlocal wrap
-
-" C/C++
-let g:syntastic_c_compiler='clang'
-let g:syntastic_c_auto_refresh_includes=1
-
-let g:syntastic_cpp_check_header=1
-let g:syntastic_cpp_auto_refresh_includes=1
-let g:syntastic_cpp_compiler='clang++'
-let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
-
-" Python
-let g:syntastic_python_checkers=['python3', 'pyflakes']
-
-" Go
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
-
-" }}}
-
-" YouCompleteMe {{{
-
-let g:ycm_complete_in_strings=0                       " dont autocomplete strings
-let g:ycm_collect_identifiers_from_tags_files=1       " use the tags file from ctags command
-let g:ycm_python_binary_path='/usr/local/bin/python3' " use python 3 instead of system python
-let g:ycm_max_num_candidates=20                       " maximum number of completion options to use (default 50)
-let g:ycm_min_num_identifier_candidate_chars=2        " min chars id candidate must have to appear
-let g:ycm_confirm_extra_conf=0                        " dont ask to reload conf every time
-set completeopt=menu,menuone                          " turn off the preview/documentation window
-let g:ycm_autoclose_preview_window_after_insertion=1
-let g:ycm_show_diagnostics_ui=0
-let g:ycm_error_symbol='E'
-let g:ycm_warning_symbol='W'
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " }}}
 

@@ -26,31 +26,44 @@ fi
 
 # version 0.6
 cd $JULIA_INSTALL_DIR
-if [ ! -d "0.6" ]; then
-    git clone https://github.com/JuliaLang/julia.git 0.6
-    cd 0.6
+if [ ! -d "v0.6" ]; then
+    git clone https://github.com/JuliaLang/julia.git v0.6
+    cd v0.6
     git fetch --all
     git checkout release-0.6
     git pull
     make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --compile=all --depwarn=no --optimize=3 --inline=yes -e "Pkg.update()"
 else
-    cd 0.6
+    cd v0.6
     git pull
     make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --compile=all --optimize=3 --inline=yes --depwarn=no --quiet -e "Pkg.update()"
 fi
 
 # current/nightly version
 cd $JULIA_INSTALL_DIR
-if [ ! -d "master" ]; then
-    git clone https://github.com/JuliaLang/julia.git master
-    cd master
+if [ ! -d "v0.7" ]; then
+    git clone https://github.com/JuliaLang/julia.git v0.7
+    cd v0.7
+    git fetch --all
+    git checkout release-0.7
+    git pull
     make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
 else
-    cd master
+    cd v0.7
+    git pull
+    make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
+fi
+
+# current/nightly version
+cd $JULIA_INSTALL_DIR
+if [ ! -d "nightly" ]; then
+    git clone https://github.com/JuliaLang/julia.git nightly
+    cd nightly
+    make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
+else
+    cd nightly
     git pull
     make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
 fi
 
 cd $JULIA_INSTALL_DIR
-
-
