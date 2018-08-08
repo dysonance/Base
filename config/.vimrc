@@ -453,11 +453,12 @@ nmap ga <Plug>(EasyAlign)
 
 " }}}
 
-" leader Mappings {{{
+" Leader Mappings {{{
 
 " format current file
 autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
 autocmd FileType python nmap <leader>fmt :Black<CR>
+autocmd FileType css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
 nmap <leader>cf :ClangFormat<CR>
 let g:black_linelength=120
 
@@ -538,13 +539,13 @@ nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
 autocmd FileType r nmap <silent> <leader><F1> :!R -e "?<cword>"<CR>
 autocmd FileType r nmap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
 autocmd FileType r nmap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
-autocmd FileType r nmap <F6> :SlimeSend<CR>
+autocmd FileType r nmap <F6> msvip:SlimeSend<CR>`s
 autocmd FileType r nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType r nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd FileType julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
 autocmd FileType julia nmap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
-autocmd FileType julia nmap <F6> :SlimeSend<CR>
+autocmd FileType julia nmap <F6> msvip:SlimeSend<CR>`s
 autocmd FileType julia nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType julia nmap <F8> :SlimeSendCurrentLine<CR>
 
@@ -557,13 +558,13 @@ autocmd FileType cpp nmap <F5> :execute ":SlimeSend1 run cpp"<CR>
 autocmd FileType sh nmap <silent> <leader><F1> :!man <cword><CR>
 autocmd FileType sh nmap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
 autocmd FileType sh nmap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
-autocmd FileType sh nmap <F6> :SlimeSend<CR>
+autocmd FileType sh nmap <F6> msvip:SlimeSend<CR>`s
 autocmd FileType sh nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType sh nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd FileType sql nmap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
 autocmd FileType sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
-autocmd FileType sql nmap <F6> :SlimeSend<CR>
+autocmd FileType sql nmap <F6> msvip:SlimeSend<CR>`s
 autocmd FileType sql nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType sql nmap <F8> :SlimeSendCurrentLine<CR>
 
@@ -571,7 +572,7 @@ autocmd FileType python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd FileType python nmap <F3> :execute ":SlimeSend1 test python"<CR>
 autocmd FileType python nmap <F4> :execute ":SlimeSend1 build python"<CR>
 autocmd FileType python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
-autocmd FileType python nmap <F6> :SlimeSend<CR>
+autocmd FileType python nmap <F6> msvip:SlimeSend<CR>`s
 autocmd FileType python nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType python nmap <F8> :SlimeSendCurrentLine<CR>
 
