@@ -400,6 +400,7 @@ autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
 autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
 autocmd FileType cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file\ -
+autocmd FileType css setlocal formatprg=/usr/local/bin/prettier\ --parser\ css\ --stdin\ -
 
 " }}}
 
