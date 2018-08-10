@@ -6,7 +6,7 @@ import pandas as pd
 from IPython.terminal.prompts import Prompts, Token
 
 # np.core.arrayprint._line_width = 140
-np.set_printoptions(linewidth=140)
+np.set_printoptions(linewidth=140, suppress=True)
 pd.options.display.max_rows = 40
 pd.set_option("display.max_rows", 40)
 
