@@ -142,6 +142,7 @@ autocmd FileType python BracelessEnable +indent
 
 " Python Syntax {{{
 
+let g:black_linelength=120
 let g:python_highlight_builtins=1
 let g:python_highlight_exceptions=1
 let g:python_highlight_string_formatting=1
@@ -459,8 +460,7 @@ nmap ga <Plug>(EasyAlign)
 autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
 autocmd FileType python nmap <leader>fmt :Black<CR>
 autocmd FileType css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
-nmap <leader>cf :ClangFormat<CR>
-let g:black_linelength=120
+autocmd FileType go nmap <leader>fmt :GoFmt<CR>
 
 " quick isolation of the currently focused file
 nnoremap <leader><Esc><Esc> :only<CR>
@@ -486,7 +486,8 @@ nnoremap <leader>ga :!git add %<CR><CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gdf :Gdiff<CR>
+nnoremap <leader>gdm :Gdiff master<CR>
 
 " easier grepper command accessibility
 nnoremap <leader>gr :Grepper<CR>

@@ -1,15 +1,15 @@
 [github]
-	user = dysonance
-	email = jamos125@gmail.com
+    user = dysonance
+    email = jamos125@gmail.com
 [pull]
-	rebase = true
+    rebase = true
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool]
-	prompt = false
+    prompt = false
 [alias]
     cane = "commit --amend --no-edit"
     root = "rev-parse --show-toplevel"
-    stap = "!f() { git stash apply stash^{/$*}; }; f"
     summ = "log --stat --pretty=format:'%an %s %ad %H'"
+    staple = "!f() { git stash apply stash^{/$*}; }; f"
     review = "!f() { _destination=${1-master}; vim $(git diff $_destination --name-only) -c \"Gdiff $_destination\"; }; f"
