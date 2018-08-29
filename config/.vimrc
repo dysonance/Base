@@ -456,6 +456,9 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+" easier auto-pairs prevention shortcut
+imap <C-P> <C-V>
+
 " format current file
 autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
 autocmd FileType python nmap <leader>fmt :Black<CR>

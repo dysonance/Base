@@ -2,3 +2,4 @@
 *.DS_Store
 
 Applications/LLVM/clang-tools-extra
+*.tar*
