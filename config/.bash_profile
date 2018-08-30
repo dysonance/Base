@@ -30,3 +30,6 @@ alias jl1="$HOME/Applications/Julia/v1.0/usr/bin/julia"
 alias jln="$HOME/Applications/Julia/nightly/usr/bin/julia"
 alias julia="jl1"
 alias jl="julia -q -O3 -g2"
+
+# path additions
+export PATH=$PATH:$HOME/Preferences/Applications/LLVM/bin

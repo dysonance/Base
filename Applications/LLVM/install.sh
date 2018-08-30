@@ -34,7 +34,3 @@ cd build
 cmake ..
 cmake --build .
 make -j $CPU
-
-# create symbol links in easier-to-access locations
-cd $INSTALL_LOCATION
-ln -sf $INSTALL_LOCATION/src/bin $INSTALL_LOCATION/bin
