@@ -1,19 +1,40 @@
 #!/bin/bash
 
-wget http://releases.llvm.org/6.0.0/llvm-6.0.0.src.tar.xz
-tar xf llvm-6.0.0.src.tar.xz
-cd llvm-6.0.0.src
+# Note: See this anser on StackOverflow for a good explanation of how this needs to be structured
+# https://stackoverflow.com/a/49702159/2271756
 
-wget http://releases.llvm.org/6.0.0/cfe-6.0.0.src.tar.xz
-tar xf cfe-6.0.0.src.tar.xz
-mv llvm-6.0.0.src/cfe-6.0.0.src llvm-6.0.0.src/tools/clang
+INSTALL_LOCATION=$HOME/Preferences/Applications/LLVM
+LLVM_VERSION=6.0.1
 
-wget http://releases.llvm.org/6.0.0/clang-tools-extra-6.0.0.src.tar.xz
-tar xf clang-tools-extra-6.0.0.src.tar.xz
-mv clang-tools-extra-6.0.0.src llvm-6.0.0.src/tools/clang/tools/extra
+cd $INSTALL_LOCATION
 
-mkdir llvm
-cd llvm
+# llvm source
+wget http://releases.llvm.org/$LLVM_VERSION/llvm-$LLVM_VERSION.src.tar.xz
+tar -xvf llvm-$LLVM_VERSION.src.tar.xz
+mv llvm-$LLVM_VERSION.src src
+cd src
 
-cmake ../llvm-6.0.0.src
-make -j $CPU install
+# clang compiler source
+cd tools
+wget http://releases.llvm.org/$LLVM_VERSION/cfe-$LLVM_VERSION.src.tar.xz
+tar -xvf cfe-$LLVM_VERSION.src.tar.xz
+mv cfe-$LLVM_VERSION.src clang
+cd clang
+
+# clang extra tools (e.g. clang-tidy)
+cd tools
+wget http://releases.llvm.org/$LLVM_VERSION/clang-tools-extra-$LLVM_VERSION.src.tar.xz
+tar -xvf clang-tools-extra-$LLVM_VERSION.src.tar.xz
+mv clang-tools-extra-$LLVM_VERSION.src extra
+
+# build everything together with cmake
+cd $INSTALL_LOCATION/src
+mkdir build
+cd build
+cmake ..
+cmake --build .
+make -j $CPU
+
+# create symbol links in easier-to-access locations
+cd $INSTALL_LOCATION
+ln -sf $INSTALL_LOCATION/src/bin $INSTALL_LOCATION/bin
