@@ -24,10 +24,10 @@ PS1="\n[$TIME][$FOLDER][$BRANCH]\n$PROMPT_COLOR\\$ $DEFAULT_COLOR"
 export PS1
 
 # julia convenience shortcuts
-alias jl6="$HOME/Applications/Julia/v0.6/usr/bin/julia"
-alias jl7="$HOME/Applications/Julia/v0.7/usr/bin/julia"
-alias jl1="$HOME/Applications/Julia/v1.0/usr/bin/julia"
-alias jln="$HOME/Applications/Julia/nightly/usr/bin/julia"
+alias jl6="$HOME/Preferences/Applications/Julia/v0.6/usr/bin/julia"
+alias jl7="$HOME/Preferences/Applications/Julia/v0.7/usr/bin/julia"
+alias jl1="$HOME/Preferences/Applications/Julia/v1.0/usr/bin/julia"
+alias jln="$HOME/Preferences/Applications/Julia/nightly/usr/bin/julia"
 alias julia="jl1"
 alias jl="julia -q -O3 -g2"
 
