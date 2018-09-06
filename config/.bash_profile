@@ -33,4 +33,3 @@ alias jl="julia -q -O3 -g2"
 
 # path additions
 export PATH=$PATH:$HOME/Preferences/Applications/LLVM/bin
-# export PATH=$PATH:$HOME/Preferences/Applications/Kitty/bin

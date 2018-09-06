@@ -1,4 +1,0 @@
-#!/usr/bin/env python3
-import runpy
-import os
-runpy.run_path(os.path.expanduser("~/Preferences/Applications/Kitty/src"), run_name="__main__")

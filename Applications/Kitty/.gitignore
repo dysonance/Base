@@ -1,3 +1,1 @@
-# ignore the kitty source files it's built fromo
-# only keep track of the utility script that launches the program
-src
+kitty.app
