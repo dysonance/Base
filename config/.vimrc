@@ -88,7 +88,14 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors=1
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_messages={"regex": 'invalid preprocessing directive\|should have comment or be unexported'}
+let ignored_messages=
+            \ [
+            \ 'invalid preprocessing directive',
+            \ 'should have comment or be unexported',
+            \ 'receiver name should be a reflection of its identity',
+            \ '[Ii][Dd] should be.*ID'
+            \ ]
+let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
 
 " C/C++
