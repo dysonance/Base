@@ -28,7 +28,11 @@ alias jl6="$HOME/Preferences/Applications/Julia/v0.6/usr/bin/julia"
 alias jl7="$HOME/Preferences/Applications/Julia/v0.7/usr/bin/julia"
 alias jl1="$HOME/Preferences/Applications/Julia/v1.0/usr/bin/julia"
 alias jln="$HOME/Preferences/Applications/Julia/nightly/usr/bin/julia"
-alias julia="jl1"
+if [ -d "$HOME/Applications/Julia-1.0.app" ]; then
+    alias julia="$HOME/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia"
+else
+    alias julia="jl1"
+fi
 alias jl="julia -q -O3 -g2"
 
 # path additions
