@@ -21,9 +21,11 @@ syn keyword cppType bool wchar_t
 syn keyword cppExceptions throw try catch
 syn keyword cppOperator operator typeid
 syn keyword cppOperator and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
-syn match cppOperator '+\|-\|*\|/\(?!/\)\|->\|<\|>\|=\||\|&\|!\|:\|?'
+syn match cppOperator '+\|-\|*\|/\(?!/\)\|->\|<\|>\|=\||\|&\|!\|:\|?\|::'
 syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
 syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
+syn match cppScopeDelimiter "::"
+syn match cppNamespace "\w\+\s*::" contains=cppScopeDelimiter
 syn keyword cppStorageClass mutable
 syn keyword cppStructure class typename template namespace
 syn keyword cppBoolean true false
@@ -74,6 +76,8 @@ hi def link cppRawStringDelimiter Delimiter
 hi def link cppDelimiter Delimiter
 hi def link cppRawString String
 hi def link cppNumber Number
+hi def link cppNamespace PreProc
+hi def link cppScopeDelimiter Delimiter
 
 let b:current_syntax = "cpp"
 
