@@ -26,12 +26,16 @@ syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
 syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
 syn match cppScopeDelimiter "::"
 syn match cppNamespace "\w\+\s*::" contains=cppScopeDelimiter
+syn match cppMemberAccess "\." contained
+syn match cppPointerMemberAccess "->" contained
+syn match cppMemberVariable "\(\.\|-_\)\h\w*" contains=cppMemberAccess,cppPointerMemberAccess
 syn keyword cppStorageClass mutable
 syn keyword cppStructure class typename template namespace
 syn keyword cppBoolean true false
 syn keyword cppConstant __cplusplus
 syn match cppDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
 syn match cppFunction "\w\+\s*(\@="
+syn match cppConstant '\<[A-Z_]\+\>'
 
 " C++ 11 extensions
 if !exists("cpp_no_cpp11")
@@ -79,6 +83,7 @@ hi def link cppRawString String
 hi def link cppNumber Number
 hi def link cppNamespace PreProc
 hi def link cppScopeDelimiter Delimiter
+hi def link cppConstant Constant
 
 let b:current_syntax = "cpp"
 
