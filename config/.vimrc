@@ -55,7 +55,7 @@ Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use 
 
 " Language Support
 
-Plug 'octol/vim-cpp-enhanced-highlight'            " more intelligent c++ syntax highlighting
+" Plug 'octol/vim-cpp-enhanced-highlight'            " more intelligent c++ syntax highlighting
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
 Plug 'JuliaEditorSupport/julia-vim'                " Julia language support
 Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
