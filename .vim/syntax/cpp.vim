@@ -31,6 +31,7 @@ syn keyword cppStructure class typename template namespace
 syn keyword cppBoolean true false
 syn keyword cppConstant __cplusplus
 syn match cppDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
+syn match cppFunction "\w\+\s*(\@="
 
 " C++ 11 extensions
 if !exists("cpp_no_cpp11")
