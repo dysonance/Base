@@ -556,7 +556,7 @@ autocmd FileType r vmap <F6> msvip:SlimeSend<CR>`s
 autocmd FileType r nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType r nmap <F8> :SlimeSendCurrentLine<CR>
 
-autocmd FileType julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
+autocmd FileType julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"using Pkg; Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
 autocmd FileType julia nmap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
 autocmd FileType julia nmap <F6> msvip:SlimeSend<CR>`s
 autocmd FileType julia vmap <F6> msvip:SlimeSend<CR>`s
