@@ -403,7 +403,8 @@ autocmd FileType python set foldmethod=indent " overwrite pymode indent method
 " }}}
 
 " code formatting options
-autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
+autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
+"autocmd FileType sql setlocal formatprg=/usr/local/bin/sqlformat\ -\ --keywords\ lower\ --identifiers\ lower\ --use_space_around_operators\ --indent_width\ 4\ --reindent_aligned
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
 autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
@@ -467,6 +468,7 @@ nmap ga <Plug>(EasyAlign)
 imap <C-P> <C-V>
 
 " format current file
+autocmd FileType sql nmap <leader>fmt m0gggqG`0
 autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
 autocmd FileType python nmap <leader>fmt :Black<CR>
 autocmd FileType css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
