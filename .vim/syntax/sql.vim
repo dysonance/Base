@@ -71,22 +71,22 @@ syn match   sqlFunction     "\<\(upper\|variance\)(\@="
 syn keyword sqlStatement    alter analyze audit begin comment commit delete
 syn keyword sqlStatement    drop execute explain grant insert lock noaudit
 syn keyword sqlStatement    rename revoke rollback savepoint select
+syn keyword sqlStatement    desc as
 syn keyword sqlStatement    truncate update vacuum
 syn keyword sqlStatement    with from group order by where
 syn match   sqlStatement    "\<\(replace\|create\)\>"
 
 " Types - Only matched inside 'CREATE TABLE ();'.
-syn keyword sqlType         contained bigint bit blob bool boolean byte char
-syn keyword sqlType         contained clob date datetime dec decimal enum
-syn keyword sqlType         contained float int int8 integer interval long
-syn keyword sqlType         contained longblob longtext lvarchar mediumblob
-syn keyword sqlType         contained mediumint mediumtext mlslabel money
-syn keyword sqlType         contained multiset nchar number numeric nvarchar
-syn keyword sqlType         contained raw real rowid serial serial8 set
-syn keyword sqlType         contained smallfloat smallint text time
-syn keyword sqlType         contained timestamp tinyblob tinyint tinytext
-syn keyword sqlType         contained varchar varchar2 varray year
-syn keyword sqlType         contained numeric float
+syn keyword sqlType         bigint bit blob bool boolean byte char
+syn keyword sqlType         clob date datetime dec decimal enum
+syn keyword sqlType         float int int8 integer interval long
+syn keyword sqlType         longblob longtext lvarchar mediumblob
+syn keyword sqlType         mediumint mediumtext mlslabel money
+syn keyword sqlType         multiset nchar number numeric nvarchar
+syn keyword sqlType         raw real rowid serial serial8 set
+syn keyword sqlType         smallfloat smallint text time
+syn keyword sqlType         timestamp tinyblob tinyint tinytext
+syn keyword sqlType         varchar varchar2 varray year
 syn match   sqlType         contained "\<\(character\|double\|varying\)\>"
 syn match   sqlType         contained "\<character\s\+varying\>"
 syn match   sqlType         contained "\<double\s\+precision\>"
