@@ -18,10 +18,11 @@ syn keyword cppStatement new delete this friend using
 syn keyword cppAccess public protected private
 syn keyword cppModifier inline virtual explicit export
 syn keyword cppType bool wchar_t
+syn match cppType "\<\(function\|shared_ptr\|list\|vector\|map\|deque\|vec\|mat\|cube\|span\|rowvec\|colvec\|Col\|Mat\)\>"
 syn keyword cppExceptions throw try catch
 syn keyword cppOperator operator typeid
 syn keyword cppOperator and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
-syn match cppOperator "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::"
+syn match cppOperator "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%"
 syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
 syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
 syn match cppScopeDelimiter "::"
