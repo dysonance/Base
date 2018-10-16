@@ -485,6 +485,9 @@ nmap <leader>dgb :diffget BASE \| diffupdate<CR>
 " Local (within scope) variable replacement
 nnoremap <leader>fr :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" Find/highlight usages of variable
+nmap <leader>fu gd``
+
 " vim line diff plugin shortcuts
 vnoremap <leader>ldf :Linediff<CR>
 nnoremap <leader>ldr :LinediffReset<CR>
