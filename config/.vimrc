@@ -92,7 +92,8 @@ let ignored_messages=
             \ 'invalid preprocessing directive',
             \ 'should have comment or be unexported',
             \ 'receiver name should be a reflection of its identity',
-            \ '[Ii][Dd] should be.*ID'
+            \ '[Ii][Dd] should be.*ID',
+            \ 'func name will be used as'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
