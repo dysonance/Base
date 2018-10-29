@@ -446,6 +446,8 @@ nnoremap # *NN
 " (normally vim will deselect and go back to normal mode)
 vnoremap < <gv
 vnoremap > >gv
+nnoremap > >>
+nnoremap < <<
 
 " fast pane splitting and focus switching
 nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
