@@ -87,6 +87,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors=1
 let g:syntastic_enable_signs=1
+let g:syntastic_filetype_map={"smarty": "html"}
 let ignored_messages=
             \ [
             \ 'invalid preprocessing directive',
@@ -94,7 +95,11 @@ let ignored_messages=
             \ 'receiver name should be a reflection of its identity',
             \ '[Ii][Dd] should be.*ID',
             \ 'func name will be used as',
-            \ 'ALL_CAPS in Go names'
+            \ 'ALL_CAPS in Go names',
+            \ 'proprietary attribute "nonce"',
+            \ 'discarding unexpected <meta>',
+            \ "plain text isn't allowed",
+            \ '<a> illegal characters found in URI'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
@@ -449,6 +454,9 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap > >>
 nnoremap < <<
+
+" shortcut to delete line
+nnoremap D dd
 
 " fast pane splitting and focus switching
 nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'

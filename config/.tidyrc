@@ -1,0 +1,10 @@
+indent: yes
+indent-attributes: yes
+indent-with-tabs: no
+indent-spaces: 2
+wrap: 120
+markup: yes
+show-warnings: yes
+uppercase-tags: no
+uppercase-attributes: no
+tab-size: 1
