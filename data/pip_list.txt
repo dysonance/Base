@@ -182,6 +182,7 @@ w3lib                 1.19.0
 wcwidth               0.1.7    
 webencodings          0.5.1    
 Werkzeug              0.14.1   
+wget                  3.2      
 wheel                 0.31.1   
 widgetsnbextension    3.2.1    
 wrapt                 1.10.11  

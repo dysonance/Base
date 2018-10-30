@@ -93,7 +93,8 @@ let ignored_messages=
             \ 'should have comment or be unexported',
             \ 'receiver name should be a reflection of its identity',
             \ '[Ii][Dd] should be.*ID',
-            \ 'func name will be used as'
+            \ 'func name will be used as',
+            \ 'ALL_CAPS in Go names'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap

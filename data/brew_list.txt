@@ -19,7 +19,7 @@ freetype 2.9.1
 fribidi 1.0.5
 gcc 8.2.0 8.1.0
 gd 2.2.5
-gdbm 1.15 1.16 1.18 1.17 1.14.1_1
+gdbm 1.15 1.18.1 1.16 1.18 1.17 1.14.1_1
 gdk-pixbuf 2.38.0
 gettext 0.19.8.1
 ghostscript 9.25 9.23_1 9.24
