@@ -56,6 +56,8 @@ Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use 
 " Language Support
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
+"Plug 'mattn/emmet-vim'                             " enhanced html/css workflow
+Plug 'sheerun/vim-polyglot'                        " big inclusive language pack
 Plug 'JuliaEditorSupport/julia-vim'                " Julia language support
 Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
 Plug 'plasticboy/vim-markdown'                     " Markdown language support
@@ -416,6 +418,7 @@ autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ 
 autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
 autocmd FileType cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file\ -
 autocmd FileType css setlocal formatprg=/usr/local/bin/prettier\ --parser\ css\ --stdin\ -
+autocmd FileType html setlocal formatprg=/usr/local/bin/tidy\ -config\ $HOME/.tidyrc
 
 " }}}
 
@@ -482,8 +485,10 @@ imap <C-P> <C-V>
 autocmd FileType sql nmap <leader>fmt m0gggqG`0
 autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
 autocmd FileType python nmap <leader>fmt :Black<CR>
-autocmd FileType css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
 autocmd FileType go nmap <leader>fmt :GoFmt<CR>
+autocmd FileType css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
+autocmd FileType html nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
+autocmd FileType tpl nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
 
 " quick isolation of the currently focused file
 nnoremap <leader><Esc><Esc> :only<CR>
