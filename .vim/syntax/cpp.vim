@@ -18,7 +18,7 @@ syn keyword cppStatement new delete this friend using
 syn keyword cppAccess public protected private
 syn keyword cppModifier inline virtual explicit export
 syn keyword cppType bool wchar_t
-syn match cppType "\<\(function\|shared_ptr\|list\|vector\|map\|deque\|vec\|mat\|cube\|span\|rowvec\|colvec\|Col\|Mat\)\>"
+syn match cppType "\<\(function\|shared_ptr\|list\|vector\|map\|deque\|uvec\|vec\|umat\|mat\|cube\|span\|rowvec\|colvec\|Col\|Mat\)\>"
 syn keyword cppExceptions throw try catch
 syn keyword cppOperator operator typeid
 syn keyword cppOperator and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
@@ -35,8 +35,10 @@ syn keyword cppStructure class typename template namespace
 syn keyword cppBoolean true false
 syn keyword cppConstant __cplusplus
 syn match cppDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
+syn match cppDelimiter ">\((\|;\)\@="
+syn match cppDelimiter "\(\w\)\@<=<"
 syn match cppFunction "\w\+\s*(\@="
-syn match cppConstant '\<[A-Z_]\+\>'
+syn match cppConstant '\<[A-Z_]\+\>\((\)\@!'
 
 " C++ 11 extensions
 if !exists("cpp_no_cpp11")
