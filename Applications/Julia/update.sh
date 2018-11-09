@@ -19,13 +19,11 @@ if [ ! -d "v0.7" ]; then
     git pull
     cp ../Make.user .
     make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
-    git checkout Make.user
 else
     cd v0.7
     git pull
     cp ../Make.user .
     make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
-    git checkout Make.user
 fi
 
 # version 1.0
@@ -38,7 +36,6 @@ if [ ! -d "v1.0" ]; then
     git pull
     cp ../Make.user .
     make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
-    git checkout Make.user
 else
     cd v1.0
     git pull
@@ -53,13 +50,11 @@ if [ ! -d "nightly" ]; then
     cd nightly
     cp ../Make.user .
     make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
-    git checkout Make.user
 else
     cd nightly
     git pull
     cp ../Make.user .
     make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update()"
-    git checkout Make.user
 fi
 
 cd $JULIA_INSTALL_DIR

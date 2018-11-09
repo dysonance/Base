@@ -14,6 +14,6 @@ python3 install.py --all
 cd -
 
 cd $HOME/Preferences/Applications/Julia
-./update_julia.sh
+./update.sh
 
 cd $HOME/Preferences
