@@ -1,12 +1,12 @@
 #!/bin/sh
 
-VIM_INSTALL_DIRECTORY="$HOME/Applications/Vim"
+INSTALL_DIRECTORY="$HOME/Preferences/Applications/Vim"
 
-if [ ! -d "$VIM_INSTALL_DIRECTORY" ]; then
-    git clone https://github.com/vim/vim.git $VIM_INSTALL_DIRECTORY
-    cd $VIM_INSTALL_DIRECTORY
+if [ ! -d "$INSTALL_DIRECTORY" ]; then
+    git clone https://github.com/vim/vim.git $INSTALL_DIRECTORY
+    cd $INSTALL_DIRECTORY
 else
-    cd $VIM_INSTALL_DIRECTORY
+    cd $INSTALL_DIRECTORY
     git clean -xfd
     git pull
 fi
@@ -20,11 +20,11 @@ fi
             --enable-luainterp \
             --enable-gui=gtk2 \
             --enable-cscope \
-            --prefix=$VIM_INSTALL_DIRECTORY
+            --prefix=$INSTALL_DIRECTORY
 
-make 
+make
 
 make install \
     DESTDIR=vim \
-    VIMRUNTIMEDIR=$VIM_INSTALL_DIRECTORY/runtime
+    VIMRUNTIMEDIR=$INSTALL_DIRECTORY/runtime
 
