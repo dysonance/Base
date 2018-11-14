@@ -31,7 +31,7 @@ syn keyword sqlKeyword      exclusive explain external file for foreign from fun
 syn keyword sqlKeyword      group having identified if immediate increment index
 syn keyword sqlKeyword      initial inner into is join key left level loop
 syn keyword sqlKeyword      maxextents mode modify nocompress nowait object of
-syn keyword sqlKeyword      off offline on online option order outer pctfree
+syn keyword sqlKeyword      off offline on online option order outer pctfree full
 syn keyword sqlKeyword      primary privileges procedure public references
 syn keyword sqlKeyword      referencing release resource return role row rowid
 syn keyword sqlKeyword      rowlabel rownum rows schema session share size
