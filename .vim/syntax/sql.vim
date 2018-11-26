@@ -83,7 +83,7 @@ syn keyword sqlType         float int int8 integer interval long
 syn keyword sqlType         longblob longtext lvarchar mediumblob
 syn keyword sqlType         mediumint mediumtext mlslabel money
 syn keyword sqlType         multiset nchar number numeric nvarchar
-syn keyword sqlType         raw real rowid serial serial8 set
+syn keyword sqlType         raw real rowid serial serial8
 syn keyword sqlType         smallfloat smallint text time
 syn keyword sqlType         timestamp tinyblob tinyint tinytext
 syn keyword sqlType         varchar varchar2 varray year
