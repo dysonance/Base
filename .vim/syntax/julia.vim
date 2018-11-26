@@ -38,9 +38,9 @@ syn match juliaDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
 syn match juliaDelimiter ">\((\|;\)\@="
 syn match juliaDelimiter "\(\w\)\@<=<"
 syn match juliaConstant  '\<[A-Z_]\+\>\((\)\@!'
-syn match juliaNumber    "[0-9]"
-syn match juliaNumber    "[0-9].[0-9]"
-syn match juliaNumber    ".[0-9]"
+syn match juliaNumber    "[A-z]\@![0-9]"
+syn match juliaNumber    "[0-9]\.[0-9]"
+syn match juliaNumber    "\.[0-9]"
 syn match juliaSymbol    ":\@!:\(\w\)\+"
 syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaComment   "#.*$"   contains=juliaTodo
