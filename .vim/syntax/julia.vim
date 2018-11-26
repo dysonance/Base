@@ -33,7 +33,7 @@ syn keyword juliaCustomType
             \ DataFrame
             \ TS
 
-syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%"
+syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\."
 syn match juliaDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
 syn match juliaDelimiter ">\((\|;\)\@="
 syn match juliaDelimiter "\(\w\)\@<=<"
@@ -41,7 +41,7 @@ syn match juliaConstant  '\<[A-Z_]\+\>\((\)\@!'
 syn match juliaNumber    "[0-9]"
 syn match juliaNumber    "[0-9].[0-9]"
 syn match juliaNumber    ".[0-9]"
-syn match juliaSymbol    ":\(\w\)\+"
+syn match juliaSymbol    ":\@!:\(\w\)\+"
 syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaComment   "#.*$"   contains=juliaTodo
 syn match juliaComment   "#=.*=#" contains=juliaTodo
