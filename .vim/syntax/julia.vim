@@ -4,7 +4,7 @@ syn case match
 
 syn keyword juliaTodo contained TODO FIXME NOTE XXX
 
-syn keyword juliaStatement using import
+syn keyword juliaStatement using import return
 
 syn keyword juliaModule
             \ Base
@@ -42,29 +42,28 @@ syn match juliaNumber    "[0-9]"
 syn match juliaNumber    "[0-9].[0-9]"
 syn match juliaNumber    ".[0-9]"
 syn match juliaSymbol    ":\(\w\)\+"
-syn match juliaSpecial "[$@]\(\w\)+\|`"
+syn match juliaSpecial   "[$@]\(\w\)+\|`"
+syn match juliaComment   "#.*$"   contains=juliaTodo
+syn match juliaComment   "#=.*=#" contains=juliaTodo
 
-syn region juliaString       start=+"+  end=+"+  skip=+\\\\\|\\"+ contains=juliaVariable
-syn region juliaCharacter    start=+'+  end=+'+  skip=+\\\\\|\\'+ contains=juliaVariable
-syn region juliaCommentBlock start="#=" end="=#" skip=''          contains=juliaTodo keepend
-syn region juliaCommentLine  start="#"  end="$"  skip=''          contains=juliaTodo keepend
+syn region juliaString    start=+"+ end=+"+  skip=+\\\\\|\\"+ contains=juliaVariable
+syn region juliaCharacter start=+'+ end=+'+  skip=+\\\\\|\\'+ contains=juliaVariable
 
-hi def link juliaCharacter     Character
-hi def link juliaCommentBlock  Comment
-hi def link juliaCommentLine   Comment
-hi def link juliaConstant      Constant
-hi def link juliaCustomType    Type
-hi def link juliaDelimiter     Delimiter
-hi def link juliaKeyword       Special
-hi def link juliaModule        PreProc
-hi def link juliaNumber        Number
-hi def link juliaOperator      Operator
-hi def link juliaSpecial       SpecialChar
-hi def link juliaStatement     Statement
-hi def link juliaString        String
-hi def link juliaSymbol        String
-hi def link juliaTodo          Todo
-hi def link juliaType          Type
-hi def link juliaVariable      Identifier
+hi def link juliaCharacter  Character
+hi def link juliaComment    Comment
+hi def link juliaConstant   Constant
+hi def link juliaCustomType Type
+hi def link juliaDelimiter  Delimiter
+hi def link juliaKeyword    Special
+hi def link juliaModule     PreProc
+hi def link juliaNumber     Number
+hi def link juliaOperator   Operator
+hi def link juliaSpecial    SpecialChar
+hi def link juliaStatement  Statement
+hi def link juliaString     String
+hi def link juliaSymbol     String
+hi def link juliaTodo       Todo
+hi def link juliaType       Type
+hi def link juliaVariable   Identifier
 
 let b:current_syntax = "julia"
