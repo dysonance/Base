@@ -14,7 +14,7 @@ syn keyword juliaModule
 
 syn keyword juliaKeyword
             \ true false where
-            \ for while if else elseif end
+            \ for in while if else elseif end
             \ try catch finally
             \ begin let call block quote macro
             \ const local global module
@@ -44,17 +44,18 @@ syn keyword juliaCustomType
             \ DataFrame
             \ TS AbstractTS
 
-syn match juliaDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
-syn match juliaDelimiter ">\((\|;\)\@="
-syn match juliaDelimiter "\(\w\)\@<=<"
-syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:"
-syn match juliaConstant  '\<[A-Z_]\+\>\((\)\@!'
-syn match juliaNumber    "[A-z]\@![0-9]"
-syn match juliaNumber    "[0-9]\.[0-9]"
-syn match juliaNumber    "\.[0-9]"
-syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaComment   "#.*$"   contains=juliaTodo
 syn match juliaComment   "#=.*=#" contains=juliaTodo
+syn match juliaConstant  '\<[A-Z_]\+\>\((\)\@!'
+syn match juliaDelimiter ">\((\|;\)\@="
+syn match juliaDelimiter "\(\w\)\@<=<"
+syn match juliaDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
+syn match juliaMacro     "@\(\w\)\+"
+syn match juliaNumber    "[0-9]\.[0-9]"
+syn match juliaNumber    "[A-z]\@![0-9]"
+syn match juliaNumber    "\.[0-9]"
+syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:"
+syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "[:<>0-9]\@<!:\(\w\)\+"
 
 syn region juliaString    start=+"+ end=+"+  skip=+\\\\\|\\"+ contains=juliaVariable
@@ -66,6 +67,7 @@ hi def link juliaConstant   Constant
 hi def link juliaCustomType Type
 hi def link juliaDelimiter  Delimiter
 hi def link juliaKeyword    Special
+hi def link juliaMacro      PreProc
 hi def link juliaModule     PreProc
 hi def link juliaNumber     Number
 hi def link juliaOperator   Operator
