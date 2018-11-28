@@ -55,41 +55,42 @@ syn match   sqlOperator     "||\|:=\|!=\|*\|/\|::\|+\|-\|="
 syn match   sqlConditional  "=\|<\|>\|\<and\>\|\<or\>\|\<is\>\|\<not\>"
 
 " Functions - Only valid with a '(' after them.
-syn match   sqlFunction     "\<\(abs\|acos\|asin\|atan2\?\|avg\|cardinality\)(\@="
-syn match   sqlFunction     "\<\(cast\|changes\|char_length\|character_length\)(\@="
-syn match   sqlFunction     "\<\(coalesce\|concat\|cos\|count\|\(date\)\?\(time\)\?\)(\@="
-syn match   sqlFunction     "\<\(exp\|filetoblob\|filetoclob\|floor\|glob\|group_concat\)(\@="
-syn match   sqlFunction     "\<\(hex\|ifnull\|initcap\|isnull\|julianday\|last_insert_rowid\)(\@="
-syn match   sqlFunction     "\<\(length\|log10\|logn\|lower\|lpad\|ltrin\|max\|min\)(\@="
-syn match   sqlFunction     "\<\(mod\|nullif\|octet_length\|pow\|quote\|random\)(\@="
-syn match   sqlFunction     "\<\(range\|replace\|root\|round\|rpad\|sin\|soundex\)(\@="
-syn match   sqlFunction     "\<\(sqrtstdev\|strftime\|substr\|substring\|sum\|sysdate\|tan\)(\@="
-syn match   sqlFunction     "\<\(to_char\|to_date\|to_number\|total\|trim\|trunc\|typeof\)(\@="
-syn match   sqlFunction     "\<\(upper\|variance\)(\@="
+syn match sqlFunction "\<\(abs\|acos\|asin\|atan2\?\|avg\|cardinality\)(\@="
+syn match sqlFunction "\<\(cast\|changes\|char_length\|character_length\)(\@="
+syn match sqlFunction "\<\(coalesce\|concat\|cos\|count\|\(date\)\?\(time\)\?\)(\@="
+syn match sqlFunction "\<\(exp\|filetoblob\|filetoclob\|floor\|glob\|group_concat\)(\@="
+syn match sqlFunction "\<\(hex\|ifnull\|initcap\|isnull\|julianday\|last_insert_rowid\)(\@="
+syn match sqlFunction "\<\(length\|log10\|logn\|lower\|lpad\|ltrin\|max\|min\)(\@="
+syn match sqlFunction "\<\(mod\|nullif\|octet_length\|pow\|quote\|random\)(\@="
+syn match sqlFunction "\<\(range\|replace\|root\|round\|rpad\|sin\|soundex\)(\@="
+syn match sqlFunction "\<\(sqrtstdev\|strftime\|substr\|substring\|sum\|sysdate\|tan\)(\@="
+syn match sqlFunction "\<\(to_char\|to_date\|to_number\|total\|trim\|trunc\|typeof\)(\@="
+syn match sqlFunction "\<\(upper\|variance\)(\@="
 
 " Statements
 syn keyword sqlStatement    alter analyze audit begin comment commit delete set
 syn keyword sqlStatement    drop execute explain grant insert lock noaudit
 syn keyword sqlStatement    rename revoke rollback savepoint select
-syn keyword sqlStatement    desc as
+syn keyword sqlStatement    desc as limit
 syn keyword sqlStatement    truncate update vacuum
 syn keyword sqlStatement    with from group order by where
 syn match   sqlStatement    "\<\(replace\|create\)\>"
 
 " Types - Only matched inside 'CREATE TABLE ();'.
-syn keyword sqlType         bigint bit blob bool boolean byte char
-syn keyword sqlType         clob date datetime dec decimal enum
-syn keyword sqlType         float int int8 integer interval long
-syn keyword sqlType         longblob longtext lvarchar mediumblob
-syn keyword sqlType         mediumint mediumtext mlslabel money
-syn keyword sqlType         multiset nchar number numeric nvarchar
-syn keyword sqlType         raw real rowid serial serial8
-syn keyword sqlType         smallfloat smallint text time
-syn keyword sqlType         timestamp tinyblob tinyint tinytext
-syn keyword sqlType         varchar varchar2 varray year
-syn match   sqlType         contained "\<\(character\|double\|varying\)\>"
-syn match   sqlType         contained "\<character\s\+varying\>"
-syn match   sqlType         contained "\<double\s\+precision\>"
+syn keyword sqlType bigint     bit blob bool boolean byte char
+syn keyword sqlType clob       datetime dec decimal enum
+syn keyword sqlType float      int int8 integer interval long
+syn keyword sqlType longblob   longtext lvarchar mediumblob
+syn keyword sqlType mediumint  mediumtext mlslabel money
+syn keyword sqlType multiset   nchar number numeric nvarchar
+syn keyword sqlType raw        real rowid serial serial8
+syn keyword sqlType smallfloat smallint text time
+syn keyword sqlType timestamp  tinyblob tinyint tinytext
+syn keyword sqlType varchar    varchar2 varray year
+syn match   sqlType contained  "\<\(character\|double\|varying\)\>"
+syn match   sqlType contained  "\<character\s\+varying\>"
+syn match   sqlType contained  "\<double\s\+precision\>"
+syn match   sqlType "[\._\< as\>]\@<!date"
 
 " Strings
 syn region sqlString        start=+"+  skip=+\\\\\|\\"+  end=+"+ contains=sqlVariable
