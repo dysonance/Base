@@ -12,6 +12,14 @@ syn keyword juliaModule
             \ Statistics
             \ Dates
 
+syn keyword juliaCustomModule
+            \ Plots
+            \ Temporal
+            \ Indicators
+            \ Strategems
+            \ GR
+            \ JuMP
+
 syn keyword juliaKeyword
             \ true false where
             \ for in while if else elseif end
@@ -47,6 +55,7 @@ syn keyword juliaCustomType
 syn match juliaComment   "#.*$"   contains=juliaTodo
 syn match juliaComment   "#=.*=#" contains=juliaTodo
 syn match juliaConstant  '\<[A-Z_]\+\>\((\)\@!'
+syn match juliaConstant  'nothing'
 syn match juliaDelimiter ">\((\|;\)\@="
 syn match juliaDelimiter "\(\w\)\@<=<"
 syn match juliaDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
@@ -54,29 +63,30 @@ syn match juliaMacro     "@\(\w\)\+"
 syn match juliaNumber    "[0-9]\.[0-9]"
 syn match juliaNumber    "[A-z]\@![0-9]"
 syn match juliaNumber    "\.[0-9]"
-syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:"
+syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
 syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "[:<>0-9]\@<!:\(\w\)\+"
 
 syn region juliaString    start=+"+ end=+"+  skip=+\\\\\|\\"+ contains=juliaVariable
 syn region juliaCharacter start=+'+ end=+'+  skip=+\\\\\|\\'+ contains=juliaVariable
 
-hi def link juliaCharacter  Character
-hi def link juliaComment    Comment
-hi def link juliaConstant   Constant
-hi def link juliaCustomType Type
-hi def link juliaDelimiter  Delimiter
-hi def link juliaKeyword    Special
-hi def link juliaMacro      PreProc
-hi def link juliaModule     PreProc
-hi def link juliaNumber     Number
-hi def link juliaOperator   Operator
-hi def link juliaSpecial    SpecialChar
-hi def link juliaStatement  Statement
-hi def link juliaString     String
-hi def link juliaSymbol     String
-hi def link juliaTodo       Todo
-hi def link juliaType       Type
-hi def link juliaVariable   Identifier
+hi def link juliaCharacter    Character
+hi def link juliaComment      Comment
+hi def link juliaConstant     Constant
+hi def link juliaCustomType   Type
+hi def link juliaDelimiter    Delimiter
+hi def link juliaKeyword      Special
+hi def link juliaMacro        PreProc
+hi def link juliaModule       PreProc
+hi def link juliaNumber       Number
+hi def link juliaOperator     Operator
+hi def link juliaCustomModule PreProc
+hi def link juliaSpecial      SpecialChar
+hi def link juliaStatement    Statement
+hi def link juliaString       String
+hi def link juliaSymbol       String
+hi def link juliaTodo         Todo
+hi def link juliaType         Type
+hi def link juliaVariable     Identifier
 
 let b:current_syntax = "julia"
