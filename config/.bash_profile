@@ -42,3 +42,15 @@ function Ls()
 {
     ls -AlnT $@
 }
+
+function BashColors()
+{
+    local _index=$1
+    if [ "$_index" == "" ]; then
+        for i in {0..255}; do
+            printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+        done
+    else
+        printf "\x1b[38;5;${_index}mcolour${_index}\x1b[0m\n"
+    fi
+}
