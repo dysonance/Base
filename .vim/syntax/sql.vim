@@ -33,7 +33,7 @@ syn keyword sqlKeyword      initial inner into is join key left level loop
 syn keyword sqlKeyword      maxextents mode modify nocompress nowait object of
 syn keyword sqlKeyword      off offline on online option order outer pctfree full
 syn keyword sqlKeyword      primary privileges procedure public references
-syn keyword sqlKeyword      referencing release resource return role row rowid
+syn keyword sqlKeyword      referencing release resource role row rowid
 syn keyword sqlKeyword      rowlabel rownum rows schema session share size
 syn keyword sqlKeyword      start successful synonym then to transaction trigger
 syn keyword sqlKeyword      uid user using validate values view virtual whenever
@@ -91,6 +91,7 @@ syn match   sqlType contained  "\<\(character\|double\|varying\)\>"
 syn match   sqlType contained  "\<character\s\+varying\>"
 syn match   sqlType contained  "\<double\s\+precision\>"
 syn match   sqlType "[\._\< as\>]\@<!date"
+syn match   sqlType "[\._\< as\>]\@<!return"
 
 " Strings
 syn region sqlString        start=+"+  skip=+\\\\\|\\"+  end=+"+ contains=sqlVariable
