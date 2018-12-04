@@ -68,7 +68,7 @@ syn match sqlFunction "\<\(to_char\|to_date\|to_number\|total\|trim\|trunc\|type
 syn match sqlFunction "\<\(upper\|variance\)(\@="
 
 " Statements
-syn keyword sqlStatement    alter analyze audit begin comment commit delete set
+syn keyword sqlStatement    alter analyze audit begin comment commit delete set returning
 syn keyword sqlStatement    drop execute explain grant insert lock noaudit
 syn keyword sqlStatement    rename revoke rollback savepoint select
 syn keyword sqlStatement    desc as limit
