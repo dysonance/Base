@@ -57,7 +57,7 @@ Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use 
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
 Plug 'sheerun/vim-polyglot'                        " big inclusive language pack
-Plug 'JuliaEditorSupport/julia-vim'                " Julia language support
+"Plug 'JuliaEditorSupport/julia-vim'                " Julia language support
 Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
 Plug 'plasticboy/vim-markdown'                     " Markdown language support
 Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support

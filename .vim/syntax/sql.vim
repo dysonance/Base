@@ -31,7 +31,7 @@ syn keyword sqlKeyword      exclusive explain external file for foreign from fun
 syn keyword sqlKeyword      group having identified if immediate increment index
 syn keyword sqlKeyword      initial inner into is join key left level loop
 syn keyword sqlKeyword      maxextents mode modify nocompress nowait object of
-syn keyword sqlKeyword      off offline on online option order outer pctfree full
+syn keyword sqlKeyword      off offline on online option order outer cross pctfree full
 syn keyword sqlKeyword      primary privileges procedure public references
 syn keyword sqlKeyword      referencing release resource role row rowid
 syn keyword sqlKeyword      rowlabel rownum rows schema session share size
@@ -90,7 +90,7 @@ syn keyword sqlType varchar    varchar2 varray year
 syn match   sqlType contained  "\<\(character\|double\|varying\)\>"
 syn match   sqlType contained  "\<character\s\+varying\>"
 syn match   sqlType contained  "\<double\s\+precision\>"
-syn match   sqlType "[\._\< as\>]\@<!date"
+syn match   sqlType "[\._\< as\>]\@<!\<date\>"
 syn match   sqlType "[\._\< as\>]\@<!return"
 
 " Strings
