@@ -572,14 +572,14 @@ autocmd FileType r nmap <silent> <leader><F1> :!R -e "?<cword>"<CR>
 autocmd FileType r nmap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
 autocmd FileType r nmap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 autocmd FileType r nmap <F6> msvip:SlimeSend<CR>`s
-autocmd FileType r vmap <F6> msvip:SlimeSend<CR>`s
+autocmd FileType r vmap <F6> :SlimeSend<CR>gv
 autocmd FileType r nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType r nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd FileType julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"using Pkg; Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
 autocmd FileType julia nmap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
 autocmd FileType julia nmap <F6> msvip:SlimeSend<CR>`s
-autocmd FileType julia vmap <F6> msvip:SlimeSend<CR>`s
+autocmd FileType julia vmap <F6> :SlimeSend<CR>gv
 autocmd FileType julia nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType julia nmap <F8> :SlimeSendCurrentLine<CR>
 
@@ -593,14 +593,14 @@ autocmd FileType sh nmap <silent> <leader><F1> :!man <cword><CR>
 autocmd FileType sh nmap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
 autocmd FileType sh nmap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
 autocmd FileType sh nmap <F6> msvip:SlimeSend<CR>`s
-autocmd FileType sh vmap <F6> msvip:SlimeSend<CR>`s
+autocmd FileType sh vmap <F6> :SlimeSend<CR>gv
 autocmd FileType sh nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType sh nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd FileType sql nmap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
 autocmd FileType sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
 autocmd FileType sql nmap <F6> msvip:SlimeSend<CR>`s
-autocmd FileType sql vmap <F6> msvip:SlimeSend<CR>`s
+autocmd FileType sql vmap <F6> :SlimeSend<CR>gv
 autocmd FileType sql nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType sql nmap <F8> :SlimeSendCurrentLine<CR>
 
@@ -609,7 +609,7 @@ autocmd FileType python nmap <F3> :execute ":SlimeSend1 test python"<CR>
 autocmd FileType python nmap <F4> :execute ":SlimeSend1 build python"<CR>
 autocmd FileType python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
 autocmd FileType python nmap <F6> msvip:SlimeSend<CR>`s
-autocmd FileType python vmap <F6> msvip:SlimeSend<CR>`s
+autocmd FileType python vmap <F6> :SlimeSend<CR>gv
 autocmd FileType python nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType python nmap <F8> :SlimeSendCurrentLine<CR>
 
