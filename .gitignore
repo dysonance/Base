@@ -1,8 +1,8 @@
 
 *.DS_Store
 
-Applications/LLVM/src
-Applications/LLVM/bin
+apps/LLVM/src
+apps/LLVM/bin
 *.tar*
 
 tmp*
