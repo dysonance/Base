@@ -37,4 +37,3 @@ if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
     make -j $CPU
     make -j $CPU install
 fi
-

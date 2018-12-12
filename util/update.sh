@@ -1,22 +1,25 @@
 #!/bin/bash
 
+# entry
 cd $HOME/Preferences
 
+# packages
 brew update
 brew upgrade
 brew list --versions > data/brew_list.txt
 pip3 list > data/pip_list.txt
 
+# vim
 cd $HOME/Preferences/apps/vim
-./install.sh
-
+./deploy.sh
 vim -c ":PlugUpdate | :qa"
-
 cd $HOME/.vim/plugged/YouCompleteMe
 python3 install.py --all
-cd -
+cd $HOME/Preferences
 
+# julia
 cd $HOME/Preferences/apps/julia
-./update.sh
+./deploy.sh
 
+# end
 cd $HOME/Preferences
