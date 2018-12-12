@@ -1,9 +1,15 @@
 #!/bin/sh
 
-INSTALL_DIRECTORY="$HOME/Preferences/apps/vim"
+INSTALL_DIRECTORY="$HOME/Preferences/apps/vim/vim"
+PYTHON_VERSION=3.7.1
+PYTHON_CONFIG_DIR=/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig
+
+if [[ -z "${CPU}" ]]; then
+    CPU=4
+fi
 
 if [ ! -d "$INSTALL_DIRECTORY" ]; then
-    git clone https://github.com/vim/vim.git $INSTALL_DIRECTORY
+    git clone https://github.com/vim/vim.git
     cd $INSTALL_DIRECTORY
 else
     cd $INSTALL_DIRECTORY
@@ -11,20 +17,20 @@ else
     git pull
 fi
 
-./configure --with-features=huge \
-            --with-python-config-dir=/usr/lib/python2.7/config \
-            --enable-pythoninterp \
-            --enable-multibyte \
-            --enable-perlinterp \
-            --enable-rubyinterp \
-            --enable-luainterp \
-            --enable-gui=gtk2 \
-            --enable-cscope \
-            --prefix=$INSTALL_DIRECTORY
+./configure \
+    --enable-cscope \
+    --enable-gui=no \
+    --enable-luainterp \
+    --enable-multibyte \
+    --enable-perlinterp \
+    --enable-python3interp \
+    --enable-rubyinterp \
+    --prefix=$INSTALL_DIRECTORY
+    --with-features=huge \
+    --with-python-config-dir=$PYTHON_CONFIG_DIR \
+    --with-python3-command=python3 \
+    --without-x \
 
-make
+make -j $CPU
 
-make install \
-    DESTDIR=vim \
-    VIMRUNTIMEDIR=$INSTALL_DIRECTORY/runtime
-
+make -j $CPU install
