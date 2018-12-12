@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INSTALL_DIRECTORY="$HOME/Preferences/Applications/Vim"
+INSTALL_DIRECTORY="$HOME/Preferences/apps/vim"
 
 if [ ! -d "$INSTALL_DIRECTORY" ]; then
     git clone https://github.com/vim/vim.git $INSTALL_DIRECTORY

@@ -3,7 +3,7 @@
 # Note: See this anser on StackOverflow for a good explanation of how this needs to be structured
 # https://stackoverflow.com/a/49702159/2271756
 
-INSTALL_LOCATION=$HOME/Preferences/Applications/LLVM
+INSTALL_LOCATION=$HOME/Preferences/apps/llvm
 LLVM_VERSION=6.0.1
 
 cd $INSTALL_LOCATION

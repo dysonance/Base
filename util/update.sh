@@ -13,7 +13,7 @@ cd $HOME/.vim/plugged/YouCompleteMe
 python3 install.py --all
 cd -
 
-cd $HOME/Preferences/Applications/Julia
+cd $HOME/Preferences/apps/julia
 ./update.sh
 
 cd $HOME/Preferences

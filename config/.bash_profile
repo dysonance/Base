@@ -24,10 +24,8 @@ PS1="\n[$TIME][$FOLDER][$BRANCH]\n$PROMPT_COLOR\\$ $DEFAULT_COLOR"
 export PS1
 
 # julia convenience shortcuts
-alias jl6="$HOME/Preferences/Applications/Julia/v0.6/usr/bin/julia"
-alias jl7="$HOME/Preferences/Applications/Julia/v0.7/usr/bin/julia"
-alias jl1="$HOME/Preferences/Applications/Julia/v1.0/usr/bin/julia"
-alias jln="$HOME/Preferences/Applications/Julia/nightly/usr/bin/julia"
+alias jl1="$HOME/Preferences/apps/julia/v1.0/usr/bin/julia"
+alias jln="$HOME/Preferences/apps/julia/nightly/usr/bin/julia"
 if [ -d "$HOME/Applications/Julia-1.0.app" ]; then
     alias julia="$HOME/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia"
 else
@@ -36,7 +34,7 @@ fi
 alias jl="julia -q -O3 -g2"
 
 # path additions
-export PATH=$PATH:$HOME/Preferences/Applications/LLVM/bin
+export PATH=$PATH:$HOME/Preferences/apps/llvm/bin
 
 function Ls()
 {
