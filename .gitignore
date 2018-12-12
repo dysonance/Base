@@ -1,8 +1,8 @@
-
 *.DS_Store
-
-apps/LLVM/src
-apps/LLVM/bin
 *.tar*
+
+apps/llvm/src
+apps/llvm/bin
+apps/vim/vim
 
 tmp*
