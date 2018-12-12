@@ -4,3 +4,5 @@
 Applications/LLVM/src
 Applications/LLVM/bin
 *.tar*
+
+tmp*
