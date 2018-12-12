@@ -13,24 +13,28 @@ if [ ! -d "$INSTALL_DIRECTORY" ]; then
     cd $INSTALL_DIRECTORY
 else
     cd $INSTALL_DIRECTORY
-    git clean -xfd
-    git pull
 fi
 
-./configure \
-    --enable-cscope \
-    --enable-gui=no \
-    --enable-luainterp \
-    --enable-multibyte \
-    --enable-perlinterp \
-    --enable-python3interp \
-    --enable-rubyinterp \
-    --prefix=$INSTALL_DIRECTORY
-    --with-features=huge \
-    --with-python-config-dir=$PYTHON_CONFIG_DIR \
-    --with-python3-command=python3 \
-    --without-x \
+git fetch
+LOCAL_COMMIT=$(git rev-parse @)
+REMOTE_COMMIT=$(git rev-parse "@{u}")
+if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
+    git clean -xfd
+    git pull
+    ./configure \
+        --enable-cscope \
+        --enable-gui=no \
+        --enable-luainterp \
+        --enable-multibyte \
+        --enable-perlinterp \
+        --enable-python3interp \
+        --enable-rubyinterp \
+        --prefix=$INSTALL_DIRECTORY
+        --with-features=huge \
+        --with-python-config-dir=$PYTHON_CONFIG_DIR \
+        --with-python3-command=python3 \
+        --without-x \
+    make -j $CPU
+    make -j $CPU install
+fi
 
-make -j $CPU
-
-make -j $CPU install
