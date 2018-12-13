@@ -100,7 +100,8 @@ let ignored_messages=
             \ 'proprietary attribute "nonce"',
             \ 'discarding unexpected <meta>',
             \ "plain text isn't allowed",
-            \ '<a> illegal characters found in URI'
+            \ '<a> illegal characters found in URI',
+            \ 'struct field Cpu should be CPU'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
