@@ -1,0 +1,10 @@
+title: (Title)
+author: (Author)
+date: (Date)
+toc: false
+numbersections: true
+listings: true
+geometry: |
+    margin=1in
+header-includes: |
+    \usepackage{bm}

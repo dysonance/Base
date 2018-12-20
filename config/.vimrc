@@ -562,8 +562,8 @@ nnoremap <C-T> :shell<CR>
 nmap <silent> <F1> <Plug>DashSearch
 nmap <silent> <leader>dd <Plug>DashSearch
 
-autocmd FileType pandoc nnoremap <F4> :!pandoc % -o %:r.pdf --verbose --listings --number-sections --table-of-contents --variable=geometry:margin=1in<CR>
-autocmd FileType pandoc nnoremap <F5> :!pandoc % -o %:r.pdf --verbose --listings --number-sections --table-of-contents --variable=geometry:margin=1in && open %:r.pdf<CR>
+autocmd FileType pandoc nnoremap <F4> :!pandoc % -o %:r.pdf --verbose<CR>
+autocmd FileType pandoc nnoremap <F5> :!pandoc % -o %:r.pdf --verbose && open %:r.pdf<CR>
 
 nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
