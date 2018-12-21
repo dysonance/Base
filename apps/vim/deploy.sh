@@ -36,4 +36,9 @@ if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
         --without-x \
     make -j $CPU
     make -j $CPU install
+    cp src/ex bin/
+    cp src/rview bin/
+    cp src/rvim bin/
+    cp src/view bin/
+    cp src/vimdiff bin/
 fi
