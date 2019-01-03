@@ -370,9 +370,8 @@ autocmd FileType r setlocal shiftwidth=2        " R-language specific formatting
 autocmd FileType fortran setlocal shiftwidth=3  " fortran-specific formatting settings
 autocmd FileType fortran setlocal tabstop=3     " fortran-specific formatting settings
 autocmd FileType fortran setlocal softtabstop=3 " fortran-specific formatting settings
-autocmd FileType Rmd setlocal nospell           " dont check spelling in rmarkdown files
-autocmd FileType md setlocal nospell            " dont check spelling in markdown files
-autocmd FileType pandoc setlocal nospell        " dont check spelling in markdown files
+autocmd FileType md setlocal spell              " dont check spelling in markdown files
+autocmd FileType pandoc setlocal spell          " dont check spelling in markdown files
 set backspace=indent,eol,start                  " make backspace work like most apps
 set expandtab                                   " tabs are spaces
 

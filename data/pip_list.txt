@@ -102,7 +102,7 @@ scipy             1.1.0
 Scrapy            1.5.1     
 seaborn           0.9.0     
 service-identity  18.1.0    
-setuptools        40.5.0    
+setuptools        40.6.3    
 six               1.12.0    
 sklearn           0.0       
 statsmodels       0.9.0     
@@ -116,6 +116,6 @@ virtualenv        16.1.0
 w3lib             1.19.0    
 wcwidth           0.1.7     
 wget              3.2       
-wheel             0.32.2    
+wheel             0.32.3    
 wrapt             1.10.11   
 zope.interface    4.6.0     
