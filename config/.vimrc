@@ -29,6 +29,10 @@ Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 Plug 'rhysd/vim-clang-format'   " clang format whole file
 Plug 'ambv/black'               " python formatter
+Plug 'SirVer/ultisnips'         " snippet management utility
+Plug 'honza/vim-snippets'       " snippet engine
+Plug 'tomtom/tskeleton_vim'     " filetype snippet skeletons
+Plug 'tomtom/tlib_vim'          " utility functions for vim (req for tskeleton)
 
 
 " Workflow Utilities
@@ -57,7 +61,6 @@ Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use 
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
 Plug 'sheerun/vim-polyglot'                        " big inclusive language pack
-"Plug 'JuliaEditorSupport/julia-vim'                " Julia language support
 Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
 Plug 'plasticboy/vim-markdown'                     " Markdown language support
 Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support
@@ -144,6 +147,24 @@ let g:ycm_error_symbol='E'
 let g:ycm_warning_symbol='W'
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" }}}
+
+" Snippets {{{
+
+" UltiSnip {{{
+
+let g:UltiSnipsExpandTrigger="<C-G>"
+let g:UltiSnipsJumpForwardTrigger="<C-W>"
+let g:UltiSnipsJumpBackwardTrigger="<C-B>"
+
+" }}}
+
+" tSkeleton {{{
+
+autocmd BufNewFile *.md TSkeletonSetup pandoc.md
+
+" }}}
 
 " }}}
 
