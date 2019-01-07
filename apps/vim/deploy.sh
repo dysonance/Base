@@ -1,7 +1,7 @@
 #!/bin/sh
 
 INSTALL_DIRECTORY="$HOME/Preferences/apps/vim/vim"
-PYTHON_VERSION=3.7.1
+PYTHON_VERSION=3.7.2
 PYTHON_CONFIG_DIR=/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig
 
 if [[ -z "${CPU}" ]]; then
