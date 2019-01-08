@@ -18,8 +18,6 @@ Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 Plug 'rhysd/vim-clang-format'   " clang format whole file
 Plug 'ambv/black'               " python formatter
-Plug 'SirVer/ultisnips'         " snippet management utility
-Plug 'honza/vim-snippets'       " snippet engine
 Plug 'tomtom/tskeleton_vim'     " filetype snippet skeletons
 Plug 'tomtom/tlib_vim'          " utility functions for vim (req for tskeleton)
 
