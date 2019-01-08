@@ -53,3 +53,5 @@ function BashColors()
         printf "\x1b[38;5;${_index_}mcolour${_index_}\x1b[0m\n"
     fi
 }
+
+alias edit="vim"
