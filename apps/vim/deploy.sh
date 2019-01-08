@@ -15,12 +15,8 @@ else
     cd $INSTALL_DIRECTORY
 fi
 
-git fetch
-LOCAL_COMMIT=$(git rev-parse @)
-REMOTE_COMMIT=$(git rev-parse "@{u}")
-if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
-    git clean -xfd
-    git pull
+function BuildVim()
+{
     ./configure \
         --enable-cscope \
         --enable-gui=no \
@@ -41,4 +37,15 @@ if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
     cp src/rvim bin/
     cp src/view bin/
     cp src/vimdiff bin/
+}
+
+git fetch
+LOCAL_COMMIT=$(git rev-parse @)
+REMOTE_COMMIT=$(git rev-parse "@{u}")
+if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
+    git clean -xfd
+    git pull
+    BuildVim
+elif [[ ! -d "bin" ]]; then
+    BuildVim
 fi
