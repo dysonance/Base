@@ -38,7 +38,7 @@ syn match cppDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
 syn match cppDelimiter ">\((\|;\| [A-z]\)\@="
 syn match cppDelimiter "\(\w\)\@<=<"
 syn match cppFunction "\w\+\s*(\@="
-syn match cppConstant '\<[A-Z_]\+\>\((\)\@!'
+syn match cppConstant '\<[A-Z_]\{2,}\>\((\)\@!'
 
 " C++ 11 extensions
 if !exists("cpp_no_cpp11")
