@@ -14,11 +14,12 @@ syn keyword juliaModule
 
 syn keyword juliaCustomModule
             \ Plots
+            \ Distributions
+            \ GR
+            \ JuMP
             \ Temporal
             \ Indicators
             \ Strategems
-            \ GR
-            \ JuMP
 
 syn keyword juliaKeyword
             \ true false where

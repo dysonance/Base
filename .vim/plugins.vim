@@ -317,6 +317,7 @@ let g:pandoc#command#autoexec_command="Pandoc pdf"
 let g:pandoc#command#latex_engine="xelatex"
 let g:pandoc#command#autoexec_on_writes=0
 let g:pandoc#command#prefer_pdf=1
+let g:pandoc#syntax#conceal#use=0  " turn off pretty syntax (slow)
 
 " }}}
 
