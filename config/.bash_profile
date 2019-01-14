@@ -34,7 +34,7 @@ fi
 alias jl="julia -q -O3 -g2"
 
 # path additions
-export PATH=$PATH:$HOME/Preferences/apps/llvm/bin
+export PATH=$PATH:$HOME/Preferences/apps/llvm/llvm/build/bin
 export PATH=$HOME/Preferences/apps/vim/vim/bin:$PATH
 
 function Ls()
