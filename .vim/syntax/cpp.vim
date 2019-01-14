@@ -35,8 +35,6 @@ syn keyword cppStructure class typename template namespace
 syn keyword cppBoolean true false
 syn keyword cppConstant __cplusplus
 syn match cppDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
-syn match cppDelimiter ">\((\|;\| [A-z]\)\@="
-syn match cppDelimiter "\(\w\)\@<=<"
 syn match cppFunction "\w\+\s*(\@="
 syn match cppConstant '\<[A-Z_]\{2,}\>\((\)\@!'
 
