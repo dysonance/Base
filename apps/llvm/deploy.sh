@@ -4,15 +4,15 @@
 # https://stackoverflow.com/a/49702159/2271756
 
 INSTALL_LOCATION=$HOME/Preferences/apps/llvm
-LLVM_VERSION=6.0.1
+LLVM_VERSION=7.0.1
 
 cd $INSTALL_LOCATION
 
 # llvm source
 wget http://releases.llvm.org/$LLVM_VERSION/llvm-$LLVM_VERSION.src.tar.xz
 tar -xvf llvm-$LLVM_VERSION.src.tar.xz
-mv llvm-$LLVM_VERSION.src src
-cd src
+mv llvm-$LLVM_VERSION.src llvm
+cd llvm
 
 # clang compiler source
 cd tools
@@ -28,7 +28,7 @@ tar -xvf clang-tools-extra-$LLVM_VERSION.src.tar.xz
 mv clang-tools-extra-$LLVM_VERSION.src extra
 
 # build everything together with cmake
-cd $INSTALL_LOCATION/src
+cd $INSTALL_LOCATION/llvm
 mkdir build
 cd build
 cmake ..
