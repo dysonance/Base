@@ -7,8 +7,15 @@ syn keyword juliaTodo contained TODO FIXME NOTE XXX
 syn keyword juliaStatement using import return
 
 syn keyword juliaModule
-            \ Base
+            \ Base Base64
+            \ Core
+            \ Distributed
+            \ Future
+            \ LinearAlgebra
+            \ Pkg
+            \ Printf
             \ Dates
+            \ Random
             \ REPL
             \ Statistics
             \ Test
@@ -32,7 +39,7 @@ syn keyword juliaKeyword
             \ function type typealias abstract struct mutable bitstype
 
 syn keyword juliaType
-            \ Any Type Union Missing Callable Nothing
+            \ Any Type Union Missing Callable Nothing Vararg Function Expr
             \ Number Complex Real
             \ AbstractIrrational Rational Irrational
             \ Integer Bool Signed Unsigned Int BigInt Int16 Int32 Int64 Int8 Int128 UInt128 UInt16 UInt32 UInt64 UInt8
@@ -54,6 +61,7 @@ syn keyword juliaType
 syn keyword juliaCustomType
             \ DataFrame
             \ TS AbstractTS
+            \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Results
 
 syn match juliaComment   "#.*$"   contains=juliaTodo
 syn match juliaComment   "#=.*=#" contains=juliaTodo
@@ -70,6 +78,7 @@ syn match juliaSymbol    "[:<>0-9]\@<!:\(\w\)\+"
 
 syn region juliaString    start=+"+ end=+"+  skip=+\\\\\|\\"+ contains=juliaVariable
 syn region juliaCharacter start=+'+ end=+'+  skip=+\\\\\|\\'+ contains=juliaVariable
+syn region juliaComment   start="#=" end="=#"
 
 hi def link juliaCharacter    Character
 hi def link juliaComment      Comment
