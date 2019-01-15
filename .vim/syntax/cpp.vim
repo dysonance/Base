@@ -1,9 +1,3 @@
-" Vim syntax file
-" Language: C++
-" Current Maintainer: vim-jp (https://github.com/vim-jp/vim-cpp)
-" Previous Maintainer: Ken Shan <ccshan@post.harvard.edu>
-" Last Change: 2017 Jun 05
-
 " quit when a syntax file was already loaded
 if exists("b:current_syntax")
     finish
@@ -67,24 +61,24 @@ endif
 syn match cppMinMax "[<>]?"
 
 " Default highlighting
-hi def link cppAccess cppStatement
-hi def link cppCast cppStatement
-hi def link cppExceptions Exception
-hi def link cppOperator Operator
-hi def link cppStatement Statement
-hi def link cppModifier Type
-hi def link cppType Type
-hi def link cppStorageClass StorageClass
-hi def link cppStructure Structure
-hi def link cppBoolean Boolean
-hi def link cppConstant Constant
+hi def link cppAccess             cppStatement
+hi def link cppCast               cppStatement
+hi def link cppExceptions         Exception
+hi def link cppOperator           Operator
+hi def link cppStatement          Statement
+hi def link cppModifier           Type
+hi def link cppType               Type
+hi def link cppStorageClass       StorageClass
+hi def link cppStructure          Structure
+hi def link cppBoolean            Boolean
+hi def link cppConstant           Constant
 hi def link cppRawStringDelimiter Delimiter
-hi def link cppDelimiter Delimiter
-hi def link cppRawString String
-hi def link cppNumber Number
-hi def link cppNamespace PreProc
-hi def link cppScopeDelimiter Delimiter
-hi def link cppConstant Constant
+hi def link cppDelimiter          Delimiter
+hi def link cppRawString          String
+hi def link cppNumber             Number
+hi def link cppNamespace          PreProc
+hi def link cppScopeDelimiter     Delimiter
+hi def link cppConstant           Constant
 
 let b:current_syntax = "cpp"
 
