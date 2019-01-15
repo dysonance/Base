@@ -229,9 +229,15 @@ nnoremap <leader>st :SyntasticToggleMode<CR>
 
 " Control Key Mappings {{{
 
+" Visual Mode {{{
+
 " reselct visual selection after incrementing or decrementing numbers
 vnoremap <C-A> <C-A>gv
 vnoremap <C-X> <C-X>gv
+
+" }}}
+
+" Normal Mode {{{
 
 " toggle the nerd tree side bar file explorer menu
 nnoremap <C-N> :NERDTreeToggle<CR>
@@ -244,6 +250,40 @@ nnoremap <C-K> :bdelete<CR>
 
 " ctrl+t to access terminal
 nnoremap <C-T> :shell<CR>
+
+" }}}
+
+" Insert Mode {{{
+
+autocmd FileType pandoc vmap <C-J> <Esc>f{vi{
+autocmd FileType pandoc imap <C-J> <Esc>f{vi{
+autocmd FileType pandoc nmap <C-J> <Esc>f{vi{
+autocmd FileType pandoc imap <C-L> _{}<Esc>i
+autocmd FileType pandoc imap <C-E> ^{}<Esc>i
+autocmd Filetype pandoc imap <C-F> \text{}<Esc>i
+autocmd FileType pandoc imap <C-T>s \sum\limits_{i=1}^{N}<Esc>F=vi{
+autocmd FileType pandoc imap <C-T>p \prod\limits_{i=1}^{N}<Esc>F=vi{
+autocmd FileType pandoc imap <C-T>f \frac{1}{N}<Esc>F1v
+autocmd FileType pandoc imap <C-T>tf \tfrac{1}{N}<Esc>F1v
+autocmd FileType pandoc imap <C-B> \left<C-V>[\right<C-V>]<Esc>%a<Space><Space><Esc>i
+autocmd FileType pandoc imap <C-P> \left<C-V>(\right<C-V>)<Esc>%a<Space><Space><Esc>i
+
+autocmd FileType pandoc imap <C-G>a \alpha
+autocmd FileType pandoc imap <C-G>b \beta
+autocmd FileType pandoc imap <C-G>s \sigma
+autocmd FileType pandoc imap <C-G>g \gamma
+autocmd FileType pandoc imap <C-G>f \phi
+autocmd FileType pandoc imap <C-G>p \pi
+autocmd FileType pandoc imap <C-G>w \omega
+autocmd FileType pandoc imap <C-G>A \Alpha
+autocmd FileType pandoc imap <C-G>B \Beta
+autocmd FileType pandoc imap <C-G>S \Sigma
+autocmd FileType pandoc imap <C-G>G \Gamma
+autocmd FileType pandoc imap <C-G>F \Phi
+autocmd FileType pandoc imap <C-G>P \Pi
+autocmd FileType pandoc imap <C-G>W \Omega
+
+" }}}
 
 " }}}
 
