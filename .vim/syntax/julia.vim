@@ -65,7 +65,7 @@ syn keyword juliaCustomType
 
 syn match juliaComment   "#.*$"   contains=juliaTodo
 syn match juliaComment   "#=.*=#" contains=juliaTodo
-syn match juliaConstant  '\<[A-Z_]\+\>\((\)\@!'
+syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaConstant  'nothing'
 syn match juliaDelimiter ">\((\|;\)\@="
 syn match juliaDelimiter "\(\w\)\@<=<"
