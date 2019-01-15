@@ -8,13 +8,15 @@ syn keyword juliaStatement using import return
 
 syn keyword juliaModule
             \ Base
-            \ Test
-            \ Statistics
             \ Dates
+            \ REPL
+            \ Statistics
+            \ Test
 
 syn keyword juliaCustomModule
             \ Plots
             \ Distributions
+            \ HTTP
             \ GR
             \ JuMP
             \ Temporal
@@ -30,7 +32,7 @@ syn keyword juliaKeyword
             \ function type typealias abstract struct mutable bitstype
 
 syn keyword juliaType
-            \ Any Type Union Missing Callable
+            \ Any Type Union Missing Callable Nothing
             \ Number Complex Real
             \ AbstractIrrational Rational Irrational
             \ Integer Bool Signed Unsigned Int BigInt Int16 Int32 Int64 Int8 Int128 UInt128 UInt16 UInt32 UInt64 UInt8
@@ -40,7 +42,7 @@ syn keyword juliaType
             \ AbstractUnitRange AbstractRange LinRange OrdinalRange StepRangeLen
             \ Array Matrix Vector VecOrMat UnitRange
             \ AbstractDict AbstractSet Dict Set Tuple NTuple NamedTuple Pair
-            \ AbstractDateTime AbstractTime AbstractDateToken 
+            \ AbstractDateTime AbstractTime AbstractDateToken
             \ Date DateTime Time TimeZone TimeType TimeTypeOrPeriod DateFormat DateFunction DateLocale DatePart
             \ DatePeriod TimePeriod FixedPeriod GeneralPeriod OtherPeriod Instant Locale
             \ Calendar Year Quarter Month Week Day Hour Minute Second Millisecond Microsecond Nanosecond
@@ -59,11 +61,9 @@ syn match juliaConstant  '\<[A-Z_]\+\>\((\)\@!'
 syn match juliaConstant  'nothing'
 syn match juliaDelimiter ">\((\|;\)\@="
 syn match juliaDelimiter "\(\w\)\@<=<"
-syn match juliaDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
+syn match juliaDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match juliaMacro     "@\(\w\)\+"
-syn match juliaNumber    "[0-9]\.[0-9]"
-syn match juliaNumber    "[A-z]\@![0-9]"
-syn match juliaNumber    "\.[0-9]"
+syn match juliaNumber    "\<[0-9.]\+\>"
 syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
 syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "[:<>0-9]\@<!:\(\w\)\+"
