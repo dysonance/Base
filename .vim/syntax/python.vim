@@ -27,11 +27,11 @@ syn keyword pythonKeyword
       \ if else elif try catch finally
       \ for while
 
-syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
-syn match pythonDecorator "@"
-syn match pythonDecorator "@\@<=\w*"
+syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
+syn match pythonDecorator "@\@<=\w*\|@"
 syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match pythonFunction  "\(def \)\@<=\w*"
+syn match pythonNumber    "\<[0-9.]\+\>"
 syn match pythonOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\."
 
 syn region pythonComment start="#"      end="\n"
@@ -47,6 +47,7 @@ hi def link pythonDecorator  PreProc
 hi def link pythonDelimiter  Delimiter
 hi def link pythonFunction   Operator
 hi def link pythonKeyword    Keyword
+hi def link pythonNumber     Number
 hi def link pythonOperator   Operator
 hi def link pythonPackage    PreProc
 hi def link pythonStatement  Statement

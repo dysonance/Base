@@ -1,3 +1,5 @@
+[core]
+    editor = vim
 [github]
     user = dysonance
     email = jamos125@gmail.com
