@@ -1,8 +1,16 @@
 syn keyword pythonStatement
             \ def return
             \ import as from
-            \ assert
-            \ raise
+            \ assert raise
+            \ continue pass yield break
+            \ del
+
+syn keyword pythonKeyword
+            \ class self cls
+            \ if else elif try catch finally except
+            \ for in while with continue pass
+            \ global local nonlocal
+            \ lambda
 
 syn keyword pythonBuiltin
             \ True False None
@@ -14,20 +22,16 @@ syn keyword pythonType
             \ AssertionError ValueError
 
 syn keyword pythonCustomType
+            \ array ndarray
             \ DataFrame Series
-            \ array
-
-syn keyword pythonKeyword
-            \ class self cls
-            \ if else elif try catch finally
-            \ for in while with
+            \ DatetimeIndex MultiIndex
 
 syn match pythonConstant     "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator    "@\@<=\w*\|@"
 syn match pythonDelimiter    "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match pythonFunction     "\(def \)\@<=\w*"
 syn match pythonNumber       "\<[0-9.]\+\>"
-syn match pythonOperator     "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~"
+syn match pythonOperator     "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
 syn match pythonStringFormat "\(%[A-z]\)\|{}"
 syn match pythonTodo         "TODO\|FIXME\|NOTE"
 
