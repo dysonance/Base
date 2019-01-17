@@ -52,7 +52,19 @@ hi def link pythonStringFormat SpecialChar
 hi def link pythonTodo         Todo
 hi def link pythonType         Type
 
-syn keyword pythonPackage
+syn keyword pythonCustomLibrary
+            \ numpy np
+            \ pandas pd
+            \ matplotlib mpl plt
+            \ seaborn sns
+            \ bokeh
+            \ sklearn
+            \ numba
+            \ plotly
+            \ scipy
+            \ psycopg2
+
+syn keyword pythonStandardLibrary
             \ __future__
             \ __main__
             \ _dummy_thread
@@ -60,7 +72,6 @@ syn keyword pythonPackage
             \ abc
             \ aifc
             \ argparse
-            \ array
             \ ast
             \ asynchat
             \ asyncio
@@ -101,7 +112,6 @@ syn keyword pythonPackage
             \ curses.panel
             \ curses.textpad
             \ dataclasses
-            \ datetime
             \ datetime dt
             \ dbm
             \ decimal
@@ -153,7 +163,6 @@ syn keyword pythonPackage
             \ keyword
             \ linecache
             \ locale
-            \ logging
             \ logging log
             \ logging.config
             \ logging.handlers
@@ -163,7 +172,6 @@ syn keyword pythonPackage
             \ mailcap
             \ marshal
             \ math
-            \ matplotlib
             \ mimetypes
             \ mmap
             \ modulefinder
@@ -173,16 +181,13 @@ syn keyword pythonPackage
             \ netrc
             \ nis
             \ nntplib
-            \ numba
             \ numbers
-            \ numpy np
             \ operator
             \ optparse
             \ os
             \ os
             \ os.path
             \ ossaudiodev
-            \ pandas pd
             \ parser
             \ pathlib
             \ pdb
@@ -299,7 +304,9 @@ syn keyword pythonPackage
             \ zipfile
             \ zipimport
             \ zlib
+            " \ array
 
-hi def link pythonPackage PreProc
+hi def link pythonStandardLibrary PreProc
+hi def link pythonCustomLibrary   PreProc
 
 let b:current_syntax = "python"
