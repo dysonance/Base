@@ -21,7 +21,8 @@ highlight Keyword     ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
 
 " Special highlighting group
-highlight Type        ctermfg=DarkCyan   ctermbg=NONE  cterm=NONE
+" NOTE: 208 is orange
+highlight Type        ctermfg=208   ctermbg=NONE  cterm=NONE
 highlight Special     ctermfg=Magenta    ctermbg=NONE  cterm=NONE
 highlight Delimiter   ctermfg=Cyan       ctermbg=NONE  cterm=NONE
 highlight Tag         ctermfg=Magenta    ctermbg=NONE  cterm=NONE

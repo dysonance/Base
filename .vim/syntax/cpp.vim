@@ -1,85 +1,82 @@
-" quit when a syntax file was already loaded
-if exists("b:current_syntax")
-    finish
-endif
+syn keyword cppOperator
+            \ operator
+            \ typeid
+            \ and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
 
-" Read the C syntax to start with
-runtime! syntax/c.vim
-unlet b:current_syntax
+syn keyword cppStatement
+            \ return
+            \ using
+            \ new delete this
+            \ friend
 
-" C++ extensions
-syn keyword cppStatement new delete this friend using
-syn keyword cppAccess public protected private
-syn keyword cppModifier inline virtual explicit export
-syn keyword cppType bool wchar_t
-syn match cppType "\<\(function\|shared_ptr\|list\|vector\|map\|deque\|uvec\|vec\|umat\|mat\|cube\|span\|rowvec\|colvec\|Col\|Mat\)\>"
-syn keyword cppExceptions throw try catch
-syn keyword cppOperator operator typeid
-syn keyword cppOperator and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
-syn match cppOperator "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%"
-syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
-syn match cppCast "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
-syn match cppScopeDelimiter "::"
-syn match cppNamespace "\w\+\s*::" contains=cppScopeDelimiter
-syn match cppMemberAccess "\." contained
-syn match cppPointerMemberAccess "->" contained
-syn match cppMemberVariable "\(\.\|-_\)\h\w*" contains=cppMemberAccess,cppPointerMemberAccess
-syn keyword cppStorageClass mutable
-syn keyword cppStructure class typename template namespace
-syn keyword cppBoolean true false
-syn keyword cppConstant __cplusplus
-syn match cppDelimiter '\[\|\]\|(\|)\|,\|{\|}\|;'
-syn match cppFunction "\w\+\s*(\@="
-syn match cppConstant '\<[A-Z_]\{2,}\>\((\)\@!'
+syn keyword cppKeyword
+            \ for while
+            \ if else
+            \ try catch finally
+            \ inline virtual explicit export public protected private
+            \ class typename templace namespace
 
-" C++ 11 extensions
-if !exists("cpp_no_cpp11")
-    syn keyword cppModifier override final
-    syn keyword cppType nullptr_t auto
-    syn keyword cppExceptions noexcept
-    syn keyword cppStorageClass constexpr decltype thread_local
-    syn keyword cppConstant nullptr
-    syn keyword cppConstant ATOMIC_FLAG_INIT ATOMIC_VAR_INIT
-    syn keyword cppConstant ATOMIC_BOOL_LOCK_FREE ATOMIC_CHAR_LOCK_FREE
-    syn keyword cppConstant ATOMIC_CHAR16_T_LOCK_FREE ATOMIC_CHAR32_T_LOCK_FREE
-    syn keyword cppConstant ATOMIC_WCHAR_T_LOCK_FREE ATOMIC_SHORT_LOCK_FREE
-    syn keyword cppConstant ATOMIC_INT_LOCK_FREE ATOMIC_LONG_LOCK_FREE
-    syn keyword cppConstant ATOMIC_LLONG_LOCK_FREE ATOMIC_POINTER_LOCK_FREE
-    syn region cppRawString matchgroup=cppRawStringDelimiter start=+\%(u8\|[uLU]\)\=R"\z([[:alnum:]_{}[\]#<>%:;.?*\+\-/\^&|~!=,"']\{,16}\)(+ end=+)\z1"+ contains=@Spell
-endif
+syn keyword cppConstant
+            \ nullptr
+            \ true false
 
-" C++ 14 extensions
-if !exists("cpp_no_cpp14")
-    syn case ignore
-    syn match cppNumber display "\<0b[01]\('\=[01]\+\)*\(u\=l\{0,2}\|ll\=u\)\>"
-    syn match cppNumber display "\<[1-9]\('\=\d\+\)*\(u\=l\{0,2}\|ll\=u\)\>" contains=cFloat
-    syn match cppNumber display "\<0x\x\('\=\x\+\)*\(u\=l\{0,2}\|ll\=u\)\>"
-    syn case match
-endif
+syn keyword cppType
+            \ const static mutable
+            \ bool
+            \ int unsigned
+            \ double float
+            \ auto
 
-" The minimum and maximum operators in GNU C++
-syn match cppMinMax "[<>]?"
+syn keyword cppCustomType
+            \ vec colvec ivec uvec Col Row
+            \ mat imat umat Mat
+            \ cube
 
-" Default highlighting
+syn match cppCast                "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
+syn match cppCast                "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
+syn match cppConstant            "\<[A-Z_]\{2,}\>\((\)\@!"
+syn match cppDelimiter           "\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match cppFunction            "\w\+\s*(\@="
+syn match cppMemberAccess        "\."              contained
+syn match cppMemberVariable      "\(\.\|-_\)\h\w*" contains=cppMemberAccess,cppPointerMemberAccess
+syn match cppNamespace           "\w\+\s*::"       contains=cppScopeDelimiter
+syn match cppNumber              "\<[0-9.]\+\>\|[0-9]e[0-9-]"
+syn match cppOperator            "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\."
+syn match cppPointerMemberAccess "->"              contained
+syn match cppPreProc             "#\w*"
+syn match cppScopeDelimiter      "::"
+syn match cppTodo                "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
+syn match cppType                "\<\(function\|shared_ptr\|list\|vector\|map\|deque\|uvec\|vec\|umat\|mat\|cube\|span\|rowvec\|colvec\|Col\|Mat\)\>"
+
+syn region cppChar    start="\'"   end="\'"
+syn region cppComment start="//"   end="$"    contains=cppTodo
+syn region cppComment start="\/\*" end="\*\/" contains=cppTodo
+syn region cppString  start="\""   end="\""
+
 hi def link cppAccess             cppStatement
-hi def link cppCast               cppStatement
-hi def link cppExceptions         Exception
-hi def link cppOperator           Operator
-hi def link cppStatement          Statement
-hi def link cppModifier           Type
-hi def link cppType               Type
-hi def link cppStorageClass       StorageClass
-hi def link cppStructure          Structure
 hi def link cppBoolean            Boolean
+hi def link cppCast               cppStatement
+hi def link cppChar               String
+hi def link cppComment            Comment
 hi def link cppConstant           Constant
-hi def link cppRawStringDelimiter Delimiter
+hi def link cppConstant           Constant
+hi def link cppCustomType         Type
 hi def link cppDelimiter          Delimiter
-hi def link cppRawString          String
-hi def link cppNumber             Number
+hi def link cppExceptions         Exception
+hi def link cppKeyword            Keyword
+hi def link cppModifier           Type
 hi def link cppNamespace          PreProc
+hi def link cppNumber             Number
+hi def link cppOperator           Operator
+hi def link cppPreProc            PreProc
+hi def link cppRawString          String
+hi def link cppRawStringDelimiter Delimiter
 hi def link cppScopeDelimiter     Delimiter
-hi def link cppConstant           Constant
+hi def link cppStatement          Statement
+hi def link cppStorageClass       StorageClass
+hi def link cppString             String
+hi def link cppStructure          Structure
+hi def link cppTodo               Todo
+hi def link cppType               Type
 
 let b:current_syntax = "cpp"
-
-" vim: ts=8
