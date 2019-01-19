@@ -22,7 +22,7 @@ highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
 
 " Special highlighting group
 " NOTE: 208 is orange
-highlight Type        ctermfg=208   ctermbg=NONE  cterm=NONE
+highlight Type        ctermfg=208        ctermbg=NONE  cterm=NONE
 highlight Special     ctermfg=Magenta    ctermbg=NONE  cterm=NONE
 highlight Delimiter   ctermfg=Cyan       ctermbg=NONE  cterm=NONE
 highlight Tag         ctermfg=Magenta    ctermbg=NONE  cterm=NONE
