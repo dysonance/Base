@@ -29,8 +29,7 @@ syn keyword pythonCustomType
 syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
 syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match pythonFunction  "\w*(\@="     contains=pythonDelimiter
-syn match pythonFunction  "\.\@<=\w*\[" contains=pythonDelimiter
+syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
 syn match pythonNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
 syn match pythonOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
 syn match pythonFormat    "\(%[A-z]\)\|{}"
