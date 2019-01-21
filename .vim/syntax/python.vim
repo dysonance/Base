@@ -1,6 +1,6 @@
 syn keyword pythonStatement
             \ def return
-            \ import as from
+            \ import from
             \ assert raise
             \ continue pass yield break
             \ del
@@ -8,7 +8,7 @@ syn keyword pythonStatement
 syn keyword pythonKeyword
             \ class self cls
             \ if else elif try catch finally except
-            \ for in while with continue pass
+            \ for in while with as continue pass
             \ global local nonlocal
             \ lambda
 
@@ -26,35 +26,36 @@ syn keyword pythonCustomType
             \ DataFrame Series
             \ DatetimeIndex MultiIndex
 
-syn match pythonConstant     "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
-syn match pythonDecorator    "@\@<=\w*\|@"
-syn match pythonDelimiter    "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match pythonFunction     "\(def \)\@<=\w*"
-syn match pythonNumber       "\<[0-9.]\+\>\|[0-9]e[0-9-]"
-syn match pythonOperator     "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
-syn match pythonStringFormat "\(%[A-z]\)\|{}"
-syn match pythonTodo         "TODO\|FIXME\|NOTE"
+syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
+syn match pythonDecorator "@\@<=\w*\|@"
+syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match pythonFunction  "\w*(\@="     contains=pythonDelimiter
+syn match pythonFunction  "\.\@<=\w*\[" contains=pythonDelimiter
+syn match pythonNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
+syn match pythonOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
+syn match pythonFormat    "\(%[A-z]\)\|{}"
+syn match pythonTodo      "TODO\|FIXME\|NOTE"
 
 syn region pythonComment start="#"      end="\n"     contains=pythonTodo
-syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonStringFormat
-syn region pythonString  start=+"+      end=+"+      contains=pythonStringFormat
-syn region pythonString  start=+'+      end=+'+      contains=pythonStringFormat
+syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
+syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
+syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
 
-hi def link pythonBuiltin      Constant
-hi def link pythonComment      Comment
-hi def link pythonConstant     Constant
-hi def link pythonCustomType   Type
-hi def link pythonDecorator    PreProc
-hi def link pythonDelimiter    Delimiter
-hi def link pythonFunction     Operator
-hi def link pythonKeyword      Keyword
-hi def link pythonNumber       Number
-hi def link pythonOperator     Operator
-hi def link pythonStatement    Statement
-hi def link pythonString       String
-hi def link pythonStringFormat SpecialChar
-hi def link pythonTodo         Todo
-hi def link pythonType         Type
+hi def link pythonBuiltin    Constant
+hi def link pythonComment    Comment
+hi def link pythonConstant   Constant
+hi def link pythonCustomType Type
+hi def link pythonDecorator  PreProc
+hi def link pythonDelimiter  Delimiter
+hi def link pythonFunction   Operator
+hi def link pythonKeyword    Keyword
+hi def link pythonNumber     Number
+hi def link pythonOperator   Operator
+hi def link pythonStatement  Statement
+hi def link pythonString     String
+hi def link pythonFormat     SpecialChar
+hi def link pythonTodo       Todo
+hi def link pythonType       Type
 
 syn keyword pythonCustomLibrary
             \ numpy np
