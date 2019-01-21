@@ -1,18 +1,13 @@
-" Vim indent file
-" Language: Julia
-" Maintainer:   Carlo Baldassi <carlobaldassi@gmail.com>
-" Last Change:  2016 jun 16
-" Notes:        originally based on Bram Molenaar's indent file for vim
-
 setlocal autoindent
+setlocal nosmartindent
 
-setlocal indentexpr=GetJuliaIndent()
+"setlocal indentexpr=GetJuliaIndent()
+
 setlocal indentkeys+==end,=else,=catch,=finally,),],}
 setlocal indentkeys-=0#
 setlocal indentkeys-=:
 setlocal indentkeys-=0{
 setlocal indentkeys-=0}
-setlocal smartindent
 
 " Only define the function once.
 if exists("*GetJuliaIndent")
@@ -20,6 +15,7 @@ if exists("*GetJuliaIndent")
 endif
 
 let s:skipPatterns = '\<julia\%(Comprehension\%(For\|If\)\|RangeEnd\|Comment[LM]\|\%([bsv]\|ip\|big\|MIME\|Shell\|Printf\|Doc\)\=String\|RegEx\|SymbolS\?\)\>'
+let s:bracketBlocks = '\<julia\%(\%(\%(Printf\)\?Par\|SqBra\|CurBra\)Block\|ParBlockInRange\|StringVars\%(Par\|SqBra\|CurBra\)\|Dollar\%(Par\|SqBra\)\|QuotedParBlockS\?\)\>'
 
 function JuliaMatch(lnum, str, regex, st, ...)
     let s = a:st
@@ -41,8 +37,8 @@ function JuliaMatch(lnum, str, regex, st, ...)
     return f
 endfunction
 
+" Auxiliary function to inspect the block structure of a line
 function GetJuliaNestingStruct(lnum, ...)
-    " Auxiliary function to inspect the block structure of a line
     let line = getline(a:lnum)
     let s = a:0 > 0 ? a:1 : 0
     let e = a:0 > 1 ? a:2 : -1
@@ -166,8 +162,8 @@ function GetJuliaNestingStruct(lnum, ...)
     return [num_open_blocks, num_closed_blocks]
 endfunction
 
+" Auxiliary function to inspect the brackets structure of a line
 function GetJuliaNestingBrackets(lnum, c)
-    " Auxiliary function to inspect the brackets structure of a line
     let line = getline(a:lnum)[0 : (a:c - 1)]
     let s = 0
     let brackets_stack = []
@@ -260,8 +256,6 @@ function GetJuliaNestingBrackets(lnum, c)
     endif
     return [first_open_bracket, last_open_bracket, last_closed_bracket]
 endfunction
-
-let s:bracketBlocks = '\<julia\%(\%(\%(Printf\)\?Par\|SqBra\|CurBra\)Block\|ParBlockInRange\|StringVars\%(Par\|SqBra\|CurBra\)\|Dollar\%(Par\|SqBra\)\|QuotedParBlockS\?\)\>'
 
 function IsInBrackets(lnum, c)
     let stack = map(synstack(a:lnum, a:c), 'synIDattr(v:val, "name")')
