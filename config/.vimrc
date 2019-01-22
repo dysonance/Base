@@ -209,7 +209,7 @@ nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gdf :Gdiff<CR>
-nnoremap <leader>gdm :Gdiff master<CR>
+nnoremap <leader>gdm :Gdiff master<CR>zRgg]czz
 
 " easier grepper command accessibility
 nnoremap <leader>gr :Grepper<CR>

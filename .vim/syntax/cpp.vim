@@ -8,46 +8,49 @@ syn keyword cppStatement
             \ using
             \ new delete this
             \ friend
+            \ static_cast dynamic_cast reinterpret_cast const_cast
 
 syn keyword cppKeyword
             \ for while
             \ if else
             \ try catch finally
             \ inline virtual explicit export public protected private
-            \ class typename templace namespace
+            \ class struct typename template namespace typedef
 
 syn keyword cppConstant
             \ nullptr
+
+syn keyword cppBoolean
             \ true false
 
 syn keyword cppType
+            \ void
             \ const static mutable
             \ bool
             \ int unsigned long
             \ double float
             \ auto
+            \ function shared_ptr list vector map deque
 
 syn keyword cppCustomType
             \ vec colvec ivec uvec Col Row
             \ mat imat umat Mat
             \ cube
 
-syn match cppCast                "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
-syn match cppCast                "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
-syn match cppConstant            "\<[A-Z_]\{2,}\>\((\)\@!"
-syn match cppDelimiter           "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match cppFunction            "\w\+\s*(\@="
-syn match cppMemberAccess        "\."              contained
-syn match cppMemberVariable      "\(\.\|-_\)\h\w*" contains=cppMemberAccess,cppPointerMemberAccess
-syn match cppNamespace           "\w\+\s*::"       contains=cppScopeDelimiter
-syn match cppNumber              "\<[0-9.]\+\>\|[0-9]e[0-9-]"
-syn match cppOperator            "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\."
-syn match cppPointerMemberAccess "->"
-syn match cppPreProc             "#\w*"
-syn match cppScopeDelimiter      "::"
-syn match cppString              "\(#include \)\@<=<\w*>"
-syn match cppTodo                "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
-syn match cppType                "\<\(function\|shared_ptr\|list\|vector\|map\|deque\|uvec\|vec\|umat\|mat\|cube\|span\|rowvec\|colvec\|Col\|Mat\)\>"
+syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
+syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
+syn match cppConstant       "\<[A-Z_]\{2,}\>\((\)\@!"
+syn match cppDelimiter      "\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match cppFunction       "\w\+\s*(\@=\|\w\+<.*>\s*(\@=" contains=cppType,cppCustomType
+syn match cppMemberVariable "\(\.\|-_\)\h\w*"
+syn match cppNamespace      "\w\+\s*::" contains=cppScopeDelimiter
+syn match cppNumber         "\<[0-9.]\+\>\|[0-9]e[0-9-]"
+syn match cppOperator       "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\|->"
+syn match cppPreProc        "#\w*"
+syn match cppScopeDelimiter "::"
+syn match cppString         "\(#include \)\@<=.*$"
+syn match cppTodo           "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
+syn match cppType           "< \w\+ >" contains=cppOperator
 
 syn region cppChar    start="\'"   end="\'"
 syn region cppComment start="//"   end="$"    contains=cppTodo
@@ -64,6 +67,7 @@ hi def link cppConstant           Constant
 hi def link cppCustomType         Type
 hi def link cppDelimiter          Delimiter
 hi def link cppExceptions         Exception
+hi def link cppFunction           Function
 hi def link cppKeyword            Keyword
 hi def link cppModifier           Type
 hi def link cppNamespace          PreProc

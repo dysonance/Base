@@ -78,7 +78,7 @@ runtime macros/matchit.vim  " extended `%` logical navigation
 
 " General
 
-" let g:syntastic_debug=3  " turn on to see diagnostics when checking
+"let g:syntastic_debug=3  " turn on to see diagnostics when checking
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -107,6 +107,7 @@ autocmd filetype qf setlocal wrap
 let g:syntastic_c_compiler='clang'
 let g:syntastic_c_auto_refresh_includes=1
 
+let g:syntastic_cpp_checkers=['clang++', 'clang_check', 'clang_tidy', 'gcc']
 let g:syntastic_cpp_config_file='.syntastic_cpp_config'
 let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1

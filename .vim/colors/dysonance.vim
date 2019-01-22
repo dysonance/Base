@@ -7,7 +7,7 @@ highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
 highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
 
 " Constant highlighting group
-highlight Constant  ctermfg=DarkCyan ctermbg=NONE cterm=NONE
+highlight Constant  ctermfg=Red ctermbg=NONE cterm=NONE
 highlight Number    ctermfg=Red      ctermbg=NONE cterm=NONE
 highlight Float     ctermfg=Red      ctermbg=NONE cterm=NONE
 highlight Boolean   ctermfg=Red      ctermbg=NONE cterm=NONE

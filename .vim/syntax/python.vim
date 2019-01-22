@@ -13,7 +13,10 @@ syn keyword pythonKeyword
             \ lambda
 
 syn keyword pythonBuiltin
-            \ True False None
+            \ None
+
+syn keyword pythonBoolean
+            \ True False
 
 syn keyword pythonType
             \ int float bool complex str
@@ -40,6 +43,7 @@ syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
 syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
 syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
 
+hi def link pythonBoolean    Boolean
 hi def link pythonBuiltin    Constant
 hi def link pythonComment    Comment
 hi def link pythonConstant   Constant
