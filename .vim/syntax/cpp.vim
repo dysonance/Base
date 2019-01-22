@@ -23,7 +23,7 @@ syn keyword cppConstant
 syn keyword cppType
             \ const static mutable
             \ bool
-            \ int unsigned
+            \ int unsigned long
             \ double float
             \ auto
 
@@ -42,9 +42,10 @@ syn match cppMemberVariable      "\(\.\|-_\)\h\w*" contains=cppMemberAccess,cppP
 syn match cppNamespace           "\w\+\s*::"       contains=cppScopeDelimiter
 syn match cppNumber              "\<[0-9.]\+\>\|[0-9]e[0-9-]"
 syn match cppOperator            "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\."
-syn match cppPointerMemberAccess "->"              contained
+syn match cppPointerMemberAccess "->"
 syn match cppPreProc             "#\w*"
 syn match cppScopeDelimiter      "::"
+syn match cppString              "\(#include \)\@<=<\w*>"
 syn match cppTodo                "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
 syn match cppType                "\<\(function\|shared_ptr\|list\|vector\|map\|deque\|uvec\|vec\|umat\|mat\|cube\|span\|rowvec\|colvec\|Col\|Mat\)\>"
 

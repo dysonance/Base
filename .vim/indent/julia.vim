@@ -1,7 +1,7 @@
 setlocal autoindent
 setlocal nosmartindent
 
-"setlocal indentexpr=GetJuliaIndent()
+setlocal indentexpr=GetJuliaIndent()
 
 setlocal indentkeys+==end,=else,=catch,=finally,),],}
 setlocal indentkeys-=0#

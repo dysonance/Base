@@ -1,3 +1,5 @@
+set t_Co=256
+
 " General highlighting
 highlight Normal     ctermfg=White  ctermbg=DarkBlue cterm=NONE
 highlight Comment    ctermfg=Blue   ctermbg=NONE     cterm=NONE
@@ -5,12 +7,12 @@ highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
 highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
 
 " Constant highlighting group
-highlight Constant  ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Number    ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Float     ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Boolean   ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight String    ctermfg=Green ctermbg=NONE cterm=NONE
-highlight Character ctermfg=Green ctermbg=NONE cterm=NONE
+highlight Constant  ctermfg=DarkCyan ctermbg=NONE cterm=NONE
+highlight Number    ctermfg=Red      ctermbg=NONE cterm=NONE
+highlight Float     ctermfg=Red      ctermbg=NONE cterm=NONE
+highlight Boolean   ctermfg=Red      ctermbg=NONE cterm=NONE
+highlight String    ctermfg=Green    ctermbg=NONE cterm=NONE
+highlight Character ctermfg=Green    ctermbg=NONE cterm=NONE
 
 " Statement highlighting group
 highlight Statement   ctermfg=Cyan       ctermbg=NONE cterm=NONE

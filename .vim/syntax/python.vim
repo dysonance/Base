@@ -8,7 +8,7 @@ syn keyword pythonStatement
 syn keyword pythonKeyword
             \ class self cls
             \ if else elif try catch finally except
-            \ for in while with as continue pass
+            \ for in while with as
             \ global local nonlocal
             \ lambda
 
