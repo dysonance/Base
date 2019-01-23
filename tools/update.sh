@@ -7,7 +7,7 @@ cd $HOME/Preferences
 brew update
 brew upgrade
 brew list --versions > data/brew_list.txt
-pip3 list --outdated --format=freeze | sed 's/=*[0-9.]//g' | xargs -n1 pip3 install --upgrade
+pip3 list --outdated --format=freeze sed 's/=*[0-9.]//g' | xargs -n1 pip3 install --upgrade
 pip3 list > data/pip_list.txt
 
 # vim
