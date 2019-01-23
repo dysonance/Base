@@ -28,6 +28,7 @@ syn keyword juliaModule
             \ Test
 
 syn keyword juliaCustomModule
+            \ Documenter
             \ Plots
             \ Distributions
             \ HTTP
