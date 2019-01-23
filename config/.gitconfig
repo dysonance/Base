@@ -13,5 +13,7 @@
     cane = "commit --amend --no-edit"
     root = "rev-parse --show-toplevel"
     summ = "log --stat --pretty=format:'%an %s %ad %H'"
-    staple = "!f() { git stash apply stash^{/$*}; }; f"
+    save = "!f() { if ! [ -d tmp ]; then echo 'creating tmp directory' && mkdir tmp; fi && echo \"saving changes to tmp/$1.patch\" && git add . && git diff --staged > \"tmp/$1.patch\" && git reset --quiet . && git checkout .; }; f"
+    grab = "!f() { if ! [ -f tmp/$1.patch ]; then echo \"tmp/$1.patch not found\"; fi && echo \"grabbing changes from tmp/$1.patch\" && git apply \"tmp/$1.patch\"; }; f"
+    #staple = "!f() { git stash apply stash^{/$*}; }; f"
     review = "!f() { _destination=${1-master}; vim $(git diff $_destination --name-only) -c \"Gdiff $_destination\"; }; f"
