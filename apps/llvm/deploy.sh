@@ -3,6 +3,7 @@
 # Note: See this anser on StackOverflow for a good explanation of how this needs to be structured
 # https://stackoverflow.com/a/49702159/2271756
 
+SYSTEM_HEADER_LOCATION=/usr/include/c++/4.2.1
 INSTALL_LOCATION=$HOME/Preferences/apps/llvm
 LLVM_VERSION=7.0.1
 
@@ -37,5 +38,5 @@ make -j $CPU
 
 # create binary directory
 cd $INSTALL_LOCATION/llvm
-mkdir bin
-ln -sf build/bin/* bin/
+ln -sf build/bin bin
+ln -s $SYSTEM_HEADER_LOCATION/* build/lib/clang/$LLVM_VERSION/include/

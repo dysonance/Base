@@ -107,12 +107,13 @@ autocmd filetype qf setlocal wrap
 let g:syntastic_c_compiler='clang'
 let g:syntastic_c_auto_refresh_includes=1
 
-let g:syntastic_cpp_checkers=['clang++', 'clang_check', 'clang_tidy', 'gcc']
+let g:syntastic_cpp_compiler='clang++'
+let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_checkers=['gcc'] " 'clang_check', 'clang_tidy', 'gcc']
+let g:syntastic_cpp_clang_tidy_args=' -checks=*'
 let g:syntastic_cpp_config_file='.syntastic_cpp_config'
 let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1
-let g:syntastic_cpp_compiler='clang++'
-let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
 
 " Python
 let g:syntastic_python_checkers=['python3', 'pyflakes']
