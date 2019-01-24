@@ -34,3 +34,8 @@ cd build
 cmake ..
 cmake --build .
 make -j $CPU
+
+# create binary directory
+cd $INSTALL_LOCATION/llvm
+mkdir bin
+ln -sf build/bin/* bin/
