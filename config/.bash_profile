@@ -26,7 +26,9 @@ export PS1
 # julia convenience shortcuts
 alias jl1="$HOME/Preferences/apps/julia/v1.0/usr/bin/julia"
 alias jln="$HOME/Preferences/apps/julia/nightly/usr/bin/julia"
-if [ -d "$HOME/Applications/Julia-1.0.app" ]; then
+if [ -d "$HOME/Applications/Julia-1.1.app" ]; then
+    alias julia="$HOME/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia"
+elif [ -d "$HOME/Applications/Julia-1.0.app" ]; then
     alias julia="$HOME/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia"
 else
     alias julia="jl1"
