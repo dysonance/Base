@@ -1,8 +1,8 @@
 #!/bin/sh
 
 INSTALL_DIRECTORY="$HOME/Preferences/apps/vim/vim"
-PYTHON_VERSION=3.7.2
-PYTHON_CONFIG_DIR=/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig
+PYTHON_VERSION="3.7.2_1"
+PYTHON_CONFIG_DIR="/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig"
 
 if [[ -z "${CPU}" ]]; then
     CPU=4
@@ -39,13 +39,17 @@ function BuildVim()
     cp src/vimdiff bin/
 }
 
-git fetch
-LOCAL_COMMIT=$(git rev-parse @)
-REMOTE_COMMIT=$(git rev-parse "@{u}")
-if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
-    git clean -xfd
-    git pull
+if [ "$1" == "--force" ]; then
     BuildVim
-elif [[ ! -d "bin" ]]; then
-    BuildVim
+else
+    git fetch
+    LOCAL_COMMIT=$(git rev-parse @)
+    REMOTE_COMMIT=$(git rev-parse "@{u}")
+    if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
+        git clean -xfd
+        git pull
+        BuildVim
+    elif [[ ! -d "bin" ]]; then
+        BuildVim
+    fi
 fi
