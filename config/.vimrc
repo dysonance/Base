@@ -272,6 +272,7 @@ autocmd FileType pandoc imap <C-G>a \alpha
 autocmd FileType pandoc imap <C-G>b \beta
 autocmd FileType pandoc imap <C-G>s \sigma
 autocmd FileType pandoc imap <C-G>g \gamma
+autocmd FileType pandoc imap <C-G>m \mu
 autocmd FileType pandoc imap <C-G>f \phi
 autocmd FileType pandoc imap <C-G>p \pi
 autocmd FileType pandoc imap <C-G>w \omega
@@ -279,6 +280,7 @@ autocmd FileType pandoc imap <C-G>A \Alpha
 autocmd FileType pandoc imap <C-G>B \Beta
 autocmd FileType pandoc imap <C-G>S \Sigma
 autocmd FileType pandoc imap <C-G>G \Gamma
+autocmd FileType pandoc imap <C-G>m \Mu
 autocmd FileType pandoc imap <C-G>F \Phi
 autocmd FileType pandoc imap <C-G>P \Pi
 autocmd FileType pandoc imap <C-G>W \Omega
