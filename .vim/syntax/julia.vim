@@ -37,6 +37,11 @@ syn keyword juliaCustomModule
             \ Temporal
             \ Indicators
             \ Strategems
+            \ JuliaDB
+            \ DataStreams
+            \ DataFrames
+            \ TimeSeries
+            \ IterableTables
 
 syn keyword juliaKeyword
             \ where
@@ -46,9 +51,12 @@ syn keyword juliaKeyword
             \ const local global module
             \ function type typealias abstract struct mutable bitstype
 
+syn keyword juliaBoolean
+            \ true false
+
 syn keyword juliaConstant
             \ nothing
-            \ true false
+            \ missing
 
 syn keyword juliaType
             \ Any Type Union Missing Callable Nothing Vararg Function Expr
@@ -98,7 +106,7 @@ hi def link juliaCustomType   Type
 hi def link juliaDelimiter    Delimiter
 hi def link juliaEnd          Constant
 hi def link juliaFunction     Operator
-hi def link juliaKeyword      Special
+hi def link juliaKeyword      Keyword
 hi def link juliaMacro        PreProc
 hi def link juliaModule       PreProc
 hi def link juliaNumber       Number

@@ -106,7 +106,7 @@ autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-c
 "autocmd FileType sql setlocal formatprg=/usr/local/bin/sqlformat\ -\ --keywords\ lower\ --identifiers\ lower\ --use_space_around_operators\ --indent_width\ 4\ --reindent_aligned
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
-autocmd FileType python setlocal formatprg=/usr/local/bin/autopep8\ -
+autocmd FileType python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
 autocmd FileType cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file\ -
 autocmd FileType css setlocal formatprg=/usr/local/bin/prettier\ --parser\ css\ --stdin\ -
 autocmd FileType html setlocal formatprg=/usr/local/bin/tidy\ -config\ $HOME/.tidyrc
@@ -175,7 +175,7 @@ imap <C-P> <C-V>
 " format current file
 autocmd FileType sql nmap <leader>fmt m0gggqG`0
 autocmd FileType cpp nmap <leader>fmt :ClangFormat<CR>
-autocmd FileType python nmap <leader>fmt :Black<CR>
+autocmd FileType python nmap <leader>fmt mmgggqG`m
 autocmd FileType go nmap <leader>fmt :GoFmt<CR>
 autocmd FileType css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
 autocmd FileType html nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
