@@ -4,7 +4,7 @@
 set -e
 
 # define variables/settings to build as desired
-PYTHON_VERSION="3.7.2"
+PYTHON_VERSION="3.6.5"
 PYTHON_REPOSITORY="https://github.com/python/cpython"
 INSTALL_DIRECTORY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION
 
@@ -16,6 +16,7 @@ fi
 SSL_DIRECTORY=$(brew --prefix openssl)
 
 # setup the required directory structure
+cd $INSTALL_DIRECTORY/../..
 if ! [ -d "versions" ]; then
     mkdir versions
 fi
@@ -27,7 +28,7 @@ if ! [ -d "src" ]; then
 fi
 
 # get the appropriate version of the source code to build
-cd python
+cd src
 git checkout v$PYTHON_VERSION
 
 # configure the installation
