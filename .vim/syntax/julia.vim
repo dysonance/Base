@@ -11,7 +11,7 @@ syn keyword juliaEnd contained
 syn keyword juliaStatement 
             \ using import return
             \ let call begin
-            \ try catch finally
+            \ try catch finally continue break
 
 syn keyword juliaModule
             \ Base Base64
@@ -59,7 +59,7 @@ syn keyword juliaConstant
             \ missing
 
 syn keyword juliaType
-            \ Any Type Union Missing Callable Nothing Vararg Function Expr
+            \ Any Type Union Missing Callable Nothing Vararg Function Expr VersionNumber Void
             \ Number Complex Real
             \ AbstractIrrational Rational Irrational
             \ Integer Bool Signed Unsigned Int BigInt Int16 Int32 Int64 Int8 Int128 UInt128 UInt16 UInt32 UInt64 UInt8
@@ -83,21 +83,22 @@ syn keyword juliaCustomType
             \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Results
 
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
-
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match juliaFunction  "\w*(\@=\|\w*\(!(\)\@=" contains=juliaDelimiter
-syn match juliaIndex     "\[.*\]"                contains=juliaEnd,juliaNumber,juliaVariable,juliaDelimiter,juliaOperator,juliaFunction,juliaConstant
+syn match juliaFunction  "\w*(\@=\|\w*\(!(\)\@="                               contains=juliaDelimiter
+syn match juliaIndex     "\[.*\]"                                              contains=juliaEnd,juliaNumber,juliaVariable,juliaDelimiter,juliaOperator,juliaFunction,juliaConstant
 syn match juliaMacro     "@\(\w\)\+"
 syn match juliaNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
 syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
 syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "[:<>0-9]\@<!:\(\w\)\+"
+syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
 
 syn region juliaCharacter start=+'+  end=+'+  contains=juliaVariable
 syn region juliaComment   start="#"  end="$"  contains=juliaTodo
 syn region juliaComment   start="#=" end="=#" contains=juliaTodo
 syn region juliaString    start=+"+  end=+"+  contains=juliaVariable
 
+hi def link juliaBoolean      Boolean
 hi def link juliaCharacter    Character
 hi def link juliaComment      Comment
 hi def link juliaConstant     Constant

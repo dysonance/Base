@@ -9,6 +9,7 @@ if [[ -z "${CPU}" ]]; then
 fi
 
 if [ ! -d "$INSTALL_DIRECTORY" ]; then
+    cd $INSTALL_DIRECTORY/..
     git clone https://github.com/vim/vim.git
     cd $INSTALL_DIRECTORY
 else
@@ -25,11 +26,11 @@ function BuildVim()
         --enable-perlinterp \
         --enable-python3interp \
         --enable-rubyinterp \
-        --prefix=$INSTALL_DIRECTORY
+        --prefix=$INSTALL_DIRECTORY \
         --with-features=huge \
         --with-python-config-dir=$PYTHON_CONFIG_DIR \
         --with-python3-command=python3 \
-        --without-x \
+        --without-x
     make -j $CPU
     make -j $CPU install
     cp src/ex bin/

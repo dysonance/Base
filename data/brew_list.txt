@@ -5,7 +5,6 @@ autoconf 2.69
 automake 1.16.1_1
 bat 0.9.0_1
 bench 1.0.12
-black 18.9b0
 boost 1.68.0_1
 cairo 1.16.0
 camlp4 4.07+1
@@ -36,7 +35,7 @@ glib 2.58.3
 gmp 6.1.2_2
 gnupg 2.2.12
 gnuplot 5.2.6_1
-gnutls 3.6.5
+gnutls 3.6.6
 go 1.11.5
 gotags 1.4.1
 gource 0.49
@@ -59,7 +58,7 @@ libevent 2.1.8
 libffi 3.2.1
 libgcrypt 1.8.4
 libgit2 0.27.7
-libgpg-error 1.34
+libgpg-error 1.35
 libheif 1.3.2_2
 libidn2 2.1.0
 libksba 1.3.5
