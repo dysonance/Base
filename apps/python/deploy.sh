@@ -37,15 +37,13 @@ if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
         --enable-optimizations \
-        --with-pydebug \
         --with-openssl=$SSL_DIRECTORY
 else
     CPPFLAGS="-I$SSL_DIRECTORY/include" \
     LDFLAGS="-L$SSL_DIRECTORY/lib" \
         ./configure \
             --prefix=$INSTALL_DIRECTORY \
-            --enable-optimizations \
-            --with-pydebug
+            --enable-optimizations
 fi
 
 # allow parallel make

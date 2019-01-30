@@ -3,7 +3,9 @@
 
 apps/llvm/src
 apps/llvm/bin
-apps/vim/vim
+apps/vim/src
 apps/vim/bin
+apps/python/versions
+apps/python/src
 
 tmp*
