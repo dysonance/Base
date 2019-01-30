@@ -4,5 +4,6 @@
 apps/llvm/src
 apps/llvm/bin
 apps/vim/vim
+apps/vim/bin
 
 tmp*

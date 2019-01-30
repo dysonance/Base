@@ -30,7 +30,7 @@ alias jl="julia -q -O3 -g2"
 
 # path additions
 export PATH=$PATH:$HOME/Preferences/apps/llvm/llvm/bin
-export PATH=$HOME/Preferences/apps/vim/vim/bin:$PATH
+export PATH=$HOME/Preferences/apps/vim/bin:$PATH
 export PATH=$HOME/Preferences/apps/python/versions/current/bin:$PATH
 export PATH=$PATH:$HOME/Applications/Julia-$JULIA_VERSION.app/Contents/Resources/julia/bin
 

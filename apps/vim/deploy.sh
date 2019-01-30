@@ -1,8 +1,14 @@
 #!/bin/sh
 
 INSTALL_DIRECTORY="$HOME/Preferences/apps/vim/vim"
-PYTHON_VERSION="3.7.2_1"
+PYTHON_VERSION="3.6.5_1"
 PYTHON_CONFIG_DIR="/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig"
+PYTHON_BINARY=/usr/local/bin/python3
+# PYTHON_VERSION=3.6.5
+# PYTHON_BINARY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/bin/python3
+# PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
+# PYTHON_CONFIG_DIR=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/lib/python$PYTHON_VERSION_SHORT/config-"$PYTHON_VERSION_SHORT"dm-darwin
+# #PYTHON_CONFIG_DIR=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/lib/pkgconfig
 
 if [[ -z "${CPU}" ]]; then
     CPU=4
@@ -18,19 +24,26 @@ fi
 
 function BuildVim()
 {
+
+    make clean
+    if [ -f src/auto/config.cache ]; then
+        rm src/auto/config.cache
+    fi
+
     ./configure \
-        --enable-cscope \
-        --enable-gui=no \
-        --enable-luainterp \
-        --enable-multibyte \
-        --enable-perlinterp \
-        --enable-python3interp \
-        --enable-rubyinterp \
         --prefix=$INSTALL_DIRECTORY \
         --with-features=huge \
+        --enable-cscope=yes \
+        --enable-gui=no \
+        --enable-luainterp=yes \
+        --enable-multibyte=yes \
+        --enable-perlinterp=yes \
+        --enable-rubyinterp=yes \
+        --enable-python3interp=yes \
         --with-python-config-dir=$PYTHON_CONFIG_DIR \
-        --with-python3-command=python3 \
+        --with-python3-command=$PYTHON_BINARY \
         --without-x
+
     make -j $CPU
     make -j $CPU install
     cp src/ex bin/
@@ -54,3 +67,9 @@ else
         BuildVim
     fi
 fi
+
+# backup vim binary if build succeeds to prevent losing it later
+if ! [ -d "$HOME/Preferences/apps/vim/bin" ]; then
+    mkdir $HOME/Preferences/apps/vim/bin
+fi
+cp bin/* $HOME/Preferences/apps/vim/bin/
