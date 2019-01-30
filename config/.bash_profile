@@ -24,21 +24,15 @@ PS1="\n[$TIME][$FOLDER][$BRANCH]\n$PROMPT_COLOR\\$ $DEFAULT_COLOR"
 export PS1
 
 # julia convenience shortcuts
-alias jl1="$HOME/Preferences/apps/julia/v1.0/usr/bin/julia"
+JULIA_VERSION=1.1
 alias jln="$HOME/Preferences/apps/julia/nightly/usr/bin/julia"
-if [ -d "$HOME/Applications/Julia-1.1.app" ]; then
-    alias julia="$HOME/Applications/Julia-1.1.app/Contents/Resources/julia/bin/julia"
-elif [ -d "$HOME/Applications/Julia-1.0.app" ]; then
-    alias julia="$HOME/Applications/Julia-1.0.app/Contents/Resources/julia/bin/julia"
-else
-    alias julia="jl1"
-fi
 alias jl="julia -q -O3 -g2"
 
 # path additions
 export PATH=$PATH:$HOME/Preferences/apps/llvm/llvm/bin
 export PATH=$HOME/Preferences/apps/vim/vim/bin:$PATH
 export PATH=$HOME/Preferences/apps/python/versions/current/bin:$PATH
+export PATH=$PATH:$HOME/Applications/Julia-$JULIA_VERSION.app/Contents/Resources/julia/bin
 
 function Ls()
 {
