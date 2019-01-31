@@ -33,9 +33,11 @@ git checkout v$PYTHON_VERSION
 
 # configure the installation
 # NOTE: configuration for versions < 3.7 is different
+# FIXME: installing as a framework (req for vim YCM plugin) is all messed up
 if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
+        --enable-framework=$INSTALL_DIRECTORY/.. \
         --enable-optimizations \
         --with-openssl=$SSL_DIRECTORY
 else
@@ -43,7 +45,9 @@ else
     LDFLAGS="-L$SSL_DIRECTORY/lib" \
         ./configure \
             --prefix=$INSTALL_DIRECTORY \
+            --enable-framework=$INSTALL_DIRECTORY/../.. \
             --enable-optimizations
+
 fi
 
 # allow parallel make
@@ -52,7 +56,9 @@ if [ -z "$CPU" ]; then
 fi
 
 # run the build
-make -j $CPU install
+# FIXME: installing as a framework (req for vim YCM plugin) is all messed up
+make -j $CPU install PYTHONAPPSDIR=$INSTALL_DIRECTORY
+make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY
 
 # create symbolic links to simplify version management
 cd $INSTALL_DIRECTORY/..

@@ -91,7 +91,7 @@ let ignored_messages=
             \ 'invalid preprocessing directive',
             \ 'should have comment or be unexported',
             \ 'receiver name should be a reflection of its identity',
-            \ '[Ii][Dd] should be.*ID',
+            \ '[Ii][Dd].*should be.*ID',
             \ 'func name will be used as',
             \ 'ALL_CAPS in Go names',
             \ 'proprietary attribute "nonce"',
