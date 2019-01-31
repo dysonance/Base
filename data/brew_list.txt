@@ -89,7 +89,7 @@ mbedtls 2.13.0
 metis 5.1.0
 mpfr 4.0.1
 nettle 3.4.1
-node 11.8.0
+node 11.9.0
 npth 1.6
 ocaml 4.07.1
 ocamlbuild 0.13.1
@@ -100,7 +100,7 @@ openjpeg 2.3.0
 openssl 1.0.2q
 p11-kit 0.23.15
 p7zip 16.02_1
-pandoc 2.5
+pandoc 2.6
 pango 1.42.4_1
 patchelf 0.9
 pcre 8.42
@@ -111,14 +111,14 @@ pinentry 1.1.0_1
 pixman 0.36.0
 pkg-config 0.29.2
 postgresql 11.1_1
-prettier 1.16.1
+prettier 1.16.3
 pybind11 2.2.4
 python 3.7.2_1 3.6.5_1
 qt 5.12.0
 readline 8.0.0
 reattach-to-user-namespace 2.7
 ripgrep 0.10.0
-ruby 2.6.0_1
+ruby 2.6.1
 rust 1.32.0
 screen 4.6.2
 sdl2 2.0.9
@@ -132,7 +132,7 @@ tmux 2.8
 tree 1.8.0
 utf8proc 2.2.0
 veclibfort 0.4.2_6
-vim 8.1.0800
+vim 8.1.0850
 webp 1.0.2
 webpack 4.28.1
 wget 1.20.1_3

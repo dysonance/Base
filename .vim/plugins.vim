@@ -17,7 +17,6 @@ Plug 'Valloric/YouCompleteMe'   " code completion functionality (see pre-requisi
 Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 Plug 'rhysd/vim-clang-format'   " clang format whole file
-Plug 'ambv/black'               " python formatter
 Plug 'tomtom/tskeleton_vim'     " filetype snippet skeletons
 Plug 'tomtom/tlib_vim'          " utility functions for vim (req for tskeleton)
 
@@ -44,6 +43,8 @@ Plug 'rizzatti/dash.vim'           " mac dash documentation app integration
 Plug 'python-mode/python-mode'     " python workflow utilities (linting, completion, formatting)
 Plug 'davidhalter/jedi-vim'        " jedi python autocompletion/documentation library
 Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use braces for scope
+Plug 'tmhedberg/matchit'           " extent the % to match HTML, LaTeX, and other languages
+Plug 'alvan/vim-closetag'          " make html editing less miserable
 
 " }}}
 
@@ -89,7 +90,7 @@ let g:syntastic_filetype_map={"smarty": "html"}
 let ignored_messages=
             \ [
             \ 'invalid preprocessing directive',
-            \ 'should have comment or be unexported',
+            \ 'should have comment.*or be unexported',
             \ 'receiver name should be a reflection of its identity',
             \ '[Ii][Dd].*should be.*ID',
             \ 'func name will be used as',
@@ -333,6 +334,21 @@ let g:grepper = {
             \ 'stop': 100,
             \ 'highlight': 1,
             \ }
+
+" }}}
+
+" Close Tag {{{
+
+let g:closetag_filenames='*.html,*.tpl' " filetypes that activate the plugin
+let g:closetag_shortcut='>'             " shortcut for closing tags
+let g:closetag_close_shortcut=''        " add > at current position w/o closing current tag
+
+" }}}
+
+" Matchit {{{
+
+autocmd FileType smarty let b:match_words='<div:</div>,<:>,<tag>:</tag>'
+autocmd FileType html let b:match_words='<div:</div>,<:>,<tag>:</tag>'
 
 " }}}
 
