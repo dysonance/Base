@@ -7,5 +7,6 @@ apps/vim/src
 apps/vim/bin
 apps/python/versions
 apps/python/src
+apps/brew/src
 
 tmp*
