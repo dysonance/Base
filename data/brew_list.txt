@@ -10,7 +10,7 @@ cairo 1.16.0
 camlp4 4.07+1
 clang-format 2018-12-18
 clingo 5.3.0
-cmake 3.13.3
+cmake 3.13.4
 cscope 15.8b
 ctags 5.8_1
 dashing 0.3.0
@@ -111,7 +111,7 @@ pinentry 1.1.0_1
 pixman 0.36.0
 pkg-config 0.29.2
 postgresql 11.1_1
-prettier 1.16.3
+prettier 1.16.4
 pybind11 2.2.4
 python 3.7.2_1 3.6.5_1
 qt 5.12.0

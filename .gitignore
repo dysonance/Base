@@ -8,5 +8,6 @@ apps/vim/bin
 apps/python/versions
 apps/python/src
 apps/brew/src
+apps/frameworks/*
 
 tmp*

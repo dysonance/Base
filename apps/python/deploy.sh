@@ -7,16 +7,10 @@ set -e
 PYTHON_VERSION="3.6.5"
 PYTHON_REPOSITORY="https://github.com/python/cpython"
 INSTALL_DIRECTORY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION
-
-# define environment for dependencies
-if ! [ -x "$(command -v openssl)" ]; then
-    echo "installing dependency openssl"
-    brew install openssl xz
-fi
-SSL_DIRECTORY=$(brew --prefix openssl)
+FRAMEWORK_DIRECTORY=$HOME/Preferences/apps/frameworks
 
 # setup the required directory structure
-cd $INSTALL_DIRECTORY/../..
+cd $HOME/Preferences/apps/python
 if ! [ -d "versions" ]; then
     mkdir versions
 fi
@@ -35,18 +29,31 @@ git checkout v$PYTHON_VERSION
 # NOTE: configuration for versions < 3.7 is different
 # FIXME: installing as a framework (req for vim YCM plugin) is all messed up
 if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
+    # define environment for dependencies
+    if ! [ -x "$(command -v openssl)" ]; then
+        echo "installing dependency openssl"
+        brew install openssl xz
+    fi
+    SSL_DIRECTORY=$(brew --prefix openssl)
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
-        --enable-framework=$INSTALL_DIRECTORY/.. \
+        --enable-framework=$FRAMEWORK_DIRECTORY \
         --enable-optimizations \
         --with-openssl=$SSL_DIRECTORY
 else
-    CPPFLAGS="-I$SSL_DIRECTORY/include" \
-    LDFLAGS="-L$SSL_DIRECTORY/lib" \
-        ./configure \
-            --prefix=$INSTALL_DIRECTORY \
-            --enable-framework=$INSTALL_DIRECTORY/../.. \
-            --enable-optimizations
+
+    ./configure \
+        --prefix=$INSTALL_DIRECTORY \
+        --enable-framework=$FRAMEWORK_DIRECTORY \
+        --datarootdir=$INSTALL_DIRECTORY/share \
+        --datadir=$INSTALL_DIRECTORY/share \
+        --enable-optimizations \
+        --with-dtrace \
+        --without-ensurepip \
+        --enable-loadable-sqlite-extensions \
+        --enable-ipv6 \
+        CPPFLAGS="-I$SSL_DIRECTORY/include" \
+        LDFLAGS="-L$SSL_DIRECTORY/lib"
 
 fi
 
@@ -56,9 +63,9 @@ if [ -z "$CPU" ]; then
 fi
 
 # run the build
-# FIXME: installing as a framework (req for vim YCM plugin) is all messed up
-make -j $CPU install PYTHONAPPSDIR=$INSTALL_DIRECTORY
-make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY
+make -j $CPU
+make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
+#make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
 
 # create symbolic links to simplify version management
 cd $INSTALL_DIRECTORY/..

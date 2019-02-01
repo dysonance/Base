@@ -2,16 +2,16 @@
 
 INSTALL_DIRECTORY="$HOME/Preferences/apps/vim/src"
 
-# for homebrew python installations
-PYTHON_VERSION="3.6.5_1"
-PYTHON_CONFIG_DIR="/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig"
-PYTHON_BINARY=/usr/local/bin/python3
+# # for homebrew python installations
+# PYTHON_VERSION="3.6.5_1"
+# PYTHON_CONFIG_DIR="/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig"
+# PYTHON_BINARY=/usr/local/bin/python3
 
 # # for manual python source builds
-# PYTHON_VERSION=3.6.5
-# PYTHON_BINARY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/bin/python3
-# PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
-# PYTHON_CONFIG_DIR=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/lib/python$PYTHON_VERSION_SHORT/config-"$PYTHON_VERSION_SHORT"dm-darwin
+PYTHON_VERSION=3.6.5
+PYTHON_BINARY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/bin/python3
+PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
+PYTHON_CONFIG_DIR=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/lib/python$PYTHON_VERSION_SHORT/config-"$PYTHON_VERSION_SHORT"dm-darwin
 # #PYTHON_CONFIG_DIR=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/lib/pkgconfig
 
 if [[ -z "${CPU}" ]]; then
