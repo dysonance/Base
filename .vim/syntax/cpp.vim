@@ -51,6 +51,7 @@ syn match cppScopeDelimiter "::"
 syn match cppString         "\(#include \)\@<=.*$"
 syn match cppTodo           "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
 syn match cppType           "< \w\+ >" contains=cppOperator
+syn match cppType           "\<\w\+\>\( \<\w\+\>.=\)\@=\|\(const \)\@<=\<\w\+\>"
 
 syn region cppChar    start="\'"   end="\'"
 syn region cppComment start="//"   end="$"    contains=cppTodo
