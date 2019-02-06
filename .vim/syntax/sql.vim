@@ -29,7 +29,7 @@ syn keyword sqlKeyword      constraint current cursor database debug decimal
 syn keyword sqlKeyword      default desc each else elsif escape exception
 syn keyword sqlKeyword      exclusive explain external file for foreign from function
 syn keyword sqlKeyword      group having identified if immediate increment index
-syn keyword sqlKeyword      initial inner into is join key left level loop
+syn keyword sqlKeyword      initial inner into is join key left right level loop
 syn keyword sqlKeyword      maxextents mode modify nocompress nowait object of
 syn keyword sqlKeyword      off offline on online option order outer cross pctfree full
 syn keyword sqlKeyword      primary privileges procedure public references
