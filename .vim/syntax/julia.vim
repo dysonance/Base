@@ -84,6 +84,7 @@ syn keyword juliaCustomType
 
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match juliaFormat    "\$\<\w*\>"                                           contained
 syn match juliaFunction  "\w*(\@=\|\w*\(!(\)\@="                               contains=juliaDelimiter
 syn match juliaIndex     "\[.*\]"                                              contains=juliaEndIndex,juliaNumber,juliaVariable,juliaDelimiter,juliaOperator,juliaFunction,juliaConstant,juliaString
 syn match juliaMacro     "@\(\w\)\+"
@@ -108,6 +109,7 @@ hi def link juliaCustomType   Type
 hi def link juliaDelimiter    Delimiter
 hi def link juliaEndIndex     Constant
 hi def link juliaFunction     Operator
+hi def link juliaFormat       PreProc
 hi def link juliaKeyword      Keyword
 hi def link juliaMacro        PreProc
 hi def link juliaModule       PreProc
