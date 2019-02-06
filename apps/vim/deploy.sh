@@ -1,6 +1,7 @@
 #!/bin/sh
 
-INSTALL_DIRECTORY="$HOME/Preferences/apps/vim/src"
+APP_DIRECTORY=$HOME/Preferences/apps
+INSTALL_DIRECTORY=$APP_DIRECTORY/vim/src
 
 # # for homebrew python installations
 # PYTHON_VERSION="3.6.5_1"
@@ -9,10 +10,11 @@ INSTALL_DIRECTORY="$HOME/Preferences/apps/vim/src"
 
 # # for manual python source builds
 PYTHON_VERSION=3.6.5
-PYTHON_BINARY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/bin/python3
+PYTHON_BINARY=$APP_DIRECTORY/python/versions/$PYTHON_VERSION/bin/python3
 PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
-PYTHON_CONFIG_DIR=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/lib/python$PYTHON_VERSION_SHORT/config-"$PYTHON_VERSION_SHORT"dm-darwin
-# #PYTHON_CONFIG_DIR=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION/lib/pkgconfig
+PYTHON_CONFIG_DIR="
+    $APP_DIRECTORY/frameworks/Python.framework/Versions/$PYTHON_VERSION_SHORT/
+    lib/python$PYTHON_VERSION_SHORT/config-"$PYTHON_VERSION_SHORT"m-darwin"
 
 if [[ -z "${CPU}" ]]; then
     CPU=4
@@ -74,6 +76,6 @@ fi
 
 # backup vim binary if build succeeds to prevent losing it later
 if ! [ -d "$HOME/Preferences/apps/vim/bin" ]; then
-    mkdir $HOME/Preferences/apps/vim/bin
+    mkdir $APP_DIRECTORY/vim/bin
 fi
-cp bin/* $HOME/Preferences/apps/vim/bin/
+ln -sf $INSTALL_DIRECTORY/bin/* $APP_DIRECTORY/vim/bin/
