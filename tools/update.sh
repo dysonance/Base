@@ -7,20 +7,16 @@ cd $HOME/Preferences
 brew update
 brew upgrade
 brew list --versions > data/brew_list.txt
+
+# python
+./apps/python/deploy.sh
 pip3 list --outdated --format=freeze sed 's/=*[0-9.]//g' | xargs -n1 pip3 install --upgrade
 pip3 list > data/pip_list.txt
 
 # vim
-cd $HOME/Preferences/apps/vim
-./deploy.sh
+./apps/vim/deploy.sh
 vim -c ":PlugUpdate | :qa"
-cd $HOME/.vim/plugged/YouCompleteMe
-python3 install.py --all
-cd $HOME/Preferences
+python3 $HOME/.vim/plugged/YouCompleteMe/install.py --all
 
 # julia
-cd $HOME/Preferences/apps/julia
-./deploy.sh
-
-# end
-cd $HOME/Preferences
+./apps/julia/deploy.sh
