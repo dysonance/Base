@@ -9,6 +9,13 @@ PYTHON_REPOSITORY="https://github.com/python/cpython"
 INSTALL_DIRECTORY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION
 FRAMEWORK_DIRECTORY=$HOME/Preferences/apps/frameworks
 
+# define environment for dependencies
+if ! [ -x "$(command -v openssl)" ]; then
+    echo "installing dependency openssl"
+    brew install openssl xz
+fi
+SSL_DIRECTORY=$(brew --prefix openssl)
+
 # setup the required directory structure
 cd $HOME/Preferences/apps/python
 if ! [ -d "versions" ]; then
@@ -28,44 +35,40 @@ git checkout v$PYTHON_VERSION
 # configure the installation
 # NOTE: configuration for versions < 3.7 is different
 # FIXME: installing as a framework (req for vim YCM plugin) is all messed up
+
 if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
-    # define environment for dependencies
-    if ! [ -x "$(command -v openssl)" ]; then
-        echo "installing dependency openssl"
-        brew install openssl xz
-    fi
-    SSL_DIRECTORY=$(brew --prefix openssl)
+
+    make clean
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
         --enable-framework=$FRAMEWORK_DIRECTORY \
         --enable-optimizations \
         --with-openssl=$SSL_DIRECTORY
+
 else
 
-    ./configure \
-        --prefix=$INSTALL_DIRECTORY \
-        --enable-framework=$FRAMEWORK_DIRECTORY \
-        --datarootdir=$INSTALL_DIRECTORY/share \
-        --datadir=$INSTALL_DIRECTORY/share \
-        --enable-optimizations \
-        --with-dtrace \
-        --without-ensurepip \
-        --enable-loadable-sqlite-extensions \
-        --enable-ipv6 \
-        CPPFLAGS="-I$SSL_DIRECTORY/include" \
-        LDFLAGS="-L$SSL_DIRECTORY/lib"
+    make clean
+    export CPPFLAGS="-I$SSL_DIRECTORY/include -I/usr/local/include -I/usr/local/opt/zlib/include"
+    export LDFLAGS="-L$SSL_DIRECTORY/lib -L/usr/local/lib -L/usr/local/opt/zlib/lib"
+        ./configure \
+            --prefix=$INSTALL_DIRECTORY \
+            --datarootdir=$INSTALL_DIRECTORY/share \
+            --datadir=$INSTALL_DIRECTORY/share \
+            --enable-framework=$FRAMEWORK_DIRECTORY \
+            --enable-loadable-sqlite-extensions \
+            --enable-ipv6 \
+            --enable-optimizations \
+            --with-dtrace \
+            --without-ensurepip \
+            --without-gcc \
+            CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS"
 
-fi
-
-# allow parallel make
-if [ -z "$CPU" ]; then
-    CPU=4
 fi
 
 # run the build
 make -j $CPU
-make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
-#make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
+make -j $CPU install PYTHONAPPSDIR=$INSTALL_DIRECTORY
+make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
 
 # create symbolic links to simplify version management
 cd $INSTALL_DIRECTORY/..
@@ -73,3 +76,8 @@ if [ -d "current" ]; then
     rm current
 fi
 ln -sf $PYTHON_VERSION current
+
+# install pip
+cd $INSTALL_DIRECTORY/../..
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+./versions/current/bin/python3 get-pip.py
