@@ -44,7 +44,7 @@ window:
   decorations: full
 
   # When true, alacritty starts maximized.
-  start_maximized: false
+  start_maximized: true
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -74,7 +74,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
+tabspaces: 4
 
 # Font configuration (changes require restart)
 font:
@@ -185,7 +185,7 @@ colors:
     yellow:  '0x808000'
     blue:    '0x000040'
     magenta: '0x800080'
-    cyan:    '0x808080'
+    cyan:    '0x008080'
     white:   '0xaaaaaa'
 
   # Bright colors

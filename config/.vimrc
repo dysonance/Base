@@ -102,8 +102,8 @@ autocmd FileType python set foldmethod=indent " overwrite pymode indent method
 " }}}
 
 " code formatting options
+
 autocmd FileType sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
-"autocmd FileType sql setlocal formatprg=/usr/local/bin/sqlformat\ -\ --keywords\ lower\ --identifiers\ lower\ --use_space_around_operators\ --indent_width\ 4\ --reindent_aligned
 autocmd FileType r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd FileType fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
 autocmd FileType python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
@@ -355,6 +355,10 @@ autocmd FileType python nmap <F8> :SlimeSendCurrentLine<CR>
 
 " lzz files interpreted as cpp files
 autocmd BufNewFile,BufRead *.lzz set filetype=cpp
+
+" treat yaml files uniquely with regards to indenting
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " }}}
 
