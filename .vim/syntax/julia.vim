@@ -82,23 +82,26 @@ syn keyword juliaCustomType
             \ TS AbstractTS
             \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Results
 
-syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
-syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match juliaFormat    "\$\<\w*\>"                                           contained
-syn match juliaFunction  "\w*(\@=\|\w*\(!(\)\@="                               contains=juliaDelimiter
-syn match juliaIndex     "\[.*\]"                                              contains=juliaEndIndex,juliaNumber,juliaVariable,juliaDelimiter,juliaOperator,juliaFunction,juliaConstant,juliaString
-syn match juliaMacro     "@\(\w\)\+"
-syn match juliaNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
-syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
-syn match juliaSpecial   "[$@]\(\w\)+\|`"
-syn match juliaSymbol    "[:<>0-9]\@<!:\(\w\)\+"
-syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
+syn match juliaConstant    "\<[A-Z_]\{2,}\>\((\)\@!"
+syn match juliaDelimiter   ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match juliaFormat      "\$\<\w*\>" contained
+syn match juliaFormatStart "\(\$(\)" containedin=juliaString
+syn match juliaFunction    "\<\w*\>(\@=\|\<\w*\>\(!(\)\@="
+syn match juliaIndex       "\[.*\]" contains=ALL
+syn match juliaMacro       "@\(\w\)\+"
+syn match juliaNumber      "\<[0-9.]\+\>\|[0-9]e[0-9-]"
+syn match juliaOperator    "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
+syn match juliaSpecial     "[$@]\(\w\)+\|`"
+syn match juliaSymbol      "[:<>0-9]\@<!:\(\w\)\+"
+syn match juliaType        "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
 
-syn region juliaCharacter start="'"      end="'"      contains=juliaVariable
-syn region juliaComment   start="#"      end="$"      contains=juliaTodo
-syn region juliaComment   start="#="     end="=#"     contains=juliaTodo
-syn region juliaString    start=+"+      end=+"+      contains=juliaFormat
-syn region juliaString    start="\"\"\"" end="\"\"\"" contains=juliaFormat
+syn region juliaCharacter   start="'"      end="'"
+syn region juliaComment     start="#"      end="$"      contains=juliaTodo
+syn region juliaComment     start="#="     end="=#"     contains=juliaTodo
+syn region juliaFormat      start="\$("    end=")"      contains=ALLBUT,juliaDelimiter contained
+syn region juliaFormatGroup start="("      end=")"      contains=TOP keepend contained
+syn region juliaString      start="\"\"\"" end="\"\"\"" contains=juliaFormat
+syn region juliaString      start=+"+      end=+"+      contains=juliaFormat
 
 hi def link juliaBoolean      Boolean
 hi def link juliaCharacter    Character
@@ -108,8 +111,10 @@ hi def link juliaCustomModule PreProc
 hi def link juliaCustomType   Type
 hi def link juliaDelimiter    Delimiter
 hi def link juliaEndIndex     Constant
+hi def link juliaFormat       SpecialChar
+hi def link juliaFormatGroup  SpecialChar
+hi def link juliaFormatStart  SpecialChar
 hi def link juliaFunction     Operator
-hi def link juliaFormat       PreProc
 hi def link juliaKeyword      Keyword
 hi def link juliaMacro        PreProc
 hi def link juliaModule       PreProc
