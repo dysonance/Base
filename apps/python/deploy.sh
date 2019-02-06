@@ -81,3 +81,14 @@ ln -sf $PYTHON_VERSION current
 cd $INSTALL_DIRECTORY/../..
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ./versions/current/bin/python3 get-pip.py
+
+if [ "$1" == "--overwrite-brew" ]; then
+    if [ -d /usr/local/Cellar/python/3.6.5_1 ]; then
+        if ! [ -d "/usr/local/Cellar/python/3.6.5_1-brew" ]; then
+            mv /usr/local/Cellar/python/3.6.5_1 /usr/local/Cellar/python/3.6.5_1-brew
+        fi
+    fi
+    mkdir /usr/local/Cellar/python/3.6.5_1
+    mkdir /usr/local/Cellar/python/3.6.5_1/Frameworks
+    ln -sf $HOME/Preferences/apps/frameworks/Python.framework /usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework
+fi
