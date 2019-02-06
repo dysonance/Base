@@ -569,5 +569,7 @@ key_bindings:
   - { key: L,        mods: Alt,     chars: "\x1bl"                       }
   - { key: C,        mods: Alt|Shift,     chars: "\x1bC"                 }
   - { key: R,        mods: Alt|Shift,     chars: "\x1bR"                 }
+  - { key: N,        mods: Alt|Shift,     chars: "\x1bN"                 }
+  - { key: T,        mods: Alt|Shift,     chars: "\x1bT"                 }
   - { key: Backslash,   mods: Alt|Shift,    chars: "\x1b|" }
   - { key: Minus,   mods: Alt|Shift,    chars: "\x1b_" }
