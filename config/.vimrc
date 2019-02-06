@@ -56,6 +56,7 @@ set hlsearch                                                       " highlight s
 set tabstop=4                                   " number of visual spaces per tab
 set softtabstop=4                               " number of spaces in tab when editing
 set shiftwidth=4                                " number of columns for reindent operations (<< and >>)
+set expandtab                                   " coerce tabs to spaces
 autocmd FileType r setlocal tabstop=2           " R-language specific formatting settings
 autocmd FileType r setlocal softtabstop=2       " R-language specific formatting settings
 autocmd FileType r setlocal shiftwidth=2        " R-language specific formatting settings
@@ -64,8 +65,7 @@ autocmd FileType fortran setlocal tabstop=3     " fortran-specific formatting se
 autocmd FileType fortran setlocal softtabstop=3 " fortran-specific formatting settings
 autocmd FileType md setlocal spell              " dont check spelling in markdown files
 autocmd FileType pandoc setlocal spell          " dont check spelling in markdown files
-set backspace=indent,eol,start                  " make backspace work like most apps
-set expandtab                                   " tabs are spaces
+set backspace=eol,start                         " make backspace work like most apps
 
 " }}}
 
@@ -96,7 +96,6 @@ set foldmethod=indent                         " fold based on language syntax
 set foldlevelstart=99                         " fold level at file open (0=everything folded, 99=nothing)
 set foldnestmax=99                            " maximum fold nesting
 set modelines=1                               " check last line of file for a modeline so vimrc can be folded
-let r_syntax_folding=1                        " allow syntax folding in the Vim-R plugin
 autocmd FileType python set foldmethod=indent " overwrite pymode indent method
 
 " }}}
