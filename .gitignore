@@ -7,6 +7,7 @@ apps/vim/src
 apps/vim/bin
 apps/python/versions
 apps/python/src
+apps/python/get-pip.py
 apps/brew/src
 apps/frameworks/*
 
