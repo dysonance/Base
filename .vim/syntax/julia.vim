@@ -5,8 +5,12 @@ syn case match
 syn keyword juliaTodo contained
             \ TODO FIXME NOTE
 
+syn keyword juliaPreProc
+            \ using import
+
 syn keyword juliaStatement 
-            \ using import return
+            \ return function
+            \ type mutable struct abstract
             \ let call begin do
             \ try catch finally continue break
 
@@ -114,12 +118,13 @@ hi def link juliaEndIndex     Constant
 hi def link juliaFormat       SpecialChar
 hi def link juliaFormatGroup  SpecialChar
 hi def link juliaFormatStart  SpecialChar
-hi def link juliaFunction     Operator
+hi def link juliaFunction     Function
 hi def link juliaKeyword      Keyword
 hi def link juliaMacro        PreProc
 hi def link juliaModule       PreProc
 hi def link juliaNumber       Number
 hi def link juliaOperator     Operator
+hi def link juliaPreProc      PreProc
 hi def link juliaSpecial      SpecialChar
 hi def link juliaStatement    Statement
 hi def link juliaString       String
