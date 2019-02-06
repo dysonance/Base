@@ -5,9 +5,6 @@ syn case match
 syn keyword juliaTodo contained
             \ TODO FIXME NOTE
 
-syn keyword juliaEnd contained
-            \ end
-
 syn keyword juliaStatement 
             \ using import return
             \ let call begin do
@@ -58,6 +55,9 @@ syn keyword juliaConstant
             \ nothing
             \ missing
 
+syn keyword juliaEndIndex contained
+            \ end
+
 syn keyword juliaType
             \ Any Type Union Missing Callable Nothing Vararg Function Expr VersionNumber Void
             \ Number Complex Real
@@ -85,7 +85,7 @@ syn keyword juliaCustomType
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match juliaFunction  "\w*(\@=\|\w*\(!(\)\@="                               contains=juliaDelimiter
-syn match juliaIndex     "\[.*\]"                                              contains=juliaEnd,juliaNumber,juliaVariable,juliaDelimiter,juliaOperator,juliaFunction,juliaConstant
+syn match juliaIndex     "\[.*\]"                                              contains=juliaEndIndex,juliaNumber,juliaVariable,juliaDelimiter,juliaOperator,juliaFunction,juliaConstant,juliaString
 syn match juliaMacro     "@\(\w\)\+"
 syn match juliaNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
 syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
@@ -93,10 +93,11 @@ syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "[:<>0-9]\@<!:\(\w\)\+"
 syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
 
-syn region juliaCharacter start=+'+  end=+'+  contains=juliaVariable
-syn region juliaComment   start="#"  end="$"  contains=juliaTodo
-syn region juliaComment   start="#=" end="=#" contains=juliaTodo
-syn region juliaString    start=+"+  end=+"+  contains=juliaVariable
+syn region juliaCharacter start="'"      end="'"      contains=juliaVariable
+syn region juliaComment   start="#"      end="$"      contains=juliaTodo
+syn region juliaComment   start="#="     end="=#"     contains=juliaTodo
+syn region juliaString    start=+"+      end=+"+      contains=juliaFormat
+syn region juliaString    start="\"\"\"" end="\"\"\"" contains=juliaFormat
 
 hi def link juliaBoolean      Boolean
 hi def link juliaCharacter    Character
@@ -105,7 +106,7 @@ hi def link juliaConstant     Constant
 hi def link juliaCustomModule PreProc
 hi def link juliaCustomType   Type
 hi def link juliaDelimiter    Delimiter
-hi def link juliaEnd          Constant
+hi def link juliaEndIndex     Constant
 hi def link juliaFunction     Operator
 hi def link juliaKeyword      Keyword
 hi def link juliaMacro        PreProc
