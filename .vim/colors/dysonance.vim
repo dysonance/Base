@@ -7,17 +7,17 @@ highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
 highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
 
 " Constant highlighting group
-highlight Constant  ctermfg=Red ctermbg=NONE cterm=NONE
-highlight Number    ctermfg=Red      ctermbg=NONE cterm=NONE
-highlight Float     ctermfg=Red      ctermbg=NONE cterm=NONE
-highlight Boolean   ctermfg=Red      ctermbg=NONE cterm=NONE
-highlight String    ctermfg=Green    ctermbg=NONE cterm=NONE
-highlight Character ctermfg=Green    ctermbg=NONE cterm=NONE
+highlight Constant  ctermfg=Red  ctermbg=NONE cterm=NONE
+highlight Number    ctermfg=Red  ctermbg=NONE cterm=NONE
+highlight Float     ctermfg=Red  ctermbg=NONE cterm=NONE
+highlight Boolean   ctermfg=Red  ctermbg=NONE cterm=NONE
+highlight String    ctermfg=Cyan ctermbg=NONE cterm=NONE
+highlight Character ctermfg=Cyan ctermbg=NONE cterm=NONE
 
 " Statement highlighting group
-highlight Statement   ctermfg=Cyan       ctermbg=NONE cterm=NONE
-highlight Conditional ctermfg=Cyan       ctermbg=NONE cterm=NONE
-highlight Repeat      ctermfg=Cyan       ctermbg=NONE cterm=NONE
+highlight Statement   ctermfg=Magenta    ctermbg=NONE cterm=NONE
+highlight Conditional ctermfg=Magenta    ctermbg=NONE cterm=NONE
+highlight Repeat      ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight Operator    ctermfg=Yellow     ctermbg=NONE cterm=NONE
 highlight Keyword     ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
@@ -26,7 +26,7 @@ highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
 " NOTE: 208 is orange
 highlight Type        ctermfg=208        ctermbg=NONE  cterm=NONE
 highlight Special     ctermfg=Magenta    ctermbg=NONE  cterm=NONE
-highlight Delimiter   ctermfg=Cyan       ctermbg=NONE  cterm=NONE
+highlight Delimiter   ctermfg=Green      ctermbg=NONE  cterm=NONE
 highlight Tag         ctermfg=Magenta    ctermbg=NONE  cterm=NONE
 highlight SpecialChar ctermfg=DarkYellow ctermbg=NONE  cterm=NONE
 highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
