@@ -65,7 +65,7 @@ autocmd FileType fortran setlocal tabstop=3     " fortran-specific formatting se
 autocmd FileType fortran setlocal softtabstop=3 " fortran-specific formatting settings
 autocmd FileType md setlocal spell              " dont check spelling in markdown files
 autocmd FileType pandoc setlocal spell          " dont check spelling in markdown files
-set backspace=eol,start                         " make backspace work like most apps
+set backspace=indent,eol,start                  " make backspace work like most apps
 
 " }}}
 

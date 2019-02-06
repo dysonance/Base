@@ -10,7 +10,7 @@ syn keyword juliaEnd contained
 
 syn keyword juliaStatement 
             \ using import return
-            \ let call begin
+            \ let call begin do
             \ try catch finally continue break
 
 syn keyword juliaModule
