@@ -1,14 +1,15 @@
 *.DS_Store
 *.tar*
 
-apps/llvm/src
-apps/llvm/bin
-apps/vim/src
-apps/vim/bin
-apps/python/versions
-apps/python/src
-apps/python/get-pip.py
+apps/alacritty/src
 apps/brew/src
 apps/frameworks/*
+apps/llvm/bin
+apps/llvm/src
+apps/python/get-pip.py
+apps/python/src
+apps/python/versions
+apps/vim/bin
+apps/vim/src
 
 tmp*
