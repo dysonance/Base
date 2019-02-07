@@ -73,6 +73,7 @@ set backspace=indent,eol,start                  " make backspace work like most 
 
 " Functional Tweaks {{{
 
+set mouse=a                    " enable use of scrolling with the mouse
 set noswapfile                 " dont create temporary swap files
 set autoindent                 " keep indent from current line when starting new line
 set smartindent                " make indenting logic smarter using language syntax
