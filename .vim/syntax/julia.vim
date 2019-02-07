@@ -90,7 +90,7 @@ syn match juliaConstant    "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter   ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match juliaFormat      "\$\<\w*\>" contained
 syn match juliaFormatStart "\(\$(\)" containedin=juliaString
-syn match juliaFunction    "\<\w*\>(\@=\|\<\w*\>\(!(\)\@="
+syn match juliaFunction    "\<\w*\>(\@=\|\<\w*\>\(!(\)\@=\|\<\w*\>\(.!(\)\@=\|\<\w*\>\(.(\)\@="
 syn match juliaIndex       "\[.*\]" contains=ALL
 syn match juliaMacro       "@\(\w\)\+"
 syn match juliaNumber      "\<[0-9.]\+\>\|[0-9]e[0-9-]"
