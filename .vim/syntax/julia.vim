@@ -8,7 +8,7 @@ syn keyword juliaTodo contained
 syn keyword juliaPreProc
             \ using import
 
-syn keyword juliaStatement 
+syn keyword juliaStatement
             \ return function
             \ type mutable struct abstract
             \ let call begin do
@@ -86,26 +86,25 @@ syn keyword juliaCustomType
             \ TS AbstractTS
             \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Results
 
-syn match juliaConstant    "\<[A-Z_]\{2,}\>\((\)\@!"
-syn match juliaDelimiter   ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match juliaFormat      "\$\<\w*\>" contained
-syn match juliaFormatStart "\(\$(\)" containedin=juliaString
-syn match juliaFunction    "\<\w*\>(\@=\|\<\w*\>\(!(\)\@=\|\<\w*\>\(.!(\)\@=\|\<\w*\>\(.(\)\@="
-syn match juliaIndex       "\[.*\]" contains=ALL
-syn match juliaMacro       "@\(\w\)\+"
-syn match juliaNumber      "\<[0-9.]\+\>\|[0-9]e[0-9-]"
-syn match juliaOperator    "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
-syn match juliaSpecial     "[$@]\(\w\)+\|`"
-syn match juliaSymbol      "[:<>0-9]\@<!:\(\w\)\+"
-syn match juliaType        "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
+syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
+syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match juliaFormat    "\$\<\w*\>"                                           contained
+syn match juliaFormat    "\\n\|\\t\|\$\<\w\+\>\|\(\$(.*\)\@<=\()\)"            containedin=juliaString
+syn match juliaFunction  "\<\w*\>(\@=\|\<\w*\>\(!(\)\@=\|\<\w*\>\(.!(\)\@=\|\<\w*\>\(.(\)\@="
+syn match juliaIndex     "\[.*\]"                                              contains=ALL
+syn match juliaMacro     "@\(\w\)\+"
+syn match juliaNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
+syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
+syn match juliaSpecial   "[$@]\(\w\)+\|`"
+syn match juliaSymbol    "\([:<>0-9]\|\>\)\@<!:\<\w\+\>"
+syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
 
-syn region juliaCharacter   start="'"      end="'"
-syn region juliaComment     start="#"      end="$"      contains=juliaTodo
-syn region juliaComment     start="#="     end="=#"     contains=juliaTodo
-syn region juliaFormat      start="\$("    end=")"      contains=ALLBUT,juliaDelimiter contained
-syn region juliaFormatGroup start="("      end=")"      contains=TOP keepend contained
-syn region juliaString      start="\"\"\"" end="\"\"\"" contains=juliaFormat
-syn region juliaString      start=+"+      end=+"+      contains=juliaFormat
+syn region juliaCharacter start="'"      end="'"
+syn region juliaComment   start="#"      end="$"                  contains=juliaTodo
+syn region juliaComment   start="#="     end="=#"                 contains=juliaTodo
+syn region juliaFormat    start="\$("    end="\(\$(.*\)\@<=\()\)" containedin=juliaString extend keepend
+syn region juliaString    start="\""     end="\""                 contains=juliaFormat extend
+syn region juliaString    start="\"\"\"" end="\"\"\""
 
 hi def link juliaBoolean      Boolean
 hi def link juliaCharacter    Character

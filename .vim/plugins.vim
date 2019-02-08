@@ -117,7 +117,7 @@ let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1
 
 " Python
-let g:syntastic_python_checkers=['python3', 'pyflakes']
+let g:syntastic_python_checkers=['python3', 'pyflakes'] ", 'pylint']
 
 " Go
 let g:go_highlight_functions = 1
@@ -131,13 +131,13 @@ let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
 " YouCompleteMe {{{
 
-let g:ycm_complete_in_strings=0                       " dont autocomplete strings
-let g:ycm_collect_identifiers_from_tags_files=1       " use the tags file from ctags command
-let g:ycm_python_binary_path='/usr/local/bin/python3' " use python 3 instead of system python
-let g:ycm_max_num_candidates=20                       " maximum number of completion options to use (default 50)
-let g:ycm_min_num_identifier_candidate_chars=2        " min chars id candidate must have to appear
-let g:ycm_confirm_extra_conf=0                        " dont ask to reload conf every time
-set completeopt=menu,menuone                          " turn off the preview/documentation window
+let g:ycm_complete_in_strings=0                 " dont autocomplete strings
+let g:ycm_collect_identifiers_from_tags_files=1 " use the tags file from ctags command
+let g:ycm_python_binary_path='python3'          " use python 3 instead of system python
+let g:ycm_max_num_candidates=20                 " maximum number of completion options to use (default 50)
+let g:ycm_min_num_identifier_candidate_chars=2  " min chars id candidate must have to appear
+let g:ycm_confirm_extra_conf=0                  " dont ask to reload conf every time
+set completeopt=menu,menuone                    " turn off the preview/documentation window
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_show_diagnostics_ui=0
 let g:ycm_error_symbol='E'
