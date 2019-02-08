@@ -180,12 +180,12 @@ colors:
   # Normal colors
   normal:
     black:   '0x000000'
-    red:     '0xAA0000'
-    green:   '0x00AA00'
-    yellow:  '0xAAAA00'
+    red:     '0x800000'
+    green:   '0x008000'
+    yellow:  '0x808000'
     blue:    '0x000040'
-    magenta: '0xAA00AA'
-    cyan:    '0x00AAAA'
+    magenta: '0x800080'
+    cyan:    '0x008080'
     white:   '0xaaaaaa'
 
   # Bright colors
