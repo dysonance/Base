@@ -9,7 +9,7 @@ syn keyword juliaPreProc
             \ using import
 
 syn keyword juliaStatement
-            \ return function
+            \ return function export
             \ type mutable struct abstract
             \ let call begin do
             \ try catch finally continue break
@@ -33,6 +33,7 @@ syn keyword juliaCustomModule
             \ Plots
             \ Distributions
             \ HTTP
+            \ JSON
             \ GR
             \ JuMP
             \ Temporal
@@ -101,7 +102,7 @@ syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" c
 
 syn region juliaCharacter start="'"      end="'"
 syn region juliaComment   start="#"      end="$"                  contains=juliaTodo
-syn region juliaComment   start="#="     end="=#"                 contains=juliaTodo
+syn region juliaComment   start="#="     end="=#"                 contains=juliaTodo extend
 syn region juliaFormat    start="\$("    end="\(\$(.*\)\@<=\()\)" containedin=juliaString extend keepend
 syn region juliaString    start="\""     end="\""                 contains=juliaFormat extend
 syn region juliaString    start="\"\"\"" end="\"\"\""
