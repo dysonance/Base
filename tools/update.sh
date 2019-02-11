@@ -9,8 +9,8 @@ brew upgrade
 brew list --versions > data/brew_list.txt
 
 # python
-pip3 list --outdated --format=freeze sed 's/=*[0-9.]//g' | xargs -n1 pip3 install --upgrade
-pip3 list > data/pip_list.txt
+ipi list --outdated --format=freeze sed 's/=*[0-9.]//g' | xargs -n1 pip3 install --upgrade
+ipi list > data/pip_list.txt
 
 # vim
 ./apps/vim/deploy.sh
