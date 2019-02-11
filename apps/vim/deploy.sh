@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 APP_DIRECTORY=$HOME/Preferences/apps
 INSTALL_DIRECTORY=$APP_DIRECTORY/vim/src
@@ -30,12 +30,10 @@ fi
 
 function BuildVim()
 {
-
     make clean
     if [ -f src/auto/config.cache ]; then
         rm src/auto/config.cache
     fi
-
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
         --with-features=huge \
@@ -49,7 +47,6 @@ function BuildVim()
         --with-python-config-dir=$PYTHON_CONFIG_DIR \
         --with-python3-command=$PYTHON_BINARY \
         --without-x
-
     make -j $CPU
     make -j $CPU install
     cp src/ex bin/
@@ -63,13 +60,11 @@ if [ "$1" == "--force" ]; then
     BuildVim
 else
     git fetch
-    LOCAL_COMMIT=$(git rev-parse @)
-    REMOTE_COMMIT=$(git rev-parse "@{u}")
-    if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
-        git clean -xfd
-        git pull
-        BuildVim
-    elif [[ ! -d "bin" ]]; then
+    VIM_VERSION=$(git tag | tail -n 1)
+    CURRENT_COMMIT=$(git rev-parse @)
+    VERSION_COMMIT=$(git rev-list -n 1 $VIM_VERSION)
+    if [ $CURRENT_COMMIT != $VERSION_COMMIT ]; then
+        git checkout $VERSION_COMMIT
         BuildVim
     fi
 fi
