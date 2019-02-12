@@ -53,7 +53,6 @@ Plug 'alvan/vim-closetag'          " make html editing less miserable
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
 Plug 'JuliaEditorSupport/julia-vim'                " julia language editing utilities
-Plug 'AtsushiSakai/julia.vim'                      " julia editing enhancements (docstrings, linting)
 Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
 Plug 'plasticboy/vim-markdown'                     " Markdown language support
 Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support

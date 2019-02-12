@@ -12,6 +12,9 @@ brew list --versions > data/brew_list.txt
 ipi list --outdated --format=freeze sed 's/=*[0-9.]//g' | xargs -n1 pip3 install --upgrade
 ipi list > data/pip_list.txt
 
+# alacritty
+./apps/alacritty/deploy.sh
+
 # vim
 ./apps/vim/deploy.sh
 vim -c ":PlugUpdate | :qa"
