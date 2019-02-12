@@ -8,10 +8,15 @@ if ! [ -d "src" ]; then
     git clone $REPO src
 fi
 cd src
+git pull
+
+if [[ -z "${CPU}" ]]; then
+    CPU=4
+fi
 
 # build and save to applications
 if [ "$1" == "--force" ]; then
-    make app
+    make -j $CPU app
     cp -r target/release/osx/Alacritty.app $HOME/Applications
 else
     git fetch
@@ -20,7 +25,7 @@ else
     VERSION_COMMIT=$(git rev-list -n 1 $ALACRITTY_VERSION)
     if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
         git checkout $ALACRITTY_VERSION
-        make app
+        make -j $CPU app
         cp -r target/release/osx/Alacritty.app $HOME/Applications
     fi
 fi
