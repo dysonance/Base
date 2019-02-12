@@ -31,7 +31,7 @@ export PATH=$PATH:$HOME/Applications/Julia-1.1.app/Contents/Resources/julia/bin
 
 # convenience shortcuts
 alias jln="$HOME/Preferences/apps/julia/nightly/usr/bin/julia"
-alias jl="julia --optimize=3 --compiled-modules=yes -q -g"
+alias jl="julia --optimize=3 -q -g"
 alias py="$HOME/Preferences/apps/frameworks/Python.framework/Versions/Current/bin/python3"
 alias ipi="$HOME/Preferences/apps/frameworks/Python.framework/Versions/Current/bin/pip3"
 alias ipy="$HOME/Preferences/apps/frameworks/Python.framework/Versions/Current/bin/ipython"

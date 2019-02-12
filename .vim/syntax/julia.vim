@@ -30,11 +30,9 @@ syn keyword juliaModule
 
 syn keyword juliaCustomModule
             \ Documenter
-            \ Plots
             \ Distributions
             \ HTTP
             \ JSON
-            \ GR
             \ JuMP
             \ Temporal
             \ Indicators
@@ -44,6 +42,9 @@ syn keyword juliaCustomModule
             \ DataFrames
             \ TimeSeries
             \ IterableTables
+            \ Plots
+            \ GR
+            \ RecipesBase
 
 syn keyword juliaKeyword
             \ where
@@ -59,6 +60,8 @@ syn keyword juliaBoolean
 syn keyword juliaConstant
             \ nothing
             \ missing
+            \ pi
+            \ NaN
 
 syn keyword juliaEndIndex contained
             \ end
