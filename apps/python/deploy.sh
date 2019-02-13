@@ -4,9 +4,7 @@
 set -e
 
 # define variables/settings to build as desired
-PYTHON_VERSION="3.6.5"
 PYTHON_REPOSITORY="https://github.com/python/cpython"
-INSTALL_DIRECTORY=$HOME/Preferences/apps/python/versions/$PYTHON_VERSION
 FRAMEWORK_DIRECTORY=$HOME/Preferences/apps/frameworks
 
 # define environment for dependencies
@@ -30,6 +28,8 @@ fi
 
 # get the appropriate version of the source code to build
 cd src
+PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g')
+INSTALL_DIRECTORY="$HOME/Preferences/apps/python/versions/$PYTHON_VERSION"
 git checkout v$PYTHON_VERSION
 
 # configure the installation
@@ -38,12 +38,22 @@ git checkout v$PYTHON_VERSION
 
 if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
 
-    make clean
+    git clean -xfd
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
-        --enable-framework=$FRAMEWORK_DIRECTORY \
+        --datadir=$INSTALL_DIRECTORY/share \
+        --datarootdir=$INSTALL_DIRECTORY/share \
         --enable-optimizations \
-        --with-openssl=$SSL_DIRECTORY
+        --enable-framework=$FRAMEWORK_DIRECTORY \
+        --enable-ipv6 \
+        --enable-loadable-sqlite-extensions \
+        --with-openssl=$SSL_DIRECTORY \
+        --with-dtrace \
+        --without-ensurepip \
+        --without-gcc
+
+    make -j $CPU
+    make -j $CPU install
 
 else
 
@@ -62,13 +72,11 @@ else
             --without-ensurepip \
             --without-gcc \
             CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS"
+    make -j $CPU
+    make -j $CPU install PYTHONAPPSDIR=$INSTALL_DIRECTORY
+    make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
 
 fi
-
-# run the build
-make -j $CPU
-make -j $CPU install PYTHONAPPSDIR=$INSTALL_DIRECTORY
-make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
 
 # create symbolic links to simplify version management
 cd $INSTALL_DIRECTORY/..
