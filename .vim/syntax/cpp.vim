@@ -27,7 +27,7 @@ syn keyword cppType
             \ void
             \ const static mutable
             \ bool
-            \ int unsigned long
+            \ int unsigned long enum
             \ double float
             \ auto
             \ function shared_ptr list vector map deque

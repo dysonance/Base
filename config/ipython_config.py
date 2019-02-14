@@ -5,8 +5,7 @@ import numpy as np
 import pandas as pd
 from IPython.terminal.prompts import Prompts, Token
 
-# np.core.arrayprint._line_width = 140
-np.set_printoptions(linewidth=140, suppress=True)
+np.set_printoptions(linewidth=160, suppress=True)
 pd.options.display.max_rows = 40
 pd.set_option("display.max_rows", 40)
 
@@ -23,7 +22,7 @@ c.InteractiveShellApp.exec_lines = [
     "import datetime as dt",
     "from pylab import *",
     "ion()",
-    'pd.set_option("display.width", 140)',
+    'pd.set_option("display.width", 160)',
     'pd.set_option("display.max_columns", 500)',
 ]
 

@@ -36,7 +36,7 @@ alias py="$HOME/Preferences/apps/frameworks/Python.framework/Versions/Current/bi
 alias ipi="$HOME/Preferences/apps/frameworks/Python.framework/Versions/Current/bin/pip3"
 alias ipy="$HOME/Preferences/apps/frameworks/Python.framework/Versions/Current/bin/ipython"
 
-function Ls()
+function list()
 {
     ls -AlnT $@
 }
