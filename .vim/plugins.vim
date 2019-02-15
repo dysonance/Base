@@ -98,7 +98,8 @@ let ignored_messages=
             \ 'discarding unexpected <meta>',
             \ "plain text isn't allowed",
             \ '<a> illegal characters found in URI',
-            \ 'struct field Cpu should be CPU'
+            \ 'struct field Cpu should be CPU',
+            \ 'comment on exported type'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
@@ -249,10 +250,13 @@ let g:airline#extensions#tabline#formatter='unique_tail'
 
 " Git Gutter {{{
 
-let g:gitgutter_realtime=0  " dont update gutter in realtime to stop lag (will update on save)
-set updatetime=100  " redo gutter git diff every 100 ms (1/10 sec)
-"let g:gitgutter_sign_column_always=1  " keep the git gutter sign column on all the time (less distracting)
-"set signcolumn=yes
+let g:gitgutter_realtime=0 " dont update gutter in realtime to stop lag (will update on save)
+set updatetime=100         " redo gutter git diff every 100 ms (1/10 sec)
+
+highlight GitGutterAdd ctermfg=DarkGreen ctermbg=NONE
+highlight GitGutterDelete ctermfg=DarkRed ctermbg=NONE
+highlight GitGutterChange ctermfg=Yellow ctermbg=NONE
+highlight GitGutterChangeDelete ctermfg=DarkYellow ctermbg=NONE
 
 " }}}
 

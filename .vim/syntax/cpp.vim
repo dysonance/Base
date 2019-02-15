@@ -13,7 +13,7 @@ syn keyword cppStatement
 syn keyword cppKeyword
             \ for while
             \ if else
-            \ try catch finally
+            \ try catch finally break
             \ inline virtual explicit export public protected private
             \ class struct typename template namespace typedef
 
@@ -51,7 +51,7 @@ syn match cppScopeDelimiter "::"
 syn match cppString         "\(#include \)\@<=.*$"
 syn match cppTodo           "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
 syn match cppType           "< \w\+ >" contains=cppOperator
-syn match cppType           "\<\w\+\>\( \<\w\+\>.=\)\@=\|\(const \)\@<=\<\w\+\>"
+syn match cppType           "\<\w\+\>\( \<\w\+\>.=\)\@=\|\(const \)\@<=\<\w\+\>\@!\(::\)"
 
 syn region cppChar    start="\'"   end="\'"
 syn region cppComment start="//"   end="$"    contains=cppTodo
