@@ -28,7 +28,12 @@ fi
 
 # get the appropriate version of the source code to build
 cd src
-PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g')
+if [ "$1" == "" ]; then
+    PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g')
+else
+    PYTHON_VERSION="$1"
+fi
+
 INSTALL_DIRECTORY="$HOME/Preferences/apps/python/versions/$PYTHON_VERSION"
 git checkout v$PYTHON_VERSION
 
@@ -57,7 +62,7 @@ if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
 
 else
 
-    make clean
+    git clean -xfd
     export CPPFLAGS="-I$SSL_DIRECTORY/include -I/usr/local/include -I/usr/local/opt/zlib/include"
     export LDFLAGS="-L$SSL_DIRECTORY/lib -L/usr/local/lib -L/usr/local/opt/zlib/lib"
         ./configure \
