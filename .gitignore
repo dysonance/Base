@@ -11,5 +11,7 @@ apps/python/src
 apps/python/versions
 apps/vim/bin
 apps/vim/src
+apps/musescore/src
+apps/musescore/bin
 
 tmp*
