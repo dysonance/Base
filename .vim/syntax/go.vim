@@ -17,12 +17,14 @@ syn keyword goPackage
             \ sort
             \ orm
 
+syn match goConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match goDelimiter "(\|)\|;\|\[\|\]\|{\|}\|,"
-syn match goFunction  "\<\w\+\>(\@=\|\.\@<=\w*\["
+syn match goFunction  "\<\w\+\>(\@=\|\.\@<=\w*\[" contains=goDelimiter
 syn match goOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\."
 syn match goMethod    "\(func (\w*)\)"
 
 hi def link goBoolean   Boolean
+hi def link goConstant  Constant
 hi def link goKeyword   Keyword
 hi def link goDelimiter Delimiter
 hi def link goPackage   PreProc
