@@ -45,6 +45,9 @@ syn keyword juliaCustomModule
             \ Plots
             \ GR
             \ RecipesBase
+            \ Stochatto
+            \ MIDI
+            \ MusicManipulations
 
 syn keyword juliaKeyword
             \ where
