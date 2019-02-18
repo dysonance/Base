@@ -42,26 +42,30 @@ git checkout v$PYTHON_VERSION
 # FIXME: installing as a framework (req for vim YCM plugin) is all messed up
 
 if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
-
+    SQLITE_DIRECTORY=$(brew --prefix sqlite)
+    export PATH=$SQLITE_DIRECTORY/bin:$PATH
+    export CC=clang
+    export LDFLAGS="-L$SQLITE_DIRECTORY/lib"
+    export CFLAGS="-I$SQLITE_DIRECTORY/include"
+    export PKG_CONFIG_PATH=$SQLITE_DIRECTORY/lib/pkgconfig
     git clean -xfd
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
         --datadir=$INSTALL_DIRECTORY/share \
         --datarootdir=$INSTALL_DIRECTORY/share \
-        --enable-optimizations \
         --enable-framework=$FRAMEWORK_DIRECTORY \
         --enable-ipv6 \
         --enable-loadable-sqlite-extensions \
-        --with-openssl=$SSL_DIRECTORY \
+        --enable-optimizations \
         --with-dtrace \
+        --with-lto \
+        --with-openssl=$SSL_DIRECTORY \
         --without-ensurepip \
         --without-gcc
-
     make -j $CPU
-    make -j $CPU install
-
+    make frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
+    make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
 else
-
     git clean -xfd
     export CPPFLAGS="-I$SSL_DIRECTORY/include -I/usr/local/include -I/usr/local/opt/zlib/include"
     export LDFLAGS="-L$SSL_DIRECTORY/lib -L/usr/local/lib -L/usr/local/opt/zlib/lib"
@@ -80,7 +84,6 @@ else
     make -j $CPU
     make -j $CPU install PYTHONAPPSDIR=$INSTALL_DIRECTORY
     make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
-
 fi
 
 # create symbolic links to simplify version management

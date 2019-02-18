@@ -8,8 +8,8 @@ INSTALL_DIRECTORY=$APP_DIRECTORY/vim/src
 # PYTHON_CONFIG_DIR="/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig"
 # PYTHON_BINARY=/usr/local/bin/python3
 
-# # for manual python source builds
-PYTHON_VERSION=3.6.5
+# for manual python source builds
+PYTHON_VERSION=3.7.2
 PYTHON_BINARY=$APP_DIRECTORY/python/versions/$PYTHON_VERSION/bin/python3
 PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
 PYTHON_CONFIG_DIR="
