@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_DIRECTORY=$HOME/Preferences/apps
+APP_DIRECTORY=$HOME/Chest/apps
 BREW_VERSION=3.6.5_1
 
 if [ -d /usr/local/Cellar/python/$BREW_VERSION ]; then

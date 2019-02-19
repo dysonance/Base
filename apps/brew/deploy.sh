@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $HOME/Preferences/apps/brew
+cd $HOME/Chest/apps/brew
 
 if ! [ -d "src" ]; then
     mkdir src

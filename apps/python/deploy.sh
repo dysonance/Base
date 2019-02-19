@@ -5,7 +5,7 @@ set -e
 
 # define variables/settings to build as desired
 PYTHON_REPOSITORY="https://github.com/python/cpython"
-FRAMEWORK_DIRECTORY=$HOME/Preferences/apps/frameworks
+FRAMEWORK_DIRECTORY=$HOME/Chest/apps/frameworks
 
 # define environment for dependencies
 if ! [ -x "$(command -v openssl)" ]; then
@@ -15,7 +15,7 @@ fi
 SSL_DIRECTORY=$(brew --prefix openssl)
 
 # setup the required directory structure
-cd $HOME/Preferences/apps/python
+cd $HOME/Chest/apps/python
 if ! [ -d "versions" ]; then
     mkdir versions
 fi
@@ -34,7 +34,7 @@ else
     PYTHON_VERSION="$1"
 fi
 
-INSTALL_DIRECTORY="$HOME/Preferences/apps/python/versions/$PYTHON_VERSION"
+INSTALL_DIRECTORY="$HOME/Chest/apps/python/versions/$PYTHON_VERSION"
 git checkout v$PYTHON_VERSION
 
 # configure the installation

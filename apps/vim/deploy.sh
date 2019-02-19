@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_DIRECTORY=$HOME/Preferences/apps
+APP_DIRECTORY=$HOME/Chest/apps
 INSTALL_DIRECTORY=$APP_DIRECTORY/vim/src
 
 # # for homebrew python installations
@@ -70,7 +70,7 @@ else
 fi
 
 # backup vim binary if build succeeds to prevent losing it later
-if ! [ -d "$HOME/Preferences/apps/vim/bin" ]; then
+if ! [ -d "$HOME/Chest/apps/vim/bin" ]; then
     mkdir $APP_DIRECTORY/vim/bin
 fi
 ln -sf $INSTALL_DIRECTORY/bin/* $APP_DIRECTORY/vim/bin/

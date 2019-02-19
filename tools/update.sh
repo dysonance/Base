@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # entry
-cd $HOME/Preferences
+cd $HOME/Chest
 
 # packages
 brew update

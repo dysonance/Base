@@ -1,8 +1,8 @@
 #/bin/bash
 
-cd $HOME/Preferences/apps/musescore
+cd $HOME/Chest/apps/musescore
 
-INSTALL_DIRECTORY=$HOME/Preferences/apps/musescore/bin
+INSTALL_DIRECTORY=$HOME/Chest/apps/musescore/bin
 MUSESCORE_REPOSITORY="https://github.com/musescore/MuseScore"
 
 if ! [ -d "src" ]; then

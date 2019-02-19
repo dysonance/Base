@@ -18,22 +18,22 @@ function SetupDirectory()
 }
 
 # link personal configuration files
-ln -sf $HOME/Preferences/config/.vimrc $HOME/
-ln -sf $HOME/Preferences/config/.gitconfig $HOME/
-ln -sf $HOME/Preferences/config/.Rprofile $HOME/
-ln -sf $HOME/Preferences/config/.tmux.conf $HOME/
+ln -sf $HOME/Chest/config/.vimrc $HOME/
+ln -sf $HOME/Chest/config/.gitconfig $HOME/
+ln -sf $HOME/Chest/config/.Rprofile $HOME/
+ln -sf $HOME/Chest/config/.tmux.conf $HOME/
 
 # setup vim environment
-cd $HOME/Preferences/apps/vim
+cd $HOME/Chest/apps/vim
 ./deploy.sh
 SetupDirectory $HOME/.vim
 SetupDirectory $HOME/.vim/colors
 SetupDirectory $HOME/.vim/syntax
-ln -sf $HOME/Preferences/.vim/colors/jamos_blue.vim $HOME/.vim/colors/
-ln -sf $HOME/Preferences/.vim/syntax/cpp.vim $HOME/.vim/syntax/
-ln -sf $HOME/Preferences/.vim/skeletons $HOME/.vim/
-ln -sf $HOME/Preferences/.vim/plugins.vim $HOME/.vim/
-for syntax_file in $HOME/Preferences/.vim/syntax/*.vim; do
+ln -sf $HOME/Chest/.vim/colors/jamos_blue.vim $HOME/.vim/colors/
+ln -sf $HOME/Chest/.vim/syntax/cpp.vim $HOME/.vim/syntax/
+ln -sf $HOME/Chest/.vim/skeletons $HOME/.vim/
+ln -sf $HOME/Chest/.vim/plugins.vim $HOME/.vim/
+for syntax_file in $HOME/Chest/.vim/syntax/*.vim; do
     echo "linking $syntax_file to $HOME/.vim/syntax/"
     ln -sf $syntax_file $HOME/.vim/syntax/
 done
@@ -41,10 +41,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.
 vim -c ":PlugInstall | :PlugUpdate | :qa"
 cd $HOME/.vim/plugged/YouCompleteMe
 python3 install.py --all
-cd $HOME/Preferences
+cd $HOME/Chest
 
 # setup python environment
 pip3 install numpy pandas matplotlib ipython numba statsmodels scipy
 SetupDirectory $HOME/.ipython
 SetupDirectory $HOME/.ipython/profile_default
-ln -sf $HOME/Preferences/config/ipython_config.py $HOME/.ipython/profile_default/
+ln -sf $HOME/Chest/config/ipython_config.py $HOME/.ipython/profile_default/

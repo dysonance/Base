@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JULIA_INSTALL_DIR=$HOME/Preferences/apps/julia
+JULIA_INSTALL_DIR=$HOME/Chest/apps/julia
 
 unset DYLD_LIBRARY_PATH
 unset LD_LIBRARY_PATH
