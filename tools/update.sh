@@ -20,4 +20,4 @@ py $HOME/.vim/plugged/YouCompleteMe/install.py --all
 
 # julia
 ./apps/julia/deploy.sh
-julia --color=yes -e 'using Pkg; pkgs = String.(keys(Pkg.installed())); for pkg in pkgs; eval(Meta.parse("using $pkg")); end'
+julia -g2 --color=yes apps/julia/precompile.jl

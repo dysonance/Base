@@ -319,7 +319,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 
 " Pandoc {{{
 
-let g:pandoc#command#autoexec_command="Pandoc pdf"
+let g:pandoc#command#autoexec_command="pandoc pdf"
 let g:pandoc#command#latex_engine="xelatex"
 let g:pandoc#command#autoexec_on_writes=0
 let g:pandoc#command#prefer_pdf=1
