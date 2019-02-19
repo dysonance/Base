@@ -65,6 +65,7 @@ syn keyword juliaConstant
             \ missing
             \ pi
             \ NaN
+            \ stdout stderr stdin
 
 syn keyword juliaEndIndex contained
             \ end
