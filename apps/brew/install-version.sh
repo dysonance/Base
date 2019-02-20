@@ -1,22 +1,27 @@
 #!/bin/bash
 
-local _formula=$1
-local _version=$2
+FORMULA=$1
+VERSION=$2
 
-if [ "$_formula" == "" ]; then
+if [ "$FORMULA" == "" ]; then
     echo "no formula supplied"
     exit 1
 fi
-if [ "$_version" == "" ]; then
+if [ "$VERSION" == "" ]; then
     echo "no version supplied"
     exit 1
 fi
 
-cd $HOME/apps/brew/src/Library/Taps/homebrew/homebrew-core/Formula
-git fetch --unshallow
-COMMIT_STRING="$(git log --grep=$_version --oneline -n1 -- $_formula.rb)"
+cd $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula
+
+# check if shallow directory (history is missing)
+# if so make it unshallow so the history can be searched
+if [ -f $(git rev-parse --git-dir)/shallow ]; then
+    git fetch --unshallow
+fi
+COMMIT_STRING="$(git log --grep=$VERSION --oneline -n1 -- $FORMULA.rb)"
 COMMIT_HASH="$(echo $COMMIT_STRING | awk '{print $1}')"
 
 REMOTE_URL=$(git remote -v | head -n1 | awk '{print $2}')
-RAW_URL="$(echo $REMOTE_URL | sed 's/github.com/raw.githubusercontent.com/')/$COMMIT_HASH/Formula/$_formula.rb"
+RAW_URL="$(echo $REMOTE_URL | sed 's/github.com/raw.githubusercontent.com/')/$COMMIT_HASH/Formula/$FORMULA.rb"
 brew install $RAW_URL
