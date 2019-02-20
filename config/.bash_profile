@@ -54,3 +54,9 @@ function BashColors()
 }
 
 alias edit="vim"
+
+if [ -d "$HOME/Applications/Google Chrome.app" ]; then
+    export BROWSER=$HOME/Applications/Google\ Chrome.app
+elif [ -d "/Applications/Google Chrome.app" ]; then
+    export BROWSER=/Applications/Google\ Chrome.app
+fi
