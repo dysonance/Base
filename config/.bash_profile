@@ -18,9 +18,13 @@ PROMPT="$PROMPT_COLOR\n\\$ $DEFAULT_COLOR"
 PS1="\n[$TIME][$FOLDER][$BRANCH]\n$PROMPT_COLOR\\$ $DEFAULT_COLOR"
 export PS1
 
+# miscellaneous environment variables
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
+
 # path additions
+export PATH=$HOME/Chest/apps/vim/bin:$PATH
+export PATH=$HOME/Chest/apps/brew/bin:$PATH
 export PATH=$PATH:$HOME/Chest/apps/llvm/llvm/bin
-export PATH=$HOME/Chest/apps/vim/src/bin:$PATH
 export PATH=$PATH:$HOME/Chest/apps/frameworks/Python.framework/Versions/Current/bin
 export PATH=$PATH:$HOME/Applications/Julia-1.1.app/Contents/Resources/julia/bin
 

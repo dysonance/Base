@@ -1,17 +1,29 @@
+# miscellaneous
 *.DS_Store
 *.tar*
 
+# temporary files and directories
+tmp*
+
+# ------------ app deployments ------------
+# alacritty
 apps/alacritty/src
-apps/brew/src
+# frameworks
 apps/frameworks/*
+# llvm
 apps/llvm/bin
 apps/llvm/src
+# python
 apps/python/get-pip.py
 apps/python/src
 apps/python/versions
+# vim
 apps/vim/bin
 apps/vim/src
+# musescore
 apps/musescore/src
 apps/musescore/bin
-
-tmp*
+# homebrew
+apps/brew/*
+!apps/brew/deploy.sh
+!apps/brew/install-version.sh

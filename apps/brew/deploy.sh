@@ -4,15 +4,15 @@ cd $HOME/Chest/apps/brew
 
 if ! [ -d "src" ]; then
     mkdir src
+    git clone https://github.com/Homebrew/brew src
 fi
 cd src
 
-if ! [ -d "homebrew-core" ]; then
-    git clone https://github.com/Homebrew/homebrew-core
-fi
+./bin/brew update
 
-if ! [ -d "brew" ]; then
-    git clone https://github.com/Homebrew/brew
+cd ..
+if ! [ -d "$HOME/Chest/apps/brew/bin" ]; then
+    mkdir bin
 fi
-
-cd homebrew-core
+ln -sf $HOME/Chest/apps/brew/src/bin/* $HOME/Chest/apps/brew/bin/
+ln -sf $HOME/Chest/apps/brew/install-version.sh $HOME/Chest/apps/brew/bin/brew-install-version
