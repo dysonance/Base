@@ -37,10 +37,7 @@ fi
 INSTALL_DIRECTORY="$HOME/Chest/apps/python/versions/$PYTHON_VERSION"
 git checkout v$PYTHON_VERSION
 
-# configure the installation
-# NOTE: configuration for versions < 3.7 is different
-# FIXME: installing as a framework (req for vim YCM plugin) is all messed up
-
+# configure the installation (NOTE: configuration for versions < 3.7 is different)
 if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
     SQLITE_DIRECTORY=$(brew --prefix sqlite)
     export PATH=$SQLITE_DIRECTORY/bin:$PATH
@@ -76,6 +73,7 @@ else
             --enable-framework=$FRAMEWORK_DIRECTORY \
             --enable-loadable-sqlite-extensions \
             --enable-ipv6 \
+            --enable-lot \
             --enable-optimizations \
             --with-dtrace \
             --without-ensurepip \

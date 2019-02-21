@@ -12,7 +12,7 @@ if [ "$VERSION" == "" ]; then
     exit 1
 fi
 
-cd $(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula
+cd $(brew --prefix)/Library/Taps/homebrew/homebrew-core/Formula
 
 # check if shallow directory (history is missing)
 # if so make it unshallow so the history can be searched

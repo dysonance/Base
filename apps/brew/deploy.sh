@@ -2,17 +2,13 @@
 
 cd $HOME/Chest/apps/brew
 
+HOMEBREW_REPO="https://github.com/Homebrew/brew"
+
 if ! [ -d "src" ]; then
-    mkdir src
-    git clone https://github.com/Homebrew/brew src
+    git clone $HOMEBREW_REPO src
 fi
 cd src
 
 ./bin/brew update
 
-cd ..
-if ! [ -d "$HOME/Chest/apps/brew/bin" ]; then
-    mkdir bin
-fi
-ln -sf $HOME/Chest/apps/brew/src/bin/* $HOME/Chest/apps/brew/bin/
-ln -sf $HOME/Chest/apps/brew/install-version.sh $HOME/Chest/apps/brew/bin/brew-install-version
+ln -sf $HOME/Chest/apps/brew/install-version.sh $HOME/Chest/apps/brew/src/bin/brew-install-version
