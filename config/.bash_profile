@@ -20,21 +20,26 @@ export PS1
 
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
+export APPDIR=$HOME/Chest/apps
 
 # path additions
-export PATH=$HOME/Chest/apps/vim/bin:$PATH
-export PATH=$HOME/Chest/apps/brew/bin:$PATH
-export PATH=$PATH:$HOME/Chest/apps/llvm/llvm/bin
-export PATH=$PATH:$HOME/Chest/apps/frameworks/Python.framework/Versions/Current/bin
+export PATH=$APPDIR/vim/src/bin:$PATH
+export PATH=$APPDIR/brew/src/bin:$PATH
+export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
+export PATH=$PATH:$APPDIR/llvm/llvm/bin
 export PATH=$PATH:$HOME/Applications/Julia-1.1.app/Contents/Resources/julia/bin
 
 # convenience shortcuts
+alias edit="vim"
 alias jln="$HOME/Chest/apps/julia/nightly/usr/bin/julia"
 alias jl="julia --optimize=3 -q -g"
-alias py="$HOME/Chest/apps/frameworks/Python.framework/Versions/Current/bin/python3"
-alias ipi="$HOME/Chest/apps/frameworks/Python.framework/Versions/Current/bin/pip3"
+alias py36="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.6/bin/python3"
+alias pip36="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.6/bin/pip3"
+alias py37="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/python3"
+alias pip37="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/pip3"
+alias py="py37"
+alias ipi="pip37"
 alias ipy="$HOME/Chest/apps/frameworks/Python.framework/Versions/Current/bin/ipython"
-alias edit="vim"
 
 function list()
 {
