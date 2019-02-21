@@ -74,24 +74,60 @@ syn keyword sqlStatement    rename revoke rollback savepoint select
 syn keyword sqlStatement    desc as limit
 syn keyword sqlStatement    truncate update vacuum
 syn keyword sqlStatement    with from group order by where
-syn match   sqlStatement    "\<\(replace\|create\)\>"
-
 " Types - Only matched inside 'CREATE TABLE ();'.
-syn keyword sqlType bigint     bit blob bool boolean byte char
-syn keyword sqlType clob       datetime dec decimal enum
-syn keyword sqlType float      int int8 integer interval long
-syn keyword sqlType longblob   longtext lvarchar mediumblob
-syn keyword sqlType mediumint  mediumtext mlslabel money
-syn keyword sqlType multiset   nchar number numeric nvarchar
-syn keyword sqlType raw        real rowid serial serial8
-syn keyword sqlType smallfloat smallint text time
-syn keyword sqlType timestamp  tinyblob tinyint tinytext
-syn keyword sqlType varchar    varchar2 varray year
-syn match   sqlType contained  "\<\(character\|double\|varying\)\>"
-syn match   sqlType contained  "\<character\s\+varying\>"
-syn match   sqlType contained  "\<double\s\+precision\>"
-syn match   sqlType "[\._\< as\>]\@<!\<date\>"
-syn match   sqlType "[\._\< as\>]\@<!return"
+syn keyword sqlType
+            \ bigint
+            \ bit
+            \ blob
+            \ bool
+            \ boolean
+            \ byte
+            \ char
+            \ clob
+            \ datetime
+            \ dec
+            \ decimal
+            \ double
+            \ enum
+            \ float
+            \ int
+            \ int8
+            \ integer
+            \ interval
+            \ long
+            \ longblob
+            \ longtext
+            \ lvarchar
+            \ mediumblob
+            \ mediumint
+            \ mediumtext
+            \ mlslabel
+            \ money
+            \ multiset
+            \ nchar
+            \ number
+            \ numeric
+            \ nvarchar
+            \ precision
+            \ raw
+            \ real
+            \ rowid
+            \ serial
+            \ serial8
+            \ smallfloat
+            \ smallint
+            \ text
+            \ time
+            \ timestamp
+            \ tinyblob
+            \ tinyint
+            \ tinytext
+            \ varchar
+            \ varchar2
+            \ varray
+            \ year
+
+syn match sqlStatement "\<\(replace\|create\)\>"
 
 " Strings
 syn region sqlString        start=+"+  skip=+\\\\\|\\"+  end=+"+ contains=sqlVariable

@@ -8,7 +8,7 @@ brew update
 brew upgrade
 
 # python
-ipi list --outdated --format=freeze sed 's/=*[0-9.]//g' | xargs -n1 pip3 install --upgrade
+ipi install --upgrade $(pip list --format=freeze | sed 's/==/ /' | awk '{print $1}')
 
 # alacritty
 ./apps/alacritty/deploy.sh
