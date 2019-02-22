@@ -8,7 +8,6 @@ if ! [ -d "src" ]; then
     git clone $REPO src
 fi
 cd src
-git pull
 
 if [[ -z "${CPU}" ]]; then
     CPU=4
