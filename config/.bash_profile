@@ -21,6 +21,7 @@ export PS1
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Chest/apps
+export GOROOT=$APPDIR/brew/src/opt/go/libexec
 
 # path additions
 export PATH=$APPDIR/vim/src/bin:$PATH
@@ -57,9 +58,3 @@ function BashColors()
         printf "\x1b[38;5;${_index_}mcolour${_index_}\x1b[0m\n"
     fi
 }
-
-if [ -d "$HOME/Applications/Google Chrome.app" ]; then
-    export BROWSER=$HOME/Applications/Google\ Chrome.app
-elif [ -d "/Applications/Google Chrome.app" ]; then
-    export BROWSER=/Applications/Google\ Chrome.app
-fi
