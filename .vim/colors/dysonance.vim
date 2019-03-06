@@ -33,15 +33,16 @@ highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
 
 " Other random highlights
 set cursorline
-highlight CursorLine ctermfg=NONE  ctermbg=Black     cterm=NONE
-highlight StatusLine ctermfg=Blue  ctermbg=Cyan      cterm=NONE
-highlight LineNR     ctermfg=Grey  ctermbg=NONE      cterm=NONE
-highlight Pmenu      ctermfg=Black ctermbg=Cyan      cterm=NONE
-highlight PmenuSel   ctermfg=White ctermbg=DarkCyan  cterm=NONE
-highlight Visual     ctermfg=NONE  ctermbg=DarkGrey  cterm=NONE
-highlight IncSearch  ctermfg=Black ctermbg=DarkGreen cterm=NONE
-highlight Search     ctermfg=Black ctermbg=DarkGreen cterm=NONE
-highlight MatchParen ctermfg=Grey  ctermbg=Blue      cterm=NONE
+highlight StatusLine   ctermfg=Blue  ctermbg=Cyan      cterm=NONE
+highlight CursorLine   ctermfg=NONE  ctermbg=Black     cterm=NONE
+highlight CursorLineNR ctermfg=White ctermbg=Blue      cterm=NONE
+highlight LineNR       ctermfg=Grey  ctermbg=NONE      cterm=NONE
+highlight Pmenu        ctermfg=Black ctermbg=Cyan      cterm=NONE
+highlight PmenuSel     ctermfg=White ctermbg=DarkCyan  cterm=NONE
+highlight Visual       ctermfg=NONE  ctermbg=DarkGrey  cterm=NONE
+highlight IncSearch    ctermfg=Black ctermbg=DarkGreen cterm=NONE
+highlight Search       ctermfg=Black ctermbg=DarkGreen cterm=NONE
+highlight MatchParen   ctermfg=Grey  ctermbg=Blue      cterm=NONE
 
 " Errors and warnings highlighting
 highlight ErrorMsg   ctermfg=NONE ctermbg=DarkRed    cterm=NONE
