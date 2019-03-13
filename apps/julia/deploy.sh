@@ -15,12 +15,19 @@ if [ ! -d "nightly" ]; then
     git clone https://github.com/JuliaLang/julia.git nightly
     cd nightly
     cp ../Make.user .
-    make -C deps getall && make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update(); Pkg.build()"
 else
     cd nightly
     git pull
     cp ../Make.user .
-    make -j $CPU CFLAGS=-Wno-error && ./julia --color=yes --depwarn=no --warn-overwrite=no --optimize=3 --inline=yes -e "using Pkg; Pkg.update(); Pkg.build()"
 fi
 
-cd $JULIA_INSTALL_DIR
+if [ "$1" == "--clean" ]; then
+    git clean -xfd
+    make cleanall
+    cp ../Make.user .
+fi
+
+make -C deps getall && make -j $CPU CFLAGS=-Wno-error
+
+# NOTE: sometimes the following warning will appear
+# libtool: warning: remember to run 'libtool --finish /Users/JAmos/Chest/apps/julia/nightly/usr/lib'
