@@ -121,7 +121,7 @@ let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1
 
 " Python
-let g:syntastic_python_checkers=['python', 'pyflakes'] ", 'pylint']
+let g:syntastic_python_checkers=['python3', 'pyflakes'] ", 'pylint']
 
 " Go
 let g:go_highlight_functions = 1
