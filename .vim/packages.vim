@@ -103,7 +103,8 @@ let ignored_messages=
             \ '<a> illegal characters found in URI',
             \ 'struct field Cpu should be CPU',
             \ 'comment on exported type',
-            \ 'a blank import should be only in a main or test package'
+            \ 'a blank import should be only in a main or test package',
+            \ 'that stutters'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
