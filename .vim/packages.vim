@@ -103,7 +103,8 @@ let ignored_messages=
             \ '<a> illegal characters found in URI',
             \ 'struct field Cpu should be CPU',
             \ 'comment on exported type',
-            \ 'a blank import should be only in a main or test package'
+            \ 'a blank import should be only in a main or test package',
+            \ 'that stutters'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
@@ -121,7 +122,7 @@ let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1
 
 " Python
-let g:syntastic_python_checkers=['python', 'pyflakes'] ", 'pylint']
+let g:syntastic_python_checkers=['python3', 'pyflakes'] ", 'pylint']
 
 " Go
 let g:go_highlight_functions = 1
