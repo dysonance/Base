@@ -310,7 +310,7 @@ autocmd FileType r vmap <F6> :SlimeSend<CR>gv
 autocmd FileType r nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd FileType r nmap <F8> :SlimeSendCurrentLine<CR>
 
-autocmd FileType julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"using Pkg; Pkg.test(\\\"" . getcwd() . "\\\")\""<CR>
+autocmd FileType julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"using Pkg; Pkg.test(\\\"" . systemlist("basename $(git root)")[0] . "\\\")\""<CR>
 autocmd FileType julia nmap <F4> :execute ":SlimeSend1 julia -O3 --color=yes " . bufname("%")<CR>
 autocmd FileType julia nmap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
 autocmd FileType julia nmap <F6> msvip:SlimeSend<CR>`s
