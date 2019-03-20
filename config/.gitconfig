@@ -22,7 +22,7 @@
     cane = commit --amend --no-edit
     root = rev-parse --show-toplevel
     summ = log --stat --pretty=format:'%C(bold magenta)%an%C(reset) %C(bold white)%s%C(reset) %C(bold cyan)%ar%C(reset) %C(cyan)%ad%C(reset) %C(bold yellow)%h%C(reset)'
-    save = "!f() { if ! [ -d chest/patches ]; then echo "no patch directory found"; else echo "saving changes to chest/patches/$1.patch" && git add . && git diff --staged > chest/patches/$1.patch && git reset --quiet . && git checkout --quiet .; fi }; f"
+    flow = log --all --graph --abbrev-commit --decorate --branches --format=format:'%C(reverse bold green)%an%C(reset) %C(bold red)%D%C(reset) %C(bold white)%s%C(reset) %C(bold cyan)%ar%C(reset) %C(cyan)%ad%C(reset) %C(bold blue)%h%C(reset)'
     grab = "!f() { if ! [ -f chest/patches/$1.patch ]; then echo \"chest/patches/$1.patch not found\"; else echo \"grabbing changes from chest/patches/$1.patch\" && git apply \"chest/patches/$1.patch\"; fi }; f"
+    save = "!f() { if ! [ -d chest/patches ]; then echo "no patch directory found"; else echo "saving changes to chest/patches/$1.patch" && git add . && git diff --staged > chest/patches/$1.patch && git reset --quiet . && git checkout --quiet .; fi }; f"
     debug = "!f() { set -x; GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git $@ ; set +x; }; f"
-    story = log --all --graph --abbrev-commit --decorate --format=format:'%C(bold magenta)%an%C(reset) %C(bold white)%s%C(reset) %C(bold cyan)%ar%C(reset) %C(cyan)%ad%C(reset) %C(bold yellow)%h%C(reset)'
