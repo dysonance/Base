@@ -50,6 +50,8 @@ syn keyword juliaCustomModule
             \ MIDI
             \ MusicManipulations
             \ ProgressMeter
+            \ OhMyREPL
+            \ Revise
 
 syn keyword juliaKeyword
             \ where
@@ -95,7 +97,7 @@ syn keyword juliaType
 syn keyword juliaCustomType
             \ DataFrame
             \ TS AbstractTS
-            \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Backtest
+            \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Backtest, Trade
 
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
