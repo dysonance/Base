@@ -29,6 +29,7 @@ syn keyword juliaModule
             \ Test
 
 syn keyword juliaCustomModule
+            \ Iterators
             \ Documenter
             \ Distributions
             \ HTTP
@@ -48,6 +49,7 @@ syn keyword juliaCustomModule
             \ Stochatto
             \ MIDI
             \ MusicManipulations
+            \ ProgressMeter
 
 syn keyword juliaKeyword
             \ where
@@ -62,6 +64,7 @@ syn keyword juliaBoolean
 
 syn keyword juliaConstant
             \ nothing
+            \ undef
             \ missing
             \ pi
             \ NaN
@@ -92,7 +95,7 @@ syn keyword juliaType
 syn keyword juliaCustomType
             \ DataFrame
             \ TS AbstractTS
-            \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Results
+            \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Backtest
 
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
