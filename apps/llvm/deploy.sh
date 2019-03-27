@@ -5,15 +5,20 @@
 
 SYSTEM_HEADER_LOCATION=/usr/include/c++/4.2.1
 INSTALL_LOCATION=$HOME/Chest/apps/llvm
-LLVM_VERSION=7.0.1
+LLVM_VERSION=8.0.0
 
 cd $INSTALL_LOCATION
+
+if [ -d "src" ]; then
+    echo "removing pre-existing source directory $INSTALL_LOCATION/src"
+    rm -rf src
+fi
 
 # llvm source
 wget http://releases.llvm.org/$LLVM_VERSION/llvm-$LLVM_VERSION.src.tar.xz
 tar -xvf llvm-$LLVM_VERSION.src.tar.xz
-mv llvm-$LLVM_VERSION.src llvm
-cd llvm
+mv llvm-$LLVM_VERSION.src src
+cd src
 
 # clang compiler source
 cd tools
@@ -29,14 +34,17 @@ tar -xvf clang-tools-extra-$LLVM_VERSION.src.tar.xz
 mv clang-tools-extra-$LLVM_VERSION.src extra
 
 # build everything together with cmake
-cd $INSTALL_LOCATION/llvm
+cd $INSTALL_LOCATION/src
 mkdir build
 cd build
+if [ -f "CMakeCache.txt" ]; then
+    echo "removing cmake cache to ensure clean build"
+    rm CMakeCache.txt
+fi
 cmake ..
-cmake --build .
 make -j $CPU
 
 # create binary directory
-cd $INSTALL_LOCATION/llvm
+cd $INSTALL_LOCATION/src
 ln -sf build/bin bin
 ln -s $SYSTEM_HEADER_LOCATION/* build/lib/clang/$LLVM_VERSION/include/

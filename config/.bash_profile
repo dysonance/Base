@@ -27,7 +27,7 @@ export GOROOT=$APPDIR/brew/src/opt/go/libexec
 export PATH=$APPDIR/vim/src/bin:$PATH
 export PATH=$APPDIR/brew/src/bin:$PATH
 export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
-export PATH=$PATH:$APPDIR/llvm/llvm/bin
+export PATH=$PATH:$APPDIR/llvm/src/bin
 export PATH=$PATH:$HOME/Applications/Julia/Julia-1.1.app/Contents/Resources/julia/bin
 
 # convenience shortcuts
