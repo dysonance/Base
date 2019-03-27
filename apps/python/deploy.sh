@@ -28,6 +28,8 @@ fi
 
 # get the appropriate version of the source code to build
 cd src
+git checkout master
+git pull
 if [ "$1" == "" ]; then
     PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g')
 else
