@@ -212,6 +212,7 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gdh :Gdiff HEAD<CR>
 nnoremap <leader>gdm :Gdiff master<CR>zRgg]czz
 nnoremap <leader>gdo :Gdiff 
+nnoremap <leader>gda :Gdiff<Up><CR>
 
 " easier grepper command accessibility
 nnoremap <leader>gr :Grepper<CR>
