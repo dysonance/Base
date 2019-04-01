@@ -40,7 +40,7 @@ alias py37="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/python
 alias pip37="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py="py37"
 alias ipi="pip37"
-alias ipy="$HOME/Chest/apps/frameworks/Python.framework/Versions/Current/bin/ipython"
+alias ipy="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/ipython"
 
 function list()
 {
