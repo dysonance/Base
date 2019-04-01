@@ -17,6 +17,8 @@ apps/llvm/src
 apps/python/get-pip.py
 apps/python/src
 apps/python/versions
+# julia
+apps/julia/src
 # vim
 apps/vim/bin
 apps/vim/src

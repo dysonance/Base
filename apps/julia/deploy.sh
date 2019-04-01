@@ -11,23 +11,17 @@ fi
 
 # current/latest/nightly version
 cd $JULIA_INSTALL_DIR
-if [ ! -d "nightly" ]; then
-    git clone https://github.com/JuliaLang/julia.git nightly
-    cd nightly
-    cp ../Make.user .
+if [ ! -d "src" ]; then
+    git clone https://github.com/JuliaLang/julia.git src
+    cd src
 else
-    cd nightly
+    cd src
     git pull
-    cp ../Make.user .
 fi
 
 if [ "$1" == "--clean" ]; then
     git clean -xfd
     make cleanall
-    cp ../Make.user .
 fi
 
-make -C deps getall && make -j $CPU CFLAGS=-Wno-error
-
-# NOTE: sometimes the following warning will appear
-# libtool: warning: remember to run 'libtool --finish /Users/JAmos/Chest/apps/julia/nightly/usr/lib'
+make -j $CPU

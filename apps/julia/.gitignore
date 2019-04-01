@@ -1,7 +1,0 @@
-# ignore julia build/install directories
-# only keep track of the install/update script
-
-v0.6
-v0.7
-v1.0
-nightly
