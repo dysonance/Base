@@ -106,7 +106,7 @@ syn match juliaFormat    "\\n\|\\t\|\$\<\w\+\>\|\(\$(.*\)\@<=\()\)"            c
 syn match juliaFunction  "\<\w*\>(\@=\|\<\w*\>\(!(\)\@=\|\<\w*\>\(.!(\)\@=\|\<\w*\>\(.(\)\@="
 syn match juliaIndex     "\[.*\]"                                              contains=ALL
 syn match juliaMacro     "@\(\w\)\+"
-syn match juliaNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
+syn match juliaNumber    "\<[0-9_.]\+\>\|[0-9]e[0-9-]"
 syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\.\.\|\.\|<:\|>:\|\^"
 syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "\([:<>0-9]\|\>\)\@<!:\<\w\+\>"
