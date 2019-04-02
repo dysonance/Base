@@ -1,0 +1,22 @@
+\set QUIET 1
+
+\timing
+\x auto
+
+\set VERBOSITY verbose
+\set ON_ERROR_STOP on
+\set ON_ERROR_ROLLBACK interactive
+\set HISTFILE ~/.psql_history/:DBNAME
+\set HISTCONTROL ignoredups
+
+\set PROMPT2 '... '
+
+\pset linestyle 'unicode'
+\pset null '∅'
+\pset unicode_border_linestyle single
+\pset unicode_column_linestyle single
+\pset unicode_header_linestyle double
+
+\setenv EDITOR ~/Chest/apps/vim/src/bin/vim
+
+\unset QUIET
