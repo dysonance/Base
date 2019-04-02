@@ -22,6 +22,7 @@ Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 Plug 'rhysd/vim-clang-format'   " clang format whole file
 Plug 'tomtom/tskeleton_vim'     " filetype snippet skeletons
 Plug 'tomtom/tlib_vim'          " utility functions for vim (req for tskeleton)
+Plug 'chrisbra/unicode.vim'
 
 " }}}
 
