@@ -1,6 +1,9 @@
+-- quiet startup messages that show while reading this config
 \set QUIET 1
 
+-- time all commands
 \timing
+
 \x auto
 
 \set VERBOSITY verbose
@@ -9,14 +12,23 @@
 \set HISTFILE ~/.psql_history/:DBNAME
 \set HISTCONTROL ignoredups
 
-\set PROMPT2 '... '
+-- color psql prompt (first line bright cyan following lines dark cyan)
+-- see here for more options: https://www.postgresql.org/docs/9.6/app-psql.html#APP-PSQL-PROMPTING
+-- see here for background on terminal color codes: https://misc.flogisoft.com/bash/tip_colors_and_formatting
+\set PROMPT1 '%[%033[1;36;49m%][%/] ==> %[%033[0;39;49m%]'
+\set PROMPT2 '%[%033[0;36;49m%][%/] ... %[%033[0;39;49m%]'
 
-\pset linestyle 'unicode'
+-- set look and and feel of how data is shown
 \pset null '∅'
+\pset linestyle 'unicode'
 \pset unicode_border_linestyle single
 \pset unicode_column_linestyle single
 \pset unicode_header_linestyle double
+set intervalstyle to 'postgres_verbose';
 
+-- refine pager and editor settings
+\setenv LESS '-iMFXSx4R'
 \setenv EDITOR ~/Chest/apps/vim/src/bin/vim
 
+-- no need to be quiet once this config file is done loading
 \unset QUIET
