@@ -25,3 +25,7 @@ COMMIT_HASH="$(echo $COMMIT_STRING | awk '{print $1}')"
 REMOTE_URL=$(git remote -v | head -n1 | awk '{print $2}')
 RAW_URL="$(echo $REMOTE_URL | sed 's/github.com/raw.githubusercontent.com/')/$COMMIT_HASH/Formula/$FORMULA.rb"
 brew install $RAW_URL
+
+# make the directory shallow again to speed things up
+git pull --depth 1
+git gc --prune=all
