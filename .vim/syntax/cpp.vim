@@ -4,7 +4,7 @@ syn keyword cppOperator
             \ and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
 
 syn keyword cppStatement
-            \ return
+            \ return const
             \ using
             \ new delete this
             \ friend
@@ -25,12 +25,14 @@ syn keyword cppBoolean
 
 syn keyword cppType
             \ void
-            \ const static mutable
+            \ static mutable
             \ bool
             \ int unsigned long enum
             \ double float
             \ auto
-            \ function shared_ptr list vector map deque
+            \ function shared_ptr
+            \ list vector map deque
+            \ pair tuple
 
 syn keyword cppCustomType
             \ vec colvec ivec uvec Col Row
