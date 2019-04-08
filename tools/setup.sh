@@ -20,7 +20,10 @@ function SetupDirectory()
 ./apps/brew/deploy.sh
 brew install $(cat data/brew_list.txt)
 
-# setup python environment
+# setup llvm environment (required for later python 3 version configurations)
+./apps/llvm/deploy.sh
+
+# setup python environment (required for vim and compatibility with other tech)
 ./apps/python/deploy.sh
 ./apps/python/deploy.sh 3.6.5
 pip36 install data/pip_list.txt
