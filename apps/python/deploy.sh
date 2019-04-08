@@ -40,14 +40,15 @@ INSTALL_DIRECTORY="$HOME/Chest/apps/python/versions/$PYTHON_VERSION"
 git checkout v$PYTHON_VERSION
 
 SQLITE_DIRECTORY=$(brew --prefix sqlite)
-export PKG_CONFIG_PATH=$SQLITE_DIRECTORY/lib/pkgconfig
+ZLIB_DIRECTORY=$(brew --prefix zlib)
+export PKG_CONFIG_PATH=$SQLITE_DIRECTORY/lib/pkgconfig:$ZLIB_DIRECTORY/lib/pkgconfig
 
 # configure the installation (NOTE: configuration for versions < 3.7 is different)
 if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
     export PATH=$SQLITE_DIRECTORY/bin:$PATH
     export CC=clang
-    export LDFLAGS="-L$SQLITE_DIRECTORY/lib"
-    export CFLAGS="-I$SQLITE_DIRECTORY/include"
+    export LDFLAGS="-L$SQLITE_DIRECTORY/lib -L$ZLIB_DIRECTORY/lib"
+    export CFLAGS="-I$SQLITE_DIRECTORY/include -I$ZLIB_DIRECTORY/include"
     git clean -xfd
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
@@ -67,8 +68,8 @@ if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
     make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
 else
     git clean -xfd
-    export CPPFLAGS="-I$SSL_DIRECTORY/include -I/usr/local/include -I/usr/local/opt/zlib/include -I$SQLITE_DIRECTORY/include"
-    export LDFLAGS="-L$SSL_DIRECTORY/lib -L/usr/local/lib -L/usr/local/opt/zlib/lib -L$SQLITE_DIRECTORY/lib"
+    export CPPFLAGS="-I$SSL_DIRECTORY/include -I/usr/local/include -I$ZLIB_DIRECTORY/include -I$SQLITE_DIRECTORY/include"
+    export LDFLAGS="-L$SSL_DIRECTORY/lib -L/usr/local/lib -L$ZLIB_DIRECTORY/lib -L$SQLITE_DIRECTORY/lib"
         ./configure \
             --prefix=$INSTALL_DIRECTORY \
             --datarootdir=$INSTALL_DIRECTORY/share \
