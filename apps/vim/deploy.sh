@@ -21,7 +21,7 @@ if [[ -z "${CPU}" ]]; then
 fi
 
 if [ ! -d "$INSTALL_DIRECTORY" ]; then
-    cd $INSTALL_DIRECTORY/..
+    cd $APP_DIRECTORY/vim
     git clone https://github.com/vim/vim.git src
     cd $INSTALL_DIRECTORY
 else
