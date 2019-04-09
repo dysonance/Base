@@ -29,6 +29,7 @@ syn keyword juliaModule
             \ Test
 
 syn keyword juliaCustomModule
+            \ StatsKit
             \ Iterators
             \ Documenter
             \ Distributions
