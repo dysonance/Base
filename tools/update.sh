@@ -24,4 +24,4 @@ py $HOME/.vim/plugged/YouCompleteMe/install.py --all
 
 # julia
 ./apps/julia/deploy.sh
-julia -O3 apps/julia/precompile.jl
+julia --optimize=3 --color=yes --depwarn=no apps/julia/precompile.jl
