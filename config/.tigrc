@@ -69,7 +69,7 @@
 
 set blame-view  = id:yes,color file-name:auto author:full date:default line-number:yes,interval=1 text
 set grep-view   = file-name:no line-number:yes,interval=1 text
-set main-view   = line-number:no,interval=5 id:no date:default author:full commit-title:yes,graph,refs,overflow=no
+set main-view   = line-number:no,interval=5 id:no date:relative-compact author:full commit-title:yes,graph,refs,overflow=no
 set refs-view   = line-number:no id:no date:default author:full ref commit-title
 set stash-view  = line-number:no,interval=5 id:no date:default author:full commit-title
 set status-view = line-number:no,interval=5 status:short file-name
@@ -174,6 +174,7 @@ set mouse-wheel-cursor = no   # Prefer moving the cursor to scrolling the view?
 #   %(prompt)       Prompt for the argument value.
 
 bind main   C ?git cherry-pick %(commit)
+bind main   ! ?git revert %(commit)
 bind status C !git commit
 bind stash  A ?git stash apply %(stash)
 bind stash  P ?git stash pop %(stash)
@@ -224,16 +225,16 @@ bind main   F :toggle commit-title-refs  # Toggle reference display (tags/branch
 bind status u status-update              # Stage/unstage changes in file
 bind status ! status-revert              # Revert changes in file
 bind status M status-merge               # Open git-mergetool(1)
-bind stage u status-update               # Stage/unstage current diff (c)hunk
-bind stage 1 stage-update-line           # Stage/unstage current line
-bind stage ! status-revert               # Revert current diff (c)hunk
-bind stage \ stage-split-chunk           # Split current diff (c)hunk
-bind stage @ :/^@@                       # Jump to next (c)hunk
-bind stage [ :toggle diff-context -1     # Decrease the diff context
-bind stage ] :toggle diff-context +1     # Increase the diff context
-bind diff @ :/^@@                        # Jump to next (c)hunk
-bind diff [ :toggle diff-context -1      # Decrease lines surrounding diff chunk by 1
-bind diff ] :toggle diff-context +1      # Increase lines surrounding diff chunk by 1
+bind stage u  status-update              # Stage/unstage current diff (c)hunk
+bind stage 1  stage-update-line          # Stage/unstage current line
+bind stage !  status-revert              # Revert current diff (c)hunk
+bind stage \  stage-split-chunk          # Split current diff (c)hunk
+bind stage @  :/^@@                      # Jump to next (c)hunk
+bind stage [  :toggle diff-context -1    # Decrease the diff context
+bind stage ]  :toggle diff-context +1    # Increase the diff context
+bind diff @   :/^@@                      # Jump to next (c)hunk
+bind diff [   :toggle diff-context -1    # Decrease lines surrounding diff chunk by 1
+bind diff ]   :toggle diff-context +1    # Increase lines surrounding diff chunk by 1
 
 # Cursor navigation key bindings
 bind generic j        move-down
