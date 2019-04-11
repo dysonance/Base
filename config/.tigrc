@@ -69,7 +69,7 @@
 
 set blame-view  = id:yes,color file-name:auto author:full date:default line-number:yes,interval=1 text
 set grep-view   = file-name:no line-number:yes,interval=1 text
-set main-view   = line-number:no,interval=5 id:no date:relative-compact author:full commit-title:yes,graph,refs,overflow=no
+set main-view   = line-number:no,interval=5 id:yes date:relative-compact author:full commit-title:yes,graph:v2,refs,overflow=no
 set refs-view   = line-number:no id:no date:default author:full ref commit-title
 set stash-view  = line-number:no,interval=5 id:no date:default author:full commit-title
 set status-view = line-number:no,interval=5 status:short file-name
@@ -88,7 +88,7 @@ set status-show-untracked-files = yes     # Show untracked changes in status
 set status-show-untracked-dirs  = yes     # Show untracked changes in status
 set wrap-lines                  = no      # Wrap long lines in pager views?
 set tab-size                    = 4       # Number of spaces to use when expanding tabs
-set line-graphics               = default # Enum: ascii, default, utf-8
+set line-graphics               = utf-8   # Enum: ascii, default, utf-8
 set truncation-delimiter        = ~       # Character drawn for truncations, or "utf-8"
 
 # Format reference names based on type.
@@ -106,18 +106,18 @@ set truncation-delimiter        = ~       # Character drawn for truncations, or 
 set reference-format = [branch] <tag> {remote} ~replace~
 
 # Settings controlling how content is read from Git
-set commit-order                = auto         # Enum: auto, default, topo, date, reverse (main)
-set status-show-untracked-dirs  = yes          # Show files in untracked directories? (status)
-set status-show-untracked-files = yes          # Show untracked files?
-set ignore-space                = no           # Enum: no, all, some, at-eol (diff)
-set show-notes                  = yes          # When non-bool passed as `--show-notes=...` (diff)
-set diff-context                = 3            # Number of lines to show around diff changes (diff)
-set diff-options                = -C           # User-defined options for `tig show` (git-diff)
-set diff-highlight              = true         # String (or bool): Path to diff-highlight script, defaults to `diff-highlight`
-set blame-options               = -C -C -C     # User-defined options for `tig blame` (git-blame)
-set log-options                 = --pretty=raw # User-defined options for `tig log` (git-log)
-set main-options                = -n 1000      # User-defined options for `tig` (git-log)
-set mailmap                     = yes          # Use .mailmap to show canonical name and email address
+set commit-order                = auto          # Enum: auto, default, topo, date, reverse (main)
+set status-show-untracked-dirs  = yes           # Show files in untracked directories? (status)
+set status-show-untracked-files = yes           # Show untracked files?
+set ignore-space                = no            # Enum: no, all, some, at-eol (diff)
+set show-notes                  = yes           # When non-bool passed as `--show-notes=...` (diff)
+set diff-context                = 3             # Number of lines to show around diff changes (diff)
+set diff-options                = -C            # User-defined options for `tig show` (git-diff)
+set diff-highlight              = true          # String (or bool): Path to diff-highlight script, defaults to `diff-highlight`
+set blame-options               = -C -C -C      # User-defined options for `tig blame` (git-blame)
+set log-options                 = --pretty=raw  # User-defined options for `tig log` (git-log)
+set main-options                = -n 1000 --all # User-defined options for `tig` (git-log)
+set mailmap                     = yes           # Use .mailmap to show canonical name and email address
 
 # Misc
 set refresh-mode       = auto # Enum: manual, auto, after-command, periodic
@@ -173,33 +173,47 @@ set mouse-wheel-cursor = no   # Prefer moving the cursor to scrolling the view?
 #   %(diffargs)     The diff options from `diff-options` or `TIG_DIFF_OPTS`
 #   %(prompt)       Prompt for the argument value.
 
-bind main   C ?git cherry-pick %(commit)
-bind main   ! ?git revert %(commit)
-bind status C !git commit
-bind stash  A ?git stash apply %(stash)
-bind stash  P ?git stash pop %(stash)
-bind stash  ! ?git stash drop %(stash)
-bind refs   C ?git checkout %(branch)
-bind refs   ! ?git branch -D %(branch)
+# Custom key bindings
+bind main    G     move-last-line
+bind main    g     move-first-line
+bind generic G     move-last-line
+bind generic gg    move-first-line
+bind generic <F3>  ?git checkout %(prompt)
+bind generic <F4>  ?git merge %(branch)
+bind generic <F6>  !git commit
+bind generic <F7>  !git pull
+bind generic <F8>  !git push
+bind generic <F12> !git commit --amend
+bind grep    g     move-first-line
+
+# Default key bindings
+bind main    C    ?git cherry-pick %(commit)
+bind main    !    ?git revert %(commit)
+bind status  C    !git commit
+bind stash   A    ?git stash apply %(stash)
+bind stash   P    ?git stash pop %(stash)
+bind stash   !    ?git stash drop %(stash)
+bind refs    C    ?git checkout %(branch)
+bind refs    !    ?git branch -D %(branch)
 
 # Normal commands
 # ---------------
 
 # View switching
-bind generic m view-main
+bind generic b view-blob
+bind generic B view-blame
+bind generic c view-stage
 bind generic d view-diff
-bind generic l view-log
-bind generic t view-tree
-bind generic f view-blob
-bind generic b view-blame
-bind generic r view-refs
-bind generic p view-pager
+bind generic f view-grep
 bind generic h view-help
+bind generic l view-log
+bind generic m view-main
+bind generic p view-pager
+bind generic r view-refs
 bind generic s view-status
 bind generic S view-status
-bind generic c view-stage
+bind generic t view-tree
 bind generic y view-stash
-bind generic g view-grep
 
 # View manipulation
 bind generic <Enter> enter      # Enter and open selected entry
@@ -220,21 +234,21 @@ bind generic Q       quit       # Close all views and quit
 bind generic <C-C>   quit       # Close all views and quit
 
 # View-specific key bindings
-bind main   G :toggle commit-title-graph # Toggle revision graph visualization
-bind main   F :toggle commit-title-refs  # Toggle reference display (tags/branches)
-bind status u status-update              # Stage/unstage changes in file
-bind status ! status-revert              # Revert changes in file
-bind status M status-merge               # Open git-mergetool(1)
-bind stage u  status-update              # Stage/unstage current diff (c)hunk
-bind stage 1  stage-update-line          # Stage/unstage current line
-bind stage !  status-revert              # Revert current diff (c)hunk
-bind stage \  stage-split-chunk          # Split current diff (c)hunk
-bind stage @  :/^@@                      # Jump to next (c)hunk
-bind stage [  :toggle diff-context -1    # Decrease the diff context
-bind stage ]  :toggle diff-context +1    # Increase the diff context
-bind diff @   :/^@@                      # Jump to next (c)hunk
-bind diff [   :toggle diff-context -1    # Decrease lines surrounding diff chunk by 1
-bind diff ]   :toggle diff-context +1    # Increase lines surrounding diff chunk by 1
+bind main   <C-G> :toggle commit-title-graph # Toggle revision graph visualization
+bind main   <C-F> :toggle commit-title-refs  # Toggle reference display (tags/branches)
+bind status u     status-update              # Stage/unstage changes in file
+bind status !     status-revert              # Revert changes in file
+bind status M     status-merge               # Open git-mergetool(1)
+bind stage  u     status-update              # Stage/unstage current diff (c)hunk
+bind stage  1     stage-update-line          # Stage/unstage current line
+bind stage  !     status-revert              # Revert current diff (c)hunk
+bind stage  \     stage-split-chunk          # Split current diff (c)hunk
+bind stage  @     :/^@@                      # Jump to next (c)hunk
+bind stage  [     :toggle diff-context -1    # Decrease the diff context
+bind stage  ]     :toggle diff-context +1    # Increase the diff context
+bind diff   @     :/^@@                      # Jump to next (c)hunk
+bind diff   [     :toggle diff-context -1    # Decrease lines surrounding diff chunk by 1
+bind diff   ]     :toggle diff-context +1    # Increase lines surrounding diff chunk by 1
 
 # Cursor navigation key bindings
 bind generic j        move-down
@@ -335,9 +349,9 @@ color "Commit: "           blue    default bold
 color "Tagger: "           magenta default
 color "Merge: "            cyan    default bold
 color "Date: "             yellow  default
-color "AuthorDate: "       yellow  default
-color "CommitDate: "       yellow  default
-color "TaggerDate: "       yellow  default
+color "AuthorDate: "       cyan  default
+color "CommitDate: "       cyan  default
+color "TaggerDate: "       cyan  default
 color "Refs: "             yellow  default bold standout
 color "Reflog: "           red     default
 color "Reflog message: "   yellow  default
@@ -351,56 +365,57 @@ color "    Signed-off-by"  yellow  default
 color "    Acked-by"       yellow  default
 color "    Tested-by"      yellow  default
 color "    Reviewed-by"    yellow  default
-color default              white   default bold
-color cursor               white   cyan    bold
-color status               green   default
-color delimiter            magenta default
-color date                 cyan    default bold
-color mode                 cyan    default
-color id                   magenta default
-color overflow             red     default
-color header               yellow  default
-color section              cyan    default
-color directory            yellow  default
-color file                 white   default bold
-color grep.file            yellow  default bold standout
-color file-size            white   default bold
-color line-number          cyan    default
-color title-blur           white   blue
-color title-focus          white   blue    bold
-color main-commit          default default
-color main-tag             magenta default bold
-color main-local-tag       magenta default
-color main-remote          yellow  default
-color main-replace         cyan    default
-color main-tracked         yellow  default bold
-color main-ref             cyan    default
-color main-head            cyan    default bold
-color stat-none            default default
-color stat-staged          magenta default
-color stat-unstaged        magenta default
-color stat-untracked       magenta default
-color help-group           blue    default bold
-color help-action          yellow  default
-color diff-stat            yellow  default bold
-color diff-add-highlight   green   default standout
-color diff-del-highlight   red     default standout
-color palette-0            magenta default
-color palette-1            yellow  default
-color palette-2            cyan    default
-color palette-3            green   default
-color palette-4            default default
-color palette-5            white   default
-color palette-6            red     default
-color palette-7            magenta default bold
-color palette-8            yellow  default bold
-color palette-9            cyan    default bold
-color palette-10           green   default bold
-color palette-11           default default bold
-color palette-12           white   default bold
-color palette-13           red     default bold
-color graph-commit         blue    default bold
-color search-result        yellow  black   bold standout
+
+color default            white   default bold
+color cursor             white   blue    bold standout
+color status             green   default
+color delimiter          magenta default
+color date               cyan    default bold
+color mode               cyan    default
+color id                 blue    default bold
+color overflow           red     default
+color header             yellow  default
+color section            cyan    default
+color directory          yellow  default
+color file               white   default bold
+color grep.file          yellow  default bold standout
+color file-size          white   default bold
+color line-number        cyan    default
+color title-blur         white   blue
+color title-focus        white   blue    bold
+color main-commit        green   default bold
+color main-tag           yellow  default bold
+color main-local-tag     yellow  default
+color main-remote        yellow  default bold standout
+color main-replace       cyan    default
+color main-tracked       yellow  default bold
+color main-ref           yellow  default bold standout
+color main-head          red     default bold standout
+color stat-none          default default
+color stat-staged        magenta default
+color stat-unstaged      magenta default
+color stat-untracked     magenta default
+color help-group         blue    default bold
+color help-action        yellow  default
+color diff-stat          black   default bold
+color diff-add-highlight green   default standout
+color diff-del-highlight red     default standout
+color palette-0          magenta default
+color palette-1          yellow  default
+color palette-2          cyan    default
+color palette-3          green   default
+color palette-4          default default
+color palette-5          white   default
+color palette-6          red     default
+color palette-7          magenta default bold
+color palette-8          yellow  default bold
+color palette-9          cyan    default bold
+color palette-10         green   default bold
+color palette-11         default default bold
+color palette-12         white   default bold
+color palette-13         red     default bold
+color graph-commit       green   default bold
+color search-result      yellow  black   bold standout
 
 # Mappings for colors read from git configuration.
 # Set to "no" to disable.
