@@ -178,7 +178,7 @@ bind main    G     move-last-line
 bind main    g     move-first-line
 bind generic G     move-last-line
 bind generic gg    move-first-line
-bind generic <F3>  ?git checkout %(prompt)
+bind generic <F3>  ?git checkout %(branch)
 bind generic <F4>  ?git merge %(branch)
 bind generic <F6>  !git commit
 bind generic <F7>  !git pull
@@ -370,7 +370,7 @@ color "    Tested-by"      yellow  default
 color "    Reviewed-by"    yellow  default
 
 color default            white   default bold
-color cursor             white   blue    bold standout
+color cursor             white   blue    standout
 color status             green   default
 color delimiter          magenta default
 color date               cyan    default bold
