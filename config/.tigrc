@@ -239,6 +239,7 @@ bind main   <C-F> :toggle commit-title-refs  # Toggle reference display (tags/br
 bind status u     status-update              # Stage/unstage changes in file
 bind status !     status-revert              # Revert changes in file
 bind status M     status-merge               # Open git-mergetool(1)
+bind status g     move-first-line
 bind stage  u     status-update              # Stage/unstage current diff (c)hunk
 bind stage  1     stage-update-line          # Stage/unstage current line
 bind stage  !     status-revert              # Revert current diff (c)hunk
@@ -246,9 +247,11 @@ bind stage  \     stage-split-chunk          # Split current diff (c)hunk
 bind stage  @     :/^@@                      # Jump to next (c)hunk
 bind stage  [     :toggle diff-context -1    # Decrease the diff context
 bind stage  ]     :toggle diff-context +1    # Increase the diff context
+bind stage  g     move-first-line
 bind diff   @     :/^@@                      # Jump to next (c)hunk
 bind diff   [     :toggle diff-context -1    # Decrease lines surrounding diff chunk by 1
 bind diff   ]     :toggle diff-context +1    # Increase lines surrounding diff chunk by 1
+bind diff   g     move-first-line
 
 # Cursor navigation key bindings
 bind generic j        move-down
