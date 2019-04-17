@@ -126,11 +126,13 @@ let g:syntastic_cpp_auto_refresh_includes=1
 let g:syntastic_python_checkers=['python3', 'pyflakes'] ", 'pylint']
 
 " Go
+
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_echo_command_info = 0
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
 " }}}
