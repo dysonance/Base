@@ -370,7 +370,7 @@ color "    Tested-by"      yellow  default
 color "    Reviewed-by"    yellow  default
 
 color default            white   default bold
-color cursor             white   blue    standout
+color cursor             black   white
 color status             green   default
 color delimiter          magenta default
 color date               cyan    default bold
