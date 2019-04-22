@@ -187,14 +187,16 @@ bind generic <F12> !git commit --amend
 bind grep    g     move-first-line
 
 # Default key bindings
-bind main    C    ?git cherry-pick %(commit)
-bind main    !    ?git revert %(commit)
-bind status  C    !git commit
-bind stash   A    ?git stash apply %(stash)
-bind stash   P    ?git stash pop %(stash)
-bind stash   !    ?git stash drop %(stash)
-bind refs    C    ?git checkout %(branch)
-bind refs    !    ?git branch -D %(branch)
+bind main   C ?git cherry-pick %(commit)
+bind main   ! ?git revert %(commit)
+bind status C !git commit
+bind stash  A ?git stash apply %(stash)
+bind stash  P ?git stash pop %(stash)
+bind stash  ! ?git stash drop %(stash)
+bind stash  g move-first-line
+bind refs   g move-first-line
+bind refs   C ?git checkout %(branch)
+bind refs   ! ?git branch -D %(branch)
 
 # Normal commands
 # ---------------
@@ -281,6 +283,7 @@ bind generic /      search
 bind generic ?      search-back
 bind generic n      find-next
 bind generic N      find-prev
+bind search  g      move-first-line
 bind search  <Down> find-next
 bind search  <C-N>  find-next
 bind search  <C-J>  find-next
@@ -370,7 +373,7 @@ color "    Tested-by"      yellow  default
 color "    Reviewed-by"    yellow  default
 
 color default            white   default bold
-color cursor             black   white
+color cursor             white   black   bold standout
 color status             green   default
 color delimiter          magenta default
 color date               cyan    default bold
