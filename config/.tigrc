@@ -121,7 +121,7 @@ set mailmap                     = yes           # Use .mailmap to show canonical
 
 # Misc
 set refresh-mode       = auto # Enum: manual, auto, after-command, periodic
-set refresh-interval   = 10   # Interval in seconds between refreshes
+set refresh-interval   = 1    # Interval in seconds between refreshes
 set ignore-case        = no   # Enum: no, yes, smart-case
 set wrap-search        = yes  # Wrap around to top/bottom of view when searching
 set focus-child        = yes  # Move focus to child view when opened?
@@ -132,9 +132,9 @@ set vertical-split     = auto # Enum: horizontal, vertical, auto; Use auto to
 set split-view-width   = 50%  # Width of right-most view for vertical splits
 set editor-line-number = yes  # Automatically pass line number to editor? Used
 set history-size       = 500  # Size of persistent history, 0 to disable
-set mouse              = no   # Enable mouse support?
+set mouse              = yes  # Enable mouse support?
 set mouse-scroll       = 3    # Number of lines to scroll via the mouse
-set mouse-wheel-cursor = no   # Prefer moving the cursor to scrolling the view?
+set mouse-wheel-cursor = yes  # Prefer moving the cursor to scrolling the view?
 
 # User-defined commands
 # ---------------------
@@ -389,7 +389,7 @@ color grep.file          yellow  default bold standout
 color file-size          white   default bold
 color line-number        cyan    default
 color title-blur         white   blue
-color title-focus        white   blue    bold
+color title-focus        blue    white   bold standout
 color main-commit        green   default bold
 color main-tag           yellow  default bold
 color main-local-tag     yellow  default

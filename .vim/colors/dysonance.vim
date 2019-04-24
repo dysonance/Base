@@ -40,8 +40,8 @@ highlight LineNR       ctermfg=Grey  ctermbg=NONE      cterm=NONE
 highlight Pmenu        ctermfg=Black ctermbg=Cyan      cterm=NONE
 highlight PmenuSel     ctermfg=White ctermbg=DarkCyan  cterm=NONE
 highlight Visual       ctermfg=NONE  ctermbg=DarkGrey  cterm=NONE
-highlight IncSearch    ctermfg=Black ctermbg=DarkGreen cterm=NONE
-highlight Search       ctermfg=Black ctermbg=DarkGreen cterm=NONE
+highlight IncSearch    ctermfg=NONE ctermbg=DarkCyan cterm=NONE
+highlight Search       ctermfg=NONE ctermbg=DarkCyan cterm=NONE
 highlight MatchParen   ctermfg=Grey  ctermbg=Blue      cterm=NONE
 
 " Errors and warnings highlighting
