@@ -7,10 +7,10 @@ highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
 highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
 
 " Constant highlighting group
-highlight Constant  ctermfg=Red  ctermbg=NONE cterm=NONE
-highlight Number    ctermfg=Red  ctermbg=NONE cterm=NONE
-highlight Float     ctermfg=Red  ctermbg=NONE cterm=NONE
-highlight Boolean   ctermfg=Red  ctermbg=NONE cterm=NONE
+highlight Constant  ctermfg=Red   ctermbg=NONE cterm=NONE
+highlight Number    ctermfg=Red   ctermbg=NONE cterm=NONE
+highlight Float     ctermfg=Red   ctermbg=NONE cterm=NONE
+highlight Boolean   ctermfg=Red   ctermbg=NONE cterm=NONE
 highlight String    ctermfg=Green ctermbg=NONE cterm=NONE
 highlight Character ctermfg=Green ctermbg=NONE cterm=NONE
 
@@ -33,16 +33,16 @@ highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
 
 " Other random highlights
 set cursorline
-highlight StatusLine   ctermfg=Blue  ctermbg=Cyan      cterm=NONE
-highlight CursorLine   ctermfg=NONE  ctermbg=Black     cterm=NONE
-highlight CursorLineNR ctermfg=White ctermbg=Blue      cterm=NONE
-highlight LineNR       ctermfg=Grey  ctermbg=NONE      cterm=NONE
-highlight Pmenu        ctermfg=Black ctermbg=Cyan      cterm=NONE
-highlight PmenuSel     ctermfg=White ctermbg=DarkCyan  cterm=NONE
-highlight Visual       ctermfg=NONE  ctermbg=DarkGrey  cterm=NONE
-highlight IncSearch    ctermfg=NONE ctermbg=DarkCyan cterm=NONE
-highlight Search       ctermfg=NONE ctermbg=DarkCyan cterm=NONE
-highlight MatchParen   ctermfg=Grey  ctermbg=Blue      cterm=NONE
+highlight StatusLine   ctermfg=Blue  ctermbg=Cyan     cterm=NONE
+highlight CursorLine   ctermfg=NONE  ctermbg=Black    cterm=NONE
+highlight CursorLineNR ctermfg=White ctermbg=Blue     cterm=NONE
+highlight LineNR       ctermfg=Grey  ctermbg=NONE     cterm=NONE
+highlight Pmenu        ctermfg=Black ctermbg=Cyan     cterm=NONE
+highlight PmenuSel     ctermfg=White ctermbg=DarkCyan cterm=NONE
+highlight Visual       ctermfg=NONE  ctermbg=DarkGrey cterm=NONE
+highlight IncSearch    ctermfg=NONE  ctermbg=DarkCyan cterm=NONE
+highlight Search       ctermfg=NONE  ctermbg=DarkCyan cterm=NONE
+highlight MatchParen   ctermfg=Grey  ctermbg=Blue     cterm=NONE
 
 " Errors and warnings highlighting
 highlight ErrorMsg   ctermfg=NONE ctermbg=DarkRed    cterm=NONE

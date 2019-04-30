@@ -5,7 +5,9 @@ set rtp+=$HOME/.vim/autoload/plug.vim
 set rtp+=$HOME/.vim/after
 set rtp+=$HOME/go/src/github.com/golang/lint/misc/vim
 
-source $HOME/.vim/packages.vim
+if filereadable("$HOME/.vim/packages.vim")
+    source $HOME/.vim/packages.vim
+endif
 
 if has('python3')
     silent! python3 1
