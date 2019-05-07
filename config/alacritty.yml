@@ -175,7 +175,7 @@ colors:
   # the cursor color will be the inverse of the cell color.
   cursor:
    text: '0x000000'
-   cursor: '0xff00ff'
+   cursor: '0xffffff'
 
   # Normal colors
   normal:

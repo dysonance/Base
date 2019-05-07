@@ -58,3 +58,14 @@ function BashColors()
         printf "\x1b[38;5;${_index_}mcolour${_index_}\x1b[0m\n"
     fi
 }
+
+# # production bash prompt colors
+# DEFAULT_COLOR="\[\e[m\]"
+# ENVIRONMENT_COLOR="\[\e[0;91m\]"  # red for production
+# ENVIRONMENT_COLOR="\[\e[0;94m\]"  # blue for development
+# HOST="$ENVIRONMENT_COLOR\h$DEFAULT_COLOR"
+# TIME="$ENVIRONMENT_COLOR\t$DEFAULT_COLOR"
+# FOLDER="$ENVIRONMENT_COLOR\w$DEFAULT_COLOR"
+# BRANCH="$ENVIRONMENT_COLOR\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)$DEFAULT_COLOR"
+# PROMPT="$ENVIRONMENT_COLOR\n\\$ $DEFAULT_COLOR"
+# export PS1="[$HOST][$TIME][$FOLDER][$BRANCH]$PROMPT"
