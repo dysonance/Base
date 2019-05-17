@@ -42,10 +42,7 @@ alias py="py37"
 alias ipi="pip37"
 alias ipy="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/ipython"
 
-function list()
-{
-    ls -AlnT $@
-}
+alias list="ls -AlhT"
 
 function BashColors()
 {
