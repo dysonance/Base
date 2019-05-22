@@ -4,6 +4,7 @@
 -- time all commands
 \timing
 
+-- extended display (easier to read rows when line length exceeds window)
 \x auto
 
 \set VERBOSITY verbose
