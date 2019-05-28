@@ -5,7 +5,7 @@ set rtp+=$HOME/.vim/autoload/plug.vim
 set rtp+=$HOME/.vim/after
 set rtp+=$HOME/go/src/github.com/golang/lint/misc/vim
 
-if !empty(glob("~/.vim/packages.vim"))
+if filereadable("$HOME/.vim/packages.vim")
     source $HOME/.vim/packages.vim
 endif
 
