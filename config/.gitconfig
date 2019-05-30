@@ -27,3 +27,4 @@
     save = "!f() { if ! [ -d chest/patches ]; then echo \"no patch directory found\"; else echo \"saving changes to chest/patches/$1.patch\" && git add . && git diff --staged > chest/patches/$1.patch && git reset --quiet . && git checkout --quiet .; fi }; f"
     debug = "!f() { set -x; GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git $@ ; set +x; }; f"
     review = "!f() { vim $(git diff --name-only $1); }; f"
+    bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
