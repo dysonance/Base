@@ -63,6 +63,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'                " required for Rmd support
 Plug 'vim-pandoc/vim-rmarkdown'                    " support for RMarkdown and KnitR
 Plug 'vim-python/python-syntax'                    " enhanced python syntax highlighting
 Plug 'hashivim/vim-terraform'                      " basic vim/terraform integration
+Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j2, hosts, certain yaml)
 
 " }}}
 
