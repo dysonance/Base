@@ -2,6 +2,7 @@ set t_Co=256
 
 " General highlighting
 highlight Normal     ctermfg=White  ctermbg=DarkBlue cterm=NONE
+highlight Underlined ctermfg=NONE   ctermbg=NONE     cterm=NONE
 highlight Comment    ctermfg=Blue   ctermbg=NONE     cterm=NONE
 highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
 highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
