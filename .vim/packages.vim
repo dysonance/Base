@@ -361,8 +361,8 @@ let g:closetag_close_shortcut=''        " add > at current position w/o closing 
 
 " Matchit {{{
 
-autocmd FileType smarty let b:match_words='<div:</div>,<script:</script>,<table:</table>,<:>,<tag>:</tag>,<form>:</form>'
-autocmd FileType html   let b:match_words='<div:</div>,<script:</script>,<table:</table>,<:>,<tag>:</tag>,<form>:</form>'
+autocmd FileType smarty let b:match_words='<div:</div>,<script:</script>,<table:</table>,<:>,<tag>:/tag>,<form>:/form>,<thead:</thead>,<tbody:</tbody>,<tr:</tr>'
+autocmd FileType html   let b:match_words='<div:</div>,<script:</script>,<table:</table>,<:>,<tag>:/tag>,<form>:/form>,<thead:</thead>,<tbody:</tbody>,<tr:</tr>'
 
 " }}}
 
