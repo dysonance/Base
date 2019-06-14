@@ -4,7 +4,7 @@ syn keyword cppOperator
             \ and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
 
 syn keyword cppStatement
-            \ return const
+            \ return
             \ using
             \ new delete this
             \ friend
@@ -23,16 +23,40 @@ syn keyword cppConstant
 syn keyword cppBoolean
             \ true false
 
+syn keyword cppTypeModifier
+            \ const
+            \ static
+
 syn keyword cppType
-            \ void
-            \ static mutable
-            \ bool
-            \ int unsigned long enum
-            \ double float
             \ auto
-            \ function shared_ptr
-            \ list vector map deque
-            \ pair tuple
+            \ bool
+            \ char
+            \ chi_squared_distribution
+            \ default_random_engine
+            \ deque
+            \ double
+            \ enum
+            \ float
+            \ function
+            \ hash
+            \ int
+            \ list
+            \ long
+            \ map
+            \ mt19937
+            \ normal_distribution
+            \ pair
+            \ random_device
+            \ shared_ptr
+            \ static mutable
+            \ string
+            \ thread_local
+            \ tuple
+            \ uniform_int_distribution
+            \ uniform_real_distribution
+            \ unsigned
+            \ vector
+            \ void
 
 syn keyword cppCustomType
             \ vec colvec ivec uvec Col Row
@@ -86,5 +110,6 @@ hi def link cppString             String
 hi def link cppStructure          Structure
 hi def link cppTodo               Todo
 hi def link cppType               Type
+hi def link cppTypeModifier       Keyword
 
 let b:current_syntax = "cpp"
