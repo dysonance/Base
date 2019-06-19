@@ -83,13 +83,13 @@ set blob-view  = line-number:no,interval=5 text
 set diff-view  = line-number:no,interval=5 text:yes,commit-title-overflow=no
 
 # UI display settings
-set show-changes                = yes     # Show changes commits in the main view?
-set status-show-untracked-files = yes     # Show untracked changes in status
-set status-show-untracked-dirs  = yes     # Show untracked changes in status
-set wrap-lines                  = no      # Wrap long lines in pager views?
-set tab-size                    = 4       # Number of spaces to use when expanding tabs
-set line-graphics               = utf-8   # Enum: ascii, default, utf-8
-set truncation-delimiter        = ~       # Character drawn for truncations, or "utf-8"
+set show-changes                = yes     # show changes commits in the main view?
+set status-show-untracked-files = yes     # show untracked changes in status
+set status-show-untracked-dirs  = yes     # show untracked changes in status
+set wrap-lines                  = no      # wrap long lines in pager views?
+set tab-size                    = 4       # number of spaces to use when expanding tabs
+set line-graphics               = utf-8   # enum: ascii, default, utf-8
+set truncation-delimiter        = ~       # character drawn for truncations, or "utf-8"
 
 # Format reference names based on type.
 # - head:           The current HEAD.
@@ -106,35 +106,35 @@ set truncation-delimiter        = ~       # Character drawn for truncations, or 
 set reference-format = [branch] <tag> {remote} ~replace~
 
 # Settings controlling how content is read from Git
-set commit-order                = auto          # Enum: auto, default, topo, date, reverse (main)
-set status-show-untracked-dirs  = yes           # Show files in untracked directories? (status)
-set status-show-untracked-files = yes           # Show untracked files?
-set ignore-space                = no            # Enum: no, all, some, at-eol (diff)
-set show-notes                  = yes           # When non-bool passed as `--show-notes=...` (diff)
-set diff-context                = 3             # Number of lines to show around diff changes (diff)
-set diff-options                = -C            # User-defined options for `tig show` (git-diff)
-set diff-highlight              = true          # String (or bool): Path to diff-highlight script, defaults to `diff-highlight`
-set blame-options               = -C -C -C      # User-defined options for `tig blame` (git-blame)
-set log-options                 = --pretty=raw  # User-defined options for `tig log` (git-log)
-set main-options                = -n 1000 --all # User-defined options for `tig` (git-log)
-set mailmap                     = yes           # Use .mailmap to show canonical name and email address
+set commit-order                = auto          # enum: auto, default, topo, date, reverse (main)
+set status-show-untracked-dirs  = yes           # show files in untracked directories? (status)
+set status-show-untracked-files = yes           # show untracked files?
+set ignore-space                = no            # enum: no, all, some, at-eol (diff)
+set show-notes                  = yes           # when non-bool passed as `--show-notes=...` (diff)
+set diff-context                = 3             # number of lines to show around diff changes (diff)
+set diff-options                = -C            # user-defined options for `tig show` (git-diff)
+set diff-highlight              = true          # string (or bool): path to diff-highlight script, defaults to `diff-highlight`
+set blame-options               = -C -C -C      # user-defined options for `tig blame` (git-blame)
+set log-options                 = --pretty=raw  # user-defined options for `tig log` (git-log)
+set main-options                = -n 1000 --all # user-defined options for `tig` (git-log)
+set mailmap                     = yes           # use .mailmap to show canonical name and email address
 
 # Misc
-set refresh-mode       = auto # Enum: manual, auto, after-command, periodic
-set refresh-interval   = 1    # Interval in seconds between refreshes
-set ignore-case        = no   # Enum: no, yes, smart-case
-set wrap-search        = yes  # Wrap around to top/bottom of view when searching
-set focus-child        = yes  # Move focus to child view when opened?
-set send-child-enter   = yes  # Propagate "enter" keypresses to child views?
-set horizontal-scroll  = 50%  # Number of columns to scroll as % of width
-set split-view-height  = 67%  # Height of the bottom view for horizontal splits
-set vertical-split     = auto # Enum: horizontal, vertical, auto; Use auto to
-set split-view-width   = 50%  # Width of right-most view for vertical splits
-set editor-line-number = yes  # Automatically pass line number to editor? Used
-set history-size       = 500  # Size of persistent history, 0 to disable
-set mouse              = yes  # Enable mouse support?
-set mouse-scroll       = 3    # Number of lines to scroll via the mouse
-set mouse-wheel-cursor = yes  # Prefer moving the cursor to scrolling the view?
+set refresh-mode       = auto # enum: manual, auto, after-command, periodic
+set refresh-interval   = 1    # interval in seconds between refreshes
+set ignore-case        = no   # enum: no, yes, smart-case
+set wrap-search        = yes  # wrap around to top/bottom of view when searching
+set focus-child        = yes  # move focus to child view when opened?
+set send-child-enter   = yes  # propagate "enter" keypresses to child views?
+set horizontal-scroll  = 50%  # number of columns to scroll as % of width
+set split-view-height  = 67%  # height of the bottom view for horizontal splits
+set vertical-split     = auto # enum: horizontal, vertical, auto; use auto to
+set split-view-width   = 50%  # width of right-most view for vertical splits
+set editor-line-number = yes  # automatically pass line number to editor? used
+set history-size       = 500  # size of persistent history, 0 to disable
+set mouse              = yes  # enable mouse support?
+set mouse-scroll       = 3    # number of lines to scroll via the mouse
+set mouse-wheel-cursor = yes  # prefer moving the cursor to scrolling the view?
 
 # User-defined commands
 # ---------------------
@@ -219,42 +219,43 @@ bind generic t view-tree
 bind generic y view-stash
 
 # View manipulation
-bind generic <Enter> enter      # Enter and open selected entry
-bind generic <Lt>    back       # Go back to the previous view state
-bind generic <Down>  next       # Move to next
-bind generic <C-N>   next       # Use Ctrl+N to move down a line
-bind generic J       next       # Use J to move down a line
-bind generic <Up>    previous   # Move to previous
-bind generic <C-P>   previous   # Use Ctrl+P to move up a line
-bind generic K       previous   # Use K to move up a line
-bind generic ,       parent     # Move to parent
-bind generic <Tab>   view-next  # Move focus to the next view
-bind generic R       refresh    # Reload and refresh view
-bind generic <F5>    refresh    # Reload and refresh view
-bind generic O       maximize   # Maximize the current view
-bind generic q       view-close # Close the current view
-bind generic Q       quit       # Close all views and quit
-bind generic <C-C>   quit       # Close all views and quit
+bind generic <Enter> enter      # enter and open selected entry
+bind generic <Lt>    back       # go back to the previous view state
+bind generic <Down>  next       # move to next
+bind generic <C-N>   next       # use ctrl+n to move down a line
+bind generic J       next       # use j to move down a line
+bind generic <Up>    previous   # move to previous
+bind generic <C-P>   previous   # use ctrl+p to move up a line
+bind generic K       previous   # use k to move up a line
+bind generic ,       parent     # move to parent
+bind generic <Tab>   view-next  # move focus to the next view
+bind generic R       refresh    # reload and refresh view
+bind generic <F5>    refresh    # reload and refresh view
+bind generic O       maximize   # maximize the current view
+bind generic q       view-close # close the current view
+bind generic Q       quit       # close all views and quit
+bind generic <C-C>   quit       # close all views and quit
 
 # View-specific key bindings
-bind main   <C-G> :toggle commit-title-graph # Toggle revision graph visualization
-bind main   <C-F> :toggle commit-title-refs  # Toggle reference display (tags/branches)
-bind status u     status-update              # Stage/unstage changes in file
-bind status !     status-revert              # Revert changes in file
-bind status M     status-merge               # Open git-mergetool(1)
+bind main   <C-G> :toggle commit-title-graph # toggle revision graph visualization
+bind main   <C-F> :toggle commit-title-refs  # toggle reference display (tags/branches)
+bind status u     status-update              # stage/unstage changes in file
+bind status !     status-revert              # revert changes in file
+bind status M     status-merge               # open git-mergetool(1)
 bind status g     move-first-line
-bind stage  u     status-update              # Stage/unstage current diff (c)hunk
-bind stage  1     stage-update-line          # Stage/unstage current line
-bind stage  !     status-revert              # Revert current diff (c)hunk
-bind stage  \     stage-split-chunk          # Split current diff (c)hunk
-bind stage  @     :/^@@                      # Jump to next (c)hunk
-bind stage  [     :toggle diff-context -1    # Decrease the diff context
-bind stage  ]     :toggle diff-context +1    # Increase the diff context
+bind stage  u     status-update              # stage/unstage current diff (c)hunk
+bind stage  1     stage-update-line          # stage/unstage current line
+bind stage  !     status-revert              # revert current diff (c)hunk
+bind stage  \     stage-split-chunk          # split current diff (c)hunk
+bind stage  @     :/^@@                      # jump to next (c)hunk
+bind stage  [     :toggle diff-context -1    # decrease the diff context
+bind stage  ]     :toggle diff-context +1    # increase the diff context
 bind stage  g     move-first-line
-bind diff   @     :/^@@                      # Jump to next (c)hunk
-bind diff   [     :toggle diff-context -1    # Decrease lines surrounding diff chunk by 1
-bind diff   ]     :toggle diff-context +1    # Increase lines surrounding diff chunk by 1
+bind diff   @     :/^@@                      # jump to next (c)hunk
+bind diff   [     :toggle diff-context -1    # decrease lines surrounding diff chunk by 1
+bind diff   ]     :toggle diff-context +1    # increase lines surrounding diff chunk by 1
 bind diff   g     move-first-line
+bind tree   x     ?rm %(file)                # delete file in tree
 
 # Cursor navigation key bindings
 bind generic j        move-down
@@ -294,23 +295,23 @@ bind search  <C-K>  find-prev
 bind search  <C-C>  view-close
 
 # Option manipulation key bindings (toggles)
-bind generic o      options                       # Open the options menu
-bind generic e      edit                          # Open in editor
-bind generic :      prompt                        # Open the prompt
-bind generic <C-L>  screen-redraw                 # Redraw the screen
-bind generic z      stop-loading                  # Stop all loading views
-bind generic v      show-version                  # Show Tig version
-bind generic I      :toggle sort-order            # Toggle ascending/descending sort order
-bind generic i      :toggle sort-field            # Toggle field to sort by
-bind generic <Hash> :toggle line-number           # Toggle line numbers
-bind generic D      :toggle date                  # Toggle date display
-bind generic A      :toggle author                # Toggle author display
-bind generic ~      :toggle line-graphics         # Toggle (line) graphics mode
-bind generic F      :toggle file-name             # Toggle file name display
-bind generic W      :toggle ignore-space          # Toggle ignoring whitespace in diffs
-bind generic X      :toggle id                    # Toggle commit ID display
-bind generic $      :toggle commit-title-overflow # Toggle commit text highlighting beyond width
-bind generic %      :toggle file-filter           # Toggle commit file filter when viewing commit from blame mode
+bind generic o      options                       # open the options menu
+bind generic e      edit                          # open in editor
+bind generic :      prompt                        # open the prompt
+bind generic <C-L>  screen-redraw                 # redraw the screen
+bind generic z      stop-loading                  # stop all loading views
+bind generic v      show-version                  # show tig version
+bind generic I      :toggle sort-order            # toggle ascending/descending sort order
+bind generic i      :toggle sort-field            # toggle field to sort by
+bind generic <Hash> :toggle line-number           # toggle line numbers
+bind generic D      :toggle date                  # toggle date display
+bind generic A      :toggle author                # toggle author display
+bind generic ~      :toggle line-graphics         # toggle (line) graphics mode
+bind generic F      :toggle file-name             # toggle file name display
+bind generic W      :toggle ignore-space          # toggle ignoring whitespace in diffs
+bind generic X      :toggle id                    # toggle commit id display
+bind generic $      :toggle commit-title-overflow # toggle commit text highlighting beyond width
+bind generic %      :toggle file-filter           # toggle commit file filter when viewing commit from blame mode
 
 # Colors
 # ------

@@ -64,6 +64,7 @@ Plug 'vim-pandoc/vim-rmarkdown'                    " support for RMarkdown and K
 Plug 'vim-python/python-syntax'                    " enhanced python syntax highlighting
 Plug 'hashivim/vim-terraform'                      " basic vim/terraform integration
 Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j2, hosts, certain yaml)
+Plug 'mattn/emmet-vim'                             " web design workflow utilities
 
 " }}}
 
