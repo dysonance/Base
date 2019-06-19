@@ -19,6 +19,7 @@
 [mergetool]
     prompt = false
 [alias]
+    bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
     cane = commit --amend --no-edit
     root = rev-parse --show-toplevel
     summ = log --stat --pretty=format:'%C(bold magenta)%an%C(reset) %C(bold white)%s%C(reset) %C(bold cyan)%ar%C(reset) %C(cyan)%ad%C(reset) %C(bold yellow)%h%C(reset)'
@@ -27,4 +28,4 @@
     save = "!f() { if ! [ -d chest/patches ]; then echo \"no patch directory found\"; else echo \"saving changes to chest/patches/$1.patch\" && git add . && git diff --staged > chest/patches/$1.patch && git reset --quiet . && git checkout --quiet .; fi }; f"
     debug = "!f() { set -x; GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git $@ ; set +x; }; f"
     review = "!f() { vim $(git diff --name-only $1); }; f"
-    bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
+    update = "!f() { refbranch=$1; branches=$@; echo \"updating $refbranch\n\"; git checkout $refbranch --quiet; git pull --quiet; for branch in ${branches[@]}; do if [ \"$branch\" != \"$refbranch\" ]; then git checkout $branch --quiet; echo \"updating $branch\"; git pull --quiet; echo \"merging $refbranch into $branch\"; git merge $refbranch --commit --quiet; if [ \"$?\" != \"0\" ]; then echo \"merge conflict on $branch\"; git reset --hard --quiet; fi; echo \"\"; fi; done; }; f"
