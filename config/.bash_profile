@@ -42,8 +42,6 @@ alias py="py37"
 alias ipi="pip37"
 alias ipy="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/ipython"
 
-alias list="ls -AlhT"
-
 function BashColors()
 {
     local _index_=$1
