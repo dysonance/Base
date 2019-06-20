@@ -32,15 +32,15 @@ export PATH=$PATH:$HOME/Applications/Julia/Julia-1.1.app/Contents/Resources/juli
 
 # convenience shortcuts
 alias edit="vim"
-alias jln="$HOME/Chest/apps/julia/src/usr/bin/julia"
+alias jln="$APPDIR/julia/src/usr/bin/julia"
 alias jl="julia -O3 -q"
-alias py36="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.6/bin/python3"
-alias pip36="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.6/bin/pip3"
-alias py37="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/python3"
-alias pip37="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/pip3"
+alias py36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/python3"
+alias pip36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/pip3"
+alias py37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/python3"
+alias pip37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py="py37"
 alias ipi="pip37"
-alias ipy="$HOME/Chest/apps/frameworks/Python.framework/Versions/3.7/bin/ipython"
+alias ipy="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/ipython"
 
 alias list="ls -AlhT"
 
