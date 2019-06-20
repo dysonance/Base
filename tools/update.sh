@@ -26,3 +26,9 @@ py $HOME/.vim/plugged/YouCompleteMe/install.py --all
 ./apps/julia/deploy.sh
 jl --optimize=3 --math-mode=fast --check-bounds=no --depwarn=no --color=yes apps/julia/precompile.jl
 jln --optimize=3 --math-mode=fast --check-bounds=no --depwarn=no --color=yes apps/julia/precompile.jl
+
+# save package information
+echo "package,version" > data/brew_packages.csv
+brew list --full-name --versions >> data/brew_packages.csv
+echo "package,version" > data/python_packages.csv
+ipi list --format=freeze | sed "s/==/,/g" >> data/python_packages.csv
