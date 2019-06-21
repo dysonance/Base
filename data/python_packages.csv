@@ -8,8 +8,8 @@ backcall,0.1.0
 black,19.3b0
 bokeh,1.2.0
 boto,2.49.0
-boto3,1.9.172
-botocore,1.12.172
+boto3,1.9.173
+botocore,1.12.173
 certifi,2019.6.16
 chardet,3.0.4
 Click,7.0
@@ -23,7 +23,7 @@ ipdb,0.12
 ipython,7.5.0
 ipython-genutils,0.2.0
 isort,4.3.20
-jedi,0.13.3
+jedi,0.14.0
 Jinja2,2.10.1
 jmespath,0.9.4
 joblib,0.13.2
@@ -41,7 +41,7 @@ numba,0.44.1
 numpy,1.16.4
 packaging,19.0
 pandas,0.24.2
-parso,0.4.0
+parso,0.5.0
 patsy,0.5.1
 pep8,1.7.1
 pexpect,4.7.0

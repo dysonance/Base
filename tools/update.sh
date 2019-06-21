@@ -29,6 +29,6 @@ jln --optimize=3 --math-mode=fast --check-bounds=no --depwarn=no --color=yes app
 
 # save package information
 echo "package,version" > data/brew_packages.csv
-brew list --full-name --versions >> data/brew_packages.csv
+brew list --full-name --versions | sed "s/ /,/g" >> data/brew_packages.csv
 echo "package,version" > data/python_packages.csv
 ipi list --format=freeze | sed "s/==/,/g" >> data/python_packages.csv
