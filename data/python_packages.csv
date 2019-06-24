@@ -8,8 +8,8 @@ backcall,0.1.0
 black,19.3b0
 bokeh,1.2.0
 boto,2.49.0
-boto3,1.9.173
-botocore,1.12.173
+boto3,1.9.174
+botocore,1.12.174
 certifi,2019.6.16
 chardet,3.0.4
 Click,7.0
@@ -77,7 +77,7 @@ sklearn,0.0
 statsmodels,0.9.0
 sympy,1.4
 toml,0.10.0
-tornado,6.0.2
+tornado,6.0.3
 traitlets,4.3.2
 typed-ast,1.4.0
 urllib3,1.25.3
