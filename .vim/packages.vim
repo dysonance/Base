@@ -370,6 +370,16 @@ autocmd FileType html   let b:match_words='<div:</div>,<script:</script>,<table:
 
 " }}}
 
+" Ansible {{{
+
+let g:ansible_attribute_highlight='ab'
+let g:ansible_name_highlight='b'
+let g:ansible_exxtra_keywords_highlight=1
+let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_with_keywords_highlight = 'Constant'
+
+" }}}
+
 " }}}
 
 " Make vim use triple bracket fold markers in vimrc

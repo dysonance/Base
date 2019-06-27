@@ -16,7 +16,7 @@ highlight String    ctermfg=Green ctermbg=NONE cterm=NONE
 highlight Character ctermfg=Green ctermbg=NONE cterm=NONE
 
 " Statement highlighting group
-highlight Statement   ctermfg=Magenta    ctermbg=NONE cterm=NONE
+highlight Statement   ctermfg=Cyan    ctermbg=NONE cterm=NONE
 highlight Conditional ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight Repeat      ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight Operator    ctermfg=Yellow     ctermbg=NONE cterm=NONE

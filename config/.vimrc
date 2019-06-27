@@ -359,14 +359,22 @@ autocmd filetype go nmap <F5> :execute ":SlimeSend1 go run " . bufname("%")<CR>
 
 " }}}
 
-" Miscellaneous Preferences {{{
+" Language Preferences {{{
 
 " lzz files interpreted as cpp files
 autocmd BufNewFile,BufRead *.lzz set filetype=cpp
 
 " treat yaml files uniquely with regards to indenting
-au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" detect ansible files
+autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
+autocmd BufRead,BufNewFile */site.yml set filetype=ansible
+autocmd BufRead,BufNewFile */main.yml set filetype=ansible
+autocmd BufRead,BufNewFile */ansible/*.yml set filetype=ansible
+
+" }}}
 
 " }}}
 
