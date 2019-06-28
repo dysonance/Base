@@ -1,27 +1,63 @@
 syn keyword cppOperator
+            \ and
+            \ and_eq
+            \ bitand
+            \ bitor
+            \ compl
+            \ not
+            \ not_eq
             \ operator
+            \ or
+            \ or_eq
             \ typeid
-            \ and bitor or xor compl bitand and_eq or_eq xor_eq not not_eq
+            \ xor
+            \ xor_eq
 
 syn keyword cppStatement
-            \ return
-            \ using
-            \ new delete this
+            \ const_cast
+            \ cin
+            \ cout
+            \ delete
+            \ dynamic_cast
+            \ endl
             \ friend
-            \ static_cast dynamic_cast reinterpret_cast const_cast
+            \ make_shared
+            \ new
+            \ reinterpret_cast
+            \ return
+            \ static_cast
+            \ this
+            \ using
 
 syn keyword cppKeyword
-            \ for while
-            \ if else
-            \ try catch finally break
-            \ inline virtual explicit export public protected private
-            \ class struct typename template namespace typedef
+            \ break
+            \ catch
+            \ class
+            \ else
+            \ explicit
+            \ export
+            \ finally
+            \ for
+            \ if
+            \ inline
+            \ namespace
+            \ private
+            \ protected
+            \ public
+            \ struct
+            \ template
+            \ try
+            \ typedef
+            \ typename
+            \ virtual
+            \ while
 
 syn keyword cppConstant
             \ nullptr
 
 syn keyword cppBoolean
-            \ true false
+            \ false
+            \ true
 
 syn keyword cppTypeModifier
             \ const
@@ -44,11 +80,12 @@ syn keyword cppType
             \ long
             \ map
             \ mt19937
+            \ mutable
             \ normal_distribution
             \ pair
             \ random_device
             \ shared_ptr
-            \ static mutable
+            \ static
             \ string
             \ thread_local
             \ tuple
@@ -59,30 +96,38 @@ syn keyword cppType
             \ void
 
 syn keyword cppCustomType
-            \ vec colvec ivec uvec Col Row
-            \ mat imat umat Mat
+            \ Col
+            \ Mat
+            \ Row
+            \ colvec
             \ cube
+            \ imat
+            \ ivec
+            \ mat
+            \ rowvec
+            \ umat
+            \ uvec
+            \ vec
 
 syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
 syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
 syn match cppConstant       "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match cppDelimiter      "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match cppFunction       "\w\+\s*(\@=\|\w\+<.*>\s*(\@=" contains=cppType,cppCustomType
+syn match cppFunction       "\w\+\s*(\@=\|\w\+<.*>\s*(\@=" contains=cppType,cppCustomType,cppNamespace,cppScopeDelimiter
 syn match cppMemberVariable "\(\.\|-_\)\h\w*"
-syn match cppNamespace      "\w\+\s*::" contains=cppScopeDelimiter
 syn match cppNumber         "\<[0-9.]\+\>\|[0-9]e[0-9-]"
-syn match cppOperator       "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|%\|\.\|->"
-syn match cppPreProc        "#\w*"
+syn match cppOperator       "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|->"
 syn match cppScopeDelimiter "::"
+syn match cppPreProc        "#\w*"
 syn match cppString         "\(#include \)\@<=.*$"
 syn match cppTodo           "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
-syn match cppType           "< \w\+ >" contains=cppOperator
+syn match cppNamespace      "\<\w\+\>\(::\)\@=\|\(namespace \)\@<=\<\w\+\>"
 syn match cppType           "\<\w\+\>\( \<\w\+\>.=\)\@=\|\(const \)\@<=\<\w\+\>\@!\(::\)"
 
-syn region cppChar    start="\'"   end="\'"
-syn region cppComment start="//"   end="$"    contains=cppTodo
-syn region cppComment start="\/\*" end="\*\/" contains=cppTodo
-syn region cppString  start="\""   end="\""
+syn region cppComment  start="//"   end="$"    contains=cppTodo
+syn region cppComment  start="\/\*" end="\*\/" contains=cppTodo
+syn region cppChar     start="\'"   end="\'"
+syn region cppString   start="\""   end="\""
 
 hi def link cppAccess             cppStatement
 hi def link cppBoolean            Boolean
@@ -103,7 +148,7 @@ hi def link cppOperator           Operator
 hi def link cppPreProc            PreProc
 hi def link cppRawString          String
 hi def link cppRawStringDelimiter Delimiter
-hi def link cppScopeDelimiter     Delimiter
+hi def link cppScopeDelimiter     Special
 hi def link cppStatement          Statement
 hi def link cppStorageClass       StorageClass
 hi def link cppString             String

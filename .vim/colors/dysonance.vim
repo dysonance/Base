@@ -8,12 +8,12 @@ highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
 highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
 
 " Constant highlighting group
-highlight Constant  ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Number    ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Float     ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight Boolean   ctermfg=Red   ctermbg=NONE cterm=NONE
-highlight String    ctermfg=Green ctermbg=NONE cterm=NONE
-highlight Character ctermfg=Green ctermbg=NONE cterm=NONE
+highlight Constant  ctermfg=DarkRed ctermbg=NONE cterm=NONE
+highlight Number    ctermfg=Red     ctermbg=NONE cterm=NONE
+highlight Float     ctermfg=Red     ctermbg=NONE cterm=NONE
+highlight Boolean   ctermfg=Red     ctermbg=NONE cterm=NONE
+highlight String    ctermfg=Green   ctermbg=NONE cterm=NONE
+highlight Character ctermfg=Green   ctermbg=NONE cterm=NONE
 
 " Statement highlighting group
 highlight Statement   ctermfg=Cyan    ctermbg=NONE cterm=NONE
@@ -24,9 +24,9 @@ highlight Keyword     ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
 
 " Special highlighting group
-" NOTE: 208 is orange
+" NOTE: 208 is orange, 3 is gold
 highlight Type        ctermfg=208        ctermbg=NONE  cterm=NONE
-highlight Special     ctermfg=DarkYellow ctermbg=NONE  cterm=NONE
+highlight Special     ctermfg=3          ctermbg=NONE  cterm=NONE
 highlight Delimiter   ctermfg=Cyan       ctermbg=NONE  cterm=NONE
 highlight Tag         ctermfg=Magenta    ctermbg=NONE  cterm=NONE
 highlight SpecialChar ctermfg=DarkYellow ctermbg=NONE  cterm=NONE
