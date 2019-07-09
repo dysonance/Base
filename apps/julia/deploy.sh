@@ -14,6 +14,7 @@ if [ ! -d "src" ]; then
     git clone https://github.com/JuliaLang/julia.git src
 fi
 cd src
+git checkout master
 git pull
 git checkout $(git tag | tail -n 1)
 
