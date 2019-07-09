@@ -8,8 +8,8 @@ backcall,0.1.0
 black,19.3b0
 bokeh,1.2.0
 boto,2.49.0
-boto3,1.9.179
-botocore,1.12.179
+boto3,1.9.184
+botocore,1.12.184
 certifi,2019.6.16
 chardet,3.0.4
 Click,7.0
@@ -20,7 +20,7 @@ gnupg,2.3.1
 gr,1.10.0
 idna,2.8
 ipdb,0.12
-ipython,7.5.0
+ipython,7.6.1
 ipython-genutils,0.2.0
 isort,4.3.21
 jedi,0.14.0
@@ -33,7 +33,7 @@ kiwisolver,1.1.0
 lazy-object-proxy,1.4.1
 llvmlite,0.29.0
 MarkupSafe,1.1.1
-matplotlib,3.1.0
+matplotlib,3.1.1
 mccabe,0.6.1
 mpmath,1.1.0
 nbformat,4.4.0
@@ -46,7 +46,7 @@ patsy,0.5.1
 pep8,1.7.1
 pexpect,4.7.0
 pickleshare,0.7.5
-Pillow,6.0.0
+Pillow,6.1.0
 pip,19.1.1
 plotly,3.10.0
 prompt-toolkit,2.0.9
@@ -59,7 +59,7 @@ pyflakes,2.1.1
 Pygments,2.4.2
 pylint,2.3.1
 pyparsing,2.4.0
-pyrsistent,0.15.2
+pyrsistent,0.15.3
 python-dateutil,2.8.0
 python-markdown-math,0.6
 pytz,2019.1

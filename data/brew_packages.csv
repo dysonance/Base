@@ -4,7 +4,7 @@ ansible,2.8.1_1
 apgdiff,2.4
 autoconf,2.69
 automake,1.16.1_1
-awscli,1.16.180
+awscli,1.16.190
 bat,0.11.0_1
 boost,1.70.0
 cabal-install,2.4.1.0
@@ -18,7 +18,7 @@ docbook-xsl,1.79.1
 doxygen,1.8.15
 fd,7.3.0
 fontconfig,2.13.1
-freetype,2.10.0
+freetype,2.10.1
 fribidi,1.0.5
 gd,2.2.5
 gdbm,1.18.1
@@ -83,10 +83,10 @@ pcre2,10.33
 pinentry,1.1.0_1
 pixman,0.38.4
 pkg-config,0.29.2
-postgresql,11.3
+postgresql,11.4
 pybind11,2.3.0
 python,3.7.3
-qt,5.12.3
+qt,5.13.0
 readline,8.0.0_1
 reattach-to-user-namespace,2.8
 screen,4.6.2

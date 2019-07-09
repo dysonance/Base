@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 JULIA_INSTALL_DIR=$HOME/Chest/apps/julia
 
@@ -9,15 +9,13 @@ if [[ -z "${CPU}" ]]; then
     CPU=4
 fi
 
-# current/latest/nightly version
 cd $JULIA_INSTALL_DIR
 if [ ! -d "src" ]; then
     git clone https://github.com/JuliaLang/julia.git src
-    cd src
-else
-    cd src
-    git pull
 fi
+cd src
+git pull
+git checkout $(git tag | tail -n 1)
 
 if [ "$1" == "--clean" ]; then
     git clean -xfd
