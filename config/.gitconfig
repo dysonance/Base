@@ -7,8 +7,12 @@
 [diff]
     tool = vimdiff
 [difftool]
+    # use vim as the diff tool
     cmd = vimdiff
+    # dont ask before launching the diff tool
     prompt = false
+    # abort entire diff tool session with `:cquit` or `:cq`
+    trustExitCode = true
 [github]
     user = dysonance
     email = jamos125@gmail.com
@@ -19,13 +23,23 @@
 [mergetool]
     prompt = false
 [alias]
+    # open current branch in bitbucket
     bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
+    # amend the diff in the previous commit quickly
     cane = commit --amend --no-edit
+    # show the root of the git repo directory
     root = rev-parse --show-toplevel
+    # summarize git commit history
     summ = log --stat --pretty=format:'%C(bold magenta)%an%C(reset) %C(bold white)%s%C(reset) %C(bold cyan)%ar%C(reset) %C(cyan)%ad%C(reset) %C(bold yellow)%h%C(reset)'
+    # visualize the flow of branches in the commit history
     flow = log --all --graph --abbrev-commit --decorate --branches --format=format:'%C(bold magenta)%an%C(reset) %C(reverse bold yellow)%D%C(reset) %C(bold white)%s%C(reset) %C(bold cyan)%ar%C(reset) %C(cyan)%ad%C(reset) %C(bold blue)%h%C(reset)'
-    grab = "!f() { if ! [ -f chest/patches/$1.patch ]; then echo \"chest/patches/$1.patch not found\"; else echo \"grabbing changes from chest/patches/$1.patch\" && git apply \"chest/patches/$1.patch\"; fi }; f"
+    # save current git diff to a custom stash location
     save = "!f() { if ! [ -d chest/patches ]; then echo \"no patch directory found\"; else echo \"saving changes to chest/patches/$1.patch\" && git add . && git diff --staged > chest/patches/$1.patch && git reset --quiet . && git checkout --quiet .; fi }; f"
+    # grab saved git diffs from custom stash location without removing the stash
+    grab = "!f() { if ! [ -f chest/patches/$1.patch ]; then echo \"chest/patches/$1.patch not found\"; else echo \"grabbing changes from chest/patches/$1.patch\" && git apply \"chest/patches/$1.patch\"; fi }; f"
+    # show verbose diagnostics to better understand git operations (useful when git lags)
     debug = "!f() { set -x; GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git $@ ; set +x; }; f"
+    # open all files changed from one reference to another in diff tool editor
     review = "!f() { vim $(git diff --name-only $1); }; f"
+    # run merges from one central branch to multiple child branches
     update = "!f() { refbranch=$1; branches=$@; echo \"updating $refbranch\n\"; git checkout $refbranch --quiet; git pull --quiet; for branch in ${branches[@]}; do if [ \"$branch\" != \"$refbranch\" ]; then git checkout $branch --quiet; echo \"updating $branch\"; git pull --quiet; echo \"merging $refbranch into $branch\"; git merge $refbranch --commit --quiet; if [ \"$?\" != \"0\" ]; then echo \"merge conflict on $branch\"; git reset --hard --quiet; fi; echo \"\"; fi; done; }; f"
