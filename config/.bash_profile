@@ -1,9 +1,11 @@
-# used by tmux
-export TERM="xterm-256color"
-
 # terminal interface customization
 export CLICOLOR=1                      # enable terminal colors
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # directory listing colors
+export TERM="xterm-256color"           # used by tmux
+export HISTSIZE=                       # unlimited command history
+export HISTFILESIZE=                   # unlimited command history file
+set -o vi                              # provide vim-like keybindings for navigating the shell
+bind -m vi-insert "\C-l":clear-screen  # fix clear screen shortcut broken by vi mode
 
 # shell prompt formatting style
 DEFAULT_COLOR="\[\e[m\]"
@@ -17,11 +19,6 @@ PROMPT_COLOR="\[\e[0;33m\]"
 PROMPT="$PROMPT_COLOR\n\\$ $DEFAULT_COLOR"
 PS1="\n[$TIME][$FOLDER][$BRANCH]\n$PROMPT_COLOR\\$ $DEFAULT_COLOR"
 export PS1
-
-# provide vim-like keybindings for navigating the shell
-set -o vi
-# fix clear screen shortcut broken by vi mode
-bind -m vi-insert "\C-l":clear-screen
 
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
