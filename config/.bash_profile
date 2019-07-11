@@ -18,6 +18,11 @@ PROMPT="$PROMPT_COLOR\n\\$ $DEFAULT_COLOR"
 PS1="\n[$TIME][$FOLDER][$BRANCH]\n$PROMPT_COLOR\\$ $DEFAULT_COLOR"
 export PS1
 
+# provide vim-like keybindings for navigating the shell
+set -o vi
+# fix clear screen shortcut broken by vi mode
+bind -m vi-insert "\C-l":clear-screen
+
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Chest/apps
