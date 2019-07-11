@@ -136,10 +136,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_echo_command_info = 0
-let g:go_info_mode = 'guru'
-let g:go_def_mode = 'guru'
+let g:go_info_mode = 'gopls'
+let g:go_def_mode = 'gopls'
 let g:go_null_module_warning = 0
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 
 " }}}
 
