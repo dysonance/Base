@@ -25,6 +25,7 @@ gdbm,1.18.1
 gettext,0.20.1
 ghc,8.6.5
 git,2.22.0_1
+git-heatmap,0.10.3
 glances,3.1.0
 glew,2.1.0
 glib,2.60.5

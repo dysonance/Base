@@ -40,3 +40,4 @@ class CustomPrompt(Prompts):
 
 c.TerminalInteractiveShell.prompts_class = CustomPrompt
 c.TerminalInteractiveShell.colors = "linux"
+c.TerminalInteractiveShell.editing_mode = "vi"
