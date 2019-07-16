@@ -174,6 +174,12 @@ nmap ga <Plug>(EasyAlign)
 " easier auto-pairs prevention shortcut
 imap <C-P> <C-V>
 
+" pivot split pane orientations
+" vertical to horizontal
+nmap <leader>pvh <C-W>t<C-W>K
+" horizontal to vertical
+nmap <leader>pvv <C-W>t<C-W>H
+
 " format current file
 autocmd filetype sql nmap <leader>fmt m0gggqG`0
 autocmd filetype cpp nmap <leader>fmt :ClangFormat<CR>
