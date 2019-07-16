@@ -176,6 +176,8 @@ set mouse-wheel-cursor = yes  # prefer moving the cursor to scrolling the view?
 # Custom key bindings
 bind main    G     move-last-line
 bind main    g     move-first-line
+bind main    A     :set main-options = -n 1000 --all
+bind main    a     :set main-options = -n 1000
 bind generic G     move-last-line
 bind generic gg    move-first-line
 bind generic <F3>  ?git checkout %(branch)
