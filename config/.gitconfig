@@ -47,3 +47,7 @@
     thisbranch = "!f() { git branch | grep \\\\* | sed \"s/\\* //g\"; }; f"
     # get all remote branches
     allbranches = "!f() { git branch -a | grep -v $(git thisbranch) | grep -v HEAD | grep origin | sed \"s/ remotes\\\\/origin\\///g\"; }; f"
+    # shortcut for diff --stat
+    stat = diff --stat
+    # shortcut for showing changed files
+    changed = diff --name-only
