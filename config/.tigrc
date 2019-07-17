@@ -184,7 +184,7 @@ bind generic <F3>  ?git checkout %(branch)
 bind generic <F4>  ?git merge %(branch)
 bind generic <F6>  !git commit
 bind generic <F7>  !git pull
-bind generic <F8>  !git push
+bind generic <F8>  !git push -u origin %(branch)
 bind generic <F9>  !git fetch
 bind generic <F12> !git commit --amend
 bind grep    g     move-first-line
