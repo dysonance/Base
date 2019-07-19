@@ -181,7 +181,7 @@ bind main    a     :set main-options = -n 1000
 bind generic G     move-last-line
 bind generic gg    move-first-line
 bind generic <F2>  !git checkout %(prompt)
-bind generic <F3>  ?git checkout %(ref)
+bind generic <F3>  ?git checkout %(branch)
 bind generic <F4>  ?git merge %(branch)
 bind generic <F6>  !git commit
 bind generic <F7>  !git pull
