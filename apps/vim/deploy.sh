@@ -57,20 +57,22 @@ function BuildVim()
 }
 
 if [ "$1" == "--force" ]; then
+    echo "forcing rebuild of vim at commit"
     BuildVim
 else
-    git fetch
-    VIM_VERSION=$(git tag | tail -n 1)
-    CURRENT_COMMIT=$(git rev-parse @)
-    VERSION_COMMIT=$(git rev-list -n 1 $VIM_VERSION)
-    if [ $CURRENT_COMMIT != $VERSION_COMMIT ]; then
-        git checkout $VERSION_COMMIT
+    git checkout master --quiet
+    LOCAL_VERSION=$(git tag | tail -n 1)
+    git pull --quiet
+    LATEST_VERSION=$(git tag | tail -n 1)
+    if [ $LOCAL_VERSION != $LOCAL_VERSION ]; then
+        echo "updating vim from version $LOCAL_VERSION to $LATEST_VERSION"
+        git checkout $LATEST_VERSION --quiet
         BuildVim
+    else
+        echo "vim is up-to-date at version $LOCAL_VERSION "
     fi
 fi
 
-# backup vim binary if build succeeds to prevent losing it later
-if ! [ -d "$HOME/Chest/apps/vim/bin" ]; then
-    mkdir $APP_DIRECTORY/vim/bin
-fi
-ln -sf $INSTALL_DIRECTORY/bin/* $APP_DIRECTORY/vim/bin/
+# make `vi` point to same binary as `vim`
+cd $INSTALL_DIRECTORY/bin
+ln -sf vim vi
