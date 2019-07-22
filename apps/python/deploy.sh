@@ -28,8 +28,8 @@ fi
 
 # get the appropriate version of the source code to build
 cd src
-git checkout master
-git pull
+git checkout master --quiet
+git pull --quiet
 if [ "$1" == "" ]; then
     PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g')
 else
@@ -37,7 +37,8 @@ else
 fi
 
 INSTALL_DIRECTORY="$HOME/Chest/apps/python/versions/$PYTHON_VERSION"
-git checkout v$PYTHON_VERSION
+echo "building python version $PYTHON_VERSION"
+git checkout v$PYTHON_VERSION --quiet
 
 SQLITE_DIRECTORY=$(brew --prefix sqlite)
 ZLIB_DIRECTORY=$(brew --prefix zlib)

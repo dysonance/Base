@@ -9,7 +9,7 @@ INSTALL_DIRECTORY=$APP_DIRECTORY/vim/src
 # PYTHON_BINARY=/usr/local/bin/python3
 
 # for manual python source builds
-PYTHON_VERSION=3.7.3
+PYTHON_VERSION=3.7.4
 PYTHON_BINARY=$APP_DIRECTORY/python/versions/$PYTHON_VERSION/bin/python3
 PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
 PYTHON_CONFIG_DIR="
@@ -64,7 +64,7 @@ else
     LOCAL_VERSION=$(git tag | tail -n 1)
     git pull --quiet
     LATEST_VERSION=$(git tag | tail -n 1)
-    if [ $LOCAL_VERSION != $LOCAL_VERSION ]; then
+    if [ "$LOCAL_VERSION" != "$LOCAL_VERSION" ]; then
         echo "updating vim from version $LOCAL_VERSION to $LATEST_VERSION"
         git checkout $LATEST_VERSION --quiet
         BuildVim
