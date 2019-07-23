@@ -8,8 +8,8 @@ backcall,0.1.0
 black,19.3b0
 bokeh,1.2.0
 boto,2.49.0
-boto3,1.9.192
-botocore,1.12.192
+boto3,1.9.193
+botocore,1.12.193
 certifi,2019.6.16
 chardet,3.0.4
 Click,7.0
