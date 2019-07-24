@@ -111,6 +111,13 @@ let ignored_messages=
             \ 'that stutters',
             \ 'illegal characters found in URI',
             \ 'discarding unexpected plain text',
+            \ 'content occurs after end of body',
+            \ 'trimming empty <i>',
+            \ 'missing <li>',
+            \ '<a> attribute with missing trailing quote mark',
+            \ '<a> unexpected or duplicate quote mark',
+            \ '<a> attribute with missing trailing quote mark',
+            \ '<a> escaping malformed URI reference',
             \ 'invalid value "{{'
             \ ]
 let g:syntastic_quiet_messages={"regex": ignored_messages}
