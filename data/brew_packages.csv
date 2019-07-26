@@ -1,6 +1,6 @@
 package,version
 adns,1.5.1
-ansible,2.8.2
+ansible,2.8.3
 apgdiff,2.4
 autoconf,2.69
 automake,1.16.1_1
@@ -29,7 +29,7 @@ git,2.22.0_1
 git-heatmap,0.10.3
 glances,3.1.1
 glew,2.1.0
-glib,2.60.5
+glib,2.60.6
 glm,0.9.9.5
 gmp,6.1.2_2
 gnupg,2.2.16_1
