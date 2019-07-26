@@ -262,10 +262,18 @@ nnoremap <C-K> :bdelete<CR>
 " ctrl+t to access terminal
 nnoremap <C-T> :shell<CR>
 
+" ctrl+s to save
+nnoremap <silent> <C-S> :w<CR>
+
+
 " }}}
 
 " Insert Mode {{{
 
+" quickly save while in insert mode
+inoremap <silent> <C-S> <Esc>:w<CR>a
+
+" latex symbol shortcuts for pandoc markdown files
 autocmd filetype pandoc vmap <C-J> <Esc>f{vi{
 autocmd filetype pandoc imap <C-J> <Esc>f{vi{
 autocmd filetype pandoc nmap <C-J> <Esc>f{vi{
@@ -279,6 +287,7 @@ autocmd filetype pandoc imap <C-T>tf \tfrac{1}{N}<Esc>F1v
 autocmd filetype pandoc imap <C-B> \left<C-V>[\right<C-V>]<Esc>%a<Space><Space><Esc>i
 autocmd filetype pandoc imap <C-P> \left<C-V>(\right<C-V>)<Esc>%a<Space><Space><Esc>i
 
+" greek letter shortcuts for pandoc markdown files
 autocmd filetype pandoc imap <C-G>a \alpha
 autocmd filetype pandoc imap <C-G>b \beta
 autocmd filetype pandoc imap <C-G>s \sigma

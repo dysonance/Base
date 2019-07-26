@@ -32,6 +32,11 @@ export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
 export PATH=$PATH:$APPDIR/llvm/src/bin
 export PATH=$PATH:$HOME/Applications/Julia/Julia-1.1.app/Contents/Resources/julia/bin
 
+# disable flow control in the terminal completely
+# (allows more keybindings for things like vim)
+# (see here: https://vim.fandom.com/wiki/Map_Ctrl-S_to_save_current_or_new_files)
+stty -ixon
+
 # convenience shortcuts
 alias edit="vim"
 alias jln="$APPDIR/julia/src/usr/bin/julia"
