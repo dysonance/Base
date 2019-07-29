@@ -1,4 +1,5 @@
 set t_Co=256
+set cursorline
 
 " General highlighting
 highlight Normal     ctermfg=White  ctermbg=DarkBlue cterm=NONE
@@ -33,10 +34,10 @@ highlight SpecialChar ctermfg=DarkYellow ctermbg=NONE  cterm=NONE
 highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
 
 " Other random highlights
-set cursorline
 highlight StatusLine   ctermfg=Blue  ctermbg=Cyan     cterm=NONE
 highlight CursorLine   ctermfg=NONE  ctermbg=Black    cterm=NONE
 highlight CursorLineNR ctermfg=White ctermbg=Blue     cterm=NONE
+highlight Cursor       ctermfg=NONE  ctermbg=NONE     cterm=NONE
 highlight LineNR       ctermfg=Grey  ctermbg=NONE     cterm=NONE
 highlight Pmenu        ctermfg=Black ctermbg=Cyan     cterm=NONE
 highlight PmenuSel     ctermfg=White ctermbg=DarkCyan cterm=NONE
