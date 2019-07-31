@@ -108,7 +108,10 @@ let ignored_messages=
             \ 'struct field Cpu should be CPU',
             \ 'comment on exported type',
             \ 'a blank import should be only in a main or test package',
-            \ 'that stutters',
+            \ 'that stutters'
+            \ ]
+let ignored_messages_html=
+            \ [
             \ 'illegal characters found in URI',
             \ 'discarding unexpected plain text',
             \ 'content occurs after end of body',
@@ -118,8 +121,12 @@ let ignored_messages=
             \ '<a> unexpected or duplicate quote mark',
             \ '<a> attribute with missing trailing quote mark',
             \ '<a> escaping malformed URI reference',
-            \ 'invalid value "{{'
+            \ 'invalid value "{{',
+            \ 'attribute "',
+            \ 'attribute name "$',
+            \ 'attribute with missing trailing quote mark'
             \ ]
+let g:syntastic_html_tidy_ignore_errors=ignored_messages_html
 let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
 
