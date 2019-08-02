@@ -32,7 +32,7 @@ glew,2.1.0
 glib,2.60.6
 glm,0.9.9.5
 gmp,6.1.2_2
-gnupg,2.2.16_1
+gnupg,2.2.17
 gnuplot,5.2.7_1
 gnutls,3.6.8
 go,1.12.7
@@ -76,7 +76,7 @@ ncurses,6.1
 netpbm,10.73.27
 nettle,3.4.1
 ninja,1.9.0
-node,12.6.0
+node,12.7.0
 npth,1.6
 openssl,1.0.2s
 p11-kit,0.23.16.1
