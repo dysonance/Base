@@ -113,7 +113,7 @@ syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
 syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
 syn match cppConstant       "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match cppDelimiter      "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match cppFunction       "\w\+\s*(\@=\|\w\+<.*>\s*(\@=" contains=cppType,cppCustomType,cppNamespace,cppScopeDelimiter
+syn match cppFunction       "\w\+\s*(\@=\|\w\+<.*>\s*(\@="  contains=cppType,cppCustomType,cppNamespace,cppScopeDelimiter
 syn match cppMemberVariable "\(\.\|-_\)\h\w*"
 syn match cppNumber         "\<[0-9.]\+\>\|[0-9]e[0-9-]"
 syn match cppOperator       "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|->"
@@ -123,11 +123,12 @@ syn match cppString         "\(#include \)\@<=.*$"
 syn match cppTodo           "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
 syn match cppNamespace      "\<\w\+\>\(::\)\@=\|\(namespace \)\@<=\<\w\+\>"
 syn match cppType           "\<\w\+\>\( \<\w\+\>.=\)\@=\|\(const \)\@<=\<\w\+\>\@!\(::\)"
+syn match cppStringFormat   "\\[nt]"                        contained
 
 syn region cppComment  start="//"   end="$"    contains=cppTodo
 syn region cppComment  start="\/\*" end="\*\/" contains=cppTodo
+syn region cppString   start="\""   end="\""   contains=cppStringFormat
 syn region cppChar     start="\'"   end="\'"
-syn region cppString   start="\""   end="\""
 
 hi def link cppAccess             cppStatement
 hi def link cppBoolean            Boolean
@@ -156,5 +157,6 @@ hi def link cppStructure          Structure
 hi def link cppTodo               Todo
 hi def link cppType               Type
 hi def link cppTypeModifier       Keyword
+hi def link cppStringFormat       SpecialChar
 
 let b:current_syntax = "cpp"

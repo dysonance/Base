@@ -312,7 +312,6 @@ syn keyword pythonStandardLibrary
             \ zipfile
             \ zipimport
             \ zlib
-            " \ array
 
 hi def link pythonStandardLibrary PreProc
 hi def link pythonCustomLibrary   PreProc
