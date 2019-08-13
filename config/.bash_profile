@@ -25,6 +25,9 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Chest/apps
 export GOROOT=$APPDIR/brew/src/opt/go/libexec
 
+# bash completion (`brew install bash-completion`)
+[[ -r "$APPDIR/brew/src/etc/profile.d/bash_completion.sh" ]] && . "$APPDIR/brew/src/etc/profile.d/bash_completion.sh"
+
 # path additions
 export PATH=$APPDIR/vim/src/bin:$PATH
 export PATH=$APPDIR/brew/src/bin:$PATH

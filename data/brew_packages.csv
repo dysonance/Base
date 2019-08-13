@@ -5,6 +5,7 @@ apgdiff,2.4
 autoconf,2.69
 automake,1.16.1_1
 awscli,1.16.210
+bash-completion,1.3_3
 bat,0.11.0_1
 boost,1.70.0
 cabal-install,2.4.1.0
@@ -101,6 +102,7 @@ source-highlight,3.1.8_12
 sphinx-doc,2.1.2_1
 sqlite,3.29.0
 tcl-tk,8.6.9
+the_silver_searcher,2.2.0
 tidy-html5,5.6.0
 tig,2.4.1_1
 tmux,2.9a_1
