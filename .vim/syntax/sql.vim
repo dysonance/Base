@@ -175,6 +175,7 @@ syn keyword sqlOperator
             \ elif
             \ else
             \ end
+            \ except
             \ exists
             \ exit
             \ if
