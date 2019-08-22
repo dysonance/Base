@@ -17,7 +17,7 @@ highlight String    ctermfg=Green   ctermbg=NONE cterm=NONE
 highlight Character ctermfg=Green   ctermbg=NONE cterm=NONE
 
 " Statement highlighting group
-highlight Statement   ctermfg=Cyan    ctermbg=NONE cterm=NONE
+highlight Statement   ctermfg=Cyan       ctermbg=NONE cterm=NONE
 highlight Conditional ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight Repeat      ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight Operator    ctermfg=Yellow     ctermbg=NONE cterm=NONE
@@ -52,9 +52,9 @@ highlight Error      ctermfg=NONE ctermbg=DarkRed    cterm=NONE
 highlight WarningMsg ctermfg=NONE ctermbg=DarkYellow cterm=NONE
 
 " Diff highlights
-highlight DiffAdd    ctermfg=NONE ctermbg=DarkGreen cterm=NONE
-highlight DiffChange ctermfg=NONE ctermbg=Black     cterm=NONE
-highlight DiffDelete ctermfg=NONE ctermbg=DarkRed   cterm=NONE
-highlight DiffText   ctermfg=NONE ctermbg=Blue      cterm=NONE
+highlight DiffAdd    ctermfg=NONE    ctermbg=DarkGreen cterm=NONE
+highlight DiffChange ctermfg=NONE    ctermbg=3         cterm=NONE
+highlight DiffDelete ctermfg=DarkRed ctermbg=DarkRed   cterm=NONE
+highlight DiffText   ctermfg=NONE    ctermbg=3         cterm=underline
 
 syntax enable
