@@ -265,6 +265,12 @@ nnoremap <C-T> :shell<CR>
 " ctrl+s to save
 nnoremap <silent> <C-S> :w<CR>
 
+" ctrl+e to refresh file
+nnoremap <silent> <C-E> :e<CR>
+
+" ctrl+q to quit
+nnoremap <silent> <C-Q> :q<CR>
+
 
 " }}}
 

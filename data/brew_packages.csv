@@ -7,7 +7,7 @@ automake,1.16.1_1
 awscli,1.16.220
 bat,0.11.0_1
 boost,1.70.0
-cabal-install,2.4.1.0
+cabal-install,3.0.0.0
 cairo,1.16.0_2
 clang-format,2019-01-18
 cmake,3.15.2
@@ -78,7 +78,7 @@ ncurses,6.1
 netpbm,10.73.27
 nettle,3.4.1
 ninja,1.9.0
-node,12.9.0
+node,12.9.1
 npth,1.6
 openssl,1.0.2s
 p11-kit,0.23.16.1
