@@ -108,7 +108,8 @@ let ignored_messages=
             \ 'struct field Cpu should be CPU',
             \ 'comment on exported type',
             \ 'a blank import should be only in a main or test package',
-            \ 'that stutters'
+            \ 'that stutters',
+            \ 'error strings should not be capitalized or end with punctuation'
             \ ]
 let ignored_messages_html=
             \ [

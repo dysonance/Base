@@ -98,7 +98,7 @@ readline,8.0.0_1
 reattach-to-user-namespace,2.8
 rust,1.37.0
 screen,4.6.2
-sdl2,2.0.9_1
+sdl2,2.0.10
 sdl2_image,2.0.5
 source-highlight,3.1.8_12
 sphinx-doc,2.1.2_1
