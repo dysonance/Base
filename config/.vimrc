@@ -171,6 +171,10 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+" easier saving and quitting
+nnoremap <silent> <leader>ss :w<CR>
+nnoremap <silent> <leader>qq :q<CR>
+
 " easier auto-pairs prevention shortcut
 imap <C-P> <C-V>
 
