@@ -37,7 +37,7 @@ set statusline +=%*%4v\ %*  " virtual column number
 
 " General Tweaks {{{
 
-colorscheme dysonance                                             " colorscheme of choice
+colorscheme dystance                                               " colorscheme of choice
 syntax match customTodo contained '\<\(TODO\|FIXME\|NOTE\|XXX\)\>' " add words for todo highlights
 hi def link customTodo Todo
 set number                                                         " show line numbers

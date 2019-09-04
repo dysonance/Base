@@ -1,5 +1,6 @@
 syn keyword jsConstant
             \ null
+            \ undefined
 syn keyword jsKeyword
             \ var
             \ let

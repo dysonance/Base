@@ -47,9 +47,9 @@ highlight Search       ctermfg=NONE  ctermbg=DarkCyan cterm=NONE
 highlight MatchParen   ctermfg=Grey  ctermbg=Blue     cterm=NONE
 
 " Errors and warnings highlighting
-highlight ErrorMsg   ctermfg=NONE ctermbg=DarkRed    cterm=NONE
-highlight Error      ctermfg=NONE ctermbg=DarkRed    cterm=NONE
-highlight WarningMsg ctermfg=NONE ctermbg=DarkYellow cterm=NONE
+highlight ErrorMsg   ctermfg=NONE ctermbg=DarkRed cterm=NONE
+highlight Error      ctermfg=NONE ctermbg=DarkRed cterm=NONE
+highlight WarningMsg ctermfg=NONE ctermbg=208     cterm=NONE
 
 " Diff highlights
 highlight DiffAdd    ctermfg=NONE    ctermbg=DarkGreen cterm=NONE
