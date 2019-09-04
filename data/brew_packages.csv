@@ -35,9 +35,9 @@ gmp,6.1.2_2
 gnupg,2.2.17
 gnuplot,5.2.7_1
 gnutls,3.6.9
-go,1.12.9
+go,1.13
 gobject-introspection,1.60.2_1
-godep,80_21
+godep,80_22
 graphite2,1.3.13
 graphviz,2.40.1_1
 gtk-doc,1.32
@@ -84,7 +84,7 @@ openssl,1.0.2s
 openssl@1.1,1.1.1c
 p11-kit,0.23.16.1
 pandoc,2.7.3
-pango,1.44.5
+pango,1.44.6
 pcre,8.43
 pcre2,10.33
 perl,5.30.0
@@ -113,6 +113,7 @@ tree,1.8.0
 unbound,1.9.3
 valgrind,3.14.0
 webp,1.0.3
+webpack,4.39.3
 wget,1.20.3_1
 xsv,0.13.0
 xz,5.2.4
