@@ -29,26 +29,27 @@ Plug 'chrisbra/unicode.vim'
 
 " Workflow Utilities {{{
 
-Plug 'embear/vim-localvimrc'       " enable use of vimrc files local to directory
-Plug 'vim-airline/vim-airline'     " more informative vim status bar
-Plug 'chrisbra/csv.vim'            " improved csv viewing/editing interface
-Plug 'jreybert/vimagit'            " improved git repo workflow within vim
-Plug 'airblade/vim-gitgutter'      " git diffs in the gutter
-Plug 'tpope/vim-fugitive'          " git command line interface simplification
-Plug 'jpalardy/vim-slime'          " allow connection to a REPL running in a slime/tmux session
-Plug 'vim-syntastic/syntastic'     " Linter/syntax checker for Vim
-Plug 'scrooloose/nerdtree'         " file explorer side bar
-Plug 'Xuyuanp/nerdtree-git-plugin' " add git indications to nerd tree sidebar
-Plug 'octref/RootIgnore'           " auto-add project gitignore files to vim wildignore
-Plug 'AndrewRadev/linediff.vim'    " vimdiff groups of lines right next to each other
-Plug 'ctrlpvim/ctrlp.vim'          " fuzzy search utility
-Plug 'mhinz/vim-grepper'           " easily search for patterns in files
-Plug 'rizzatti/dash.vim'           " mac dash documentation app integration
-Plug 'python-mode/python-mode'     " python workflow utilities (linting, completion, formatting)
-Plug 'davidhalter/jedi-vim'        " jedi python autocompletion/documentation library
-Plug 'tweekmonster/braceless.vim'  " smarter navigation of code that doesnt use braces for scope
-Plug 'tmhedberg/matchit'           " extent the % to match HTML, LaTeX, and other languages
-Plug 'alvan/vim-closetag'          " make html editing less miserable
+Plug 'embear/vim-localvimrc'          " enable use of vimrc files local to directory
+Plug 'vim-airline/vim-airline'        " more informative vim status bar
+Plug 'vim-airline/vim-airline-themes' " options for theming airline
+Plug 'chrisbra/csv.vim'               " improved csv viewing/editing interface
+Plug 'jreybert/vimagit'               " improved git repo workflow within vim
+Plug 'airblade/vim-gitgutter'         " git diffs in the gutter
+Plug 'tpope/vim-fugitive'             " git command line interface simplification
+Plug 'jpalardy/vim-slime'             " allow connection to a REPL running in a slime/tmux session
+Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
+Plug 'scrooloose/nerdtree'            " file explorer side bar
+Plug 'Xuyuanp/nerdtree-git-plugin'    " add git indications to nerd tree sidebar
+Plug 'octref/RootIgnore'              " auto-add project gitignore files to vim wildignore
+Plug 'AndrewRadev/linediff.vim'       " vimdiff groups of lines right next to each other
+Plug 'ctrlpvim/ctrlp.vim'             " fuzzy search utility
+Plug 'mhinz/vim-grepper'              " easily search for patterns in files
+Plug 'rizzatti/dash.vim'              " mac dash documentation app integration
+Plug 'python-mode/python-mode'        " python workflow utilities (linting, completion, formatting)
+Plug 'davidhalter/jedi-vim'           " jedi python autocompletion/documentation library
+Plug 'tweekmonster/braceless.vim'     " smarter navigation of code that doesnt use braces for scope
+Plug 'tmhedberg/matchit'              " extent the % to match HTML, LaTeX, and other languages
+Plug 'alvan/vim-closetag'             " make html editing less miserable
 
 " }}}
 
@@ -269,6 +270,7 @@ let g:localvimrc_ask=0
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline_theme='simple' " see here for options: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
 " }}}
 
