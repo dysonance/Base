@@ -1,21 +1,33 @@
 syn case match
 
 syn keyword goKeyword
-            \ import package
-            \ for while range
+            \ for
+            \ package
+            \ range
+            \ this
+            \ while
 
 syn keyword goStatement
             \ func
-            \ type struct
+            \ import
+            \ struct
+            \ type
 
 syn keyword goBoolean
-            \ true false
+            \ false
+            \ true
 
 syn keyword goPackage
+            \ beego
             \ fmt
-            \ time
-            \ sort
+            \ math
             \ orm
+            \ os
+            \ sort
+            \ strconv
+            \ strings
+            \ testing
+            \ time
 
 syn match goConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match goDelimiter "(\|)\|;\|\[\|\]\|{\|}\|,"

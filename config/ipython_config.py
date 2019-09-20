@@ -21,6 +21,7 @@ c.InteractiveShellApp.exec_lines = [
     "import pandas as pd",
     "import datetime as dt",
     "from pylab import *",
+    "import matplotlib.pyplot as mpl",
     "ion()",
     'pd.set_option("display.width", 140)',
     'pd.set_option("display.max_columns", 500)',
