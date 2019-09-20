@@ -105,13 +105,13 @@ autocmd filetype python set foldmethod=indent " overwrite pymode indent method
 
 " code formatting options
 
-autocmd filetype sql setlocal formatprg=/usr/local/bin/pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
-autocmd filetype r setlocal formatprg=/usr/bin/python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
-autocmd filetype fortran setlocal formatprg=/usr/local/bin/fprettify\ --silent\ -
+autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
+autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
+autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
-autocmd filetype cpp setlocal formatprg=/usr/local/bin/clang-format\ -style=file\ -
-autocmd filetype css setlocal formatprg=/usr/local/bin/prettier\ --parser\ css\ --stdin\ -
-autocmd filetype html setlocal formatprg=/usr/local/bin/tidy\ -config\ $HOME/.tidyrc
+autocmd filetype cpp setlocal formatprg=clang-format\ -style=file\ -
+autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --stdin\ -
+autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc
 
 " }}}
 
