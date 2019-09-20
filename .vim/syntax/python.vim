@@ -1,33 +1,65 @@
 syn keyword pythonStatement
-            \ def return
-            \ import from
-            \ assert raise
-            \ continue pass yield break
+            \ assert
+            \ break
+            \ continue
+            \ def
             \ del
+            \ from
+            \ import
+            \ pass
+            \ raise
+            \ return
+            \ yield
 
 syn keyword pythonKeyword
-            \ class self cls
-            \ if else elif try catch finally except
-            \ for in while with as
-            \ global local nonlocal
+            \ as
+            \ catch
+            \ class
+            \ cls
+            \ elif
+            \ else
+            \ except
+            \ finally
+            \ for
+            \ global
+            \ if
+            \ in
             \ lambda
+            \ local
+            \ nonlocal
+            \ self
+            \ try
+            \ while
+            \ with
 
-syn keyword pythonBuiltin
+syn keyword pythonConstant
             \ None
+            \ nan NaN
 
 syn keyword pythonBoolean
-            \ True False
+            \ False
+            \ True
 
 syn keyword pythonType
-            \ int float bool complex str
-            \ list tuple range dict set frozenset
+            \ AssertionError
+            \ Exception
+            \ ValueError
+            \ bool
+            \ complex
+            \ dict
+            \ float
+            \ frozenset
             \ function
-            \ AssertionError ValueError
+            \ int
+            \ list
+            \ range
+            \ set
+            \ str
+            \ tuple
 
 syn keyword pythonCustomType
+            \ DataFrame DatetimeIndex MultiIndex Series
             \ array ndarray
-            \ DataFrame Series
-            \ DatetimeIndex MultiIndex
 
 syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
@@ -44,7 +76,6 @@ syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
 syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
 
 hi def link pythonBoolean    Boolean
-hi def link pythonBuiltin    Constant
 hi def link pythonComment    Comment
 hi def link pythonConstant   Constant
 hi def link pythonCustomType Type
@@ -61,16 +92,17 @@ hi def link pythonTodo       Todo
 hi def link pythonType       Type
 
 syn keyword pythonCustomLibrary
+            \ bokeh
+            \ matplotlib mpl plt
+            \ nose
+            \ numba
             \ numpy np
             \ pandas pd
-            \ matplotlib mpl plt
-            \ seaborn sns
-            \ bokeh
-            \ sklearn
-            \ numba
             \ plotly
-            \ scipy
             \ psycopg2
+            \ scipy
+            \ seaborn sns
+            \ sklearn
 
 syn keyword pythonStandardLibrary
             \ __future__
