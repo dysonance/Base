@@ -1,3 +1,31 @@
+# utility functions
+function bash_colors()
+{
+    local _index_=$1
+    if [ "$_index_" == "" ]; then
+        for i in {0..255}; do
+            printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+        done
+    else
+        printf "\x1b[38;5;${_index_}mcolour${_index_}\x1b[0m\n"
+    fi
+}
+
+function print_path()
+{
+    echo $PATH | sed -e $'s/:/\\\n/g'
+}
+
+function search_path()
+{
+    local _filter=$1
+    if [ "$_filter" == "" ]; then
+        print_path
+    else
+        print_path | grep $_filter
+    fi
+}
+
 # terminal interface customization
 export CLICOLOR=1                      # enable terminal colors
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # directory listing colors
@@ -30,8 +58,7 @@ export PATH=$APPDIR/vim/src/bin:$PATH
 export PATH=$APPDIR/brew/src/bin:$PATH
 export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
 export PATH=$PATH:$APPDIR/llvm/src/bin
-export PATH=$PATH:$HOME/Applications/Julia/Julia-1.1.app/Contents/Resources/julia/bin
-
+export PATH=$HOME/Applications/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
 # disable flow control in the terminal completely
 # (allows more keybindings for things like vim)
 # (see here: https://vim.fandom.com/wiki/Map_Ctrl-S_to_save_current_or_new_files)
@@ -48,20 +75,8 @@ alias pip37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py="py37"
 alias ipi="pip37"
 alias ipy="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/ipython"
-
 alias l="ls -Alh"
 
-function BashColors()
-{
-    local _index_=$1
-    if [ "$_index_" == "" ]; then
-        for i in {0..255}; do
-            printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
-        done
-    else
-        printf "\x1b[38;5;${_index_}mcolour${_index_}\x1b[0m\n"
-    fi
-}
 
 # # production bash prompt colors
 # DEFAULT_COLOR="\[\e[m\]"

@@ -9,8 +9,8 @@ beautifulsoup4,4.8.0
 black,19.3b0
 bokeh,1.3.4
 boto,2.49.0
-boto3,1.9.232
-botocore,1.12.232
+boto3,1.9.233
+botocore,1.12.233
 bs4,0.0.1
 certifi,2019.9.11
 chardet,3.0.4
@@ -18,6 +18,7 @@ Click,7.0
 cycler,0.10.0
 decorator,4.4.0
 docutils,0.15.2
+et-xmlfile,1.0.1
 gnupg,2.3.1
 gr,1.11.3
 httplib2,0.13.1
@@ -26,6 +27,7 @@ ipdb,0.12.2
 ipython,7.8.0
 ipython-genutils,0.2.0
 isort,4.3.21
+jdcal,1.4.1
 jedi,0.15.1
 Jinja2,2.10.1
 jmespath,0.9.4
@@ -44,6 +46,7 @@ nbformat,4.4.0
 nflgame-redux,1.2.23
 numba,0.45.1
 numpy,1.17.2
+openpyxl,2.6.3
 packaging,19.2
 pandas,0.25.1
 parso,0.5.1
