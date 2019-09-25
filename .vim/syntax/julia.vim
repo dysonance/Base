@@ -3,75 +3,115 @@ scriptencoding utf-8
 syn case match
 
 syn keyword juliaTodo contained
-            \ TODO FIXME NOTE
+            \ FIXME
+            \ NOTE
+            \ TODO
 
 syn keyword juliaPreProc
-            \ using import
+            \ import
+            \ using
 
 syn keyword juliaStatement
-            \ return function export
-            \ type mutable struct abstract
-            \ let call begin do
-            \ try catch finally continue break
+            \ abstract
+            \ begin
+            \ break
+            \ call
+            \ catch
+            \ continue
+            \ do
+            \ export
+            \ finally
+            \ function
+            \ let
+            \ mutable
+            \ return
+            \ struct
+            \ try
+            \ type
 
 syn keyword juliaModule
-            \ Base Base64
+            \ Base
+            \ Base64
             \ Core
+            \ Dates
             \ Distributed
             \ Future
             \ LinearAlgebra
             \ Pkg
             \ Printf
-            \ Dates
-            \ Random
             \ REPL
+            \ Random
             \ Statistics
             \ Test
 
 syn keyword juliaCustomModule
-            \ StatsKit
-            \ Iterators
-            \ Documenter
+            \ DataFrames
+            \ DataStreams
             \ Distributions
+            \ Documenter
+            \ GR
             \ HTTP
+            \ Indicators
+            \ IterableTables
+            \ Iterators
             \ JSON
             \ JuMP
-            \ Temporal
-            \ Indicators
-            \ Strategems
             \ JuliaDB
-            \ DataStreams
-            \ DataFrames
-            \ TimeSeries
-            \ IterableTables
-            \ Plots
-            \ GR
-            \ RecipesBase
-            \ Stochatto
+            \ LibPQ
             \ MIDI
             \ MusicManipulations
-            \ ProgressMeter
             \ OhMyREPL
+            \ Plots
+            \ ProgressMeter
+            \ Query
+            \ RecipesBase
             \ Revise
+            \ StatsKit
+            \ Stochatto
+            \ Strategems
+            \ Temporal
+            \ TimeSeries
 
 syn keyword juliaKeyword
+            \ abstract
+            \ bitstype
+            \ block
+            \ catch
+            \ const
+            \ else
+            \ elseif
+            \ end
+            \ finally
+            \ for
+            \ function
+            \ global
+            \ if
+            \ in
+            \ local
+            \ macro
+            \ module
+            \ mutable
+            \ quote
+            \ struct
+            \ try
+            \ type
+            \ typealias
             \ where
-            \ for in while if else elseif end
-            \ try catch finally
-            \ block quote macro
-            \ const local global module
-            \ function type typealias abstract struct mutable bitstype
+            \ while
 
 syn keyword juliaBoolean
-            \ true false
+            \ false
+            \ true
 
 syn keyword juliaConstant
-            \ nothing
-            \ undef
-            \ missing
-            \ pi
             \ NaN
-            \ stdout stderr stdin
+            \ missing
+            \ nothing
+            \ pi
+            \ stderr
+            \ stdin
+            \ stdout
+            \ undef
 
 syn keyword juliaEndIndex contained
             \ end
@@ -96,9 +136,18 @@ syn keyword juliaType
             \ January February March April May June July August September October November December
 
 syn keyword juliaCustomType
+            \ AbstractTS
+            \ Backtest
             \ DataFrame
-            \ TS AbstractTS
-            \ Strategy Indicator Signal Rule ParameterSet Universe Portfolio Backtest, Trade
+            \ Indicator
+            \ ParameterSet
+            \ Portfolio
+            \ Rule
+            \ Signal
+            \ Strategy
+            \ TS
+            \ Trade
+            \ Universe
 
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"

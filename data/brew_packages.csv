@@ -34,7 +34,7 @@ git,2.23.0_1
 git-heatmap,0.10.3
 glances,3.1.2
 glew,2.1.0
-glib,2.62.0
+glib,2.62.0_1
 glm,0.9.9.5
 gmp,6.1.2_2
 gnupg,2.2.17
