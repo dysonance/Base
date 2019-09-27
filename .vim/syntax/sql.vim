@@ -179,6 +179,7 @@ syn keyword sqlOperator
             \ exists
             \ exit
             \ if
+            \ ilike
             \ in
             \ intersect
             \ is

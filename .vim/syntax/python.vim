@@ -100,6 +100,7 @@ syn keyword pythonCustomLibrary
             \ pandas pd
             \ plotly
             \ psycopg2
+            \ requests
             \ scipy
             \ seaborn sns
             \ sklearn
