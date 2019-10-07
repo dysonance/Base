@@ -15,15 +15,19 @@ syn keyword juliaStatement
             \ abstract
             \ begin
             \ break
+            \ by
             \ call
             \ catch
             \ continue
             \ do
+            \ equals
             \ export
             \ finally
             \ function
+            \ into
             \ let
             \ mutable
+            \ on
             \ return
             \ struct
             \ try

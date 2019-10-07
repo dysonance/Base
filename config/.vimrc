@@ -171,6 +171,8 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+nnoremap <leader>j Ja<backspace><esc>
+
 " convert camel case to snake case in current line
 nnoremap <leader>sc :s#\(\<\u\l\+\|\l\+\)\(\u\)#\l\1_\l\2#g<CR>
 
