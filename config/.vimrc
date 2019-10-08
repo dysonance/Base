@@ -105,7 +105,7 @@ autocmd filetype python set foldmethod=indent " overwrite pymode indent method
 
 " code formatting options
 
-autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
+autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
@@ -144,10 +144,11 @@ nnoremap gV [v`]
 " make the `#` key still use `n` to move forward and `N` to move backwards
 nnoremap # *NN
 
-" re-select visual block after indenting
+" re-select visual block after indenting/formatting
 " (normally vim will deselect and go back to normal mode)
 vnoremap < <gv
 vnoremap > >gv
+vnoremap gq gqgv
 nnoremap > >>
 nnoremap < <<
 
