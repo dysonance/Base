@@ -92,7 +92,10 @@ hi def link pythonTodo       Todo
 hi def link pythonType       Type
 
 syn keyword pythonCustomLibrary
+            \ black
             \ bokeh
+            \ bs4 BeautifulSoup
+            \ ipdb
             \ matplotlib mpl plt
             \ nose
             \ numba

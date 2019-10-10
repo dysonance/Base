@@ -87,7 +87,7 @@ lzo,2.10
 make,4.2.1_1
 markdown,1.0.1
 mbedtls,2.16.2
-meson,0.51.2
+meson,0.52.0
 mpfr,4.0.2
 ncurses,6.1
 netpbm,10.73.27

@@ -9,8 +9,8 @@ beautifulsoup4,4.8.1
 black,19.3b0
 bokeh,1.3.4
 boto,2.49.0
-boto3,1.9.244
-botocore,1.12.244
+boto3,1.9.246
+botocore,1.12.246
 bs4,0.0.1
 certifi,2019.9.11
 chardet,3.0.4
@@ -23,6 +23,7 @@ gnupg,2.3.1
 gr,1.11.3
 httplib2,0.14.0
 idna,2.8
+importlib-metadata,0.23
 ipdb,0.12.2
 ipython,7.8.0
 ipython-genutils,0.2.0
@@ -32,8 +33,8 @@ jedi,0.15.1
 Jinja2,2.10.3
 jmespath,0.9.4
 joblib,0.14.0
-jsonschema,3.0.2
-jupyter-core,4.5.0
+jsonschema,3.1.1
+jupyter-core,4.6.0
 kiwisolver,1.1.0
 lazy-object-proxy,1.4.2
 llvmlite,0.29.0
@@ -41,6 +42,7 @@ lxml,4.4.1
 MarkupSafe,1.1.1
 matplotlib,3.1.1
 mccabe,0.6.1
+more-itertools,7.2.0
 mpmath,1.1.0
 nbformat,4.4.0
 nflgame-redux,1.2.23
@@ -93,3 +95,4 @@ urllib3,1.25.6
 wcwidth,0.1.7
 wheel,0.33.6
 wrapt,1.11.2
+zipp,0.6.0
