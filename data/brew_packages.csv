@@ -10,7 +10,7 @@ bat,0.12.1
 boost,1.71.0
 cabal-install,3.0.0.0
 cairo,1.16.0_2
-clang-format,2019-01-18
+clang-format,2019-05-14
 cmake,3.15.4
 cscope,15.9
 csvkit,1.0.4
@@ -105,11 +105,11 @@ pango,1.44.6
 pcre,8.43
 pcre2,10.33
 perl,5.30.0
-pgformatter,4.0
+pgformatter,4.1
 pinentry,1.1.0_1
 pixman,0.38.4
 pkg-config,0.29.2
-postgresql,11.4
+postgresql,11.5_1
 pybind11,2.4.0
 python,3.7.4_1
 qt,5.13.1
@@ -131,7 +131,7 @@ tree,1.8.0
 unbound,1.9.4
 valgrind,3.14.0
 webp,1.0.3
-webpack,4.41.0
+webpack,4.41.1
 wget,1.20.3_1
 xsv,0.13.0
 xz,5.2.4

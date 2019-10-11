@@ -52,6 +52,7 @@ export PS1
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Chest/apps
 export GOROOT=$APPDIR/brew/src/opt/go/libexec
+export EDITOR=vim
 
 # path additions
 export PATH=$APPDIR/vim/src/bin:$PATH
@@ -59,6 +60,7 @@ export PATH=$APPDIR/brew/src/bin:$PATH
 export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
 export PATH=$PATH:$APPDIR/llvm/src/bin
 export PATH=$HOME/Applications/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
+export PATH=$PATH:$APPDIR/brew/src/sbin
 # disable flow control in the terminal completely
 # (allows more keybindings for things like vim)
 # (see here: https://vim.fandom.com/wiki/Map_Ctrl-S_to_save_current_or_new_files)
