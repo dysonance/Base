@@ -234,6 +234,8 @@ nnoremap <leader>gda :Gdiff<Up><CR>
 
 " easier grepper command accessibility
 nnoremap <leader>gr :Grepper<CR>
+nmap <leader>gr <plug>(GrepperOperator)
+xmap <leader>gr <plug>(GrepperOperator)
 
 " search for next git merge conflict
 nnoremap <leader>mc /\<HEAD\>\\|<\{4,\}\\|>\{4,\}\\|=\{4,\}<CR>
