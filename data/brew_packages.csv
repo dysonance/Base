@@ -5,7 +5,7 @@ apgdiff,2.4
 arpack,3.7.0_3
 autoconf,2.69
 automake,1.16.1_1
-awscli,1.16.250
+awscli,1.16.260
 bat,0.12.1
 boost,1.71.0
 cabal-install,3.0.0.0
