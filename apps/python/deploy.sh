@@ -12,7 +12,11 @@ if ! [ -x "$(command -v openssl)" ]; then
     echo "installing dependency openssl"
     brew install openssl xz
 fi
-SSL_DIRECTORY=$(brew --prefix openssl)
+SSL_PATH=$(brew --prefix openssl)
+SQLITE_PATH=$(brew --prefix sqlite)
+ZLIB_PATH=$(brew --prefix zlib)
+TK_PATH=$(brew --prefix tcl-tk)
+export PKG_CONFIG_PATH=$SQLITE_PATH/lib/pkgconfig:$ZLIB_PATH/lib/pkgconfig:$TK_PATH/lib/pkgconfig
 
 # setup the required directory structure
 cd $HOME/Chest/apps/python
@@ -40,17 +44,13 @@ INSTALL_DIRECTORY="$HOME/Chest/apps/python/versions/$PYTHON_VERSION"
 echo "building python version $PYTHON_VERSION"
 git checkout v$PYTHON_VERSION --quiet
 
-SQLITE_DIRECTORY=$(brew --prefix sqlite)
-ZLIB_DIRECTORY=$(brew --prefix zlib)
-export PKG_CONFIG_PATH=$SQLITE_DIRECTORY/lib/pkgconfig:$ZLIB_DIRECTORY/lib/pkgconfig
-
 # configure the installation (NOTE: configuration for versions < 3.7 is different)
 PYTHON_VERSION_SHORT=$(echo $PYTHON_VERSION | cut -c 1-3)
 if [ "$PYTHON_VERSION_SHORT" == "3.7" ] || [ "$PYTHON_VERSION_SHORT" == "3.8" ]; then
-    export PATH=$SQLITE_DIRECTORY/bin:$PATH
+    export PATH=$SQLITE_PATH/bin:$PATH
     export CC=clang
-    export LDFLAGS="-L$SQLITE_DIRECTORY/lib -L$ZLIB_DIRECTORY/lib"
-    export CFLAGS="-I$SQLITE_DIRECTORY/include -I$ZLIB_DIRECTORY/include"
+    export LDFLAGS="-L$SQLITE_PATH/lib -L$ZLIB_PATH/lib -L$TK_PATH/lib"
+    export CFLAGS="-I$SQLITE_PATH/include -I$ZLIB_PATH/include -I$TK_PATH/include"
     git clean -xfd
     ./configure \
         --prefix=$INSTALL_DIRECTORY \
@@ -62,7 +62,7 @@ if [ "$PYTHON_VERSION_SHORT" == "3.7" ] || [ "$PYTHON_VERSION_SHORT" == "3.8" ];
         --enable-optimizations \
         --with-dtrace \
         --with-lto \
-        --with-openssl=$SSL_DIRECTORY \
+        --with-openssl=$SSL_PATH \
         --without-ensurepip \
         --without-gcc
     make -j $CPU
@@ -70,8 +70,8 @@ if [ "$PYTHON_VERSION_SHORT" == "3.7" ] || [ "$PYTHON_VERSION_SHORT" == "3.8" ];
     make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
 else
     git clean -xfd
-    export CPPFLAGS="-I$SSL_DIRECTORY/include -I/usr/local/include -I$ZLIB_DIRECTORY/include -I$SQLITE_DIRECTORY/include"
-    export LDFLAGS="-L$SSL_DIRECTORY/lib -L/usr/local/lib -L$ZLIB_DIRECTORY/lib -L$SQLITE_DIRECTORY/lib"
+    export CPPFLAGS="-I$SSL_PATH/include -I/usr/local/include -I$ZLIB_PATH/include -I$SQLITE_PATH/include"
+    export LDFLAGS="-L$SSL_PATH/lib -L/usr/local/lib -L$ZLIB_PATH/lib -L$SQLITE_PATH/lib"
         ./configure \
             --prefix=$INSTALL_DIRECTORY \
             --datarootdir=$INSTALL_DIRECTORY/share \
