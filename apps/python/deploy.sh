@@ -45,7 +45,8 @@ ZLIB_DIRECTORY=$(brew --prefix zlib)
 export PKG_CONFIG_PATH=$SQLITE_DIRECTORY/lib/pkgconfig:$ZLIB_DIRECTORY/lib/pkgconfig
 
 # configure the installation (NOTE: configuration for versions < 3.7 is different)
-if [ "$(echo $PYTHON_VERSION | cut -c 1-3)" == "3.7" ]; then
+PYTHON_VERSION_SHORT=$(echo $PYTHON_VERSION | cut -c 1-3)
+if [ "$PYTHON_VERSION_SHORT" == "3.7" ] || [ "$PYTHON_VERSION_SHORT" == "3.8" ]; then
     export PATH=$SQLITE_DIRECTORY/bin:$PATH
     export CC=clang
     export LDFLAGS="-L$SQLITE_DIRECTORY/lib -L$ZLIB_DIRECTORY/lib"
@@ -100,3 +101,9 @@ ln -sf $PYTHON_VERSION current
 cd $INSTALL_DIRECTORY/../..
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ./versions/current/bin/python3 get-pip.py
+
+# install python packages
+cd $HOME/Chest
+PYTHON_PACKAGES=$(tail -n $(expr $(wc -l data/python_packages.csv | sed "s/[A-z \/\.]//g") - 1) data/python_packages.csv | sed s/,.*$//g)
+cd apps/frameworks/Python.framework/Versions/Current/bin
+./pip3 install $PYTHON_PACKAGES
