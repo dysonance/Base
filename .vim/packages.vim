@@ -59,9 +59,8 @@ Plug 'alvan/vim-closetag'             " make html editing less miserable
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
 Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
 Plug 'plasticboy/vim-markdown'                     " Markdown language support
-Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support
-Plug 'vim-pandoc/vim-pandoc-syntax'                " required for Rmd support
-Plug 'vim-pandoc/vim-rmarkdown'                    " support for RMarkdown and KnitR
+"Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support
+"Plug 'vim-pandoc/vim-pandoc-syntax'                " required for Rmd support
 Plug 'vim-python/python-syntax'                    " enhanced python syntax highlighting
 Plug 'hashivim/vim-terraform'                      " basic vim/terraform integration
 Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j2, hosts, certain yaml)
@@ -358,7 +357,8 @@ let g:pandoc#command#autoexec_command="pandoc pdf"
 let g:pandoc#command#latex_engine="xelatex"
 let g:pandoc#command#autoexec_on_writes=0
 let g:pandoc#command#prefer_pdf=1
-let g:pandoc#syntax#conceal#use=0  " turn off pretty syntax (slow)
+let g:pandoc#syntax#conceal#use=0         " turn off pretty syntax (slow)
+let g:pandoc#modules#disabled=["folding"] " turn off folding (slow)
 
 " }}}
 
