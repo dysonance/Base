@@ -67,20 +67,24 @@ export PATH=$PATH:$APPDIR/brew/src/sbin
 stty -ixon
 
 # convenience shortcuts
+alias l="ls -Alh"
 alias edit="vim"
-alias jln="$APPDIR/julia/src/usr/bin/julia"
+
+# version management shortcuts
 alias jl="julia -O3 -q"
+alias jln="$APPDIR/julia/src/usr/bin/julia"
 alias py36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/python3"
+alias ipy36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/ipython"
 alias pip36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/pip3"
-alias py37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/python3"
-alias pip37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/pip3"
+#alias py37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/python3"
+#alias ipy37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/ipython"
+#alias pip37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/python3"
+alias ipy38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/ipython"
 alias pip38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/pip3"
 alias py="py38"
+alias ipy="ipy38"
 alias ipi="pip38"
-alias ipy="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/ipython"
-alias l="ls -Alh"
-
 
 # # production bash prompt colors
 # DEFAULT_COLOR="\[\e[m\]"
