@@ -35,7 +35,7 @@ highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
 
 " Other random highlights
 highlight StatusLine   ctermfg=Blue  ctermbg=Cyan     cterm=NONE
-highlight CursorLine   ctermfg=NONE  ctermbg=Black    cterm=NONE
+highlight CursorLine   ctermfg=NONE  ctermbg=None    cterm=underline
 highlight CursorLineNR ctermfg=White ctermbg=Blue     cterm=NONE
 highlight Cursor       ctermfg=NONE  ctermbg=NONE     cterm=NONE
 highlight LineNR       ctermfg=Grey  ctermbg=NONE     cterm=NONE
