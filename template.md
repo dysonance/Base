@@ -9,4 +9,7 @@ geometry: |
 header-includes: |
     \usepackage{bm}
     \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{mathrsfs}
+    \usepackage{dsfont}
 ---

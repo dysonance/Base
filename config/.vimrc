@@ -65,8 +65,8 @@ autocmd filetype r setlocal shiftwidth=2        " R-language specific formatting
 autocmd filetype fortran setlocal shiftwidth=3  " fortran-specific formatting settings
 autocmd filetype fortran setlocal tabstop=3     " fortran-specific formatting settings
 autocmd filetype fortran setlocal softtabstop=3 " fortran-specific formatting settings
-autocmd filetype md setlocal spell              " dont check spelling in markdown files
-autocmd filetype pandoc setlocal spell          " dont check spelling in markdown files
+"autocmd filetype md setlocal spell              " dont check spelling in markdown files
+"autocmd filetype pandoc setlocal spell          " dont check spelling in markdown files
 set backspace=indent,eol,start                  " make backspace work like most apps
 
 " }}}
