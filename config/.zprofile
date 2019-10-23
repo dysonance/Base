@@ -50,7 +50,7 @@ export PS1
 
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
-export APPDIR=$HOME/Chest/apps
+export APPDIR=$HOME/Base/apps
 export GOROOT=$APPDIR/brew/src/opt/go/libexec
 export EDITOR=vim
 

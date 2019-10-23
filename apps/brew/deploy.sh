@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $HOME/Chest/apps/brew
+cd $HOME/Base/apps/brew
 
 HOMEBREW_REPO="https://github.com/Homebrew/brew"
 
@@ -11,4 +11,4 @@ cd src
 
 ./bin/brew update
 
-ln -sf $HOME/Chest/apps/brew/install-version.sh $HOME/Chest/apps/brew/src/bin/brew-install-version
+ln -sf $HOME/Base/apps/brew/install-version.sh $HOME/Base/apps/brew/src/bin/brew-install-version

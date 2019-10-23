@@ -4,7 +4,7 @@
 set -e
 
 # ensure starting directory and environment setup with aliases
-cd ~/Chest
+cd ~/Base
 shopt -s expand_aliases
 source ~/.bash_profile
 
@@ -28,17 +28,17 @@ SetupDirectory ~/.config/alacritty
 SetupDirectory ~/.ipython
 SetupDirectory ~/.ipython/profile_default
 echo "linking configuration files"
-ln -sf ~/Chest/.vim/colors ~/.vim/colors
-ln -sf ~/Chest/.vim/syntax ~/.vim/syntax
-ln -sf ~/Chest/.vim/indent ~/.vim/indent
-ln -sf ~/Chest/.vim/filetype.vim ~/.vim/
-ln -sf ~/Chest/.vim/package.vim ~/.vim/
-ln -sf ~/Chest/config/.vimrc ~/.vimrc
-ln -sf ~/Chest/config/alacritty.yml ~/
-ln -sf ~/Chest/config/.tmux.conf ~/
-ln -sf ~/Chest/config/.Rprofile ~/
-ln -sf ~/Chest/config/.psqlrc ~/
-ln -sf ~/Chest/config/ipython_config.py ~/.ipython/profile_default/
+ln -sf ~/Base/.vim/colors ~/.vim/colors
+ln -sf ~/Base/.vim/syntax ~/.vim/syntax
+ln -sf ~/Base/.vim/indent ~/.vim/indent
+ln -sf ~/Base/.vim/filetype.vim ~/.vim/
+ln -sf ~/Base/.vim/package.vim ~/.vim/
+ln -sf ~/Base/config/.vimrc ~/.vimrc
+ln -sf ~/Base/config/alacritty.yml ~/
+ln -sf ~/Base/config/.tmux.conf ~/
+ln -sf ~/Base/config/.Rprofile ~/
+ln -sf ~/Base/config/.psqlrc ~/
+ln -sf ~/Base/config/ipython_config.py ~/.ipython/profile_default/
 
 # install preliminary dependencies
 if [ "$(which brew)" == "" ]; then

@@ -1,6 +1,6 @@
 # NOTE: add the following to incorporate settings into user git config file (`~/.gitconfig`)
 # [include]
-#     path = ~/Chest/config/.gitconfig
+#     path = ~/Base/config/.gitconfig
 
 [core]
     editor = vim

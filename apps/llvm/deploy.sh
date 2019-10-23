@@ -4,7 +4,7 @@
 # https://stackoverflow.com/a/49702159/2271756
 
 SYSTEM_HEADER_LOCATION=/usr/include/c++/4.2.1
-INSTALL_LOCATION=$HOME/Chest/apps/llvm
+INSTALL_LOCATION=$HOME/Base/apps/llvm
 LLVM_VERSION=8.0.0
 
 cd $INSTALL_LOCATION

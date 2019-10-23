@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_DIRECTORY=$HOME/Chest/apps
+APP_DIRECTORY=$HOME/Base/apps
 INSTALL_DIRECTORY=$APP_DIRECTORY/vim/src
 
 # # for homebrew python installations

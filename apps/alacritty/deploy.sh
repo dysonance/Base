@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $HOME/Chest/apps/alacritty
+cd $HOME/Base/apps/alacritty
 
 # download source
 if ! [ -d "src" ]; then
@@ -33,4 +33,4 @@ if ! [ -d "$HOME/.config/alacritty" ]; then
     echo "creating alacritty directory in ~/.config"
     mkdir $HOME/.config/alacritty
 fi
-ln -sf $HOME/Chest/config/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ln -sf $HOME/Base/config/alacritty.yml $HOME/.config/alacritty/alacritty.yml

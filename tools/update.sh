@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # entry
-cd $HOME/Chest
+cd $HOME/Base
 
 # expand aliases and define them
 shopt -s expand_aliases

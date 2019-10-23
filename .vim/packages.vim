@@ -5,7 +5,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 let $PYTHON_VERSION='3.7'
-let $PYTHON_BINARY=$HOME.'/Chest/apps/frameworks/Python.framework/Versions/'.$PYTHON_VERSION.'/bin/python3'
+let $PYTHON_BINARY=$HOME.'/Base/apps/frameworks/Python.framework/Versions/'.$PYTHON_VERSION.'/bin/python3'
 
 " }}}
 

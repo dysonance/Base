@@ -5,7 +5,7 @@ set -e
 
 # define variables/settings to build as desired
 PYTHON_REPOSITORY="https://github.com/python/cpython"
-FRAMEWORK_DIRECTORY=$HOME/Chest/apps/frameworks
+FRAMEWORK_DIRECTORY=$HOME/Base/apps/frameworks
 
 # define environment for dependencies
 if ! [ -x "$(command -v openssl)" ]; then
@@ -19,7 +19,7 @@ TK_PATH=$(brew --prefix tcl-tk)
 export PKG_CONFIG_PATH=$SQLITE_PATH/lib/pkgconfig:$ZLIB_PATH/lib/pkgconfig:$TK_PATH/lib/pkgconfig
 
 # setup the required directory structure
-cd $HOME/Chest/apps/python
+cd $HOME/Base/apps/python
 if ! [ -d "versions" ]; then
     mkdir versions
 fi
@@ -40,7 +40,7 @@ else
     PYTHON_VERSION="$1"
 fi
 
-INSTALL_DIRECTORY="$HOME/Chest/apps/python/versions/$PYTHON_VERSION"
+INSTALL_DIRECTORY="$HOME/Base/apps/python/versions/$PYTHON_VERSION"
 echo "building python version $PYTHON_VERSION"
 git checkout v$PYTHON_VERSION --quiet
 
@@ -103,7 +103,7 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ./versions/current/bin/python3 get-pip.py
 
 # install python packages
-cd $HOME/Chest
+cd $HOME/Base
 PYTHON_PACKAGES=$(tail -n $(expr $(wc -l data/python_packages.csv | sed "s/[A-z \/\.]//g") - 1) data/python_packages.csv | sed s/,.*$//g)
 cd apps/frameworks/Python.framework/Versions/Current/bin
 ./pip3 install $PYTHON_PACKAGES
