@@ -34,6 +34,7 @@ export HISTSIZE=                       # unlimited command history
 export HISTFILESIZE=                   # unlimited command history file
 set -o vi                              # provide vim-like keybindings for navigating the shell
 bind -m vi-insert "\C-l":clear-screen  # fix clear screen shortcut broken by vi mode
+stty -ixon                             # disable shell flow control completely to allow more vim keybindings
 
 # shell prompt formatting style
 DEFAULT_COLOR="\[\e[m\]"
@@ -61,10 +62,6 @@ export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
 export PATH=$PATH:$APPDIR/llvm/src/bin
 export PATH=$HOME/Applications/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
 export PATH=$PATH:$APPDIR/brew/src/sbin
-# disable flow control in the terminal completely
-# (allows more keybindings for things like vim)
-# (see here: https://vim.fandom.com/wiki/Map_Ctrl-S_to_save_current_or_new_files)
-stty -ixon
 
 # convenience shortcuts
 alias l="ls -Alh"
@@ -76,9 +73,6 @@ alias jln="$APPDIR/julia/src/usr/bin/julia"
 alias py36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/python3"
 alias ipy36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/ipython"
 alias pip36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/pip3"
-#alias py37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/python3"
-#alias ipy37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/ipython"
-#alias pip37="$APPDIR/frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/python3"
 alias ipy38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/ipython"
 alias pip38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/pip3"
