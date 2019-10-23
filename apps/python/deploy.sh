@@ -16,7 +16,7 @@ SSL_PATH=$(brew --prefix openssl)
 SQLITE_PATH=$(brew --prefix sqlite)
 ZLIB_PATH=$(brew --prefix zlib)
 TK_PATH=$(brew --prefix tcl-tk)
-export PKG_CONFIG_PATH=$SQLITE_PATH/lib/pkgconfig:$ZLIB_PATH/lib/pkgconfig:$TK_PATH/lib/pkgconfig
+export PKG_CONFIG_PATH=$SQLITE_PATH/lib/pkgconfig:$ZLIB_PATH/lib/pkgconfig:$TK_PATH/lib/pkgconfig:$SSL_PATH/lib/pkgconfig
 
 # setup the required directory structure
 cd $HOME/Base/apps/python
@@ -41,54 +41,32 @@ else
 fi
 
 INSTALL_DIRECTORY="$HOME/Base/apps/python/versions/$PYTHON_VERSION"
+export PYTHON_HOME=$INSTALL_DIRECTORY
 echo "building python version $PYTHON_VERSION"
 git checkout v$PYTHON_VERSION --quiet
 
 # configure the installation (NOTE: configuration for versions < 3.7 is different)
-PYTHON_VERSION_SHORT=$(echo $PYTHON_VERSION | cut -c 1-3)
-if [ "$PYTHON_VERSION_SHORT" == "3.7" ] || [ "$PYTHON_VERSION_SHORT" == "3.8" ]; then
-    export PATH=$SQLITE_PATH/bin:$PATH
-    export CC=clang
-    export LDFLAGS="-L$SQLITE_PATH/lib -L$ZLIB_PATH/lib -L$TK_PATH/lib"
-    export CFLAGS="-I$SQLITE_PATH/include -I$ZLIB_PATH/include -I$TK_PATH/include"
-    git clean -xfd
-    ./configure \
-        --prefix=$INSTALL_DIRECTORY \
-        --datadir=$INSTALL_DIRECTORY/share \
-        --datarootdir=$INSTALL_DIRECTORY/share \
-        --enable-framework=$FRAMEWORK_DIRECTORY \
-        --enable-ipv6 \
-        --enable-loadable-sqlite-extensions \
-        --enable-optimizations \
-        --with-dtrace \
-        --with-lto \
-        --with-openssl=$SSL_PATH \
-        --without-ensurepip \
-        --without-gcc
-    make -j $CPU
-    make frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
-    make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
-else
-    git clean -xfd
-    export CPPFLAGS="-I$SSL_PATH/include -I/usr/local/include -I$ZLIB_PATH/include -I$SQLITE_PATH/include"
-    export LDFLAGS="-L$SSL_PATH/lib -L/usr/local/lib -L$ZLIB_PATH/lib -L$SQLITE_PATH/lib"
-        ./configure \
-            --prefix=$INSTALL_DIRECTORY \
-            --datarootdir=$INSTALL_DIRECTORY/share \
-            --datadir=$INSTALL_DIRECTORY/share \
-            --enable-framework=$FRAMEWORK_DIRECTORY \
-            --enable-loadable-sqlite-extensions \
-            --enable-ipv6 \
-            --enable-lot \
-            --enable-optimizations \
-            --with-dtrace \
-            --without-ensurepip \
-            --without-gcc \
-            CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS"
-    make -j $CPU
-    make -j $CPU install PYTHONAPPSDIR=$INSTALL_DIRECTORY
-    make -j $CPU frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
-fi
+export PATH=$SQLITE_PATH/bin:$PATH
+export CC=clang
+export LDFLAGS="-L$SQLITE_PATH/lib -L$ZLIB_PATH/lib -L$TK_PATH/lib -L$SSL_PATH/lib"
+export CFLAGS="-I$SQLITE_PATH/include -I$ZLIB_PATH/include -I$TK_PATH/include -I$SSL_PATH/include"
+git clean -xfd
+./configure \
+    --prefix=$INSTALL_DIRECTORY \
+    --datadir=$INSTALL_DIRECTORY/share \
+    --datarootdir=$INSTALL_DIRECTORY/share \
+    --enable-framework=$FRAMEWORK_DIRECTORY \
+    --enable-ipv6 \
+    --enable-loadable-sqlite-extensions \
+    --enable-optimizations \
+    --with-dtrace \
+    --with-lto \
+    --with-openssl=$SSL_PATH \
+    --without-ensurepip \
+    --without-gcc
+make -j $CPU
+make frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
+make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
 
 # create symbolic links to simplify version management
 cd $INSTALL_DIRECTORY/..
