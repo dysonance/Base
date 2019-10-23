@@ -51,9 +51,13 @@ brew install htop tmux reattach-to-user-namespace
 BREW_PACKAGES=$(cat data/brew_packages.csv | sed "s/,.*$//g" | grep -v "package")
 echo "===== BEGINNING BREW PACKAGE INSTALLATION =====" > log/brew_install.log
 for pkg in $BREW_PACKAGES; do
-    echo "-- installation attempt beginning: $pkg --" >> log/brew_install.log
-    brew install $pkg --verbose >> log/brew_install.log
-    echo "-- installation attempt finished: $pkg --" >> log/brew_install.log
+    if [ "$(brew list | grep $pkg)" == "" ]; then
+        echo "== installation attempt beginning: $pkg ==" >> log/brew_install.log
+        brew install $pkg --verbose >> log/brew_install.log
+        echo "== installation attempt finished: $pkg ==" >> log/brew_install.log
+    else
+        echo "== skipping unnecessary installation: $pkg ==" >> log/brew_install.log
+    fi
 done
 echo "===== BREW PACKAGE INSTALLATION FINISHED =====" >> log/brew_install.log
 
