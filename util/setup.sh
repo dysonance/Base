@@ -1,14 +1,23 @@
 #!/bin/bash
 
-# stop and exit script at first error
+# initialization
 set -e
-
-# ensure starting directory and environment setup with aliases
 cd ~/Base
+echo "************ ENVIRONMENT SETUP COMMENCED ************"
+
+# profile integration
+if [ "$(grep 'Base/config/.bash_profile' ~/.bash_profile)" == "" ]; then
+    echo "incorporating committed config into user bash profile"
+    echo "creating backup copy of \`~/.bash_profile\` at \`/tmp/.bash_profile_backup\`"
+    cp ~/.bash_profile /tmp/.bash_profile_backup
+    echo '. ~/Base/config/.bash_profile' | cat - ~/.bash_profile > /tmp/tmp.sh &&
+        echo "replacing \`~/.bash_profile\` with modified version" &&
+        mv /tmp/tmp.sh ~/.bash_profile
+fi
 shopt -s expand_aliases
 source ~/.bash_profile
 
-# convenience function to create directory if it does not exist
+# function definitions
 function SetupDirectory()
 {
     local _directory_=$1
@@ -20,7 +29,7 @@ function SetupDirectory()
     fi
 }
 
-# setup environment configurations/preferences
+# environment configurations
 echo "setting up environment directories"
 SetupDirectory ~/.vim
 SetupDirectory ~/.config
@@ -41,47 +50,45 @@ ln -sf ~/Base/config/.psqlrc ~/
 ln -sf ~/Base/config/ipython_config.py ~/.ipython/profile_default/
 
 # install preliminary dependencies
-if [ "$(which brew)" == "" ]; then
-    echo "installing homebrew"
-    ./apps/brew/deploy.sh
-fi
+echo "installing homebrew"
+./apps/brew/deploy.sh > log/brew.log
 echo "installing brew packages"
-brew install htop tmux reattach-to-user-namespace
-
 BREW_PACKAGES=$(cat data/brew_packages.csv | sed "s/,.*$//g" | grep -v "package")
-echo "===== BEGINNING BREW PACKAGE INSTALLATION =====" > log/brew_install.log
+echo "===== BEGINNING BREW PACKAGE INSTALLATION =====" >> log/brew.log
+brew install htop tmux reattach-to-user-namespace  # prioritize useful pkgs w/ quick installs
+BREW_INSTALLED=$(brew list)
 for pkg in $BREW_PACKAGES; do
     if [ "$(brew list | grep $pkg)" == "" ]; then
-        echo "== installation attempt beginning: $pkg ==" >> log/brew_install.log
-        brew install $pkg --verbose >> log/brew_install.log
-        echo "== installation attempt finished: $pkg ==" >> log/brew_install.log
+        echo "== installation attempt beginning: $pkg ==" >> log/brew.log
+        brew install $pkg --verbose >> log/brew.log
+        echo "== installation attempt finished: $pkg ==" >> log/brew.log
+        BREW_INSTALLED=$(brew list)
     else
-        echo "== skipping unnecessary installation: $pkg ==" >> log/brew_install.log
+        echo "== skipping unnecessary installation: $pkg ==" >> log/brew.log
     fi
 done
-echo "===== BREW PACKAGE INSTALLATION FINISHED =====" >> log/brew_install.log
+echo "===== BREW PACKAGE INSTALLATION FINISHED =====" >> log/brew.log
 
 # setup alacritty terminal
 echo "installing alacritty"
-./apps/alacritty/deploy.sh
+./apps/alacritty/deploy.sh > log/alacritty.log
 
 # setup llvm environment (required for later python 3 version configurations)
 echo "installing llvm toolset"
-./apps/llvm/deploy.sh
+./apps/llvm/deploy.sh > log/llvm.log
 
 # setup python environment (required for vim and compatibility with other tech)
-echo "installting python (latest)"
-./apps/python/deploy.sh
-echo "installing python (3.6.5)"
-./apps/python/deploy.sh 3.6.5
-echo "installing python packages"
-pip36 install $(cat data/python_packages.csv | sed "s/,.*$//g" | grep -v "package")
-ipi install $(cat data/python_packages.csv | sed "s/,.*$//g" | grep -v "package")
+echo "installing python"
+./apps/python/deploy.sh > log/python.log
+ipi install $(cat data/python_packages.csv | sed "s/,.*$//g" | grep -v "package") >> log/python.log
 
 # setup vim environment
 echo "installing vim"
-./apps/vim/deploy.sh
+./apps/vim/deploy.sh > log/vim.log
 echo "initializing vim package manager"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 echo "installing vim packages"
 vim -c ":PlugInstall | :qa"
+
+# finish logging
+echo "************ ENVIRONMENT SETUP COMPLETED ************"
