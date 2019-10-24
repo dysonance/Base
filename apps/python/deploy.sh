@@ -8,15 +8,13 @@ PYTHON_REPOSITORY="https://github.com/python/cpython"
 FRAMEWORK_DIRECTORY=$HOME/Base/apps/frameworks
 
 # define environment for dependencies
-if ! [ -x "$(command -v openssl)" ]; then
-    echo "installing dependency openssl"
-    brew install openssl xz
-fi
 SSL_PATH=$(brew --prefix openssl)
 SQLITE_PATH=$(brew --prefix sqlite)
 ZLIB_PATH=$(brew --prefix zlib)
 TK_PATH=$(brew --prefix tcl-tk)
-export PKG_CONFIG_PATH=$SQLITE_PATH/lib/pkgconfig:$ZLIB_PATH/lib/pkgconfig:$TK_PATH/lib/pkgconfig:$SSL_PATH/lib/pkgconfig
+TK_VERSION=8.6
+QT_PATH=$(brew --prefix qt)
+export PKG_CONFIG_PATH=$SQLITE_PATH/lib/pkgconfig:$ZLIB_PATH/lib/pkgconfig:$TK_PATH/lib/pkgconfig:$QT_PATH/lib/pkgconfig:$SSL_PATH/lib/pkgconfig
 
 # setup the required directory structure
 cd $HOME/Base/apps/python
@@ -46,10 +44,11 @@ echo "building python version $PYTHON_VERSION"
 git checkout v$PYTHON_VERSION --quiet
 
 # configure the installation (NOTE: configuration for versions < 3.7 is different)
-export PATH=$SQLITE_PATH/bin:$PATH
+export PATH=$SQLITE_PATH/bin:$TK_PATH/bin:$QT_PATH/bin:$PATH
 export CC=clang
-export LDFLAGS="-L$SQLITE_PATH/lib -L$ZLIB_PATH/lib -L$TK_PATH/lib -L$SSL_PATH/lib"
-export CFLAGS="-I$SQLITE_PATH/include -I$ZLIB_PATH/include -I$TK_PATH/include -I$SSL_PATH/include"
+export LDFLAGS="-L$SQLITE_PATH/lib -L$ZLIB_PATH/lib -L$TK_PATH/lib -L$SSL_PATH/lib -L$QT_PATH/lib"
+export CFLAGS="-I$SQLITE_PATH/include -I$ZLIB_PATH/include -I$TK_PATH/include -I$SSL_PATH/include -I$QT_PATH/include"
+export CPPFLAGS=$CFLAGS
 git clean -xfd
 ./configure \
     --prefix=$INSTALL_DIRECTORY \
@@ -62,6 +61,8 @@ git clean -xfd
     --with-dtrace \
     --with-lto \
     --with-openssl=$SSL_PATH \
+    --with-tcltk-includes="-I$TK_PATH/include" \
+    --with-tcltk-libs="-L$TK_PATH/lib -ltcl$TK_VERSION -ltk$TK_VERSION" \
     --without-ensurepip \
     --without-gcc
 make -j $CPU
