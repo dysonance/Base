@@ -27,6 +27,7 @@ syn keyword cppStatement
             \ return
             \ static_cast
             \ this
+            \ throw
             \ using
 
 syn keyword cppKeyword
@@ -76,17 +77,21 @@ syn keyword cppType
             \ function
             \ hash
             \ int
+            \ istringstream
             \ list
             \ long
             \ map
             \ mt19937
             \ mutable
             \ normal_distribution
+            \ ostream
+            \ ostringstream
             \ pair
             \ random_device
             \ shared_ptr
             \ static
             \ string
+            \ stringstream
             \ thread_local
             \ tuple
             \ uniform_int_distribution
@@ -94,6 +99,8 @@ syn keyword cppType
             \ unsigned
             \ vector
             \ void
+            \ wistringstream
+            \ wostringstream
 
 syn keyword cppCustomType
             \ Col
