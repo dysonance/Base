@@ -90,7 +90,7 @@ openblas,0.3.7
 openssl,1.0.2t
 openssl@1.1,1.1.1d
 p11-kit,0.23.18.1
-pango,1.44.6
+pango,1.44.7
 pcre,8.43
 pcre2,10.33
 perl,5.30.0
@@ -107,7 +107,7 @@ rust,1.38.0
 sdl2,2.0.10
 sdl2_image,2.0.5
 source-highlight,3.1.9
-sphinx-doc,2.1.2_1
+sphinx-doc,2.2.1
 sqlite,3.29.0
 tcl-tk,8.6.9_1
 tidy-html5,5.6.0
