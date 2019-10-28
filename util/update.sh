@@ -27,7 +27,7 @@ py $HOME/.vim/plugged/YouCompleteMe/install.py --all
 jl --optimize=3 --warn-overwrite=no --depwarn=no --check-bounds=no --color=yes apps/julia/precompile.jl
 
 # save package information
-echo "package,version" > data/brew_packages.csv
-brew list --full-name --versions | sed "s/ /,/g" >> data/brew_packages.csv
-echo "package,version" > data/python_packages.csv
-ipi list --format=freeze | sed "s/==/,/g" >> data/python_packages.csv
+echo "package,version" > data/packages/current/brew.csv
+brew list --full-name --versions | sed "s/ /,/g" >> data/packages/current/brew.csv
+echo "package,version" > data/packages/current/pip.csv
+ipi list --format=freeze | sed "s/==/,/g" >> data/packages/current/pip.csv
