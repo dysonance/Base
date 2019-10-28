@@ -53,8 +53,8 @@ highlight WarningMsg ctermfg=NONE ctermbg=208     cterm=NONE
 
 " Diff highlights
 highlight DiffAdd    ctermfg=NONE    ctermbg=DarkGreen cterm=NONE
-highlight DiffChange ctermfg=NONE    ctermbg=3         cterm=NONE
+highlight DiffChange ctermfg=NONE    ctermbg=Black     cterm=NONE
 highlight DiffDelete ctermfg=DarkRed ctermbg=DarkRed   cterm=NONE
-highlight DiffText   ctermfg=NONE    ctermbg=3         cterm=underline
+highlight DiffText   ctermfg=NONE    ctermbg=Black     cterm=underline
 
 syntax enable
