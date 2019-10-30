@@ -1,24 +1,7 @@
 #!/bin/bash
 
-# initialization
-set -e
-cd ~/Base
-echo "************ ENVIRONMENT SETUP COMMENCED ************"
-
-# profile integration
-if [ "$(grep 'Base/config/.bash_profile' ~/.bash_profile)" == "" ]; then
-    echo "incorporating committed config into user bash profile"
-    echo "creating backup copy of \`~/.bash_profile\` at \`/tmp/.bash_profile_backup\`"
-    cp ~/.bash_profile /tmp/.bash_profile_backup
-    echo '. ~/Base/config/.bash_profile' | cat - ~/.bash_profile > /tmp/tmp.sh &&
-        echo "replacing \`~/.bash_profile\` with modified version" &&
-        mv /tmp/tmp.sh ~/.bash_profile
-fi
-shopt -s expand_aliases
-source ~/.bash_profile
-
-# function definitions
-function SetupDirectory()
+# utilities
+function setup_directory()
 {
     local _directory_=$1
     if [ "$_directory_" == "" ]; then
@@ -29,13 +12,25 @@ function SetupDirectory()
     fi
 }
 
+# initialization
+set -e
+cd ~/Base
+echo "************ ENVIRONMENT SETUP COMMENCED ************"
+
+# shell
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+setup_directory ~/Applications/Shell
+mv ~/.oh-my-zsh ~/Applications/Shell/
+ln -sf ~/Base/config/dysonance.zsh-theme ~/Applications/Shell/.oh-my-zsh/themes/
+ln -sf ~/Base/config/.zshrc ~/.zshrc
+
 # environment configurations
 echo "setting up environment directories"
-SetupDirectory ~/.vim
-SetupDirectory ~/.config
-SetupDirectory ~/.config/alacritty
-SetupDirectory ~/.ipython
-SetupDirectory ~/.ipython/profile_default
+setup_directory ~/.vim
+setup_directory ~/.config
+setup_directory ~/.config/alacritty
+setup_directory ~/.ipython
+setup_directory ~/.ipython/profile_default
 echo "linking configuration files"
 ln -sf ~/Base/.vim/colors ~/.vim/colors
 ln -sf ~/Base/.vim/syntax ~/.vim/syntax
