@@ -42,10 +42,9 @@ export PATH=$PATH:$APPDIR/llvm/src/bin
 export PATH=$HOME/Applications/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
 export PATH=$PATH:$APPDIR/brew/src/sbin
 
-# disable flow control in the terminal completely
-# (allows more keybindings for things like vim)
-# (see here: https://vim.fandom.com/wiki/Map_Ctrl-S_to_save_current_or_new_files)
-stty -ixon
+# shell behavior
+stty -ixon  # disable terminal flow control to allow more vim keybindings
+unsetopt no_match  # treat wildcards (*) same way as bash
 
 # convenience shortcuts
 alias edit="vim"
