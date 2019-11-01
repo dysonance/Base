@@ -11,7 +11,8 @@ TK_VERSION=8.6
 # install dependencies
 BREW_DEPENDENCIES=(openssl sqlite zlib tcl-tk qt)
 BREW_INSTALLED=$(brew list)
-for dep in $BREW_DEPENDENCIES; do
+for dep in "${BREW_DEPENDENCIES[@]}"; do
+    echo "setting up dependency: $dep"
     if [ "$(echo $BREW_INSTALLED | grep $dep)" == "" ]; then
         brew install $dep
     fi
@@ -43,11 +44,10 @@ if ! [ -d "$FRAMEWORK_DIRECTORY" ]; then mkdir $FRAMEWORK_DIRECTORY; fi
 export PYTHON_HOME=$INSTALL_DIRECTORY
 export CPPFLAGS=$CFLAGS
 export CC=clang
-
-# run build
-echo "building python version $PYTHON_VERSION"
+if [ "$(command -v llvm-lto)" ]; then lto_option='--with-lto'; else lto_option='--without-lto'; fi
 git checkout v$PYTHON_VERSION --quiet
 git clean -xfd
+echo "configuring python build"
 ./configure \
     --prefix=$INSTALL_DIRECTORY \
     --datadir=$INSTALL_DIRECTORY/share \
@@ -57,12 +57,15 @@ git clean -xfd
     --enable-loadable-sqlite-extensions \
     --enable-optimizations \
     --with-dtrace \
-    --with-lto \
     --with-openssl=$SSL_PATH \
     --with-tcltk-includes="$CFLAGS" \
     --with-tcltk-libs="$LDFLAGS -ltcl$TK_VERSION -ltk$TK_VERSION" \
     --without-ensurepip \
-    --without-gcc
+    --without-gcc \
+    $lto_option
+
+# run build
+echo "building python version $PYTHON_VERSION"
 make -j $CPU
 make frameworkinstallextras PYTHONAPPSDIR=$INSTALL_DIRECTORY/share/python
 make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
