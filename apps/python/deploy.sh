@@ -6,6 +6,7 @@ set -e
 # define variables/settings to build as desired
 PYTHON_VERSION=$1
 APP_DIRECTORY=$HOME/Applications
+TK_VERSION=8.6
 
 # install dependencies
 BREW_DEPENDENCIES=(openssl sqlite zlib tcl-tk qt)
