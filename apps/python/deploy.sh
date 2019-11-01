@@ -4,51 +4,44 @@
 set -e
 
 # define variables/settings to build as desired
-PYTHON_REPOSITORY="https://github.com/python/cpython"
-FRAMEWORK_DIRECTORY=$HOME/Base/apps/frameworks
+PYTHON_VERSION=$1
+APP_DIRECTORY=$HOME/Applications
 
-# define environment for dependencies
-SSL_PATH=$(brew --prefix openssl)
-SQLITE_PATH=$(brew --prefix sqlite)
-ZLIB_PATH=$(brew --prefix zlib)
-TK_PATH=$(brew --prefix tcl-tk)
-TK_VERSION=8.6
-QT_PATH=$(brew --prefix qt)
-export PKG_CONFIG_PATH=$SQLITE_PATH/lib/pkgconfig:$ZLIB_PATH/lib/pkgconfig:$TK_PATH/lib/pkgconfig:$QT_PATH/lib/pkgconfig:$SSL_PATH/lib/pkgconfig
+# install dependencies
+BREW_DEPENDENCIES=(openssl sqlite zlib tcl-tk qt)
+BREW_INSTALLED=$(brew list)
+for dep in $BREW_DEPENDENCIES; do
+    if [ "$(echo $BREW_INSTALLED | grep $dep)" == "" ]; then
+        brew install $dep
+    fi
+    brew_prefix=$(brew --prefix $dep)
+    export PATH=$PATH:$brew_prefix/bin
+    export LDFLAGS="$LDFLAGS -L$brew_prefix/lib"
+    export CFLAGS="$CFLAGS -I$brew_prefix/include"
+    export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$brew_prefix/lib/pkgconfig
+done
 
-# setup the required directory structure
-cd $HOME/Base/apps/python
-if ! [ -d "versions" ]; then
-    mkdir versions
-fi
-if ! [ -d "versions/$PYTHON_VERSION" ]; then
-    mkdir versions/$PYTHON_VERSION
-fi
-if ! [ -d "src" ]; then
-    git clone "$PYTHON_REPOSITORY" src
-fi
-
-# get the appropriate version of the source code to build
+# checkout source code and setup directories
+cd $APP_DIRECTORY
+if ! [ -d "Python" ]; then mkdir Python; fi
+cd Python
+if ! [ -d "src" ]; then git clone https://github.com/python/cpython src; fi
 cd src
 git checkout master --quiet
 git pull --quiet
-if [ "$1" == "" ]; then
-    PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g')
-else
-    PYTHON_VERSION="$1"
-fi
+if [ "$PYTHON_VERSION" == "" ]; then PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g'); fi
+INSTALL_DIRECTORY="$APP_DIRECTORY/Python/Versions/$PYTHON_VERSION"
+if ! [ -d "$INSTALL_DIRECTORY" ]; then mkdir -p $INSTALL_DIRECTORY; fi
 
-INSTALL_DIRECTORY="$HOME/Base/apps/python/versions/$PYTHON_VERSION"
+# configure the installation
+FRAMEWORK_DIRECTORY=$APP_DIRECTORY/Frameworks
+if ! [ -d "$FRAMEWORK_DIRECTORY" ]; then mkdir $FRAMEWORK_DIRECTORY; fi
 export PYTHON_HOME=$INSTALL_DIRECTORY
+export CC=clang
+
+# run build
 echo "building python version $PYTHON_VERSION"
 git checkout v$PYTHON_VERSION --quiet
-
-# configure the installation (NOTE: configuration for versions < 3.7 is different)
-export PATH=$SQLITE_PATH/bin:$TK_PATH/bin:$QT_PATH/bin:$PATH
-export CC=clang
-export LDFLAGS="-L$SQLITE_PATH/lib -L$ZLIB_PATH/lib -L$TK_PATH/lib -L$SSL_PATH/lib -L$QT_PATH/lib"
-export CFLAGS="-I$SQLITE_PATH/include -I$ZLIB_PATH/include -I$TK_PATH/include -I$SSL_PATH/include -I$QT_PATH/include"
-export CPPFLAGS=$CFLAGS
 git clean -xfd
 ./configure \
     --prefix=$INSTALL_DIRECTORY \
@@ -61,8 +54,8 @@ git clean -xfd
     --with-dtrace \
     --with-lto \
     --with-openssl=$SSL_PATH \
-    --with-tcltk-includes="-I$TK_PATH/include" \
-    --with-tcltk-libs="-L$TK_PATH/lib -ltcl$TK_VERSION -ltk$TK_VERSION" \
+    --with-tcltk-includes="$CFLAGS" \
+    --with-tcltk-libs="$LDFLAGS -ltcl$TK_VERSION -ltk$TK_VERSION" \
     --without-ensurepip \
     --without-gcc
 make -j $CPU
@@ -71,15 +64,13 @@ make install PYTHONAPPSDIR=$INSTALL_DIRECTORY
 
 # create symbolic links to simplify version management
 cd $INSTALL_DIRECTORY/..
-if [ -d "current" ]; then
-    rm current
-fi
-ln -sf $PYTHON_VERSION current
+if [ -d "Current" ]; then rm Current; fi
+ln -sf $PYTHON_VERSION Current
 
 # install pip
 cd $INSTALL_DIRECTORY/../..
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-./versions/current/bin/python3 get-pip.py
+./Versions/Current/bin/python3 get-pip.py
 
 # install python packages
 cd $HOME/Base
