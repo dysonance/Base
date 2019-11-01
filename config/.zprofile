@@ -49,7 +49,7 @@ unsetopt no_match  # treat wildcards (*) same way as bash
 # convenience shortcuts
 alias edit="vim"
 alias jln="$APPDIR/julia/src/usr/bin/julia"
-alias jl="julia -O3 -q"
+alias jl="julia --banner=no --optimize=3 -g"
 alias py36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/python3"
 alias pip36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/pip3"
 alias py38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/python3"

@@ -156,7 +156,7 @@ syn keyword juliaCustomType
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match juliaFormat    "\$\<\w*\>"                                           contained
-syn match juliaFormat    "\\n\|\\t\|\$\<\w\+\>\|\(\$(.*\)\@<=\()\)"            containedin=juliaString,juliaCharacter
+syn match juliaFormat    "\\n\|\\t\|\$\<\w\+\>\|\(\$(.*\)\@<=\()\)"            containedin=juliaString
 syn match juliaFunction  "\<\w*\>(\@=\|\<\w*\>\(!(\)\@=\|\<\w*\>\(.!(\)\@=\|\<\w*\>\(.(\)\@="
 syn match juliaIndex     "\[.*\]"                                              contains=ALL
 syn match juliaMacro     "@\(\w\)\+"
@@ -165,13 +165,13 @@ syn match juliaOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|::\|
 syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "\([:<>0-9]\|\>\)\@<!:\<\w\+\>"
 syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
-syn match juliaCharacter "'\w'\|'\\\w'"
+syn match juliaCharacter "'.'"
 
-syn region juliaComment   start="#"             end="$"                  contains=juliaTodo
-syn region juliaComment   start="#="            end="=#"                 contains=juliaTodo extend
-syn region juliaFormat    start="\$("           end="\(\$(.*\)\@<=\()\)" containedin=juliaString extend keepend
-syn region juliaString    start="\""            end="\""                 contains=juliaFormat extend
-syn region juliaString    start="\"\"\""        end="\"\"\""
+syn region juliaComment start="#"      end="$"                  contains=juliaTodo
+syn region juliaComment start="#="     end="=#"                 contains=juliaTodo extend
+syn region juliaFormat  start="\$("    end="\(\$(.*\)\@<=\()\)" containedin=juliaString extend keepend
+syn region juliaString  start="\""     end="\""                 contains=juliaFormat extend
+syn region juliaString  start="\"\"\"" end="\"\"\""             contains=juliaFormat
 
 hi def link juliaBoolean      Boolean
 hi def link juliaCharacter    Character
