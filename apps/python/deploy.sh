@@ -20,6 +20,9 @@ for dep in $BREW_DEPENDENCIES; do
     export LDFLAGS="$LDFLAGS -L$brew_prefix/lib"
     export CFLAGS="$CFLAGS -I$brew_prefix/include"
     export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$brew_prefix/lib/pkgconfig
+    if [ "$dep" == "openssl" ]; then
+        export SSL_PATH=$brew_prefix
+    fi
 done
 
 # checkout source code and setup directories
@@ -38,6 +41,7 @@ if ! [ -d "$INSTALL_DIRECTORY" ]; then mkdir -p $INSTALL_DIRECTORY; fi
 FRAMEWORK_DIRECTORY=$APP_DIRECTORY/Frameworks
 if ! [ -d "$FRAMEWORK_DIRECTORY" ]; then mkdir $FRAMEWORK_DIRECTORY; fi
 export PYTHON_HOME=$INSTALL_DIRECTORY
+export CPPFLAGS=$CFLAGS
 export CC=clang
 
 # run build
