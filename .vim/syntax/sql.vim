@@ -255,7 +255,7 @@ syn keyword sqlType
 syn match sqlOperator    "||\|:=\|!=\|*\|/\|::\|+\|-\|="
 syn match sqlConditional "=\|<\|>\|\<and\>\|\<or\>\|\<is\>\|\<not\>"
 syn match sqlNumber      "-\=\<[0-9]*\>\|-\=\<[0-9]*\.[0-9]*\>\|-\=\<[0-9][0-9]*e[+-]\=[0-9]*\>\|-\=\<[0-9]*\.[0-9]*e[+-]\=[0-9]*\>\|\<0x[abcdef0-9]*\>"
-syn match sqlError       ")\|,\(\_\s*[;)]\)\@=\| $\|,\_\s*\(\<\(asc\|desc\|exists\|for\|from\)\>\)\@=\|,\_\s*\(\<\(group by\|into\|limit\|order\)\>\)\@=\|,\_\s*\(\<\(table\|using\|where\)\>\)\@="
+syn match sqlError       ")\|,\(\_\s*[;)]\)\@=\|,\_\s*\(\<\(asc\|desc\|exists\|for\|from\)\>\)\@=\|,\_\s*\(\<\(group by\|into\|limit\|order\)\>\)\@=\|,\_\s*\(\<\(table\|using\|where\)\>\)\@="
 syn match sqlDelimiter   ";\|(\|)\|,\|\."
 syn match sqlFunction    "\<\(abs\|acos\|asin\|atan2\?\|avg\|cardinality\|cast\|changes\|char_length\|character_length\|coalesce\|concat\|cos\|count\|\(date\)\?\(time\)\?\|exp\|filetoblob\|filetoclob\|floor\|glob\|group_concat\|hex\|ifnull\|initcap\|isnull\|julianday\|last_insert_rowid\|length\|log10\|logn\|lower\|lpad\|ltrin\|max\|min\|mod\|nullif\|octet_length\|pow\|quote\|random\|range\|replace\|root\|round\|rpad\|sin\|soundex\|sqrtstdev\|strftime\|substr\|substring\|sum\|sysdate\|tan\|to_char\|to_date\|to_number\|total\|trim\|trunc\|typeof\|upper\|variance\)(\@=\|\(function \)\@<=\<\w\+\>"
 syn match sqlSpecial     "\$\|\(\$\$\)\|\(\$\w\)"
