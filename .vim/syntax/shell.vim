@@ -46,10 +46,12 @@ syn keyword shellConstant
             \ USER
 
 syn keyword shellFunction
+            \ cat
             \ cd
             \ cmake
             \ cp
             \ curl
+            \ rm
             \ echo
             \ expr
             \ git
@@ -66,17 +68,19 @@ syn keyword shellFunction
             \ wget
 
 syn match shellConstant "\<[A-Z_]\{2,}\>\((\)\@!"
-syn match shellKeyword "\.\W"
-syn match shellProgram "\(^\|\s\)\@<=\(vim\|brew\|py\+\|pip\+\|ipi\|clang\|clang++\|gcc\|g++\|psql\|sql\)\>"
+syn match shellProgram "\(^\|\s\)\@<=\(vim\|brew\|py\+\|pip\+\|ipi\|clang\|clang++\|gcc\|g++\|psql\|sql\|tar\)\>"
 syn match shellNumber "\d"
-syn match shellOperator "\.\|=\|\$\|\\\/\|!\|\\\|(\|)\|\.\/\||\|>"
-syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}"
+syn match shellOperator "\.\|=\|\\\/\|!\|\\\|\.\/\||\|>"
+syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
 syn match shellArgument "\( \)\@<=-\w\+\|\( \)\@<=--[A-z\-_]\+"
-syn match shellExpand "\(\$[A-z]\+\)\|\${.*}"
+syn match shellKeyword "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)"
+syn match shellFormat "\(\$[A-z]\+\)"
 
-syn region shellCharacter start=+'+ end=+'+
-syn region shellString start=+"+ end=+"+ contains=shellConstant,shellExpand
 syn region shellComment start=+#+ end="$" contains=shellTodo
+syn region shellExpand start="\${" end="}" contains=ALL
+syn region shellExpand start="\$(" end=")" contains=ALLBUT,shellDelimiter keepend
+syn region shellCharacter start=+'+ end=+'+
+syn region shellString start=+"+ end=+"+ contains=shellFormat,shellExpand
 
 hi def link shellConstant Constant
 hi def link shellKeyword Keyword
@@ -90,6 +94,7 @@ hi def link shellString String
 hi def link shellTodo Todo
 hi def link shellComment Comment
 hi def link shellExpand SpecialChar
+hi def link shellFormat SpecialChar
 hi def link shellArgument Special
 hi def link shellConditional Conditional
 hi def link shellRepeat Repeat
