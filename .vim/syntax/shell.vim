@@ -50,3 +50,5 @@
 " hi def link shellString String
 " hi def link shellTodo Todo
 " hi def link shellComment Comment
+
+" let b:current_syntax="shell"
