@@ -1,5 +1,5 @@
 # utility functions
-function bash_colors()
+function shellcolors()
 {
     local _index_=$1
     if [ "$_index_" == "" ]; then
@@ -11,18 +11,18 @@ function bash_colors()
     fi
 }
 
-function print_path()
+function showpath()
 {
     echo $PATH | sed -e $'s/:/\\\n/g'
 }
 
-function search_path()
+function searchpath()
 {
     local _filter=$1
     if [ "$_filter" == "" ]; then
-        print_path
+        showpath
     else
-        print_path | grep $_filter
+        showpath | grep $_filter
     fi
 }
 
