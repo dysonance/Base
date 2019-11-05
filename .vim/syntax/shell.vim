@@ -72,7 +72,7 @@ syn keyword shellFunction
 syn match shellConstant "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match shellProgram "\(^\|\s\)\@<=\(vim\|brew\|python\+\|pip\+\|clang\|clang++\|gcc\|g++\|psql\|sql\|tar\)\>"
 syn match shellNumber "\d"
-syn match shellOperator "\.\|=\|\\\/\|!\|\\\|\.\/\||\|>"
+syn match shellOperator "\.\|=\|\\\/\|!\|\\\|\.\/\||\|>\|&\||"
 syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
 syn match shellArgument "\( \)\@<=-\w\+\|\( \)\@<=--[A-z\-_]\+\|\$[0-9]\|\$@"
 syn match shellKeyword "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)\>"
@@ -82,7 +82,7 @@ syn match shellFormat "\(\$[A-z]\+\)"
 syn region shellComment start=+#+ end="$" contains=shellTodo
 syn region shellExpand start="\${" end="}" contains=ALLBUT,shellDelimiter keepend
 syn region shellExpand start="\$(" end=")" contains=ALLBUT,shellDelimiter keepend
-syn region shellCharacter start=+'+ end=+'+
+syn region shellCharacter start=+'+ end=+'+ extend
 syn region shellString start=+"+ end=+"+ contains=shellFormat,shellExpand
 
 hi def link shellConstant Constant
