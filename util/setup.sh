@@ -46,24 +46,24 @@ ln -sf ~/Base/config/ipython_config.py ~/.ipython/profile_default/
 
 # install preliminary dependencies
 echo "installing homebrew"
-./apps/brew/deploy.sh > log/brew.log
+./src/env/brew.sh > log/brew.log
 
 # setup alacritty terminal
 echo "installing alacritty"
-./apps/alacritty/deploy.sh > log/alacritty.log
+./src/env/alacritty.sh > log/alacritty.log
 
 # setup llvm environment (required for later python 3 version configurations)
 echo "installing llvm toolset"
-./apps/llvm/deploy.sh > log/llvm.log
+./src/env/llvm.sh > log/llvm.log
 
 # setup python environment (required for vim and compatibility with other tech)
 echo "installing python"
-./apps/python/deploy.sh > log/python.log
+./src/env/python.sh > log/python.log
 ipi install $(cat data/python_packages.csv | sed "s/,.*$//g" | grep -v "package") >> log/python.log
 
 # setup vim environment
 echo "installing vim"
-./apps/vim/deploy.sh > log/vim.log
+./src/env/vim.sh > log/vim.log
 echo "initializing vim package manager"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 echo "installing vim packages"

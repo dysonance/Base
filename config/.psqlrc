@@ -28,7 +28,7 @@
 
 -- refine pager and editor settings
 \setenv LESS '-iMFXSx4R'
-\setenv EDITOR ~/Base/apps/vim/src/bin/vim
+\setenv EDITOR ~/Applications/Vim/src/bin/vim
 
 -- no need to be quiet once this config file is done loading
 \unset QUIET

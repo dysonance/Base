@@ -6,7 +6,6 @@ HOMEBREW_REPO="https://github.com/Homebrew/brew"
 
 if ! [ -d "$APPDIR/Brew" ]; then mkdir $APPDIR/Brew; fi
 cd $APPDIR/Brew
-
 if ! [ -d "src" ]; then git clone $HOMEBREW_REPO src; fi
 cd src
 

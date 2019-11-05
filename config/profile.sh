@@ -28,17 +28,17 @@ function search_path()
 
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
-export APPDIR=$HOME/Base/apps
-export GOROOT=$APPDIR/brew/src/opt/go/libexec
+export APPDIR=$HOME/Applications
+export GOROOT=$APPDIR/Brew/src/opt/go/libexec
 export EDITOR=vim
 
 # path additions
-export PATH=$APPDIR/vim/src/bin:$PATH
-export PATH=$APPDIR/brew/src/bin:$PATH
-export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
-export PATH=$PATH:$APPDIR/llvm/src/bin
-export PATH=$HOME/Applications/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
-export PATH=$PATH:$APPDIR/brew/src/sbin
+export PATH=$APPDIR/Vim/src/bin:$PATH
+export PATH=$APPDIR/Brew/src/bin:$PATH
+export PATH=$APPDIR/Frameworks/Python.framework/Versions/Current/bin:$PATH
+export PATH=$PATH:$APPDIR/LLVM/src/bin
+export PATH=$APPDIR/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
+export PATH=$PATH:$APPDIR/Brew/src/sbin
 
 # shell behavior
 stty -ixon  # disable terminal flow control to allow more vim keybindings

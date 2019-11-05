@@ -15,6 +15,7 @@ syn keyword shellKeyword
             \ alias
             \ export
             \ function
+            \ local
             \ set
             \ shopt
             \ source
@@ -60,6 +61,7 @@ syn keyword shellFunction
             \ make
             \ man
             \ mv
+            \ printf
             \ scp
             \ sed
             \ ssh

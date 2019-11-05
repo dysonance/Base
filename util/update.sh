@@ -15,15 +15,15 @@ brew upgrade
 ipi install --upgrade $(ipi list --format=freeze | sed 's/==/ /' | awk '{print $1}')
 
 # alacritty
-./apps/alacritty/deploy.sh
+./src/env/alacritty.sh
 
 # vim
-./apps/vim/deploy.sh
+./src/env/vim.sh
 vim -c ":PlugUpdate | :qa"
 py $HOME/.vim/plugged/YouCompleteMe/install.py --all
 
 # julia
-./apps/julia/deploy.sh
+./src/env/julia.sh
 jl --optimize=3 --warn-overwrite=no --depwarn=no --check-bounds=no --color=yes apps/julia/precompile.jl
 
 # save package information
