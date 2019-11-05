@@ -1,32 +1,23 @@
 #!/bin/bash
 
-APP_DIRECTORY=$HOME/Base/apps
-INSTALL_DIRECTORY=$APP_DIRECTORY/vim/src
-
-# # for homebrew python installations
-# PYTHON_VERSION="3.6.5_1"
-# PYTHON_CONFIG_DIR="/usr/local/Cellar/python/$PYTHON_VERSION/lib/pkgconfig"
-# PYTHON_BINARY=/usr/local/bin/python3
+APP_DIRECTORY=$HOME/Applications
+INSTALL_DIRECTORY=$APP_DIRECTORY/Vim/src
 
 # for manual python source builds
 PYTHON_VERSION=3.8.0
-PYTHON_BINARY=$APP_DIRECTORY/python/versions/$PYTHON_VERSION/bin/python3
+PYTHON_BINARY=$APP_DIRECTORY/Python/Versions/$PYTHON_VERSION/bin/python3
 PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
-PYTHON_CONFIG_DIR="
-    $APP_DIRECTORY/frameworks/Python.framework/Versions/$PYTHON_VERSION_SHORT/
-    lib/python$PYTHON_VERSION_SHORT/config-"$PYTHON_VERSION_SHORT"m-darwin"
+PYTHON_CONFIG_DIR=$APP_DIRECTORY/Frameworks/Python.framework/Versions/$PYTHON_VERSION_SHORT/lib/python$PYTHON_VERSION_SHORT/config-${PYTHON_VERSION_SHORT}m-darwin
 
 if [[ -z "${CPU}" ]]; then
     CPU=4
 fi
 
-if [ ! -d "$INSTALL_DIRECTORY" ]; then
-    cd $APP_DIRECTORY/vim
-    git clone https://github.com/vim/vim.git src
-    cd $INSTALL_DIRECTORY
-else
-    cd $INSTALL_DIRECTORY
-fi
+cd $APP_DIRECTORY
+if ! [ -d "Vim" ]; then mkdir Vim; fi
+cd $APP_DIRECTORY/Vim
+if ! [ -d src ]; then git clone https://github.com/vim/vim.git src; fi
+cd src
 
 function BuildVim()
 {
@@ -69,10 +60,10 @@ else
         git checkout $LATEST_VERSION --quiet
         BuildVim
     else
-        echo "vim is up-to-date at version $LOCAL_VERSION "
+        echo "vim is up-to-date at version $LOCAL_VERSION"
     fi
 fi
 
-# make `vi` point to same binary as `vim`
+# make `vi` point to same binary as vim
 cd $INSTALL_DIRECTORY/bin
 ln -sf vim vi
