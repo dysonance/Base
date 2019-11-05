@@ -4,16 +4,14 @@
 # https://stackoverflow.com/a/49702159/2271756
 
 SYSTEM_HEADER_LOCATION=/usr/include/c++/4.2.1
-APPDIR=$HOME/Applications
-INSTALL_LOCATION=$APPDIR/LLVM
 LLVM_VERSION=9.0.0
 
 # directory setup
 cd $APPDIR
 if ! [ -d "LLVM" ]; then mkdir LLVM; fi
-cd $LLVM
+cd LLVM
 if [ -d "src" ]; then
-    echo "removing pre-existing source directory $INSTALL_LOCATION/src"
+    echo "removing pre-existing source directory $APPDIR/LLVM/src"
     rm -rf src
 fi
 
@@ -37,7 +35,7 @@ tar -xvf clang-tools-extra-$LLVM_VERSION.src.tar.xz
 mv clang-tools-extra-$LLVM_VERSION.src extra
 
 # build everything together with cmake
-cd $INSTALL_LOCATION/src
+cd $APPDIR/LLVM/src
 mkdir build
 cd build
 if [ -f "CMakeCache.txt" ]; then
@@ -48,6 +46,6 @@ cmake ..
 make -j $CPU
 
 # create binary directory
-cd $INSTALL_LOCATION/src
+cd $APPDIR/LLVM/src
 ln -sf build/bin bin
 ln -s $SYSTEM_HEADER_LOCATION/* build/lib/clang/$LLVM_VERSION/include/
