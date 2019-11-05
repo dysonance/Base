@@ -14,6 +14,7 @@ syn keyword sqlSpecial
             \ sql
 
 syn keyword sqlKeyword
+            \ abort
             \ access
             \ add
             \ after
@@ -272,7 +273,7 @@ hi def link sqlComment       Comment
 hi def link sqlError         Error
 hi def link sqlFunction      Function
 hi def link sqlUnknownFunc   Exception
-hi def link sqlKeyword       Special
+hi def link sqlKeyword       Keyword
 hi def link sqlNumber        Number
 hi def link sqlDelimiter     Delimiter
 hi def link sqlConditional   Operator

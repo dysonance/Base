@@ -68,12 +68,13 @@ syn keyword shellFunction
             \ wget
 
 syn match shellConstant "\<[A-Z_]\{2,}\>\((\)\@!"
-syn match shellProgram "\(^\|\s\)\@<=\(vim\|brew\|py\+\|pip\+\|ipi\|clang\|clang++\|gcc\|g++\|psql\|sql\|tar\)\>"
+syn match shellProgram "\(^\|\s\)\@<=\(vim\|brew\|python\+\|pip\+\|clang\|clang++\|gcc\|g++\|psql\|sql\|tar\)\>"
 syn match shellNumber "\d"
 syn match shellOperator "\.\|=\|\\\/\|!\|\\\|\.\/\||\|>"
 syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
-syn match shellArgument "\( \)\@<=-\w\+\|\( \)\@<=--[A-z\-_]\+"
-syn match shellKeyword "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)"
+syn match shellArgument "\( \)\@<=-\w\+\|\( \)\@<=--[A-z\-_]\+\|\$[0-9]\|\$@"
+syn match shellKeyword "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)\>"
+syn match shellFunction "\(function \)\@<=\w\+"
 syn match shellFormat "\(\$[A-z]\+\)"
 
 syn region shellComment start=+#+ end="$" contains=shellTodo

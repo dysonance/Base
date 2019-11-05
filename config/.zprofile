@@ -47,7 +47,6 @@ stty -ixon  # disable terminal flow control to allow more vim keybindings
 unsetopt no_match  # treat wildcards (*) same way as bash
 
 # convenience shortcuts
-alias edit="vim"
 alias jln="$APPDIR/julia/src/usr/bin/julia"
 alias jl="julia --banner=no --optimize=3 -g"
 alias py36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/python3"
