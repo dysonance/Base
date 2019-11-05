@@ -35,12 +35,12 @@ export GOROOT=$APPDIR/brew/src/opt/go/libexec
 export EDITOR=vim
 
 # path additions
-export PATH=$APPDIR/vim/src/bin:$PATH
-export PATH=$APPDIR/brew/src/bin:$PATH
-export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
-export PATH=$PATH:$APPDIR/llvm/src/bin
+export PATH=$HOME/Applications/Vim/src/bin:$PATH
+export PATH=$HOME/Applications/Frameworks/Python.framework/Versions/Current/bin:$PATH
 export PATH=$HOME/Applications/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
-export PATH=$PATH:$APPDIR/brew/src/sbin
+export PATH=$HOME/Applications/Brew/src/bin:$PATH
+export PATH=$PATH:$HOME/Applications/LLVM/src/bin
+export PATH=$PATH:$HOME/Applications/Brew/src/sbin
 
 # shell behavior
 stty -ixon  # disable terminal flow control to allow more vim keybindings

@@ -77,7 +77,7 @@ syn match shellKeyword "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)"
 syn match shellFormat "\(\$[A-z]\+\)"
 
 syn region shellComment start=+#+ end="$" contains=shellTodo
-syn region shellExpand start="\${" end="}" contains=ALL
+syn region shellExpand start="\${" end="}" contains=ALLBUT,shellDelimiter keepend
 syn region shellExpand start="\$(" end=")" contains=ALLBUT,shellDelimiter keepend
 syn region shellCharacter start=+'+ end=+'+
 syn region shellString start=+"+ end=+"+ contains=shellFormat,shellExpand
