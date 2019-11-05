@@ -1,21 +1,16 @@
 #!/bin/bash
 
-APP_DIRECTORY=$HOME/Applications
-INSTALL_DIRECTORY=$APP_DIRECTORY/Vim/src
+INSTALL_DIRECTORY=$APPDIR/Vim/src
 
 # for manual python source builds
 PYTHON_VERSION=3.8.0
-PYTHON_BINARY=$APP_DIRECTORY/Python/Versions/$PYTHON_VERSION/bin/python3
+PYTHON_BINARY=$APPDIR/Python/Versions/$PYTHON_VERSION/bin/python3
 PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
-PYTHON_CONFIG_DIR=$APP_DIRECTORY/Frameworks/Python.framework/Versions/$PYTHON_VERSION_SHORT/lib/python$PYTHON_VERSION_SHORT/config-${PYTHON_VERSION_SHORT}m-darwin
+PYTHON_CONFIG_DIR=$APPDIR/Frameworks/Python.framework/Versions/$PYTHON_VERSION_SHORT/lib/python$PYTHON_VERSION_SHORT/config-${PYTHON_VERSION_SHORT}m-darwin
 
-if [[ -z "${CPU}" ]]; then
-    CPU=4
-fi
-
-cd $APP_DIRECTORY
+cd $APPDIR
 if ! [ -d "Vim" ]; then mkdir Vim; fi
-cd $APP_DIRECTORY/Vim
+cd $APPDIR/Vim
 if ! [ -d src ]; then git clone https://github.com/vim/vim.git src; fi
 cd src
 
@@ -38,6 +33,7 @@ function BuildVim()
         --with-python-config-dir=$PYTHON_CONFIG_DIR \
         --with-python3-command=$PYTHON_BINARY \
         --without-x
+    if [[ -z "${CPU}" ]]; then CPU=4; fi
     make -j $CPU
     make -j $CPU install
     cp src/ex bin/
@@ -65,5 +61,5 @@ else
 fi
 
 # make `vi` point to same binary as vim
-cd $APP_DIRECTORY/Vim/src/bin
+cd $APPDIR/Vim/src/bin
 ln -sf vim vi

@@ -1,18 +1,11 @@
 #!/bin/bash
 
-JULIA_INSTALL_DIR=$HOME/Base/apps/julia
-
 unset DYLD_LIBRARY_PATH
 unset LD_LIBRARY_PATH
 
-if [[ -z "${CPU}" ]]; then
-    CPU=4
-fi
-
-cd $JULIA_INSTALL_DIR
-if [ ! -d "src" ]; then
-    git clone https://github.com/JuliaLang/julia.git src
-fi
+cd $APPDIR
+if ! [ -d "Julia" ]; then mkdir Julia; fi
+if [ ! -d "src" ]; then git clone https://github.com/JuliaLang/julia.git src; fi
 cd src
 git checkout master
 git pull
@@ -23,4 +16,5 @@ if [ "$1" == "--clean" ]; then
     make cleanall
 fi
 
+if [[ -z "${CPU}" ]]; then CPU=4; fi
 make -j $CPU

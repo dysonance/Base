@@ -1,17 +1,15 @@
 #!/bin/bash
 
-cd $HOME/Base/apps/alacritty
+cd $APPDIR
+if ! [ -d "Alacritty" ]; then mkdir Alacritty; fi
+cd Alacritty
 
 # download source
-if ! [ -d "src" ]; then
-    REPO="https://github.com/jwilm/alacritty"
-    git clone $REPO src
-fi
+REPO="https://github.com/jwilm/alacritty"
+if ! [ -d "src" ]; then git clone $REPO src; fi
 cd src
 
-if [[ -z "${CPU}" ]]; then
-    CPU=4
-fi
+if [[ -z "${CPU}" ]]; then CPU=4; fi
 
 # build and save to applications
 if [ "$1" == "--force" ]; then
