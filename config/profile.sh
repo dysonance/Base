@@ -44,15 +44,15 @@ export PATH=$PATH:$APPDIR/Brew/src/sbin
 stty -ixon  # disable terminal flow control to allow more vim keybindings
 
 # convenience shortcuts
-alias jln="$APPDIR/julia/src/usr/bin/julia"
+alias jln="$APPDIR/Julia/src/usr/bin/julia"
 alias jl="julia --banner=no --optimize=3 -g"
-alias py36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/python3"
-alias pip36="$APPDIR/frameworks/Python.framework/Versions/3.6/bin/pip3"
-alias py38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/python3"
-alias pip38="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/pip3"
+alias py36="$APPDIR/Frameworks/Python.framework/Versions/3.6/bin/python3"
+alias pip36="$APPDIR/Frameworks/Python.framework/Versions/3.6/bin/pip3"
+alias py38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3"
+alias pip38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/pip3"
 alias py="py38"
 alias ipi="pip38"
-alias ipy="$APPDIR/frameworks/Python.framework/Versions/3.8/bin/ipython"
+alias ipy="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython"
 alias l="ls -Alh"
 
 if [ -n "$ZSH_VERSION" ]; then
