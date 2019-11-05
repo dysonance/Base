@@ -5,7 +5,7 @@ set -e
 
 # define variables/settings to build as desired
 PYTHON_VERSION=$1
-APP_DIRECTORY=$HOME/Applications
+APPDIR=$HOME/Applications
 TK_VERSION=8.6
 
 # install dependencies
@@ -27,7 +27,7 @@ for dep in "${BREW_DEPENDENCIES[@]}"; do
 done
 
 # checkout source code and setup directories
-cd $APP_DIRECTORY
+cd $APPDIR
 if ! [ -d "Python" ]; then mkdir Python; fi
 cd Python
 if ! [ -d "src" ]; then git clone https://github.com/python/cpython src; fi
@@ -35,11 +35,11 @@ cd src
 git checkout master --quiet
 git pull --quiet
 if [ "$PYTHON_VERSION" == "" ]; then PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g'); fi
-INSTALL_DIRECTORY="$APP_DIRECTORY/Python/Versions/$PYTHON_VERSION"
+INSTALL_DIRECTORY="$APPDIR/Python/Versions/$PYTHON_VERSION"
 if ! [ -d "$INSTALL_DIRECTORY" ]; then mkdir -p $INSTALL_DIRECTORY; fi
 
 # configure the installation
-FRAMEWORK_DIRECTORY=$APP_DIRECTORY/Frameworks
+FRAMEWORK_DIRECTORY=$APPDIR/Frameworks
 if ! [ -d "$FRAMEWORK_DIRECTORY" ]; then mkdir $FRAMEWORK_DIRECTORY; fi
 export PYTHON_HOME=$INSTALL_DIRECTORY
 export CPPFLAGS=$CFLAGS
@@ -82,6 +82,7 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
 # install python packages
 cd $HOME/Base
-PYTHON_PACKAGES=$(tail -n $(expr $(wc -l data/python_packages.csv | sed "s/[A-z \/\.]//g") - 1) data/python_packages.csv | sed s/,.*$//g)
-cd apps/frameworks/Python.framework/Versions/Current/bin
-./pip3 install $PYTHON_PACKAGES
+PIP_REQS=data/packages/required/pip.csv
+PYTHON_PACKAGES=$(tail -n $(expr $(wc -l $PIP_REQS | sed "s/[A-z \/\.]//g") - 1) $PIP_REQS | sed s/,.*$//g)
+cd $INSTALL_DIRECTORY/bin
+./pip3 install $(echo $PYTHON_PACKAGES)

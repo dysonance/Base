@@ -34,6 +34,7 @@ syn keyword cppKeyword
             \ break
             \ catch
             \ class
+            \ continue
             \ else
             \ explicit
             \ export
