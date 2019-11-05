@@ -65,5 +65,5 @@ else
 fi
 
 # make `vi` point to same binary as vim
-cd $INSTALL_DIRECTORY/bin
+cd $APP_DIRECTORY/Vim/src/bin
 ln -sf vim vi

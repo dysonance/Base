@@ -57,6 +57,7 @@ export EDITOR=vim
 
 # path additions
 export PATH=$APPDIR/vim/src/bin:$PATH
+export PATH=$HOME/Applications/Vim/src/bin:$PATH
 export PATH=$APPDIR/brew/src/bin:$PATH
 export PATH=$APPDIR/frameworks/Python.framework/Versions/Current/bin:$PATH
 export PATH=$PATH:$APPDIR/llvm/src/bin
