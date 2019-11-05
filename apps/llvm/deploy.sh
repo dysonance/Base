@@ -4,11 +4,14 @@
 # https://stackoverflow.com/a/49702159/2271756
 
 SYSTEM_HEADER_LOCATION=/usr/include/c++/4.2.1
-INSTALL_LOCATION=$HOME/Base/apps/llvm
+APPDIR=$HOME/Applications
+INSTALL_LOCATION=$APPDIR/LLVM
 LLVM_VERSION=9.0.0
 
-cd $INSTALL_LOCATION
-
+# directory setup
+cd $APPDIR
+if ! [ -d "LLVM" ]; then mkdir LLVM; fi
+cd $LLVM
 if [ -d "src" ]; then
     echo "removing pre-existing source directory $INSTALL_LOCATION/src"
     rm -rf src

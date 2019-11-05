@@ -47,22 +47,6 @@ ln -sf ~/Base/config/ipython_config.py ~/.ipython/profile_default/
 # install preliminary dependencies
 echo "installing homebrew"
 ./apps/brew/deploy.sh > log/brew.log
-echo "installing brew packages"
-BREW_PACKAGES=$(cat data/brew_packages.csv | sed "s/,.*$//g" | grep -v "package")
-echo "===== BEGINNING BREW PACKAGE INSTALLATION =====" >> log/brew.log
-brew install htop tmux reattach-to-user-namespace  # prioritize useful pkgs w/ quick installs
-BREW_INSTALLED=$(brew list)
-for pkg in $BREW_PACKAGES; do
-    if [ "$(brew list | grep $pkg)" == "" ]; then
-        echo "== installation attempt beginning: $pkg ==" >> log/brew.log
-        brew install $pkg --verbose >> log/brew.log
-        echo "== installation attempt finished: $pkg ==" >> log/brew.log
-        BREW_INSTALLED=$(brew list)
-    else
-        echo "== skipping unnecessary installation: $pkg ==" >> log/brew.log
-    fi
-done
-echo "===== BREW PACKAGE INSTALLATION FINISHED =====" >> log/brew.log
 
 # setup alacritty terminal
 echo "installing alacritty"
