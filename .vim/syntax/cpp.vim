@@ -109,10 +109,12 @@ syn keyword cppCustomType
             \ Row
             \ colvec
             \ cube
+            \ icube
             \ imat
             \ ivec
             \ mat
             \ rowvec
+            \ ucube
             \ umat
             \ uvec
             \ vec

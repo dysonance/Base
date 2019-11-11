@@ -32,6 +32,15 @@ syn keyword pythonKeyword
             \ while
             \ with
 
+syn keyword pythonBuiltin
+            \ __name__
+            \ __init__
+            \ __dict__
+            \ __getattribute__
+            \ __setattr__
+            \ __repr__
+            \ __class__
+
 syn keyword pythonConstant
             \ inf
             \ None
@@ -91,6 +100,7 @@ hi def link pythonString     String
 hi def link pythonFormat     SpecialChar
 hi def link pythonTodo       Todo
 hi def link pythonType       Type
+hi def link pythonBuiltin    Special
 
 syn keyword pythonCustomLibrary
             \ black
