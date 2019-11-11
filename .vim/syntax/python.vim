@@ -33,6 +33,7 @@ syn keyword pythonKeyword
             \ with
 
 syn keyword pythonConstant
+            \ inf
             \ None
             \ nan NaN
 
