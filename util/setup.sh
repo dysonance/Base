@@ -31,6 +31,8 @@ setup_directory ~/.config
 setup_directory ~/.config/alacritty
 setup_directory ~/.ipython
 setup_directory ~/.ipython/profile_default
+setup_directory ~/.tmux
+setup_directory ~/.tmux/plugins
 echo "linking configuration files"
 ln -sf ~/Base/.vim/colors ~/.vim/colors
 ln -sf ~/Base/.vim/syntax ~/.vim/syntax

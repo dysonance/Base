@@ -105,6 +105,7 @@ hi def link pythonBuiltin    Special
 syn keyword pythonCustomLibrary
             \ black
             \ bokeh
+            \ boto3
             \ bs4 BeautifulSoup
             \ ipdb
             \ matplotlib mpl plt
