@@ -61,7 +61,7 @@ Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
 Plug 'plasticboy/vim-markdown'                     " Markdown language support
 "Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support
 "Plug 'vim-pandoc/vim-pandoc-syntax'                " required for Rmd support
-Plug 'vim-python/python-syntax'                    " enhanced python syntax highlighting
+"Plug 'JuliaEditorSupport/julia-vim'                " julia language support
 Plug 'hashivim/vim-terraform'                      " basic vim/terraform integration
 Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j2, hosts, certain yaml)
 Plug 'mattn/emmet-vim'                             " web design workflow utilities
@@ -201,8 +201,6 @@ autocmd BufNewFile *.lzz TSkeletonSetup template.lzz
 " Braceless {{{
 
 autocmd FileType python BracelessEnable +indent
-
-" autocmd FileType julia BracelessEnable +indent
 
 " }}}
 

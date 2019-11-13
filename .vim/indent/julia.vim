@@ -37,8 +37,8 @@ function JuliaMatch(lnum, str, regex, st, ...)
     return f
 endfunction
 
-" Auxiliary function to inspect the block structure of a line
 function GetJuliaNestingStruct(lnum, ...)
+    " Auxiliary function to inspect the block structure of a line
     let line = getline(a:lnum)
     let s = a:0 > 0 ? a:1 : 0
     let e = a:0 > 1 ? a:2 : -1
@@ -162,8 +162,8 @@ function GetJuliaNestingStruct(lnum, ...)
     return [num_open_blocks, num_closed_blocks]
 endfunction
 
-" Auxiliary function to inspect the brackets structure of a line
 function GetJuliaNestingBrackets(lnum, c)
+    " Auxiliary function to inspect the brackets structure of a line
     let line = getline(a:lnum)[0 : (a:c - 1)]
     let s = 0
     let brackets_stack = []
