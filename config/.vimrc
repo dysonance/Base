@@ -331,7 +331,7 @@ autocmd filetype pandoc imap <C-G>W \Omega
 
 "nmap <F1> K
 nmap <silent> <F1> <Plug>DashSearch
-nmap <silent> <leader>dd <Plug>DashSearch
+nmap <silent> <F12> :syntax sync fromstart<CR>
 
 autocmd filetype pandoc nnoremap <F4> :!pandoc % -o %:r.pdf --verbose<CR>
 autocmd filetype pandoc nnoremap <F5> :!pandoc % -o %:r.pdf --verbose && open %:r.pdf<CR>
