@@ -153,7 +153,6 @@ syn keyword juliaCustomType
             \ Trade
             \ Universe
 
-syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match juliaFormat    "\$\<\w*\>"                                           contained
 syn match juliaFormat    "\\n\|\\t\|\$\<\w\+\>\|\(\$(.*\)\@<=\()\)"            containedin=juliaString
@@ -166,6 +165,7 @@ syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "\([:<>0-9]\|\>\)\@<!:\<\w\+\>"
 syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
 syn match juliaCharacter "'.'"
+syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 
 syn region juliaComment start="#"      end="$"                  contains=juliaTodo
 syn region juliaComment start="#="     end="=#"                 contains=juliaTodo extend
