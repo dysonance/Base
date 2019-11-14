@@ -78,11 +78,9 @@ ln -sf $PYTHON_VERSION Current
 # install pip
 cd $INSTALL_DIRECTORY/../..
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-./Versions/Current/bin/python3 get-pip.py
+$INSTALL_DIRECTORY/bin/python3 get-pip.py
 
 # install python packages
-cd $HOME/Base
-PIP_REQS=data/packages/required/pip.csv
-PYTHON_PACKAGES=$(tail -n $(expr $(wc -l $PIP_REQS | sed "s/[A-z \/\.]//g") - 1) $PIP_REQS | sed s/,.*$//g)
-cd $INSTALL_DIRECTORY/bin
+PYTHON_PACKAGES=$(cat $HOME/Base/data/packages/required/pip.csv | sed s/package.*//g | sed s/,.*//g)
+cd $FRAMEWORK_DIRECTORY/Python.Framework/Versions/Current/bin
 ./pip3 install $(echo $PYTHON_PACKAGES)
