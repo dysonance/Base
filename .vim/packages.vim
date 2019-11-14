@@ -84,8 +84,7 @@ runtime macros/matchit.vim  " extended `%` logical navigation
 " Syntastic {{{
 
 " General
-
-"let g:syntastic_debug=3  " turn on to see diagnostics when checking
+autocmd BufRead,BufNewFile,BufLeave tmp.* silent! SyntasticToggleMode " dont syntax check tmp files
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -134,7 +133,6 @@ autocmd filetype qf setlocal wrap
 " C/C++
 let g:syntastic_c_compiler='clang'
 let g:syntastic_c_auto_refresh_includes=1
-
 let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'
 let g:syntastic_cpp_checkers=['gcc'] " 'clang_check', 'clang_tidy', 'gcc']
@@ -147,7 +145,6 @@ let g:syntastic_cpp_auto_refresh_includes=1
 let g:syntastic_python_checkers=['python3', 'pyflakes'] ", 'pylint']
 
 " Go
-
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1

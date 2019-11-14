@@ -75,6 +75,8 @@ set backspace=indent,eol,start                  " make backspace work like most 
 
 " Functional Tweaks {{{
 
+" General {{{
+
 set mouse=a                    " enable use of scrolling with the mouse
 set noswapfile                 " dont create temporary swap files
 set autoindent                 " keep indent from current line when starting new line
@@ -91,6 +93,7 @@ if &diff
     set diffopt+=iwhite        " ignore whitespace in diff mode but not in standard vim
 endif
 
+" }}}
 
 " Code Folding {{{
 
@@ -103,7 +106,7 @@ autocmd filetype python set foldmethod=indent " overwrite pymode indent method
 
 " }}}
 
-" code formatting options
+" Formatters {{{
 
 autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
@@ -112,6 +115,9 @@ autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
 autocmd filetype cpp setlocal formatprg=clang-format\ -style=file\ -
 autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --stdin\ -
 autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc
+
+
+" }}
 
 " }}}
 

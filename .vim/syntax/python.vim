@@ -108,7 +108,7 @@ syn keyword pythonCustomLibrary
             \ boto3
             \ bs4 BeautifulSoup
             \ ipdb
-            \ matplotlib mpl plt
+            \ matplotlib pyplot mpl plt
             \ nose
             \ numba
             \ numpy np
