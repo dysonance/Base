@@ -1,6 +1,7 @@
 package,version
 appnope,0.1.0
 backcall,0.1.0
+beautifulsoup4,4.8.1
 certifi,2019.9.11
 chardet,3.0.4
 cycler,0.10.0
@@ -27,6 +28,7 @@ pytz,2019.3
 requests,2.22.0
 setuptools,41.6.0
 six,1.13.0
+soupsieve,1.9.5
 traitlets,4.3.3
 urllib3,1.25.7
 wcwidth,0.1.7
