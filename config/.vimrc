@@ -13,6 +13,22 @@ if has('python3')
     silent! python3 1
 endif
 
+" Templates/Skeletons {{{
+
+augroup templates
+    if !empty(glob("~/.vim/skeletons/skeleton.md"))
+        autocmd BufNewFile *.md 0r ~/.vim/skeletons/skeleton.md
+    endif
+    if !empty(glob("~/.vim/skeletons/skeleton.lzz"))
+        autocmd BufNewFile *.lzz 0r ~/.vim/skeletons/skeleton.lzz
+    endif
+    if !empty(glob("~/.vim/skeletons/skeleton.py"))
+        autocmd BufNewFile *.py 0r ~/.vim/skeletons/skeleton.py
+    endif
+augroup END
+
+" }}}
+
 " }}}
 
 " Visual Tweaks {{{
@@ -37,7 +53,11 @@ set statusline +=%*%4v\ %*  " virtual column number
 
 " General Tweaks {{{
 
-colorscheme dysonance                                              " colorscheme of choice
+if !empty(glob("~/.vim/packages.vim"))
+    colorscheme dysonance                                          " custom colorscheme
+else
+    colorscheme koehler                                            " universal colorscheme
+endif
 syntax match customTodo contained '\<\(TODO\|FIXME\|NOTE\|XXX\)\>' " add words for todo highlights
 hi def link customTodo Todo
 set number                                                         " show line numbers

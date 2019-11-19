@@ -99,7 +99,7 @@ screen,4.7.0
 sphinx-doc,2.2.1
 sqlite,3.30.1
 tcl-tk,8.6.9_1
-terraform,0.12.15
+terraform,0.12.16
 tig,2.4.1_1
 tmux,2.9a_1
 tree,1.8.0

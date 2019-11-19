@@ -20,9 +20,7 @@ Plug 'Valloric/YouCompleteMe'   " code completion functionality (see pre-requisi
 Plug 'scrooloose/nerdcommenter' " comment adding utility
 Plug 'junegunn/vim-easy-align'  " align blocks of code easily
 Plug 'rhysd/vim-clang-format'   " clang format whole file
-Plug 'tomtom/tskeleton_vim'     " filetype snippet skeletons
-Plug 'tomtom/tlib_vim'          " utility functions for vim (req for tskeleton)
-Plug 'chrisbra/unicode.vim'
+Plug 'chrisbra/unicode.vim'     " utilities for working with unicode characters
 
 " }}}
 
@@ -183,13 +181,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 let g:UltiSnipsExpandTrigger="<C-G>"
 let g:UltiSnipsJumpForwardTrigger="<C-W>"
 let g:UltiSnipsJumpBackwardTrigger="<C-B>"
-
-" }}}
-
-" tSkeleton {{{
-
-autocmd BufNewFile *.md TSkeletonSetup template.md
-autocmd BufNewFile *.lzz TSkeletonSetup template.lzz
 
 " }}}
 
