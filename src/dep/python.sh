@@ -6,23 +6,26 @@ set -e
 # define variables/settings to build as desired
 PYTHON_VERSION=$1
 APPDIR=$HOME/Applications
-TK_VERSION=8.6
 
 # install dependencies
-BREW_DEPENDENCIES=(openssl sqlite zlib tcl-tk qt)
+BREW_DEPENDENCIES=(openssl sqlite zlib qt freetype tcl-tk)
 BREW_INSTALLED=$(brew list)
 for dep in "${BREW_DEPENDENCIES[@]}"; do
     echo "setting up dependency: $dep"
     if [ "$(echo $BREW_INSTALLED | grep $dep)" == "" ]; then
+        echo "\tinstalling $dep since not currently installed"
         brew install $dep
     fi
     brew_prefix=$(brew --prefix $dep)
-    export PATH=$PATH:$brew_prefix/bin
-    export LDFLAGS="$LDFLAGS -L$brew_prefix/lib"
-    export CFLAGS="$CFLAGS -I$brew_prefix/include"
-    export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$brew_prefix/lib/pkgconfig
-    if [ "$dep" == "openssl" ]; then
-        export SSL_PATH=$brew_prefix
+    if [ -d $brew_prefix/bin ]; then export PATH=$PATH:$brew_prefix/bin; fi
+    if [ -d $brew_prefix/lib ]; then export LDFLAGS="$LDFLAGS -L$brew_prefix/lib"; fi
+    if [ -d $brew_prefix/include ]; then export CFLAGS="$CFLAGS -I$brew_prefix/include"; fi
+    if [ -d $brew_prefix/lib/pkgconfig ]; then export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$brew_prefix/lib/pkgconfig; fi
+    # dependency-specific needs
+    if [ "$dep" == "openssl" ]; then export SSL_PATH=$brew_prefix; fi
+    if [ "$dep" == "tcl-tk" ]; then
+        TCL_TK_VERSION="$(ls $(brew --cellar tcl-tk) | cut -c1-3)"
+        TCL_TK_LIBS="-L$brew_prefix/lib -ltcl$TCL_TK_VERSION -ltk$TCL_TK_VERSION"
     fi
 done
 
@@ -43,8 +46,11 @@ FRAMEWORK_DIRECTORY=$APPDIR/Frameworks
 if ! [ -d "$FRAMEWORK_DIRECTORY" ]; then mkdir $FRAMEWORK_DIRECTORY; fi
 export PYTHON_HOME=$INSTALL_DIRECTORY
 export CPPFLAGS=$CFLAGS
+export LDFLAGS=$LDFLAGS
 export CC=clang
 if [ "$(command -v llvm-lto)" ]; then lto_option='--with-lto'; else lto_option='--without-lto'; fi
+git checkout master
+git pull
 git checkout v$PYTHON_VERSION --quiet
 git clean -xfd
 echo "configuring python build"
@@ -59,7 +65,7 @@ echo "configuring python build"
     --with-dtrace \
     --with-openssl=$SSL_PATH \
     --with-tcltk-includes="$CFLAGS" \
-    --with-tcltk-libs="$LDFLAGS -ltcl$TK_VERSION -ltk$TK_VERSION" \
+    --with-tcltk-libs="$TCL_TK_LIBS" \
     --without-ensurepip \
     --without-gcc \
     $lto_option
@@ -84,3 +90,6 @@ $INSTALL_DIRECTORY/bin/python3 get-pip.py
 PYTHON_PACKAGES=$(cat $HOME/Base/data/packages/required/pip.csv | sed s/package.*//g | sed s/,.*//g)
 cd $FRAMEWORK_DIRECTORY/Python.Framework/Versions/Current/bin
 ./pip3 install $(echo $PYTHON_PACKAGES)
+
+# cleanup
+if [ -d $APPDIR/IDLE.app ]; then rm -rf $APPDIR/IDLE.app; fi
