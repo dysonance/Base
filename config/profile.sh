@@ -55,23 +55,16 @@ alias ipi="pip38"
 alias ipy="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython"
 alias l="ls -Alh"
 
-if [ -n "$ZSH_VERSION" ]; then
-    # assume using zsh shell
+if [ -n "$ZSH_VERSION" ]; then  # assume using zsh shell
     unsetopt no_match  # treat wildcards (*) same way as bash
+    setopt nosharehistory  # dont share live history across tmux panes
 elif [ -n "$BASH_VERSION" ]; then  # assume using bash shell
-    # shell prompt formatting colors
-    BASH_WHITE="\[\e[m\]"
-    BASH_CYAN_DARK="\[\e[0;36m\]"
-    BASH_MAGENTA_DARK="\[\e[0;35m\]"
-    BASH_GREEN_BOLD="\[\e[1;32m\]"
-    BASH_YELLOW_DARK="\[\e[0;33m\]"
-    DEFAULT_COLOR="$BASH_WHITE"
-    # bash prompt customization
-    ENVIRONMENT_COLOR="$BASH_MAGENTA_DARK"
-    HOST="$ENVIRONMENT_COLOR\h$DEFAULT_COLOR"
-    TIME="$ENVIRONMENT_COLOR\t$DEFAULT_COLOR"
-    FOLDER="$ENVIRONMENT_COLOR\w$DEFAULT_COLOR"
-    BRANCH="$ENVIRONMENT_COLOR\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)$DEFAULT_COLOR"
-    PROMPT="$ENVIRONMENT_COLOR\n\\$ $DEFAULT_COLOR"
-    export PS1="[$HOST][$TIME][$FOLDER][$BRANCH]$PROMPT"
+    PROMPT_COLOR_DEFAULT="\[\e[m\]"
+    PROMPT_COLOR_ENVIRONMENT="\[\e[0;35m\]"
+    PROMPT_HOST="$PROMPT_COLOR_ENVIRONMENT\h$PROMPT_COLOR_DEFAULT"
+    PROMPT_TIME="$PROMPT_COLOR_ENVIRONMENT\t$PROMPT_COLOR_DEFAULT"
+    PROMPT_FOLDER="$PROMPT_COLOR_ENVIRONMENT\w$PROMPT_COLOR_DEFAULT"
+    PROMPT_BRANCH="$PROMPT_COLOR_ENVIRONMENT\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)$PROMPT_COLOR_DEFAULT"
+    PROMPT="$PROMPT_COLOR_ENVIRONMENT\n\\$ $PROMPT_COLOR_DEFAULT"
+    export PS1="[$PROMPT_HOST][$PROMPT_TIME][$PROMPT_FOLDER][$PROMPT_BRANCH]$PROMPT"
 fi

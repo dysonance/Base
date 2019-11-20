@@ -17,6 +17,7 @@ syn keyword shellKeyword
             \ function
             \ local
             \ set
+            \ setopt
             \ shopt
             \ source
             \ stty
