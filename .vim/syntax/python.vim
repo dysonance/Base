@@ -77,7 +77,7 @@ syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
 syn match pythonNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
 syn match pythonOperator  "+\|-\|*\|\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
-syn match pythonFormat    "\(%[A-z]\)\|{}"
+syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
 syn match pythonTodo      "TODO\|FIXME\|NOTE"
 
 syn region pythonComment start="#"      end="\n"     contains=pythonTodo
@@ -97,7 +97,7 @@ hi def link pythonNumber     Number
 hi def link pythonOperator   Operator
 hi def link pythonStatement  Statement
 hi def link pythonString     String
-hi def link pythonFormat     SpecialChar
+hi def link pythonFormat     Special
 hi def link pythonTodo       Todo
 hi def link pythonType       Type
 hi def link pythonBuiltin    Special
@@ -107,6 +107,7 @@ syn keyword pythonCustomLibrary
             \ bokeh
             \ boto3
             \ bs4 BeautifulSoup
+            \ gnupg
             \ ipdb
             \ matplotlib pyplot mpl plt
             \ nose

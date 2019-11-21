@@ -1,4 +1,4 @@
-set t_Co=256
+set t_Co=16
 set cursorline
 
 " General highlighting
@@ -17,7 +17,7 @@ highlight String    ctermfg=Green   ctermbg=NONE cterm=NONE
 highlight Character ctermfg=Green   ctermbg=NONE cterm=NONE
 
 " Statement highlighting group
-highlight Statement   ctermfg=Cyan       ctermbg=NONE cterm=NONE
+highlight Statement   ctermfg=DarkCyan       ctermbg=NONE cterm=NONE
 highlight Conditional ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight Repeat      ctermfg=Magenta    ctermbg=NONE cterm=NONE
 highlight Operator    ctermfg=Yellow     ctermbg=NONE cterm=NONE
@@ -26,16 +26,16 @@ highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
 
 " Special highlighting group
 " NOTE: 208 is orange, 3 is gold
-highlight Type        ctermfg=208        ctermbg=NONE  cterm=NONE
-highlight Special     ctermfg=3          ctermbg=NONE  cterm=NONE
-highlight Delimiter   ctermfg=Cyan       ctermbg=NONE  cterm=NONE
-highlight Tag         ctermfg=Magenta    ctermbg=NONE  cterm=NONE
-highlight SpecialChar ctermfg=DarkYellow ctermbg=NONE  cterm=NONE
-highlight Todo        ctermfg=Yellow     ctermbg=Black cterm=NONE
+highlight Type        ctermfg=DarkMagenta ctermbg=NONE  cterm=NONE
+highlight Special     ctermfg=DarkYellow  ctermbg=NONE  cterm=NONE
+highlight Delimiter   ctermfg=Cyan        ctermbg=NONE  cterm=NONE
+highlight Tag         ctermfg=Magenta     ctermbg=NONE  cterm=NONE
+highlight SpecialChar ctermfg=DarkYellow  ctermbg=NONE  cterm=NONE
+highlight Todo        ctermfg=Yellow      ctermbg=Black cterm=NONE
 
 " Other random highlights
 highlight StatusLine   ctermfg=Blue  ctermbg=Cyan     cterm=NONE
-highlight CursorLine   ctermfg=NONE  ctermbg=None    cterm=underline
+highlight CursorLine   ctermfg=NONE  ctermbg=None     cterm=underline
 highlight CursorLineNR ctermfg=White ctermbg=Blue     cterm=NONE
 highlight Cursor       ctermfg=NONE  ctermbg=NONE     cterm=NONE
 highlight LineNR       ctermfg=Grey  ctermbg=NONE     cterm=NONE
@@ -49,7 +49,7 @@ highlight MatchParen   ctermfg=Grey  ctermbg=Blue     cterm=NONE
 " Errors and warnings highlighting
 highlight ErrorMsg   ctermfg=NONE ctermbg=DarkRed cterm=NONE
 highlight Error      ctermfg=NONE ctermbg=DarkRed cterm=NONE
-highlight WarningMsg ctermfg=NONE ctermbg=208     cterm=NONE
+highlight WarningMsg ctermfg=NONE ctermbg=Black   cterm=NONE
 
 " Diff highlights
 highlight DiffAdd    ctermfg=NONE    ctermbg=DarkGreen cterm=NONE

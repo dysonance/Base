@@ -1,9 +1,9 @@
 " Setup {{{
 
-set rtp+=$HOME/.vim
-set rtp+=$HOME/.vim/autoload/plug.vim
-set rtp+=$HOME/.vim/after
-set rtp+=$HOME/go/src/github.com/golang/lint/misc/vim
+set rtp+=~/.vim
+set rtp+=~/.vim/autoload/plug.vim
+set rtp+=~/.vim/after
+set rtp+=~/go/src/github.com/golang/lint/misc/vim
 
 if !empty(glob("~/.vim/packages.vim"))
     source $HOME/.vim/packages.vim
