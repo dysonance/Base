@@ -111,6 +111,10 @@ if &diff
     set diffopt+=iwhite        " ignore whitespace in diff mode but not in standard vim
 endif
 
+" reduce lag/delay when switching between modes
+set timeoutlen=1000
+set ttimeoutlen=10
+
 " change cursor shape dynamically (see https://stackoverflow.com/a/30199177/2271756)
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"

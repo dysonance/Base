@@ -13,8 +13,13 @@ set show-all-if-ambiguous on
 set colored-stats on
 
 # more responsive key sequence timeout
-set keyseq-timeout 0.01
+set keyseq-timeout 10
 
 # make readline-based tools use vi-style keybindings
 set editing-mode vi
 set keymap vi
+
+# cursor appearance changes
+set show-mode-in-prompt on
+set vi-ins-mode-string "\1\e[5 q\2"
+set vi-cmd-mode-string "\1\e[2 q\2"

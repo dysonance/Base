@@ -63,6 +63,7 @@ alias l="ls -Alh"
 if [ -n "$ZSH_VERSION" ]; then  # assume using zsh shell
     unsetopt no_match  # treat wildcards (*) same way as bash
     setopt nosharehistory  # dont share live history across tmux panes
+    export KEYTIMEOUT=1  # more responsive key sequences
 elif [ -n "$BASH_VERSION" ]; then  # assume using bash shell
     PROMPT_COLOR_DEFAULT="\[\e[m\]"
     PROMPT_COLOR_ENVIRONMENT="\[\e[0;35m\]"
