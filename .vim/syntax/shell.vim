@@ -61,6 +61,7 @@ syn keyword shellFunction
             \ ln
             \ make
             \ man
+            \ mkdir
             \ mv
             \ printf
             \ scp
@@ -78,7 +79,7 @@ syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
 syn match shellArgument "\( \)\@<=-\w\+\|\( \)\@<=--[A-z\-_]\+\|\$[0-9]\|\$@"
 syn match shellKeyword "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)\>"
 syn match shellFunction "\(function \)\@<=\w\+"
-syn match shellFormat "\(\$[A-z]\+\)"
+syn match shellFormat "\(\$[A-z]\+\)\|\\t\|\\n"
 
 syn region shellComment start=+#+ end="$" contains=shellTodo
 syn region shellExpand start="\${" end="}" contains=ALLBUT,shellDelimiter keepend

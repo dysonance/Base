@@ -32,12 +32,17 @@ export APPDIR=$HOME/Applications
 export GOROOT=$APPDIR/Brew/src/opt/go/libexec
 export EDITOR=vim
 
-# path additions
+# path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH
 export PATH=$APPDIR/Brew/src/bin:$PATH
+export PATH=$APPDIR/NeoVim/src/build/bin:$PATH
+export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
+export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.6/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/Current/bin:$PATH
-export PATH=$PATH:$APPDIR/LLVM/src/bin
 export PATH=$APPDIR/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
+# path appends
+export PATH=$PATH:$APPDIR/LLVM/src/bin
 export PATH=$PATH:$APPDIR/Brew/src/sbin
 
 # shell behavior

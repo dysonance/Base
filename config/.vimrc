@@ -2,8 +2,6 @@
 
 set rtp+=~/.vim
 set rtp+=~/.vim/autoload/plug.vim
-set rtp+=~/.vim/after
-set rtp+=~/go/src/github.com/golang/lint/misc/vim
 
 if !empty(glob("~/.vim/packages.vim"))
     source $HOME/.vim/packages.vim
