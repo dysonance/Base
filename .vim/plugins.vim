@@ -390,4 +390,4 @@ let g:ansible_with_keywords_highlight = 'Constant'
 " }}}
 
 " Make vim use triple bracket fold markers in vimrc
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker

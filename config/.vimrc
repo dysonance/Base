@@ -3,8 +3,8 @@
 set rtp+=~/.vim
 set rtp+=~/.vim/autoload/plug.vim
 
-if !empty(glob("~/.vim/packages.vim"))
-    source $HOME/.vim/packages.vim
+if !empty(glob("~/.vim/plugins.vim"))
+    source $HOME/.vim/plugins.vim
 endif
 
 if has('python3')
@@ -51,7 +51,7 @@ set statusline +=%*%4v\ %*  " virtual column number
 
 " General Tweaks {{{
 
-if !empty(glob("~/.vim/packages.vim"))
+if !empty(glob("~/.vim/colors/dysonance.vim"))
     colorscheme dysonance                                          " custom colorscheme
 else
     colorscheme koehler                                            " universal colorscheme
@@ -447,4 +447,4 @@ autocmd BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 " }}}
 
 " Make vim use triple bracket fold markers in vimrc
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker

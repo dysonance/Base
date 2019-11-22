@@ -20,7 +20,7 @@ ipi install --upgrade $(ipi list --format=freeze | sed 's/==/ /' | awk '{print $
 # vim
 ./src/dep/vim.sh
 vim -c ":PlugUpdate | :qa"
-py $HOME/.vim/plugged/YouCompleteMe/install.py --all
+py ~/.vim/plugged/YouCompleteMe/install.py --all
 
 # julia
 ./src/dep/julia.sh

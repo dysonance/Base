@@ -38,7 +38,7 @@ ln -sf ~/Base/.vim/colors ~/.vim/colors
 ln -sf ~/Base/.vim/syntax ~/.vim/syntax
 ln -sf ~/Base/.vim/indent ~/.vim/indent
 ln -sf ~/Base/.vim/filetype.vim ~/.vim/
-ln -sf ~/Base/.vim/package.vim ~/.vim/
+ln -sf ~/Base/.vim/plugins.vim ~/.vim/
 ln -sf ~/Base/config/.vimrc ~/.vimrc
 ln -sf ~/Base/config/alacritty.yml ~/
 ln -sf ~/Base/config/.tmux.conf ~/
