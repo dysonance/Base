@@ -287,6 +287,9 @@ nnoremap <leader>pe :lN<CR>
 nnoremap <leader>sr :SyntasticReset<CR>
 nnoremap <leader>st :SyntasticToggleMode<CR>
 
+" debugging shortcuts
+autocmd filetype python nnoremap <leader>db Oimport ipdb; ipdb.set_trace()<esc>
+
 " }}}
 
 " Control Key Mappings {{{
