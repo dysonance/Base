@@ -413,6 +413,7 @@ autocmd filetype shell nmap <F7> :SlimeSendCurrentLine<CR>j
 autocmd filetype shell nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd filetype sql nmap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
+autocmd filetype sql nmap <F4> :execute ":SlimeSend1 sql -f " . bufname("%") . ""<CR>
 autocmd filetype sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
 autocmd filetype sql nmap <F6> msvip:SlimeSend<CR>`s
 autocmd filetype sql vmap <F6> :SlimeSend<CR>gv

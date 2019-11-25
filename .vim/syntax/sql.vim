@@ -46,6 +46,7 @@ syn keyword sqlKeyword
             \ join
             \ key
             \ left
+            \ limit
             \ loop
             \ materialized
             \ modify
@@ -64,6 +65,7 @@ syn keyword sqlKeyword
             \ role
             \ row
             \ schema
+            \ select
             \ session
             \ size
             \ table
@@ -81,28 +83,21 @@ syn keyword sqlKeyword
 syn keyword sqlStatement
             \ alter
             \ analyze
-            \ as
             \ audit
             \ begin
-            \ by
             \ comment
             \ commit
             \ create
             \ declare
             \ delete
-            \ desc
             \ drop
             \ execute
             \ explain
-            \ from
             \ grant
-            \ group
             \ insert
             \ into
-            \ limit
             \ lock
             \ noaudit
-            \ order
             \ rename
             \ replace
             \ returning
@@ -110,7 +105,6 @@ syn keyword sqlStatement
             \ revoke
             \ rollback
             \ savepoint
-            \ select
             \ set
             \ truncate
             \ update
@@ -121,8 +115,10 @@ syn keyword sqlOperator
             \ all
             \ and
             \ any
+            \ as
             \ between
             \ case
+            \ desc
             \ distinct
             \ elif
             \ else
@@ -154,7 +150,6 @@ syn keyword sqlType
             \ bool
             \ boolean
             \ char
-            \ date
             \ datetime
             \ decimal
             \ double
@@ -182,10 +177,11 @@ syn keyword sqlSpecial
             \ language
             \ plpgsql
 
-syn match sqlOperator  "||\|:=\|!=\|*\|/\|::\|+\|-\|=\|<\|>\|\*"
+syn match sqlType      "\(\.\)\@<!\(\<[Dd]ate\>\)"
+syn match sqlOperator  "||\|:=\|!=\|*\|/\|::\|+\|-\|=\|<\|>\|\*\|\."
 syn match sqlBoolean   "\'t'\|'f'"
 syn match sqlNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
-syn match sqlDelimiter ";\|(\|)\|,\|\."
+syn match sqlDelimiter ";\|(\|)\|,"
 syn match sqlFunction  "\w\+\s*(\@=\|\w\+<.*>\s*(\@="
 syn match sqlSpecial   "\$\|\(\$\$\)\|\(\$\w\)"
 
