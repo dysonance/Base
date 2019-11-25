@@ -24,7 +24,6 @@ py ~/.vim/plugged/YouCompleteMe/install.py --all
 
 # julia
 ./src/dep/julia.sh
-julia --optimize=3 --warn-overwrite=no --depwarn=no --check-bounds=no --color=yes apps/julia/precompile.jl
 
 # save package information
 echo "package,version" > data/packages/current/brew.csv
