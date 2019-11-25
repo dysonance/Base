@@ -32,4 +32,10 @@ if ! [ -d "$HOME/.config/alacritty" ]; then
     mkdir $HOME/.config/alacritty
 fi
 ln -sf $HOME/Base/config/alacritty.yml $HOME/.config/alacritty/alacritty.yml
-mv $APPDIR/Alacritty.app $APPDIR/Alacritty/Alacritty.app
+
+if [ -d $APPDIR/Alacritty.app ]; then
+    if [ -d $APPDIR/Alacritty/Alacritty.app ]; then
+        rm -rf $APPDIR/Alacritty/Alacritty.app
+    fi
+    mv $APPDIR/Alacritty.app $APPDIR/Alacritty/Alacritty.app
+fi
