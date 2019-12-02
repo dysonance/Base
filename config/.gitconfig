@@ -17,8 +17,6 @@
 [github]
     user = dysonance
     email = jamos125@gmail.com
-[pull]
-    rebase = true
 [merge]
     tool = vimdiff
 [mergetool]
