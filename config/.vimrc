@@ -372,8 +372,8 @@ autocmd filetype pandoc imap <C-G>W \Omega
 nmap <silent> <F1> <Plug>DashSearch
 nmap <silent> <F12> :syntax sync fromstart<CR>
 
-autocmd filetype pandoc nnoremap <F4> :!pandoc % -o %:r.pdf --verbose<CR>
-autocmd filetype pandoc nnoremap <F5> :!pandoc % -o %:r.pdf --verbose && open %:r.pdf<CR>
+autocmd filetype pandoc nnoremap <F4> :!pandoc % -o %:r.pdf --pdf-engine=xelatex<CR>
+autocmd filetype pandoc nnoremap <F5> :!pandoc % -o %:r.pdf --pdf-engine=xelatex && open %:r.pdf<CR>
 
 nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
