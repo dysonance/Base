@@ -49,6 +49,8 @@ syn keyword juliaModule
             \ Test
 
 syn keyword juliaCustomModule
+            \ Colors
+            \ ColorTypes
             \ DataFrames
             \ DataStreams
             \ Distributions
@@ -140,18 +142,26 @@ syn keyword juliaType
             \ January February March April May June July August September October November December
 
 syn keyword juliaCustomType
-            \ AbstractTS
             \ Backtest
             \ DataFrame
             \ Indicator
+            \ Note Notes AbstractNote
             \ ParameterSet
             \ Portfolio
+            \ RGB RGBA
             \ Rule
             \ Signal
             \ Strategy
-            \ TS
+            \ TS AbstractTS
             \ Trade
             \ Universe
+
+syn keyword juliaFunction
+            \ sum
+            \ prod
+            \ sin sinh asin
+            \ cos cosh acos
+            \ tan tanh atan
 
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match juliaFormat    "\$\<\w*\>"                                           contained

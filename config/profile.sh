@@ -60,6 +60,7 @@ alias ipi="pip38"
 alias ipy="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython"
 alias l="ls -Alh"
 
+# shell convention/portability management
 if [ -n "$ZSH_VERSION" ]; then  # assume using zsh shell
     unsetopt no_match  # treat wildcards (*) same way as bash
     setopt nosharehistory  # dont share live history across tmux panes
