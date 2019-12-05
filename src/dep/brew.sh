@@ -11,9 +11,9 @@ cd src
 
 ./bin/brew update
 
-BREW_PACKAGES=$(cat $BASEDIR/data/packages/required//brew.csv | sed "s/,.*$//g" | grep -v "package")
+BREW_PACKAGES=$(cat $BASEDIR/data/packages/required/brew.csv)
 echo "===== BEGINNING BREW PACKAGE INSTALLATION ====="
-brew install htop tmux reattach-to-user-namespace  # prioritize useful pkgs w/ quick installs
+./bin/brew install htop tmux reattach-to-user-namespace  # prioritize useful pkgs w/ quick installs
 BREW_INSTALLED=$(./bin/brew list)
 for pkg in $BREW_PACKAGES; do
     if [ "$(./bin/brew list | grep $pkg)" == "" ]; then
