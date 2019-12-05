@@ -4,6 +4,10 @@ cd $APPDIR
 if ! [ -d "Alacritty" ]; then mkdir Alacritty; fi
 cd Alacritty
 
+# dependency management
+DEPENDENCIES=(make rust)
+for dep in "${DEPENDENCIES[@]}"; do echo "installing dependency: $dep" && brew install $dep; done
+
 # download source
 REPO="https://github.com/jwilm/alacritty"
 if ! [ -d "src" ]; then git clone $REPO src; fi

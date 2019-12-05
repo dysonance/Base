@@ -6,6 +6,10 @@
 SYSTEM_HEADER_LOCATION=/usr/include/c++/4.2.1
 LLVM_VERSION=9.0.0
 
+# dependency handling
+DEPENDENCIES=(wget cmake make)
+for dep in "${DEPENDENCIES[@]}"; do echo "installing dependency: $dep" && brew install $dep; done
+
 # directory setup
 cd $APPDIR
 if ! [ -d "LLVM" ]; then mkdir LLVM; fi

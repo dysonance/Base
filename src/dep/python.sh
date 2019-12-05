@@ -8,7 +8,7 @@ PYTHON_VERSION=$1
 APPDIR=$HOME/Applications
 
 # install dependencies
-BREW_DEPENDENCIES=(openssl sqlite zlib qt freetype tcl-tk)
+BREW_DEPENDENCIES=(openssl sqlite zlib qt freetype tcl-tk xz)
 BREW_INSTALLED=$(brew list)
 for dep in "${BREW_DEPENDENCIES[@]}"; do
     echo "setting up dependency: $dep"
