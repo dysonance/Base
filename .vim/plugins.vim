@@ -17,7 +17,6 @@ let $PYTHON_BINARY=$HOME."/Applications/Frameworks/Python.framework/Versions/".$
 Plug 'jiangmiao/auto-pairs'         " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'           " easily surround chunks of text with delimiters
 Plug 'Valloric/YouCompleteMe'       " code completion functionality (see pre-requisites on GitHub)
-Plug 'ludovicchabant/vim-gutentags' " tag manager
 Plug 'scrooloose/nerdcommenter'     " comment adding utility
 Plug 'junegunn/vim-easy-align'      " align blocks of code easily
 Plug 'rhysd/vim-clang-format'       " clang format whole file
