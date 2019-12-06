@@ -71,9 +71,9 @@ syn keyword shellFunction
             \ wc
             \ wget
 
-syn match shellConstant "\<[A-Z_]\{2,}\>\((\)\@!"
+syn match shellConstant "\<[A-Z0-9_]\{2,}\>\((\)\@!"
 syn match shellProgram "\(^\|\s\)\@<=\(vim\|brew\|python\+\|pip\+\|clang\|clang++\|gcc\|g++\|psql\|sql\|tar\)\>"
-syn match shellNumber "\d"
+syn match shellNumber "\<\d\+\>"
 syn match shellOperator "\.\|=\|\\\/\|!\|\\\|\.\/\||\|>\|&\||"
 syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
 syn match shellArgument "\( \)\@<=-\w\+\|\( \)\@<=--[A-z\-_]\+\|\$[0-9]\|\$@"

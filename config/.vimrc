@@ -208,6 +208,10 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+" case-insenstive word search
+nnoremap <leader>* */\c<CR>
+
+" join lines without whitespace
 nnoremap <leader>j Ja<backspace><esc>
 
 " convert camel case to snake case in current line
