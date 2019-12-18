@@ -37,6 +37,7 @@ echo "linking configuration files"
 ln -sf ~/Base/.vim/colors ~/.vim/colors
 ln -sf ~/Base/.vim/syntax ~/.vim/syntax
 ln -sf ~/Base/.vim/indent ~/.vim/indent
+ln -sf ~/Base/.vim/skeletons ~/.vim/skeletons
 ln -sf ~/Base/.vim/filetype.vim ~/.vim/
 ln -sf ~/Base/.vim/plugins.vim ~/.vim/
 ln -sf ~/Base/config/.vimrc ~/.vimrc
