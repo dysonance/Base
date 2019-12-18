@@ -68,8 +68,9 @@ syn keyword pythonType
             \ tuple
 
 syn keyword pythonCustomType
-            \ DataFrame DatetimeIndex MultiIndex Series
+            \ DataFrame DatetimeIndex MultiIndex Series Index
             \ array ndarray
+            \ date datetime timedelta
 
 syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
@@ -107,6 +108,7 @@ syn keyword pythonCustomLibrary
             \ bokeh
             \ boto3
             \ bs4 BeautifulSoup
+            \ cvxpy cp
             \ gnupg
             \ ipdb
             \ matplotlib pyplot mpl plt
@@ -116,10 +118,12 @@ syn keyword pythonCustomLibrary
             \ pandas pd
             \ plotly
             \ psycopg2
+            \ pylab
             \ requests
             \ scipy
             \ seaborn sns
             \ sklearn
+            \ talib
 
 syn keyword pythonStandardLibrary
             \ __future__

@@ -40,7 +40,7 @@ export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.6/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/Current/bin:$PATH
-export PATH=$APPDIR/Julia/Julia-1.2.app/Contents/Resources/julia/bin:$PATH
+export PATH=$APPDIR/Julia/Julia-1.3.app/Contents/Resources/julia/bin:$PATH
 # path appends
 export PATH=$PATH:$APPDIR/LLVM/src/bin
 export PATH=$PATH:$APPDIR/Brew/src/sbin

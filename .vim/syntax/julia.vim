@@ -177,10 +177,11 @@ syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" c
 syn match juliaCharacter "'.'"
 syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 
+syn region juliaType    start="{"      end="}"                  contains=juliaDelimiter,juliaOperator,juliaConstant extend keepend
 syn region juliaComment start="#"      end="$"                  contains=juliaTodo
-syn region juliaComment start="#="     end="=#"                 contains=juliaTodo extend
-syn region juliaFormat  start="\$("    end="\(\$(.*\)\@<=\()\)" containedin=juliaString extend keepend
-syn region juliaString  start="\""     end="\""                 contains=juliaFormat extend
+syn region juliaComment start="#="     end="=#"                 contains=juliaTodo                                  extend
+syn region juliaFormat  start="\$("    end="\(\$(.*\)\@<=\()\)" containedin=juliaString                             extend keepend
+syn region juliaString  start="\""     end="\""                 contains=juliaFormat                                extend
 syn region juliaString  start="\"\"\"" end="\"\"\""             contains=juliaFormat
 
 hi def link juliaBoolean      Boolean
