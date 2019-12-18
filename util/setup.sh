@@ -43,9 +43,10 @@ ln -sf ~/Base/.vim/plugins.vim ~/.vim/
 ln -sf ~/Base/config/.vimrc ~/.vimrc
 ln -sf ~/Base/config/alacritty.yml ~/
 ln -sf ~/Base/config/.tmux.conf ~/
-ln -sf ~/Base/config/.Rprofile ~/
+ln -sf ~/Base/config/.tigrc ~/
 ln -sf ~/Base/config/.psqlrc ~/
 ln -sf ~/Base/config/ipython_config.py ~/.ipython/profile_default/
+ln -sf ~/Base/config/.Rprofile ~/
 
 # install preliminary dependencies
 echo "installing homebrew"

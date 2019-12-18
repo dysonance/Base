@@ -89,7 +89,7 @@ $INSTALL_DIRECTORY/bin/python3 get-pip.py
 # install python packages
 PYTHON_PACKAGES=$(cat $HOME/Base/data/packages/required/pip.csv | sed s/package.*//g | sed s/,.*//g)
 cd $FRAMEWORK_DIRECTORY/Python.Framework/Versions/Current/bin
-./pip3 install $(echo $PYTHON_PACKAGES)
+./pip3 install --force-reinstall $(echo $PYTHON_PACKAGES)
 
 # cleanup
 if [ -d $APPDIR/IDLE.app ]; then rm -rf $APPDIR/IDLE.app; fi
