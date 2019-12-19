@@ -129,7 +129,8 @@ let g:syntastic_quiet_messages={"regex": ignored_messages}
 autocmd filetype qf setlocal wrap
 
 " C/C++
-let g:syntastic_c_compiler='clang'
+let g:syntastic_c_compiler='gcc'
+let g:syntastic_c_config_file='.syntastic_c_config'
 let g:syntastic_c_auto_refresh_includes=1
 let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_compiler_options=' -std=c++11 -stdlib=libc++'

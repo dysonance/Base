@@ -49,6 +49,7 @@ syn keyword juliaModule
             \ Test
 
 syn keyword juliaCustomModule
+            \ BenchmarkTools
             \ Colors
             \ ColorTypes
             \ DataFrames
