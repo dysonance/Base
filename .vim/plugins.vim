@@ -142,6 +142,7 @@ let g:syntastic_cpp_auto_refresh_includes=1
 
 " Python
 let g:syntastic_python_checkers=['python3', 'pyflakes']
+let g:syntastic_python_pylint_post_args="--jobs=$CPU --disable=all --enable=classes,imports,variables,typecheck,refactoring --disable=missing-docstring,invalid-name"
 
 " Go
 let g:go_highlight_functions = 1
