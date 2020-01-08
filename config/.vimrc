@@ -347,6 +347,7 @@ autocmd filetype pandoc imap <C-T>f \frac{1}{N}<Esc>F1v
 autocmd filetype pandoc imap <C-T>tf \tfrac{1}{N}<Esc>F1v
 autocmd filetype pandoc imap <C-B> \left<C-V>[\right<C-V>]<Esc>%a<Space><Space><Esc>i
 autocmd filetype pandoc imap <C-P> \left<C-V>(\right<C-V>)<Esc>%a<Space><Space><Esc>i
+autocmd filetype pandoc imap <C-C> \left<C-V>\{\right<C-V>\}<Esc>%a<Space><Space><Esc>i
 
 " greek letter shortcuts for pandoc markdown files
 autocmd filetype pandoc imap <C-G>a \alpha

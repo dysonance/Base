@@ -14,13 +14,14 @@ let $PYTHON_BINARY=$HOME."/Applications/Frameworks/Python.framework/Versions/".$
 
 " Editing Utilities {{{
 
-Plug 'jiangmiao/auto-pairs'         " auto-insertion of brackets/quotes
-Plug 'tpope/vim-surround'           " easily surround chunks of text with delimiters
-Plug 'Valloric/YouCompleteMe'       " code completion functionality (see pre-requisites on GitHub)
-Plug 'scrooloose/nerdcommenter'     " comment adding utility
-Plug 'junegunn/vim-easy-align'      " align blocks of code easily
-Plug 'rhysd/vim-clang-format'       " clang format whole file
-Plug 'chrisbra/unicode.vim'         " utilities for working with unicode characters
+Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
+Plug 'tpope/vim-surround'         " easily surround chunks of text with delimiters
+Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
+Plug 'scrooloose/nerdcommenter'   " comment adding utility
+Plug 'junegunn/vim-easy-align'    " align blocks of code easily
+Plug 'rhysd/vim-clang-format'     " clang format whole file
+Plug 'chrisbra/unicode.vim'       " utilities for working with unicode characters
+Plug 'dhruvasagar/vim-table-mode' " table editing workflow enhancements
 
 " }}}
 
