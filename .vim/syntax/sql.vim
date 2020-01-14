@@ -48,7 +48,6 @@ syn keyword sqlKeyword
             \ left
             \ limit
             \ loop
-            \ materialized
             \ modify
             \ of
             \ on
@@ -98,6 +97,7 @@ syn keyword sqlStatement
             \ into
             \ lock
             \ noaudit
+            \ refresh
             \ rename
             \ replace
             \ returning
@@ -159,6 +159,7 @@ syn keyword sqlType
             \ int
             \ integer
             \ long
+            \ materialized
             \ number
             \ numeric
             \ precision
@@ -167,6 +168,7 @@ syn keyword sqlType
             \ time
             \ timestamp
             \ varchar
+            \ view
 
 syn keyword sqlFunction
             \ sum
