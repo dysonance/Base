@@ -17,6 +17,7 @@ libunistring
 make
 ncurses
 openssl@1.1
+pgformatter
 pkg-config
 python
 qt
