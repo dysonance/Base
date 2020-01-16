@@ -20,6 +20,7 @@ syn keyword shellKeyword
             \ setopt
             \ shopt
             \ source
+            \ exit
             \ stty
             \ unset
             \ unsetopt
@@ -64,6 +65,9 @@ syn keyword shellFunction
             \ mkdir
             \ mv
             \ printf
+            \ python
+            \ python3
+            \ deactivate
             \ scp
             \ sed
             \ ssh
@@ -79,7 +83,7 @@ syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
 syn match shellArgument "\( \)\@<=-\w\+\|\( \)\@<=--[A-z\-_]\+\|\$[0-9]\|\$@"
 syn match shellKeyword "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)\>"
 syn match shellFunction "\(function \)\@<=\w\+"
-syn match shellFormat "\(\$[A-z]\+\)\|\\t\|\\n"
+syn match shellFormat "\(\$[A-z#]\+\)\|\\t\|\\n"
 
 syn region shellComment start=+#+ end="$" contains=shellTodo
 syn region shellExpand start="\${" end="}" contains=ALLBUT,shellDelimiter keepend

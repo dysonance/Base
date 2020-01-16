@@ -72,37 +72,6 @@ syn keyword pythonCustomType
             \ array ndarray
             \ date datetime timedelta
 
-syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
-syn match pythonDecorator "@\@<=\w*\|@"
-syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
-syn match pythonNumber    "\<[0-9_.]\+\>\|[0-9]e[0-9-]"
-syn match pythonOperator  "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
-syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
-syn match pythonTodo      "TODO\|FIXME\|NOTE"
-
-syn region pythonComment start="#"      end="\n"     contains=pythonTodo
-syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
-syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
-syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
-
-hi def link pythonBoolean    Boolean
-hi def link pythonComment    Comment
-hi def link pythonConstant   Constant
-hi def link pythonCustomType Type
-hi def link pythonDecorator  PreProc
-hi def link pythonDelimiter  Delimiter
-hi def link pythonFunction   Operator
-hi def link pythonKeyword    Keyword
-hi def link pythonNumber     Number
-hi def link pythonOperator   Operator
-hi def link pythonStatement  Statement
-hi def link pythonString     String
-hi def link pythonFormat     Special
-hi def link pythonTodo       Todo
-hi def link pythonType       Type
-hi def link pythonBuiltin    Special
-
 syn keyword pythonCustomLibrary
             \ black
             \ bokeh
@@ -366,7 +335,39 @@ syn keyword pythonStandardLibrary
             \ zipimport
             \ zlib
 
-hi def link pythonStandardLibrary PreProc
+syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
+syn match pythonDecorator "@\@<=\w*\|@"
+syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
+syn match pythonNumber    "\<[0-9_.]\+\>\|[0-9]e[0-9-]"
+syn match pythonOperator  "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
+syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
+syn match pythonTodo      "TODO\|FIXME\|NOTE"
+syn match pythonLibrary   "\(from \)\@<=\w\+\|\(import \)\@<=\w\+"
+
+syn region pythonComment start="#"      end="\n"     contains=pythonTodo
+syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
+syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
+syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
+
+hi def link pythonLibrary         PreProc
+hi def link pythonBoolean         Boolean
+hi def link pythonBuiltin         Special
+hi def link pythonComment         Comment
+hi def link pythonConstant        Constant
 hi def link pythonCustomLibrary   PreProc
+hi def link pythonCustomType      Type
+hi def link pythonDecorator       PreProc
+hi def link pythonDelimiter       Delimiter
+hi def link pythonFormat          Special
+hi def link pythonFunction        Operator
+hi def link pythonKeyword         Keyword
+hi def link pythonNumber          Number
+hi def link pythonOperator        Operator
+hi def link pythonStandardLibrary PreProc
+hi def link pythonStatement       Statement
+hi def link pythonString          String
+hi def link pythonTodo            Todo
+hi def link pythonType            Type
 
 let b:current_syntax = "python"
