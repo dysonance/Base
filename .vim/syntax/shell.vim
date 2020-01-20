@@ -21,6 +21,7 @@ syn keyword shellKeyword
             \ shopt
             \ source
             \ exit
+            \ return
             \ stty
             \ unset
             \ unsetopt

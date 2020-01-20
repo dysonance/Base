@@ -343,7 +343,6 @@ syn match pythonNumber    "\<[0-9_.]\+\>\|[0-9]e[0-9-]"
 syn match pythonOperator  "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
 syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
 syn match pythonTodo      "TODO\|FIXME\|NOTE"
-syn match pythonLibrary   "\(from \)\@<=\w\+\|\(import \)\@<=\w\+"
 
 syn region pythonComment start="#"      end="\n"     contains=pythonTodo
 syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
