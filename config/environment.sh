@@ -50,7 +50,7 @@ stty -ixon  # disable terminal flow control to allow more vim keybindings
 
 # convenience shortcuts
 alias jln="$APPDIR/Julia/src/usr/bin/julia"
-alias jl="julia --banner=no --optimize=3 -g"
+alias jl="julia -g2 --optimize=3 --cpu-target native --banner=no --color=yes"
 alias py36="$APPDIR/Frameworks/Python.framework/Versions/3.6/bin/python3"
 alias pip36="$APPDIR/Frameworks/Python.framework/Versions/3.6/bin/pip3"
 alias py38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3"
