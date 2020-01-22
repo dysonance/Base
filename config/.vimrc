@@ -138,7 +138,7 @@ autocmd filetype python set foldmethod=indent " overwrite pymode indent method
 
 " Formatters {{{
 
-autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 2\ --function-case\ 3
+autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
