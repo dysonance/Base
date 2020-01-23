@@ -208,6 +208,9 @@ nmap ga <Plug>(EasyAlign)
 
 " Leader Mappings {{{
 
+" debuggers
+autocmd filetype python nmap <leader>db Oimport ipdb; ipdb.set_trace()<CR>
+
 " case-insenstive word search
 nnoremap <leader>* */\c<CR>
 
