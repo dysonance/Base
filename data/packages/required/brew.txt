@@ -24,6 +24,7 @@ qt
 readline
 reattach-to-user-namespace
 rust
+saulpw/vd/visidata
 sphinx-doc
 sqlite
 tcl-tk
