@@ -1,0 +1,9 @@
+font-anonymouspro-nerd-font
+font-codenewroman-nerd-font
+font-fantasquesansmono-nerd-font
+font-firacode-nerd-font
+font-iosevka-nerd-font
+font-monoid-nerd-font
+font-profont-nerd-font
+font-robotomono-nerd-font
+font-terminus-nerd-font
