@@ -120,21 +120,21 @@ set main-options                = -n 1000 --all # user-defined options for `tig`
 set mailmap                     = yes           # use .mailmap to show canonical name and email address
 
 # Misc
-set refresh-mode       = auto # enum: manual, auto, after-command, periodic
-set refresh-interval   = 1    # interval in seconds between refreshes
-set ignore-case        = no   # enum: no, yes, smart-case
-set wrap-search        = yes  # wrap around to top/bottom of view when searching
-set focus-child        = yes  # move focus to child view when opened?
-set send-child-enter   = yes  # propagate "enter" keypresses to child views?
-set horizontal-scroll  = 50%  # number of columns to scroll as % of width
-set split-view-height  = 67%  # height of the bottom view for horizontal splits
-set vertical-split     = auto # enum: horizontal, vertical, auto; use auto to
-set split-view-width   = 50%  # width of right-most view for vertical splits
-set editor-line-number = yes  # automatically pass line number to editor? used
-set history-size       = 500  # size of persistent history, 0 to disable
-set mouse              = yes  # enable mouse support?
-set mouse-scroll       = 3    # number of lines to scroll via the mouse
-set mouse-wheel-cursor = yes  # prefer moving the cursor to scrolling the view?
+set refresh-mode       = auto       # enum: manual, auto, after-command, periodic
+set refresh-interval   = 1          # interval in seconds between refreshes
+set ignore-case        = no         # enum: no, yes, smart-case
+set wrap-search        = yes        # wrap around to top/bottom of view when searching
+set focus-child        = yes        # move focus to child view when opened?
+set send-child-enter   = yes        # propagate "enter" keypresses to child views?
+set horizontal-scroll  = 50%        # number of columns to scroll as % of width
+set split-view-height  = 67%        # height of the bottom view for horizontal splits
+set vertical-split     = horizontal # enum: horizontal, vertical, auto; use auto to
+set split-view-width   = 50%        # width of right-most view for vertical splits
+set editor-line-number = yes        # automatically pass line number to editor? used
+set history-size       = 500        # size of persistent history, 0 to disable
+set mouse              = yes        # enable mouse support?
+set mouse-scroll       = 3          # number of lines to scroll via the mouse
+set mouse-wheel-cursor = yes        # prefer moving the cursor to scrolling the view?
 
 # User-defined commands
 # ---------------------
