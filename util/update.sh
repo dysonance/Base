@@ -14,9 +14,6 @@ brew upgrade
 # python
 ipi install --upgrade $(ipi list --format=freeze | sed 's/==/ /' | awk '{print $1}')
 
-# alacritty
-./src/dep/alacritty.sh
-
 # vim
 ./src/dep/vim.sh
 vim -c ":PlugUpdate | :qa"

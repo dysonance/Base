@@ -236,7 +236,7 @@ nmap <leader>pvv <C-W>t<C-W>H
 " format current file
 autocmd filetype sql nmap <leader>fmt m0gggqG`0
 autocmd filetype cpp nmap <leader>fmt :ClangFormat<CR>
-autocmd filetype python nmap <leader>fmt mmgggqG`m
+autocmd filetype python nmap <leader>fmt mmgggqG`mzz
 autocmd filetype go nmap <leader>fmt :GoFmt<CR>
 autocmd filetype css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
 autocmd filetype html nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
