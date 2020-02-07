@@ -11,6 +11,9 @@ source ~/.bash_profile
 brew update
 brew upgrade
 
+# alacritty
+./src/dep/alacritty.sh
+
 # python
 ipi install --upgrade $(ipi list --format=freeze | sed 's/==/ /' | awk '{print $1}')
 

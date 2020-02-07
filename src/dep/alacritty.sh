@@ -23,6 +23,8 @@ else
     CURRENT_COMMIT=$(git rev-parse @)
     git checkout master
     git pull
+    BUILD_VERSION=$(git tag | grep -v rc | tail -n 1)
+    git checkout $BUILD_VERSION
     LATEST_COMMIT=$(git rev-parse @)
     if [ $CURRENT_COMMIT != $LATEST_COMMIT ]; then
         make -j $CPU app
