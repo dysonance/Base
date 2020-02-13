@@ -40,18 +40,18 @@ class CustomPrompt(Prompts):
     def out_prompt_tokens(self):
         return [(Token.Prompt, "")]
 
-# # change cursor shape based on vi mode
-# def get_input_mode(self):
-#     return self._input_mode
+# change cursor shape based on vi mode
+def get_input_mode(self):
+    return self._input_mode
 
-# def set_input_mode(self, mode):
-#     shape = {InputMode.INSERT: 5, InputMode.NAVIGATION: 2, InputMode.REPLACE: 3}.get(mode, 5)
-#     out = sys.stdout.write
-#     out(u'\x1b[{} q'.format(shape))
-#     sys.stdout.flush()
-#     self._input_mode = mode
-# ViState._input_mode = InputMode.INSERT
-# ViState.input_mode = property(get_input_mode, set_input_mode)
+def set_input_mode(self, mode):
+    shape = {InputMode.INSERT: 5, InputMode.NAVIGATION: 2, InputMode.REPLACE: 3}.get(mode, 5)
+    out = sys.stdout.write
+    out(u'\x1b[{} q'.format(shape))
+    sys.stdout.flush()
+    self._input_mode = mode
+ViState._input_mode = InputMode.INSERT
+ViState.input_mode = property(get_input_mode, set_input_mode)
 
 c.TerminalInteractiveShell.prompts_class = CustomPrompt
 c.TerminalInteractiveShell.colors = "linux"

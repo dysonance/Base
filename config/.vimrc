@@ -112,16 +112,16 @@ if &diff
 endif
 set timeout timeoutlen=500 ttimeoutlen=100 " reduce lag/delay when switching between modes
 
-" " change cursor shape dynamically (see https://stackoverflow.com/a/30199177/2271756)
-" if exists('$TMUX')
-"   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-" else
-"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" endif
-" let &t_SI = "\e[5 q"
-" let &t_EI = "\e[2 q"
+" change cursor shape dynamically (see https://stackoverflow.com/a/30199177/2271756)
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
 
 " }}}
 
