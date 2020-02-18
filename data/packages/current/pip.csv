@@ -17,7 +17,7 @@ et-xmlfile,1.0.1
 future,0.18.2
 greenlet,0.4.15
 humanize,1.0.0
-idna,2.8
+idna,2.9
 ipdb,0.12.3
 ipython,7.12.0
 ipython-genutils,0.2.0
@@ -34,6 +34,7 @@ parso,0.6.1
 pexpect,4.8.0
 pickleshare,0.7.5
 pip,20.0.2
+ply,3.11
 prompt-toolkit,3.0.3
 psycopg2,2.8.4
 ptyprocess,0.6.0

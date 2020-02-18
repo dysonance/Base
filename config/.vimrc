@@ -429,6 +429,7 @@ autocmd filetype python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd filetype python nmap <F3> :execute ":SlimeSend1 test python"<CR>
 autocmd filetype python nmap <F4> :execute ":SlimeSend1 build python"<CR>
 autocmd filetype python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
+"autocmd filetype python nmap <F5> :execute ":SlimeSend1 %run " . bufname("%") ""<CR>
 autocmd filetype python nmap <F6> msvip:SlimeSend<CR>`s
 autocmd filetype python vmap <F6> :SlimeSend<CR>gv
 autocmd filetype python nmap <F7> :SlimeSendCurrentLine<CR>j
