@@ -1,4 +1,4 @@
-" latex/math
+" general
 syn match pandocMathCommand "\\\<\w\+\>\|\\\\" contained
 syn match pandocMathCommandArgument "{\|}" contained
 syn match pandocMathNumber "[0-9]\|[0-9.]" contained
@@ -7,9 +7,9 @@ syn match pandocPreambleVariable "[a-z-]\+[:=]" contained
 syn match pandocCommand "\\\<\w\+\>\|^---$"
 syn match pandocList "\*\|-"
 
-" general syntax
+" regions
 syn region pandocMathDisplay start="\$\$" end="\$\$" contains=pandocMathCommand,pandocMathCommandArgument,pandocMathNumber,pandocMathOperator
-syn region pandocMathInline start="\$\([A-z\\0-9(\[{]\)\@=" end="\([A-z0-9\])}]\)\@<=\$" contains=pandocMathCommand,pandocMathCommandArgument,pandocMathNumber,pandocMathOperator
+syn region pandocMathInline start="\$\([A-z\\0-9(\[{]\)\@=" end="\([A-z0%-9\])}]\)\@<=\$" contains=pandocMathCommand,pandocMathCommandArgument,pandocMathNumber,pandocMathOperator
 syn region pandocEmphasis start="__" end="__"
 syn region pandocEmphasis start="\*\*" end="\*\*"
 syn region pandocSection start="^#" end="$"
@@ -19,6 +19,7 @@ syn region pandocCodeInline start="`" end="`"
 syn region pandocTodo start="\[ \]" end="$"
 syn region pandocDone start="\[x\]" end="$"
 syn region pandocHyperlink start="http://\|https://\|www\." end="\s"
+syn region pandocQuestion start="Q:" end="?\|$"
 
 " highlighting rules
 hi def link pandocList Operator
@@ -37,6 +38,7 @@ highlight pandocCommand ctermfg=Cyan ctermbg=DarkCyan
 highlight pandocPreamble ctermbg=Black ctermfg=DarkRed
 highlight pandocTodo ctermfg=DarkRed ctermbg=NONE
 highlight pandocDone ctermfg=DarkGreen ctermbg=NONE
+highlight pandocQuestion ctermfg=Green ctermbg=Black
 
 " syntax options
 syn case match
