@@ -68,9 +68,9 @@ syn keyword pythonType
             \ tuple
 
 syn keyword pythonCustomType
-            \ DataFrame DatetimeIndex MultiIndex Series Index
+            \ DataFrame Series Index
             \ array ndarray
-            \ date datetime timedelta
+            \ vector matrix cube
 
 syn keyword pythonCustomLibrary
             \ black
@@ -343,6 +343,7 @@ syn match pythonNumber    "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
 syn match pythonOperator  "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
 syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
 syn match pythonTodo      "TODO\|FIXME\|NOTE"
+syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)"
 
 syn region pythonComment start="#"      end="\n"     contains=pythonTodo
 syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
