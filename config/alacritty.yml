@@ -98,50 +98,18 @@ tabspaces: 4
 
 # Font configuration (changes require restart)
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux) monospace
-    #   - (Windows) Consolas
-    family: Iosevka Nerd Font
-
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
-
-  # Bold font face
-  #bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
+    family: M+ 1mn
+    style: regular
+  bold:
     #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
-
-  # Italic font face
+    style: bold
   #italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
     #family: monospace
-
     # The `style` can be specified to pick a specific face.
     #style: Italic
-
-  # Bold italic font face
   #bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
     #family: monospace
-
-    # The `style` can be specified to pick a specific face.
     #style: Bold Italic
 
   # Point size
@@ -151,7 +119,7 @@ font:
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 0
+    y: -5
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -214,17 +182,17 @@ colors:
   # Normal colors
   normal:
     black:   '0x000000'
-    red:     '0x800000'
-    green:   '0x008000'
-    yellow:  '0x808000'
+    red:     '0x880000'
+    green:   '0x008800'
+    yellow:  '0x888800'
     blue:    '0x000040'
-    magenta: '0x800080'
-    cyan:    '0x008080'
+    magenta: '0x880088'
+    cyan:    '0x008888'
     white:   '0xaaaaaa'
 
   # Bright colors
   bright:
-    black:   '0x808080'
+    black:   '0x888888'
     red:     '0xff0000'
     green:   '0x00ff00'
     yellow:  '0xffff00'

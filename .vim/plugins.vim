@@ -1,27 +1,31 @@
 " Setup {{{
 
+let $PYTHON_VERSION='3.8'
+let $PYTHON_BINARY=$HOME."/Applications/Frameworks/Python.framework/Versions/".$PYTHON_VERSION."/bin/python3"
+
 set nocompatible
 filetype off
 call plug#begin('~/.vim/plugged')
-
-let $PYTHON_VERSION='3.8'
-let $PYTHON_BINARY=$HOME."/Applications/Frameworks/Python.framework/Versions/".$PYTHON_VERSION."/bin/python3"
 
 " }}}
 
 " List {{{
 
-
 " Editing Utilities {{{
 
 Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'         " easily surround chunks of text with delimiters
-Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
 Plug 'scrooloose/nerdcommenter'   " comment adding utility
 Plug 'junegunn/vim-easy-align'    " align blocks of code easily
 Plug 'rhysd/vim-clang-format'     " clang format whole file
 Plug 'chrisbra/unicode.vim'       " utilities for working with unicode characters
 Plug 'dhruvasagar/vim-table-mode' " table editing workflow enhancements
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    let g:deoplete#enable_at_startup=1
+else
+    Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
+endif
 
 " }}}
 
@@ -239,11 +243,6 @@ let g:jedi#goto_definitions_command=""
 let g:jedi#rename_command=""
 
 " }}}
-
-" NeoVim Configurations {{{
-
-let g:python_host_prog='/usr/bin/python'
-let g:python3_host_prog='/usr/local/bin/python3'
 
 " }}}
 

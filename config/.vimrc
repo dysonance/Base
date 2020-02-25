@@ -110,7 +110,7 @@ endif
 if &diff
     set diffopt+=iwhite                    " ignore whitespace in diff mode but not in standard vim
 endif
-set timeout timeoutlen=500 ttimeoutlen=100 " reduce lag/delay when switching between modes
+"set timeout timeoutlen=500 ttimeoutlen=100 " reduce lag/delay when switching between modes
 
 " change cursor shape dynamically (see https://stackoverflow.com/a/30199177/2271756)
 if exists('$TMUX')
