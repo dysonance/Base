@@ -105,6 +105,7 @@ syn keyword cppType
 
 syn keyword cppCustomType
             \ Col
+            \ Cube
             \ Mat
             \ Row
             \ colvec
@@ -114,9 +115,11 @@ syn keyword cppCustomType
             \ ivec
             \ mat
             \ rowvec
+            \ span
             \ ucube
             \ umat
             \ uvec
+            \ uword
             \ vec
 
 syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"

@@ -176,6 +176,12 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " }}}
 
+" Easy Align {{{
+
+let g:easy_align_ignore_groups = ['Comment']
+
+" }}}
+
 " Snippets {{{
 
 " UltiSnip {{{
@@ -236,8 +242,6 @@ let g:jedi#use_splits_not_buffers="winwidth"
 let g:jedi#documentation_command="K"
 let g:jedi#goto_definitions_command=""
 let g:jedi#rename_command=""
-
-" }}}
 
 " }}}
 
@@ -380,6 +384,8 @@ let g:ansible_name_highlight='b'
 let g:ansible_exxtra_keywords_highlight=1
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_with_keywords_highlight = 'Constant'
+
+" }}}
 
 " }}}
 

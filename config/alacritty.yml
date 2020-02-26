@@ -185,7 +185,7 @@ colors:
     red:     '0x880000'
     green:   '0x008800'
     yellow:  '0x888800'
-    blue:    '0x000040'
+    blue:    '0x000044'
     magenta: '0x880088'
     cyan:    '0x008888'
     white:   '0xaaaaaa'

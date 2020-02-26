@@ -31,6 +31,7 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
 export GOROOT=$APPDIR/Brew/src/opt/go/libexec
 export EDITOR=nvim
+alias vim="nvim"
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH

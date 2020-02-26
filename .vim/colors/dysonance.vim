@@ -2,59 +2,49 @@ set t_Co=16
 set cursorline
 
 " General highlighting
-highlight Normal     ctermfg=White  ctermbg=DarkBlue cterm=NONE
-highlight Underlined ctermfg=NONE   ctermbg=NONE     cterm=NONE
-highlight Comment    ctermfg=Blue   ctermbg=NONE     cterm=NONE
-highlight Identifier ctermfg=White  ctermbg=NONE     cterm=NONE
-highlight Function   ctermfg=Yellow ctermbg=NONE     cterm=NONE
-
+highlight Comment      ctermfg=Blue        ctermbg=none      cterm=none
+highlight Function     ctermfg=Yellow      ctermbg=none      cterm=none
+highlight Identifier   ctermfg=White       ctermbg=none      cterm=none
+highlight Normal       ctermfg=White       ctermbg=DarkBlue  cterm=none
 " Constant highlighting group
-highlight Constant  ctermfg=DarkRed ctermbg=NONE cterm=NONE
-highlight Number    ctermfg=Red     ctermbg=NONE cterm=NONE
-highlight Float     ctermfg=Red     ctermbg=NONE cterm=NONE
-highlight Boolean   ctermfg=Red     ctermbg=NONE cterm=NONE
-highlight String    ctermfg=Green   ctermbg=NONE cterm=NONE
-highlight Character ctermfg=Green   ctermbg=NONE cterm=NONE
-
+highlight Boolean      ctermfg=Red         ctermbg=none      cterm=none
+highlight Character    ctermfg=Green       ctermbg=none      cterm=none
+highlight Constant     ctermfg=DarkRed     ctermbg=none      cterm=none
+highlight Float        ctermfg=Red         ctermbg=none      cterm=none
+highlight Number       ctermfg=Red         ctermbg=none      cterm=none
+highlight String       ctermfg=Green       ctermbg=none      cterm=none
 " Statement highlighting group
-highlight Statement   ctermfg=DarkCyan       ctermbg=NONE cterm=NONE
-highlight Conditional ctermfg=Magenta    ctermbg=NONE cterm=NONE
-highlight Repeat      ctermfg=Magenta    ctermbg=NONE cterm=NONE
-highlight Operator    ctermfg=Yellow     ctermbg=NONE cterm=NONE
-highlight Keyword     ctermfg=Magenta    ctermbg=NONE cterm=NONE
-highlight PreProc     ctermfg=DarkYellow ctermbg=NONE cterm=NONE
-
+highlight Conditional  ctermfg=Magenta     ctermbg=none      cterm=none
+highlight Keyword      ctermfg=Magenta     ctermbg=none      cterm=none
+highlight Operator     ctermfg=Yellow      ctermbg=none      cterm=none
+highlight PreProc      ctermfg=DarkYellow  ctermbg=none      cterm=none
+highlight Repeat       ctermfg=Magenta     ctermbg=none      cterm=none
+highlight Statement    ctermfg=DarkCyan    ctermbg=none      cterm=none
 " Special highlighting group
-" NOTE: 208 is orange, 3 is gold
-highlight Type        ctermfg=DarkMagenta ctermbg=NONE  cterm=NONE
-highlight Special     ctermfg=DarkYellow  ctermbg=NONE  cterm=NONE
-highlight Delimiter   ctermfg=Cyan        ctermbg=NONE  cterm=NONE
-highlight Tag         ctermfg=Magenta     ctermbg=NONE  cterm=NONE
-highlight SpecialChar ctermfg=DarkYellow  ctermbg=NONE  cterm=NONE
-highlight Todo        ctermfg=Yellow      ctermbg=Black cterm=NONE
-
+highlight Delimiter    ctermfg=Cyan        ctermbg=none      cterm=none
+highlight Special      ctermfg=DarkYellow  ctermbg=none      cterm=none
+highlight SpecialChar  ctermfg=DarkYellow  ctermbg=none      cterm=none
+highlight Tag          ctermfg=Magenta     ctermbg=none      cterm=none
+highlight Todo         ctermfg=Yellow      ctermbg=Black     cterm=none
+highlight Type         ctermfg=DarkMagenta ctermbg=none      cterm=none
 " Other random highlights
-highlight StatusLine   ctermfg=Blue  ctermbg=Cyan     cterm=NONE
-highlight CursorLine   ctermfg=NONE  ctermbg=None     cterm=underline
-highlight CursorLineNR ctermfg=White ctermbg=Blue     cterm=NONE
-highlight Cursor       ctermfg=NONE  ctermbg=NONE     cterm=NONE
-highlight LineNR       ctermfg=Grey  ctermbg=NONE     cterm=NONE
-highlight Pmenu        ctermfg=Black ctermbg=Cyan     cterm=NONE
-highlight PmenuSel     ctermfg=White ctermbg=DarkCyan cterm=NONE
-highlight Visual       ctermfg=NONE  ctermbg=DarkGrey cterm=NONE
-highlight IncSearch    ctermfg=NONE  ctermbg=DarkCyan cterm=NONE
-highlight Search       ctermfg=NONE  ctermbg=DarkCyan cterm=NONE
-highlight MatchParen   ctermfg=Grey  ctermbg=Blue     cterm=NONE
-
+highlight Cursor       ctermfg=none        ctermbg=none      cterm=none
+highlight CursorLine   ctermfg=none        ctermbg=Black     cterm=none
+highlight CursorLineNR ctermfg=White       ctermbg=Blue      cterm=none
+highlight IncSearch    ctermfg=none        ctermbg=Blue      cterm=bold
+highlight LineNR       ctermfg=Grey        ctermbg=none      cterm=none
+highlight MatchParen   ctermfg=Grey        ctermbg=Blue      cterm=none
+highlight Pmenu        ctermfg=Black       ctermbg=Cyan      cterm=none
+highlight PmenuSel     ctermfg=White       ctermbg=DarkCyan  cterm=none
+highlight Search       ctermfg=none        ctermbg=Blue      cterm=bold
+highlight StatusLine   ctermfg=Blue        ctermbg=Cyan      cterm=none
+highlight Visual       ctermfg=none        ctermbg=DarkGrey  cterm=none
 " Errors and warnings highlighting
-highlight ErrorMsg   ctermfg=NONE ctermbg=DarkRed cterm=NONE
-highlight Error      ctermfg=NONE ctermbg=DarkRed cterm=NONE
-highlight WarningMsg ctermfg=NONE ctermbg=Black   cterm=NONE
-
+highlight Error        ctermfg=none        ctermbg=DarkRed   cterm=none
+highlight ErrorMsg     ctermfg=none        ctermbg=DarkRed   cterm=none
+highlight WarningMsg   ctermfg=none        ctermbg=Black     cterm=none
 " Diff highlights
-highlight DiffAdd    ctermfg=NONE    ctermbg=DarkGreen cterm=NONE
-highlight DiffChange ctermfg=NONE    ctermbg=Black     cterm=NONE
-highlight DiffDelete ctermfg=DarkRed ctermbg=DarkRed   cterm=NONE
-highlight DiffText   ctermfg=NONE    ctermbg=Black     cterm=underline
-
-syntax enable
+highlight DiffAdd      ctermfg=none        ctermbg=DarkGreen cterm=none
+highlight DiffChange   ctermfg=none        ctermbg=Black     cterm=none
+highlight DiffDelete   ctermfg=DarkRed     ctermbg=DarkRed   cterm=none
+highlight DiffText     ctermfg=none        ctermbg=Black     cterm=underline
