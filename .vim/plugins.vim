@@ -20,12 +20,7 @@ Plug 'junegunn/vim-easy-align'    " align blocks of code easily
 Plug 'rhysd/vim-clang-format'     " clang format whole file
 Plug 'chrisbra/unicode.vim'       " utilities for working with unicode characters
 Plug 'dhruvasagar/vim-table-mode' " table editing workflow enhancements
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    let g:deoplete#enable_at_startup=1
-else
-    Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
-endif
+Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
 
 " }}}
 
