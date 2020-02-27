@@ -26,6 +26,21 @@ function searchpath()
     fi
 }
 
+function abspath()
+{
+    echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
+}
+
+# data grip formatter with command line
+function dgformat()
+{
+    if [ "$1" == "" ]; then echo "no file target passed to formatter" && return; fi
+    TARGET="$(abspath $1)"
+    BINARY=$APPDIR/DataGrip.app/Contents/MacOS/datagrip
+    STYLES=$APPDIR/DataGrip.app/Contents/Resources/Custom.xml
+    $BINARY format -s $STYLES $TARGET
+}
+
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications

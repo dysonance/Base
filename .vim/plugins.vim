@@ -323,7 +323,8 @@ let g:NERDTrimTrailingWhitespace = 1 " enable trimming of trailing whitespace wh
 let g:NERDCustomDelimiters = {
             \ 'c': { 'left': '/**','right': '*/' },
             \ 'python': { 'left': '#', 'leftAlt': '', 'rightAlt': '' },
-            \ 'julia': {'left': '#', 'leftAlt': '', 'rightAlt': ''}
+            \ 'julia': {'left': '#', 'leftAlt': '', 'rightAlt': ''},
+            \ 'shell': {'left': '#', 'leftAlt': '', 'rightAlt': ''}
             \ }
 
 " }}}
