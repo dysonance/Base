@@ -5,7 +5,7 @@ export ZSH="$HOME/Applications/Shell/.oh-my-zsh"
 ZSH_THEME="dysonance"
 
 # zsh plugins to load (note too many plugins slow down shell startup)
-plugins=(git vi-mode tmux tmuxinator)
+plugins=(vi-mode tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 

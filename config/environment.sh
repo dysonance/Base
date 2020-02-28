@@ -1,36 +1,3 @@
-# utility functions
-function shellcolors()
-{
-    local _index_=$1
-    if [ "$_index_" == "" ]; then
-        for i in {0..255}; do
-            printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
-        done
-    else
-        printf "\x1b[38;5;${_index_}mcolour${_index_}\x1b[0m\n"
-    fi
-}
-
-function showpath()
-{
-    echo $PATH | sed -e $'s/:/\\\n/g'
-}
-
-function searchpath()
-{
-    local _filter=$1
-    if [ "$_filter" == "" ]; then
-        showpath
-    else
-        showpath | grep $_filter
-    fi
-}
-
-function abspath()
-{
-    echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
-}
-
 # data grip formatter with command line
 function dgformat()
 {
@@ -41,12 +8,17 @@ function dgformat()
     $BINARY format -s $STYLES $TARGET
 }
 
+# aliases/shortcuts
+function abspath(){ echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")" ; }
+function path(){ echo $PATH | sed -e $'s/:/\\\n/g' ; }
+alias vim="nvim"
+alias gg="git grep -nIi"
+
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
 export GOROOT=$APPDIR/Brew/src/opt/go/libexec
 export EDITOR=nvim
-alias vim="nvim"
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH

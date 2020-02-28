@@ -92,7 +92,7 @@ syn region shellComment   start=+#+   end="$" contains=shellTodo
 syn region shellExpand    start="\${" end="}" contains=ALLBUT,shellDelimiter keepend
 syn region shellExpand    start="\$(" end=")" contains=ALLBUT,shellDelimiter keepend
 syn region shellCharacter start=+'+   end=+'+ extend
-syn region shellString    start=+"+   end=+"+ contains=ALL keepend
+syn region shellString    start=+"+   end=+"+ skip="\\\"" contains=ALL keepend
 
 hi def link shellCommand     Function
 hi def link shellConstant    Constant
