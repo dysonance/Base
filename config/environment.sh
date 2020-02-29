@@ -11,14 +11,13 @@ function dgformat()
 # aliases/shortcuts
 function abspath(){ echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")" ; }
 function path(){ echo $PATH | sed -e $'s/:/\\\n/g' ; }
-alias vim="nvim"
 alias gg="git grep -nIi"
 
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
 export GOROOT=$APPDIR/Brew/src/opt/go/libexec
-export EDITOR=nvim
+export EDITOR=vim
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH
