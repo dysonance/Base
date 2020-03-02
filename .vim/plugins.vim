@@ -114,7 +114,8 @@ let ignored_messages_html=
             \ 'discarding unexpected plain text',
             \ 'content occurs after end of body',
             \ 'trimming empty <i>',
-            \ 'missing <li>',
+            \ 'trimming empty <span>',
+            \ 'missing <li>'
             \ '<a> attribute with missing trailing quote mark',
             \ '<a> unexpected or duplicate quote mark',
             \ '<a> attribute with missing trailing quote mark',
