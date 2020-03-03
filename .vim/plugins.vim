@@ -24,7 +24,6 @@ Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requi
 
 " }}}
 
-
 " Workflow Utilities {{{
 
 Plug 'embear/vim-localvimrc'          " enable use of vimrc files local to directory
@@ -51,7 +50,6 @@ Plug 'alvan/vim-closetag'             " make html editing less miserable
 
 " }}}
 
-
 " Language Support {{{
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
@@ -65,7 +63,6 @@ Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j
 Plug 'mattn/emmet-vim'                             " web design workflow utilities
 
 " }}}
-
 
 call plug#end()
 

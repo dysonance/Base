@@ -105,7 +105,7 @@ set autoread                               " automatically read when a file is c
 set regexpengine=1                         " newer regular expression engine (versions 7.4+)
 autocmd VimResized * :wincmd =             " automatically resize scale windows when terminal is resized
 if has("clipboard")
-  set clipboard=unnamed                    " copy to system clipboard
+    set clipboard=unnamed                  " copy to system clipboard
 endif
 if &diff
     set diffopt+=iwhite                    " ignore whitespace in diff mode but not in standard vim

@@ -2,7 +2,6 @@ set t_Co=16
 set cursorline
 
 " General highlighting
-highlight Comment      ctermfg=Blue        ctermbg=none      cterm=none
 highlight Function     ctermfg=Yellow      ctermbg=none      cterm=none
 highlight Identifier   ctermfg=White       ctermbg=none      cterm=none
 highlight Normal       ctermfg=White       ctermbg=DarkBlue  cterm=none
@@ -21,6 +20,7 @@ highlight PreProc      ctermfg=DarkYellow  ctermbg=none      cterm=none
 highlight Repeat       ctermfg=Magenta     ctermbg=none      cterm=none
 highlight Statement    ctermfg=DarkCyan    ctermbg=none      cterm=none
 " Special highlighting group
+highlight Comment      ctermfg=Blue        ctermbg=none      cterm=none
 highlight Delimiter    ctermfg=Cyan        ctermbg=none      cterm=none
 highlight Special      ctermfg=DarkYellow  ctermbg=none      cterm=none
 highlight SpecialChar  ctermfg=DarkYellow  ctermbg=none      cterm=none
