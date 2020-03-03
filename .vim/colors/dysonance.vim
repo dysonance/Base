@@ -23,7 +23,7 @@ highlight Statement    ctermfg=DarkCyan    ctermbg=none      cterm=none
 highlight Comment      ctermfg=Blue        ctermbg=none      cterm=none
 highlight Delimiter    ctermfg=Cyan        ctermbg=none      cterm=none
 highlight Special      ctermfg=DarkYellow  ctermbg=none      cterm=none
-highlight SpecialChar  ctermfg=DarkYellow  ctermbg=none      cterm=none
+highlight SpecialChar  ctermfg=DarkGreen   ctermbg=none      cterm=none
 highlight Tag          ctermfg=Magenta     ctermbg=none      cterm=none
 highlight Todo         ctermfg=Yellow      ctermbg=Black     cterm=none
 highlight Type         ctermfg=DarkMagenta ctermbg=none      cterm=none

@@ -345,10 +345,12 @@ syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
 syn match pythonTodo      "TODO\|FIXME\|NOTE"
 syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)"
 
+syn region pythonFormat  start="{"      end="}"      contained             keepend
 syn region pythonComment start="#"      end="\n"     contains=pythonTodo
 syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
 syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
 syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
+syn region pythonString  start=+f"+     end=+"+      contains=pythonFormat skip="{\|}"
 
 hi def link pythonLibrary         PreProc
 hi def link pythonBoolean         Boolean
@@ -359,7 +361,7 @@ hi def link pythonCustomLibrary   PreProc
 hi def link pythonCustomType      Type
 hi def link pythonDecorator       PreProc
 hi def link pythonDelimiter       Delimiter
-hi def link pythonFormat          Special
+hi def link pythonFormat          SpecialChar
 hi def link pythonFunction        Operator
 hi def link pythonKeyword         Keyword
 hi def link pythonNumber          Number
