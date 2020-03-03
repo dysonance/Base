@@ -48,9 +48,9 @@ if [ "$1" == "--force" ]; then
     BuildVim
 else
     git checkout master --quiet
-    LOCAL_VERSION=$(git tag | tail -n 1)
+    LOCAL_VERSION=$(git rev-parse HEAD)
     git pull --quiet
-    LATEST_VERSION=$(git tag | tail -n 1)
+    LATEST_VERSION=$(git rev-parse $(git tag | tail -n 1))
     if [ "$LOCAL_VERSION" != "$LOCAL_VERSION" ]; then
         echo "updating vim from version $LOCAL_VERSION to $LATEST_VERSION"
         git checkout $LATEST_VERSION --quiet
