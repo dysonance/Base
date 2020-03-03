@@ -26,6 +26,7 @@ syn keyword shellKeyword
             \ stty
             \ unset
             \ unsetopt
+            \ let
 
 syn keyword shellRepeat
             \ do
@@ -86,13 +87,14 @@ syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
 syn match shellArgument  "\(\s\)\@<=-\w\+\|\(\s\)\@<=--[A-z\-_]\+\|\$[0-9]\|\$@"
 syn match shellKeyword   "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)\>"
 syn match shellFunction  "\(function \)\@<=\w\+"
-syn match shellFormat    "\(\$[A-z#]\+\)\|\\t\|\\n"
+syn match shellFormat    "\(\$[A-z#]\+\)\|\\t\|\\n" contained
+syn match shellVariable  "\(\$[A-z#]\+\)\|\\t\|\\n"
 
 syn region shellComment   start=+#+   end="$" contains=shellTodo
-syn region shellExpand    start="\${" end="}" contains=ALLBUT,shellDelimiter keepend
-syn region shellExpand    start="\$(" end=")" contains=ALLBUT,shellDelimiter keepend
+syn region shellExpand    start="\${" end="}" contains=ALL keepend
+syn region shellExpand    start="\$(" end=")" contains=ALL keepend
 syn region shellCharacter start=+'+   end=+'+ extend
-syn region shellString    start=+"+   end=+"+ skip="\\\"" contains=ALL keepend
+syn region shellString    start=+"+   end=+"+ skip="\\\""  contains=shellExpand,shellFormat,shellVariable keepend extend
 
 hi def link shellCommand     Function
 hi def link shellConstant    Constant
@@ -106,8 +108,9 @@ hi def link shellNumber      Number
 hi def link shellString      String
 hi def link shellTodo        Todo
 hi def link shellComment     Comment
-hi def link shellExpand      SpecialChar
 hi def link shellFormat      SpecialChar
+hi def link shellExpand      SpecialChar
+hi def link shellVariable    SpecialChar
 hi def link shellArgument    Special
 hi def link shellConditional Conditional
 hi def link shellRepeat      Repeat
