@@ -34,8 +34,8 @@ highlight CursorLineNR ctermfg=White       ctermbg=Blue      cterm=none
 highlight IncSearch    ctermfg=none        ctermbg=Blue      cterm=bold
 highlight LineNR       ctermfg=Grey        ctermbg=none      cterm=none
 highlight MatchParen   ctermfg=Grey        ctermbg=Blue      cterm=none
-highlight Pmenu        ctermfg=Black       ctermbg=Cyan      cterm=none
-highlight PmenuSel     ctermfg=White       ctermbg=DarkCyan  cterm=none
+highlight Pmenu        ctermfg=White       ctermbg=Blue      cterm=none
+highlight PmenuSel     ctermfg=Black       ctermbg=Cyan      cterm=none
 highlight Search       ctermfg=none        ctermbg=Blue      cterm=bold
 highlight StatusLine   ctermfg=Blue        ctermbg=Cyan      cterm=none
 highlight Visual       ctermfg=none        ctermbg=DarkGrey  cterm=none

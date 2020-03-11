@@ -335,7 +335,7 @@ syn keyword pythonStandardLibrary
             \ zipimport
             \ zlib
 
-syn match pythonConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
+syn match pythonConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
 syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
