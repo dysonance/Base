@@ -11,26 +11,28 @@ syn keyword pythonStatement
             \ return
             \ yield
 
-syn keyword pythonKeyword
-            \ as
-            \ catch
-            \ class
-            \ cls
+syn keyword pythonControl
             \ elif
             \ else
             \ except
             \ finally
             \ for
-            \ global
             \ if
             \ in
+            \ try
+            \ while
+            \ with
+
+syn keyword pythonKeyword
+            \ as
+            \ catch
+            \ class
+            \ cls
+            \ global
             \ lambda
             \ local
             \ nonlocal
             \ self
-            \ try
-            \ while
-            \ with
 
 syn keyword pythonBuiltin
             \ __name__
@@ -352,11 +354,11 @@ syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
 syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
 syn region pythonString  start=+f"+     end=+"+      contains=pythonFormat skip="{\|}"
 
-hi def link pythonLibrary         PreProc
 hi def link pythonBoolean         Boolean
 hi def link pythonBuiltin         Special
 hi def link pythonComment         Comment
 hi def link pythonConstant        Constant
+hi def link pythonControl         Statement
 hi def link pythonCustomLibrary   PreProc
 hi def link pythonCustomType      Type
 hi def link pythonDecorator       PreProc
@@ -364,6 +366,7 @@ hi def link pythonDelimiter       Delimiter
 hi def link pythonFormat          SpecialChar
 hi def link pythonFunction        Operator
 hi def link pythonKeyword         Keyword
+hi def link pythonLibrary         PreProc
 hi def link pythonNumber          Number
 hi def link pythonOperator        Operator
 hi def link pythonStandardLibrary PreProc

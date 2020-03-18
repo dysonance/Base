@@ -14,11 +14,11 @@ highlight Number       ctermfg=Red         ctermbg=none      cterm=none
 highlight String       ctermfg=Green       ctermbg=none      cterm=none
 " Statement highlighting group
 highlight Conditional  ctermfg=Magenta     ctermbg=none      cterm=none
-highlight Keyword      ctermfg=Magenta     ctermbg=none      cterm=none
+highlight Keyword      ctermfg=DarkCyan    ctermbg=none      cterm=none
 highlight Operator     ctermfg=Yellow      ctermbg=none      cterm=none
 highlight PreProc      ctermfg=DarkYellow  ctermbg=none      cterm=none
 highlight Repeat       ctermfg=Magenta     ctermbg=none      cterm=none
-highlight Statement    ctermfg=DarkCyan    ctermbg=none      cterm=none
+highlight Statement    ctermfg=Magenta     ctermbg=none      cterm=none
 " Special highlighting group
 highlight Comment      ctermfg=Blue        ctermbg=none      cterm=none
 highlight Delimiter    ctermfg=Cyan        ctermbg=none      cterm=none

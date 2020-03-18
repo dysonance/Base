@@ -30,17 +30,21 @@ syn keyword cppStatement
             \ throw
             \ using
 
-syn keyword cppKeyword
+syn keyword cppControl
             \ break
             \ catch
-            \ class
             \ continue
             \ else
-            \ explicit
-            \ export
             \ finally
             \ for
             \ if
+            \ try
+            \ while
+
+syn keyword cppKeyword
+            \ class
+            \ explicit
+            \ export
             \ inline
             \ namespace
             \ private
@@ -48,11 +52,9 @@ syn keyword cppKeyword
             \ public
             \ struct
             \ template
-            \ try
             \ typedef
             \ typename
             \ virtual
-            \ while
 
 syn keyword cppConstant
             \ nullptr
@@ -150,6 +152,7 @@ hi def link cppChar               String
 hi def link cppComment            Comment
 hi def link cppConstant           Constant
 hi def link cppConstant           Constant
+hi def link cppControl            Statement
 hi def link cppCustomType         Type
 hi def link cppDelimiter          Delimiter
 hi def link cppExceptions         Exception
@@ -166,10 +169,10 @@ hi def link cppScopeDelimiter     Special
 hi def link cppStatement          Statement
 hi def link cppStorageClass       StorageClass
 hi def link cppString             String
+hi def link cppStringFormat       SpecialChar
 hi def link cppStructure          Structure
 hi def link cppTodo               Todo
 hi def link cppType               Type
 hi def link cppTypeModifier       Keyword
-hi def link cppStringFormat       SpecialChar
 
 let b:current_syntax = "cpp"

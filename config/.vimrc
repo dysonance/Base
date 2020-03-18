@@ -386,22 +386,20 @@ autocmd filetype pandoc nmap <F5> :!pandoc % -o %:r.pdf --metadata date="`date '
 nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
 nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
+nmap <F7> :SlimeSendCurrentLine<CR>j
+nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd filetype r nmap <silent> <leader><F1> :!R -e "?<cword>"<CR>
 autocmd filetype r nmap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
 autocmd filetype r nmap <F5> :execute ":SlimeSend1 source('" . bufname("%") . "')"<CR>
 autocmd filetype r nmap <F6> msvip:SlimeSend<CR>`s
 autocmd filetype r vmap <F6> :SlimeSend<CR>gv
-autocmd filetype r nmap <F7> :SlimeSendCurrentLine<CR>j
-autocmd filetype r nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd filetype julia nmap <F3> :execute ":SlimeSend1 julia --color=yes -e \"using Pkg; Pkg.test(\\\"" . systemlist("basename $(git root)")[0] . "\\\")\""<CR>
 autocmd filetype julia nmap <F4> :execute ":SlimeSend1 julia -O3 --color=yes " . bufname("%")<CR>
 autocmd filetype julia nmap <F5> :execute ":SlimeSend1 include(\"" . bufname("%") . "\")"<CR>
 autocmd filetype julia nmap <F6> msvip:SlimeSend<CR>`s
 autocmd filetype julia vmap <F6> :SlimeSend<CR>gv
-autocmd filetype julia nmap <F7> :SlimeSendCurrentLine<CR>j
-autocmd filetype julia nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd filetype cpp set keywordprg=cppman
 autocmd filetype cpp nmap <silent> <leader><F1> :!cppman <cword><CR>
@@ -414,16 +412,12 @@ autocmd filetype shell nmap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<C
 autocmd filetype shell nmap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
 autocmd filetype shell nmap <F6> msvip:SlimeSend<CR>`s
 autocmd filetype shell vmap <F6> :SlimeSend<CR>gv
-autocmd filetype shell nmap <F7> :SlimeSendCurrentLine<CR>j
-autocmd filetype shell nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd filetype sql nmap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
 autocmd filetype sql nmap <F4> :execute ":SlimeSend1 sql -f " . bufname("%") . ""<CR>
 autocmd filetype sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<CR>
 autocmd filetype sql nmap <F6> msvip:SlimeSend<CR>`s
 autocmd filetype sql vmap <F6> :SlimeSend<CR>gv
-autocmd filetype sql nmap <F7> :SlimeSendCurrentLine<CR>j
-autocmd filetype sql nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd filetype python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd filetype python nmap <F3> :execute ":SlimeSend1 test python"<CR>
@@ -432,8 +426,6 @@ autocmd filetype python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("
 "autocmd filetype python nmap <F5> :execute ":SlimeSend1 %run " . bufname("%") ""<CR>
 autocmd filetype python nmap <F6> msvip:SlimeSend<CR>`s
 autocmd filetype python vmap <F6> :SlimeSend<CR>gv
-autocmd filetype python nmap <F7> :SlimeSendCurrentLine<CR>j
-autocmd filetype python nmap <F8> :SlimeSendCurrentLine<CR>
 
 autocmd filetype go nmap <F5> :execute ":SlimeSend1 go run " . bufname("%")<CR>
 
