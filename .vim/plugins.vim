@@ -20,7 +20,7 @@ Plug 'junegunn/vim-easy-align'    " align blocks of code easily
 Plug 'rhysd/vim-clang-format'     " clang format whole file
 Plug 'chrisbra/unicode.vim'       " utilities for working with unicode characters
 Plug 'dhruvasagar/vim-table-mode' " table editing workflow enhancements
-Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
+"Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
 
 " }}}
 
@@ -42,8 +42,6 @@ Plug 'AndrewRadev/linediff.vim'       " vimdiff groups of lines right next to ea
 Plug 'ctrlpvim/ctrlp.vim'             " fuzzy search utility
 Plug 'mhinz/vim-grepper'              " easily search for patterns in files
 Plug 'rizzatti/dash.vim'              " mac dash documentation app integration
-Plug 'python-mode/python-mode'        " python workflow utilities (linting, completion, formatting)
-Plug 'davidhalter/jedi-vim'           " jedi python autocompletion/documentation library
 Plug 'tweekmonster/braceless.vim'     " smarter navigation of code that doesnt use braces for scope
 Plug 'tmhedberg/matchit'              " extent the % to match HTML, LaTeX, and other languages
 Plug 'alvan/vim-closetag'             " make html editing less miserable
@@ -52,15 +50,21 @@ Plug 'alvan/vim-closetag'             " make html editing less miserable
 
 " Language Support {{{
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
-Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
-Plug 'plasticboy/vim-markdown'                     " Markdown language support
-"Plug 'vim-pandoc/vim-pandoc'                       " required for Rmd support
-"Plug 'vim-pandoc/vim-pandoc-syntax'                " required for Rmd support
-"Plug 'JuliaEditorSupport/julia-vim'                " julia language support
-Plug 'hashivim/vim-terraform'                      " basic vim/terraform integration
-Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j2, hosts, certain yaml)
-Plug 'mattn/emmet-vim'                             " web design workflow utilities
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }                       " go language support
+Plug 'vim-scripts/Vim-R-plugin'                                          " R language support improved
+Plug 'plasticboy/vim-markdown'                                           " Markdown language support
+Plug 'hashivim/vim-terraform'                                            " basic vim/terraform integration
+Plug 'pearofducks/ansible-vim'                                           " common ansible filetypes (j2, hosts, certain yaml)
+Plug 'mattn/emmet-vim'                                                   " web design workflow utilities
+
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " python workflow utilities (linting, completion, formatting)
+Plug 'davidhalter/jedi-vim'                                              " jedi python autocompletion/documentation library
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <leader>cd :CocList diagnostics<CR>
+nnoremap <leader>cl :CocInfo<CR>
 
 " }}}
 
@@ -254,6 +258,7 @@ let g:localvimrc_ask=0
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline#extensions#coc#enabled=1
 let g:airline_theme='simple' " see here for options: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
 " }}}

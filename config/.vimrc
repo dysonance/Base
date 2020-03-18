@@ -125,7 +125,7 @@ let &t_EI = "\e[2 q"
 
 " }}}
 
-" Code Folding {{{
+" Folding {{{
 
 set foldenable                                " enable code folding
 set foldmethod=indent                         " fold based on language syntax
@@ -151,7 +151,7 @@ autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc
 
 " }}}
 
-" Key Mappings {{{
+" Mappings {{{
 
 " General Mappings {{{
 
@@ -433,7 +433,7 @@ autocmd filetype go nmap <F5> :execute ":SlimeSend1 go run " . bufname("%")<CR>
 
 " }}}
 
-" Language Preferences {{{
+" Language-Specific {{{
 
 " lzz files interpreted as cpp files
 autocmd BufNewFile,BufRead *.lzz set filetype=cpp
