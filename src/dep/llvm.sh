@@ -1,55 +1,30 @@
 #!/bin/bash
 
-# Note: See this anser on StackOverflow for a good explanation of how this needs to be structured
+# NOTE: See this anser on StackOverflow for a good explanation of how to structure builds using tar files
 # https://stackoverflow.com/a/49702159/2271756
+# NOTE: See this blog post for an intuitive and straightforward setup
+# https://shaharmike.com/cpp/build-clang/
 
-SYSTEM_HEADER_LOCATION=/usr/include/c++/4.2.1
-LLVM_VERSION=9.0.0
+GIT_URL="https://github.com/llvm-mirror"
+VERSION_BRANCH=release_90
 
 # dependency handling
-DEPENDENCIES=(wget cmake make)
+DEPENDENCIES=(git cmake make)
 for dep in "${DEPENDENCIES[@]}"; do echo "installing dependency: $dep" && brew install $dep; done
 
 # directory setup
 cd $APPDIR
 if ! [ -d "LLVM" ]; then mkdir LLVM; fi
 cd LLVM
-if [ -d "src" ]; then
-    echo "removing pre-existing source directory $APPDIR/LLVM/src"
-    rm -rf src
-fi
-
-# llvm source
-wget http://releases.llvm.org/$LLVM_VERSION/llvm-$LLVM_VERSION.src.tar.xz
-tar -xvf llvm-$LLVM_VERSION.src.tar.xz
-mv llvm-$LLVM_VERSION.src src
-cd src
-
-# clang compiler source
-cd tools
-wget http://releases.llvm.org/$LLVM_VERSION/cfe-$LLVM_VERSION.src.tar.xz
-tar -xvf cfe-$LLVM_VERSION.src.tar.xz
-mv cfe-$LLVM_VERSION.src clang
-cd clang
-
-# clang extra tools (e.g. clang-tidy)
-cd tools
-wget http://releases.llvm.org/$LLVM_VERSION/clang-tools-extra-$LLVM_VERSION.src.tar.xz
-tar -xvf clang-tools-extra-$LLVM_VERSION.src.tar.xz
-mv clang-tools-extra-$LLVM_VERSION.src extra
-
-# build everything together with cmake
-cd $APPDIR/LLVM/src
+git clone --single-branch --branch $VERSION_BRANCH $GIT_URL/llvm llvm
+git clone --single-branch --branch $VERSION_BRANCH $GIT_URL/clang llvm/tools/clang
+git clone --single-branch --branch $VERSION_BRANCH $GIT_URL/clang-tools-extra llvm/tools/clang/tools/extra
+git clone --single-branch --branch $VERSION_BRANCH $GIT_URL/compiler-rt llvm/projects/compiler-rt
+git clone --single-branch --branch $VERSION_BRANCH $GIT_URL/libcxx llvm/projects/libcxx
+git clone --single-branch --branch $VERSION_BRANCH $GIT_URL/libcxxabi llvm/projects/libcxxabi
+git clone --single-branch --branch $VERSION_BRANCH $GIT_URL/lld llvm/tools/lld
+# build
 mkdir build
 cd build
-if [ -f "CMakeCache.txt" ]; then
-    echo "removing cmake cache to ensure clean build"
-    rm CMakeCache.txt
-fi
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Release ../llvm
 make -j $CPU
-
-# create binary directory
-cd $APPDIR/LLVM/src
-ln -sf build/bin bin
-ln -s $SYSTEM_HEADER_LOCATION/* build/lib/clang/$LLVM_VERSION/include/

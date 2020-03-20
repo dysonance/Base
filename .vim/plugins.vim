@@ -20,7 +20,6 @@ Plug 'junegunn/vim-easy-align'    " align blocks of code easily
 Plug 'rhysd/vim-clang-format'     " clang format whole file
 Plug 'chrisbra/unicode.vim'       " utilities for working with unicode characters
 Plug 'dhruvasagar/vim-table-mode' " table editing workflow enhancements
-"Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
 
 " }}}
 
@@ -34,7 +33,6 @@ Plug 'jreybert/vimagit'               " improved git repo workflow within vim
 Plug 'airblade/vim-gitgutter'         " git diffs in the gutter
 Plug 'tpope/vim-fugitive'             " git command line interface simplification
 Plug 'jpalardy/vim-slime'             " allow connection to a REPL running in a slime/tmux session
-Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
 Plug 'scrooloose/nerdtree'            " file explorer side bar
 Plug 'Xuyuanp/nerdtree-git-plugin'    " add git indications to nerd tree sidebar
 Plug 'octref/RootIgnore'              " auto-add project gitignore files to vim wildignore
@@ -60,11 +58,14 @@ Plug 'mattn/emmet-vim'                                                   " web d
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " python workflow utilities (linting, completion, formatting)
 Plug 'davidhalter/jedi-vim'                                              " jedi python autocompletion/documentation library
 
+"Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
+Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap <leader>cd :CocList diagnostics<CR>
 nnoremap <leader>cl :CocInfo<CR>
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " }}}
 
@@ -143,8 +144,8 @@ let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1
 
 " Python
-let g:syntastic_python_checkers=['python3', 'pyflakes']
-let g:syntastic_python_pylint_post_args="--jobs=$CPU --disable=all --enable=classes,imports,variables,typecheck,refactoring --disable=missing-docstring,invalid-name"
+let g:syntastic_python_checkers=['python3', 'pyflakes', 'pylint']
+let g:syntastic_python_pylint_post_args="--jobs=$CPU --disable=all --enable=classes,imports,variables,typecheck,refactoring --disable=missing-docstring,invalid-name,redefined-builtin"
 
 " Go
 let g:go_highlight_functions = 1
@@ -168,7 +169,7 @@ let g:ycm_python_binary_path=$PYTHON_BINARY     " use python 3 instead of system
 let g:ycm_max_num_candidates=20                 " maximum number of completion options to use (default 50)
 let g:ycm_min_num_identifier_candidate_chars=2  " min chars id candidate must have to appear
 let g:ycm_confirm_extra_conf=0                  " dont ask to reload conf every time
-set completeopt=menu,menuone                    " turn off the preview/documentation window
+"set completeopt=menu,menuone                    " turn off the preview/documentation window
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_show_diagnostics_ui=0
 let g:ycm_error_symbol='E'

@@ -1,14 +1,26 @@
 {
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.autoTrigger": "trigger",
-    "suggest.maxCompleteItemCount": 100,
-    "suggest.minTriggerInputLength": 2,
+    "suggest.triggerAfterInsertEnter": true,
+    "suggest.maxCompleteItemCount": 25,
+    "suggest.autoTrigger": "always",
+    "suggest.minTriggerInputLength": 3,
     "suggest.timeout": 500,
     "diagnostic.enableMessage": "always",
+
     "python.linting.pylintArgs": [
         "--jobs=28",
         "--disable=all",
         "--enable=classes,imports,variables,refactoring",
-        "--disable=missing-docstring,invalid-name"
+        "--disable=missing-docstring,invalid-name,redefined-builtin"
+    ],
+
+    "clangd.path": "clangd",
+    "clangd.enabled": true,
+    "clangd.arguments": [
+        "--background-index",
+        "--completion-style=bundled",
+        "--pretty",
+        "--suggest-missing-includes",
+        "-j=28"
     ]
 }
