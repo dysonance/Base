@@ -11,7 +11,7 @@
         "--jobs=28",
         "--disable=all",
         "--enable=classes,imports,variables,refactoring",
-        "--disable=missing-docstring,invalid-name,redefined-builtin"
+        "--disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks"
     ],
 
     "clangd.path": "clangd",

@@ -32,7 +32,7 @@ highlight Cursor       ctermfg=none       ctermbg=none       cterm=none
 highlight CursorLine   ctermfg=none       ctermbg=DarkBlue   cterm=none
 highlight CursorLineNR ctermfg=White      ctermbg=Blue       cterm=none
 highlight IncSearch    ctermfg=none       ctermbg=DarkGreen  cterm=bold
-highlight LineNR       ctermfg=DarkGrey   ctermbg=none       cterm=none
+highlight LineNR       ctermfg=DarkGrey   ctermbg=DarkBlue   cterm=none
 highlight MatchParen   ctermfg=Grey       ctermbg=Blue       cterm=none
 highlight Pmenu        ctermfg=Black      ctermbg=Cyan       cterm=none
 highlight PmenuSel     ctermfg=White      ctermbg=DarkCyan   cterm=none

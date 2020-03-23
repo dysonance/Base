@@ -138,14 +138,22 @@ autocmd filetype python set foldmethod=indent " overwrite pymode indent method
 
 " Formatters {{{
 
-autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
-autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
-autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
-autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
+" format current file
+autocmd filetype c setlocal formatprg=clang-format\ -style=file\ -
 autocmd filetype cpp setlocal formatprg=clang-format\ -style=file\ -
 autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --stdin\ -
+autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc
+autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
+autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
+autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
 
+autocmd filetype css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
+autocmd filetype go nmap <leader>fmt :GoFmt<CR>
+autocmd filetype html nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
+autocmd filetype python nmap <leader>fmt mmgggqG`mzz
+autocmd filetype sql nmap <leader>fmt m0gggqG`0
+autocmd filetype tpl nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
 
 " }}
 
@@ -232,15 +240,6 @@ imap <C-P> <C-V>
 nmap <leader>pvh <C-W>t<C-W>K
 " horizontal to vertical
 nmap <leader>pvv <C-W>t<C-W>H
-
-" format current file
-autocmd filetype sql nmap <leader>fmt m0gggqG`0
-autocmd filetype cpp nmap <leader>fmt :ClangFormat<CR>
-autocmd filetype python nmap <leader>fmt mmgggqG`mzz
-autocmd filetype go nmap <leader>fmt :GoFmt<CR>
-autocmd filetype css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
-autocmd filetype html nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
-autocmd filetype tpl nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
 
 " quick isolation of the currently focused file
 nnoremap <leader><Esc><Esc> :only<CR>

@@ -30,6 +30,7 @@ export PATH=$APPDIR/Julia/Julia-1.3.app/Contents/Resources/julia/bin:$PATH
 # path appends
 export PATH=$PATH:$APPDIR/Brew/src/opt/llvm/bin
 export PATH=$PATH:$APPDIR/Brew/src/sbin
+#export PATH=$APPDIR/LLVM/build/bin:$PATH
 
 # shell behavior
 stty -ixon  # disable terminal flow control to allow more vim keybindings
