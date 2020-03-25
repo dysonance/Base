@@ -151,7 +151,6 @@ hi def link cppCast               cppStatement
 hi def link cppChar               String
 hi def link cppComment            Comment
 hi def link cppConstant           Constant
-hi def link cppConstant           Constant
 hi def link cppControl            Statement
 hi def link cppCustomType         Type
 hi def link cppDelimiter          Delimiter
@@ -170,7 +169,6 @@ hi def link cppStatement          Statement
 hi def link cppStorageClass       StorageClass
 hi def link cppString             String
 hi def link cppStringFormat       SpecialChar
-hi def link cppStructure          Structure
 hi def link cppTodo               Todo
 hi def link cppType               Type
 hi def link cppTypeModifier       Keyword

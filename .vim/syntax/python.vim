@@ -90,6 +90,7 @@ syn keyword pythonCustomLibrary
             \ plotly
             \ psycopg2
             \ pylab
+            \ quandl
             \ requests
             \ scipy
             \ seaborn sns

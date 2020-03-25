@@ -4,8 +4,8 @@ set runtimepath^=~/.vim
 set runtimepath+=~/.vim/after
 set runtimepath+=~/.local/share/nvim/site/autoload
 set runtimepath+=~/.local/share/nvim/plugged
-set rtp+=~/.vim
-set rtp+=~/.vim/autoload/plug.vim
+set runtimepath+=~/.vim
+set runtimepath+=~/.vim/autoload/plug.vim
 let &packpath = &runtimepath
 
 " dependency paths

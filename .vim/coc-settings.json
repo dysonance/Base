@@ -1,20 +1,23 @@
 {
+    "diagnostic.enableMessage": "always",
+    "diagnostic.errorSign": "E",
+    "diagnostic.warningSign": "W",
+    "diagnostic.infoSign": "I",
+    "diagnostic.hintSign": "H",
+
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.maxCompleteItemCount": 25,
     "suggest.autoTrigger": "always",
     "suggest.minTriggerInputLength": 3,
     "suggest.timeout": 500,
-    "diagnostic.enableMessage": "always",
 
     "python.linting.pylintArgs": [
-        "--jobs=28",
         "--disable=all",
         "--enable=classes,imports,variables,refactoring",
         "--disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks"
     ],
 
-    "clangd.path": "clangd",
     "clangd.enabled": true,
     "clangd.arguments": [
         "--background-index",

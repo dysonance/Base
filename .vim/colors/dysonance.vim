@@ -31,12 +31,12 @@ highlight Type         ctermfg=DarkMagenta ctermbg=none      cterm=none
 highlight Cursor       ctermfg=none        ctermbg=none      cterm=none
 highlight CursorLine   ctermfg=none        ctermbg=Black     cterm=none
 highlight CursorLineNR ctermfg=White       ctermbg=Blue      cterm=none
-highlight IncSearch    ctermfg=none        ctermbg=Blue      cterm=bold
+highlight IncSearch    ctermfg=none        ctermbg=DarkGreen cterm=bold
 highlight LineNR       ctermfg=DarkGrey    ctermbg=none      cterm=none
 highlight MatchParen   ctermfg=Grey        ctermbg=Blue      cterm=none
-highlight Pmenu        ctermfg=White       ctermbg=Blue      cterm=none
-highlight PmenuSel     ctermfg=Black       ctermbg=Cyan      cterm=none
-highlight Search       ctermfg=none        ctermbg=Blue      cterm=bold
+highlight Pmenu        ctermfg=White       ctermbg=Black     cterm=none
+highlight PmenuSel     ctermfg=White       ctermbg=Blue      cterm=none
+highlight Search       ctermfg=none        ctermbg=DarkGreen cterm=bold
 highlight StatusLine   ctermfg=Blue        ctermbg=Cyan      cterm=none
 highlight Visual       ctermfg=none        ctermbg=DarkGrey  cterm=none
 " Errors and warnings highlighting

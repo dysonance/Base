@@ -52,7 +52,6 @@ Plug 'hashivim/vim-terraform'                                            " basic
 Plug 'pearofducks/ansible-vim'                                           " common ansible filetypes (j2, hosts, certain yaml)
 Plug 'mattn/emmet-vim'                                                   " web design workflow utilities
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " python workflow utilities (linting, completion, formatting)
-Plug 'davidhalter/jedi-vim'                                              " jedi python autocompletion/documentation library
 
 " Linting/Completion {{{
 
@@ -69,7 +68,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 call plug#end()
 
 let b:ale_fixers = {'python': ['pyflakes', 'pylint'],}
-let g:ale_python_pylint_options = '--jobs=$CPU --disable=all --enable=classes,imports,variables,typecheck,refactoring --disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks'
+let g:ale_python_pylint_options = "--disable=all --enable=classes,imports,variables,typecheck,refactoring --disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks"
 
 " }}}
 
@@ -80,6 +79,12 @@ runtime macros/matchit.vim  " extended `%` logical navigation
 " }}}
 
 " Configuration {{{
+
+" Coc {{{
+
+nmap <leader>cd :CocList diagnostics<CR>
+
+" }}}
 
 " Syntastic {{{
 
@@ -144,8 +149,7 @@ let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1
 
 " Python
-let g:syntastic_python_checkers=['python3', 'pyflakes', 'pylint']
-let g:syntastic_python_pylint_post_args="--jobs=$CPU --disable=all --enable=classes,imports,variables,typecheck,refactoring --disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks"
+let g:syntastic_python_checkers=['python3', 'pyflakes']
 
 " Go
 let g:go_highlight_functions = 1
@@ -228,23 +232,6 @@ let g:pymode_options_colorcolumn=0
 let g:pymode_rope=0
 let g:pymode_run=0
 let g:pymode_breakpoint=0
-
-" }}}
-
-" Vim Jedi (Python) {{{
-
-" NOTE: jedi and pymode can conflict so you may need to decide between them
-"let g:jedi#completions_enabled=0
-
-let g:jedi#popup_select_first=0    " dont auto-select first autocompletion
-let g:jedi#show_call_signatures="" " dont show call signatures (distracting)
-let g:jedi#use_tabs_not_buffers=1
-let g:jedi#use_splits_not_buffers="winwidth"
-
-" shortcuts/keymaps
-let g:jedi#documentation_command="K"
-let g:jedi#goto_definitions_command=""
-let g:jedi#rename_command=""
 
 " }}}
 
