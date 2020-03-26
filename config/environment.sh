@@ -16,22 +16,23 @@ alias gg="git grep -nIi"
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
-export GOROOT=$APPDIR/Brew/src/opt/go/libexec
-export EDITOR=nvim
+export BREWDIR=$APPDIR/Brew/src  # if built in home directory
+export BREWDIR=/usr/local  # if installed conventionally
+export GOROOT=$BREWDIR/opt/go/libexec
+export EDITOR=vim
 alias vim="nvim"
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH
-export PATH=$APPDIR/Brew/src/bin:$PATH
+export PATH=$BREWDIR/bin:$PATH
 export PATH=$APPDIR/NeoVim/src/build/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.6/bin:$PATH
 export PATH=$APPDIR/Julia/Julia-1.3.app/Contents/Resources/julia/bin:$PATH
 # path appends
-export PATH=$PATH:$APPDIR/Brew/src/opt/llvm/bin
-export PATH=$PATH:$APPDIR/Brew/src/sbin
-#export PATH=$APPDIR/LLVM/build/bin:$PATH
+export PATH=$PATH:/usr/local/opt/llvm/bin  # llvm toolchain
+export PATH=$PATH:$BREWDIR/sbin
 
 # shell behavior
 stty -ixon  # disable terminal flow control to allow more vim keybindings
