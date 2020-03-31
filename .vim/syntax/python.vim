@@ -162,7 +162,6 @@ syn keyword pythonStandardLibrary
             \ filecmp
             \ fileinput
             \ fnmatch
-            \ formatter
             \ fractions
             \ ftplib
             \ functools

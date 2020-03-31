@@ -391,6 +391,7 @@ nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
 nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
 nmap <F7> :SlimeSendCurrentLine<CR>j
 nmap <F8> :SlimeSendCurrentLine<CR>
+nmap <F9> ggV``<F6>
 
 autocmd filetype r nmap <silent> <leader><F1> :!R -e "?<cword>"<CR>
 autocmd filetype r nmap <F4> :execute ":SlimeSend1 build r" . bufname("%") . "')"<CR>
