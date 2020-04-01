@@ -1,0 +1,52 @@
+{
+    "go_log" : {
+        "title" : "Go Log Format",
+        "description" : "Log format used for commonly used Go package(s).",
+        "regex" : {
+            "basic" : {
+                "pattern" : "^(?<timestamp>\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}) \\[(?<level>\\w+)\\] \\[(?<component>\\w+.\\w+):(?<line>\\d+)\\]  (?<body>.*)$"
+            }
+        },
+        "level-field" : "level",
+        "level" : {
+            "critical": "C",
+            "error" : "E",
+            "warning" : "W",
+            "info": "N",
+            "debug": "I",
+            "trace": "D"
+        },
+        "value" : {
+            "component" : {
+                "kind" : "string",
+                "identifier" : true
+            },
+            "line": {
+                "kind": "integer",
+                "identifier": true
+            }
+        },
+        "highlights": {
+            "links": {
+                "pattern": "http(?s)://.*\\S",
+                "color": "#0000ff",
+                "background-color": "#000000",
+                "underline": true,
+                "blink": false
+            },
+            "delimiters": {
+                "pattern": "/|\\[|\\]|\\(|\\)|,|:",
+                "color": "#00ffff",
+                "background-color": "#000000",
+                "underline": false,
+                "blink": false
+            }
+        },
+        "sample" : [
+            {
+                "line": "2006/01/02 18:54:21.756 [W] [Filename.go:47]  Log message here.",
+                "level": "warning"
+            }
+        ]
+    }
+}
