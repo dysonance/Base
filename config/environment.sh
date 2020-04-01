@@ -19,6 +19,7 @@ export APPDIR=$HOME/Applications
 export BREWDIR=$APPDIR/Brew/src  # if built in home directory
 export BREWDIR=/usr/local  # if installed conventionally
 export GOROOT=$BREWDIR/opt/go/libexec
+export GOPATH=$APPDIR/Go
 export EDITOR=vim
 alias vim="nvim"
 

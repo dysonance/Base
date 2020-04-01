@@ -57,6 +57,7 @@ syn keyword cppKeyword
             \ virtual
 
 syn keyword cppConstant
+            \ nan
             \ nullptr
 
 syn keyword cppBoolean
@@ -136,8 +137,8 @@ syn match cppScopeDelimiter "::"
 syn match cppPreProc        "#\w*"
 syn match cppString         "\(#include \)\@<=.*$"
 syn match cppTodo           "\<FIXME\>\|\<TODO\>\|\<NOTE\>"
+syn match cppType           "\<\w\+\>\( \<\w\+\>.=\)\@=\|\(const \)\@<=\<\w\+\>"
 syn match cppNamespace      "\<\w\+\>\(::\)\@=\|\(namespace \)\@<=\<\w\+\>"
-syn match cppType           "\<\w\+\>\( \<\w\+\>.=\)\@=\|\(const \)\@<=\<\w\+\>\@!\(::\)"
 syn match cppStringFormat   "\\[nt]"                        contained
 
 syn region cppComment  start="//"   end="$"    contains=cppTodo

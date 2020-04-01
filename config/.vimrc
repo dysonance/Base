@@ -114,11 +114,11 @@ endif
 
 " change cursor shape dynamically (see https://stackoverflow.com/a/30199177/2271756)
 if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SI = "\<esc>Ptmux;\<esc>\<esc>]50;CursorShape=1\x7\<esc>\\"
+  let &t_EI = "\<esc>Ptmux;\<esc>\<esc>]50;CursorShape=0\x7\<esc>\\"
 else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SI = "\<esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<esc>]50;CursorShape=0\x7"
 endif
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
@@ -178,7 +178,7 @@ nmap gR gDVG::s/<C-R>///gc<Left><Left><Left>
 "nnoremap gR gD::%s/<C-R>///gc<left><left><left>
 
 " shortcut to replace word by pasting before it, deleting it, and adding a space
-nnoremap R Pldwi<Esc>bye
+nnoremap R Pldwi<esc>bye
 
 " Undo the Vim R plugin annoying underscore to arrow mapping
 let vimrplugin_assign=0
@@ -210,7 +210,7 @@ nnoremap <Tab> <C-W>w
 nnoremap <S-Tab> <C-W>W
 
 " ctrl+h to turn off highlighting
-nnoremap <Esc><Esc> :nohl<CR>
+nnoremap <esc><esc> :nohl<CR>
 
 " easy align initializer keymap
 xmap ga <Plug>(EasyAlign)
@@ -246,7 +246,7 @@ nmap <leader>pvh <C-W>t<C-W>K
 nmap <leader>pvv <C-W>t<C-W>H
 
 " quick isolation of the currently focused file
-nnoremap <leader><Esc><Esc> :only<CR>
+nnoremap <leader><esc><esc> :only<CR>
 
 " merge conflict resolution shortcuts
 nnoremap <leader>dgr :diffget REMOTE \| diffupdate<CR>
@@ -325,6 +325,7 @@ nnoremap <C-T> :shell<CR>
 
 " ctrl+s to save
 nnoremap <silent> <C-S> :w<CR>
+inoremap <silent> <C-S> <esc>:w<CR>a
 
 " ctrl+e to refresh file
 nnoremap <silent> <C-E> :e<CR>
@@ -338,22 +339,22 @@ nnoremap <silent> <C-Q> :q<CR>
 " Insert Mode {{{
 
 " quickly save while in insert mode
-inoremap <silent> <C-S> <Esc>:w<CR>a
+inoremap <silent> <C-S> <esc>:w<CR>a
 
 " latex symbol shortcuts for pandoc markdown files
-autocmd filetype pandoc vmap <C-J> <Esc>f{vi{
-autocmd filetype pandoc imap <C-J> <Esc>f{vi{
-autocmd filetype pandoc nmap <C-J> <Esc>f{vi{
-autocmd filetype pandoc imap <C-L> _{}<Esc>i
-autocmd filetype pandoc imap <C-E> ^{}<Esc>i
-autocmd Filetype pandoc imap <C-F> \text{}<Esc>i
-autocmd filetype pandoc imap <C-T>s \sum\limits_{i=1}^{N}<Esc>F=vi{
-autocmd filetype pandoc imap <C-T>p \prod\limits_{i=1}^{N}<Esc>F=vi{
-autocmd filetype pandoc imap <C-T>f \frac{1}{N}<Esc>F1v
-autocmd filetype pandoc imap <C-T>tf \tfrac{1}{N}<Esc>F1v
-autocmd filetype pandoc imap <C-B> \left<C-V>[\right<C-V>]<Esc>%a<Space><Space><Esc>i
-autocmd filetype pandoc imap <C-P> \left<C-V>(\right<C-V>)<Esc>%a<Space><Space><Esc>i
-autocmd filetype pandoc imap <C-C> \left<C-V>\{\right<C-V>\}<Esc>%a<Space><Space><Esc>i
+autocmd filetype pandoc vmap <C-J> <esc>f{vi{
+autocmd filetype pandoc imap <C-J> <esc>f{vi{
+autocmd filetype pandoc nmap <C-J> <esc>f{vi{
+autocmd filetype pandoc imap <C-L> _{}<esc>i
+autocmd filetype pandoc imap <C-E> ^{}<esc>i
+autocmd Filetype pandoc imap <C-F> \text{}<esc>i
+autocmd filetype pandoc imap <C-T>s \sum\limits_{i=1}^{N}<esc>F=vi{
+autocmd filetype pandoc imap <C-T>p \prod\limits_{i=1}^{N}<esc>F=vi{
+autocmd filetype pandoc imap <C-T>f \frac{1}{N}<esc>F1v
+autocmd filetype pandoc imap <C-T>tf \tfrac{1}{N}<esc>F1v
+autocmd filetype pandoc imap <C-B> \left<C-V>[\right<C-V>]<esc>%a<Space><Space><esc>i
+autocmd filetype pandoc imap <C-P> \left<C-V>(\right<C-V>)<esc>%a<Space><Space><esc>i
+autocmd filetype pandoc imap <C-C> \left<C-V>\{\right<C-V>\}<esc>%a<Space><Space><esc>i
 
 " greek letter shortcuts for pandoc markdown files
 autocmd filetype pandoc imap <C-G>a \alpha

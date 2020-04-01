@@ -99,14 +99,13 @@ tabspaces: 4
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Iosevka Nerd Font
-    style: Regular
+    family: Input Mono Compressed
+    style: Extra Light
   bold:
     #family: monospace
     style: Bold
   italic:
     #family: monospace
-    # The `style` can be specified to pick a specific face.
     style: Italic
   bold_italic:
     #family: monospace

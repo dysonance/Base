@@ -20,7 +20,7 @@ highlight PreProc      ctermfg=DarkYellow  ctermbg=none      cterm=none
 highlight Repeat       ctermfg=Magenta     ctermbg=none      cterm=none
 highlight Statement    ctermfg=Magenta     ctermbg=none      cterm=none
 " Special highlighting group
-highlight Comment      ctermfg=Blue        ctermbg=none      cterm=none
+highlight Comment      ctermfg=Black        ctermbg=Blue      cterm=none
 highlight Delimiter    ctermfg=Cyan        ctermbg=none      cterm=none
 highlight Special      ctermfg=DarkYellow  ctermbg=none      cterm=none
 highlight SpecialChar  ctermfg=DarkGreen   ctermbg=none      cterm=none

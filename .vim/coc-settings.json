@@ -25,5 +25,18 @@
         "--pretty",
         "--suggest-missing-includes",
         "-j=28"
-    ]
+    ],
+
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [".git/", "go.mod", ".vim"],
+            "filetypes": ["go"],
+            "disableWorkspaceFolders": true,
+            "initializationOptions": {
+                "usePlaceholders": true,
+                "completeUnimported": true
+            }
+        }
+    }
 }
