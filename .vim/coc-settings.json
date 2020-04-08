@@ -9,7 +9,7 @@
     "suggest.triggerAfterInsertEnter": true,
     "suggest.maxCompleteItemCount": 25,
     "suggest.autoTrigger": "always",
-    "suggest.minTriggerInputLength": 3,
+    "suggest.minTriggerInputLength": 2,
     "suggest.timeout": 500,
 
     "python.linting.pylintArgs": [
@@ -18,12 +18,13 @@
         "--disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks"
     ],
 
+    "clangd.path": "/usr/local/opt/llvm/bin/clangd",
     "clangd.enabled": true,
     "clangd.arguments": [
         "--background-index",
-        "--completion-style=bundled",
+        "--clang-tidy",
         "--pretty",
-        "--suggest-missing-includes",
+        "--limit-results=50",
         "-j=28"
     ],
 

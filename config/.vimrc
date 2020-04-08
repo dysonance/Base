@@ -384,8 +384,8 @@ autocmd filetype pandoc imap <C-G>W \Omega
 nmap <silent> <F1> <Plug>DashSearch
 nmap <silent> <F12> :syntax sync fromstart<CR>
 
-autocmd filetype pandoc nmap <F4> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex<CR>
-autocmd filetype pandoc nmap <F5> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex --verbose && open %:r.pdf<CR>
+autocmd filetype pandoc nmap <F4> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=xelatex<CR>
+autocmd filetype pandoc nmap <F5> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=xelatex --verbose && open %:r.pdf<CR>
 
 nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
@@ -442,6 +442,7 @@ autocmd filetype go nmap <F5> :execute ":SlimeSend1 go run " . bufname("%")<CR>
 
 " lzz files interpreted as cpp files
 autocmd BufNewFile,BufRead *.lzz set filetype=cpp
+autocmd BufNewFile,BufRead *.scss set filetype=sass
 
 " treat yaml files uniquely with regards to indenting
 autocmd! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent

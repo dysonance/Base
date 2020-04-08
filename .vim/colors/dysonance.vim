@@ -2,9 +2,12 @@ set t_Co=16
 set cursorline
 
 " General highlighting
+highlight Normal       ctermfg=White       ctermbg=DarkBlue   cterm=none
+highlight Cursor       ctermfg=none        ctermbg=none       cterm=none
+highlight CursorLine   ctermfg=none        ctermbg=Black      cterm=none
+highlight CursorLineNR ctermfg=White       ctermbg=Blue       cterm=none
 highlight Function     ctermfg=Yellow      ctermbg=none       cterm=none
 highlight Identifier   ctermfg=White       ctermbg=none       cterm=none
-highlight Normal       ctermfg=White       ctermbg=none       cterm=none
 " Constant highlighting group
 highlight Boolean      ctermfg=Red         ctermbg=none       cterm=none
 highlight Character    ctermfg=Green       ctermbg=none       cterm=none
@@ -28,9 +31,6 @@ highlight Tag          ctermfg=Magenta     ctermbg=none       cterm=none
 highlight Todo         ctermfg=Yellow      ctermbg=Blue       cterm=none
 highlight Type         ctermfg=DarkMagenta ctermbg=none       cterm=none
 " Other random highlights
-highlight Cursor       ctermfg=none        ctermbg=none       cterm=none
-highlight CursorLine   ctermfg=none        ctermbg=DarkBlue   cterm=none
-highlight CursorLineNR ctermfg=White       ctermbg=Blue       cterm=none
 highlight IncSearch    ctermfg=none        ctermbg=DarkGreen  cterm=bold
 highlight LineNR       ctermfg=DarkGrey    ctermbg=none       cterm=none
 highlight MatchParen   ctermfg=Grey        ctermbg=Blue       cterm=none

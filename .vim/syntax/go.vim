@@ -15,6 +15,7 @@ syn keyword goKeyword
             \ while
 
 syn keyword goStatement
+            \ continue
             \ func
             \ import
             \ return
@@ -70,6 +71,7 @@ syn region goString    start="\"" end="\""
 syn region goRawString start="`"  end="`"
 syn region goComment   start="//" end="$" contains=goTodo
 
+hi def link goTodo      Todo
 hi def link goBoolean   Boolean
 hi def link goConstant  Constant
 hi def link goString    String

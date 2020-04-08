@@ -347,12 +347,12 @@ syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
 syn match pythonTodo      "TODO\|FIXME\|NOTE"
 syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)"
 
-syn region pythonFormat  start="{"      end="}"      contained             keepend
+syn region pythonFormat  start="{"      end="}"      containedin=pythonString keepend
 syn region pythonComment start="#"      end="\n"     contains=pythonTodo
 syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
 syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
 syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
-syn region pythonString  start=+f"+     end=+"+      contains=pythonFormat skip="{\|}"
+syn region pythonString  start=+f"+     end=+"+      contains=pythonFormat    skip="{\|}"
 
 hi def link pythonBoolean         Boolean
 hi def link pythonBuiltin         Special
