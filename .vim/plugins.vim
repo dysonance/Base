@@ -113,7 +113,8 @@ let ignored_messages=
             \ 'comment on exported type',
             \ 'a blank import should be only in a main or test package',
             \ 'that stutters',
-            \ 'error strings should not be capitalized or end with punctuation'
+            \ 'error strings should not be capitalized or end with punctuation',
+            \ '#pragma once in main file'
             \ ]
 let ignored_messages_html=
             \ [

@@ -265,6 +265,8 @@ vnoremap <leader>ldf :Linediff<CR>
 nnoremap <leader>ldr :LinediffReset<CR>
 
 " lzz shortcut
+nmap <leader>zzx :g/#\(hdr\\|src\\|end\)/s/^/\/\//<CR>:nohl<CR>``
+nmap <leader>zza :g/#\(hdr\\|src\\|end\)/s/^\/\//<CR>:nohl<CR>``
 nnoremap <leader>lzz :!lzz %<CR><CR>
 nnoremap <leader>LZZ :!find `git root` \| grep \"\\.lzz\" \| xargs lzz
 

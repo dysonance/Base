@@ -22,6 +22,8 @@ export GOROOT=$BREWDIR/opt/go/libexec
 export GOPATH=$APPDIR/Go
 export EDITOR=vim
 alias vim="nvim"
+alias cxx=/usr/local/opt/llvm/bin/clang++
+alias cc=/usr/local/opt/llvm/bin/clang
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH

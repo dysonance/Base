@@ -28,14 +28,14 @@ highlight Delimiter    ctermfg=Cyan        ctermbg=none       cterm=none
 highlight Special      ctermfg=DarkYellow  ctermbg=none       cterm=none
 highlight SpecialChar  ctermfg=DarkGreen   ctermbg=none       cterm=none
 highlight Tag          ctermfg=Magenta     ctermbg=none       cterm=none
-highlight Todo         ctermfg=Yellow      ctermbg=Blue       cterm=none
+highlight Todo         ctermfg=Yellow      ctermbg=Black      cterm=none
 highlight Type         ctermfg=DarkMagenta ctermbg=none       cterm=none
 " Other random highlights
 highlight IncSearch    ctermfg=none        ctermbg=DarkGreen  cterm=bold
 highlight LineNR       ctermfg=DarkGrey    ctermbg=none       cterm=none
 highlight MatchParen   ctermfg=Grey        ctermbg=Blue       cterm=none
-highlight Pmenu        ctermfg=Grey        ctermbg=DarkBlue   cterm=none
-highlight PmenuSel     ctermfg=White       ctermbg=Blue       cterm=none
+highlight Pmenu        ctermfg=Grey        ctermbg=Black      cterm=none
+highlight PmenuSel     ctermfg=White       ctermbg=208       cterm=none
 highlight Search       ctermfg=none        ctermbg=DarkGreen  cterm=bold
 highlight StatusLine   ctermfg=Blue        ctermbg=Cyan       cterm=none
 highlight Visual       ctermfg=none        ctermbg=DarkGrey   cterm=none
