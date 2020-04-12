@@ -15,7 +15,7 @@
     "python.linting.pylintArgs": [
         "--disable=all",
         "--enable=classes,imports,variables,refactoring",
-        "--disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks"
+        "--disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks,unused-import,unused-wildcard-import"
     ],
 
     "clangd.path": "/usr/local/opt/llvm/bin/clangd",

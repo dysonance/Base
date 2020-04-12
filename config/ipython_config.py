@@ -18,7 +18,7 @@ np.set_printoptions(linewidth=line_width, edgeitems=5, precision=precision)
 config = get_config()
 c.InteractiveShell.confirm_exit = False
 c.InteractiveShell.editor = "vim"
-
+c.InteractiveShell.ast_node_interactivity = "last_expr_or_assign"  # print last assignment (like julia or matlab)
 c.InteractiveShellApp.exec_lines = [
     "%load_ext autoreload",
     "%autoreload 2",

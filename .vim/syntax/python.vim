@@ -339,20 +339,19 @@ syn keyword pythonStandardLibrary
 
 syn match pythonConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
+syn match pythonFormat    "\(%[A-z]\)\|{.*}\|\\t\|\\n" containedin=pythonString
 syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
 syn match pythonNumber    "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
 syn match pythonOperator  "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|?\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
-syn match pythonFormat    "\(%[A-z]\)\|{}\|\\t\|\\n"
 syn match pythonTodo      "TODO\|FIXME\|NOTE"
 syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)"
 
-syn region pythonFormat  start="{"      end="}"      containedin=pythonString keepend
 syn region pythonComment start="#"      end="\n"     contains=pythonTodo
 syn region pythonString  start="\"\"\"" end="\"\"\"" contains=pythonFormat
 syn region pythonString  start=+"+      end=+"+      contains=pythonFormat
 syn region pythonString  start=+'+      end=+'+      contains=pythonFormat
-syn region pythonString  start=+f"+     end=+"+      contains=pythonFormat    skip="{\|}"
+syn region pythonString  start=+f"+     end=+"+      contains=pythonFormat
 
 hi def link pythonBoolean         Boolean
 hi def link pythonBuiltin         Special
@@ -362,8 +361,8 @@ hi def link pythonControl         Statement
 hi def link pythonCustomLibrary   PreProc
 hi def link pythonCustomType      Type
 hi def link pythonDecorator       PreProc
-hi def link pythonDelimiter       Delimiter
 hi def link pythonFormat          SpecialChar
+hi def link pythonDelimiter       Delimiter
 hi def link pythonFunction        Operator
 hi def link pythonKeyword         Keyword
 hi def link pythonLibrary         PreProc
