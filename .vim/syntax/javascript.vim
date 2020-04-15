@@ -2,6 +2,7 @@ syn keyword jsConstant
             \ null
             \ undefined
 syn keyword jsKeyword
+            \ continue
             \ var
             \ let
             \ for
@@ -29,7 +30,7 @@ syn match jsConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match jsDelimiter "(\|)\|\[\|\]\|;\|,\|{\|}"
 syn match jsFunction  "\w\+\s*(\@=\|\w\+<.*>\s*(\@="
 syn match jsNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]\|\.\d\+\|\d\@<=\.[0-9 ]\@="
-syn match jsOperator  "+\|-\|*\|/\|%\|=\|!\|:\|>\|<\|?\|[A-z]\@<=\.[A-z]\@="
+syn match jsOperator  "+\|-\|*\|/\|%\|=\|!\|:\|>\|<\|?\|[A-z]\@<=\.[A-z]\@=\|&&\|||"
 syn match jsQuery     "\$"
 
 " NOTE: these template regions must be defined before the string regions
