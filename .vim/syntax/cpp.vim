@@ -31,6 +31,8 @@ syn keyword cppStatement
             \ using
 
 syn keyword cppControl
+            \ case
+            \ default
             \ break
             \ catch
             \ continue
@@ -51,6 +53,7 @@ syn keyword cppKeyword
             \ protected
             \ public
             \ struct
+            \ switch
             \ template
             \ typedef
             \ typename

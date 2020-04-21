@@ -1,3 +1,12 @@
+syn keyword cConstant
+            \ NULL
+            \ FILE
+
+syn keyword cKeyword
+            \ typedef
+            \ struct
+            \ static
+
 syn keyword cStatement
             \ const_cast
             \ cin
@@ -20,42 +29,21 @@ syn keyword cTypeModifier
             \ static
 
 syn keyword cType
-            \ auto
-            \ bool
             \ char
-            \ chi_squared_distribution
-            \ default_random_engine
-            \ deque
             \ double
             \ enum
             \ float
-            \ function
-            \ hash
             \ int
-            \ istringstream
-            \ list
             \ long
-            \ map
-            \ mt19937
             \ mutable
-            \ normal_distribution
-            \ ostream
-            \ ostringstream
-            \ pair
-            \ random_device
-            \ shared_ptr
-            \ static
-            \ string
-            \ stringstream
-            \ thread_local
             \ tuple
-            \ uniform_int_distribution
-            \ uniform_real_distribution
             \ unsigned
-            \ vector
             \ void
-            \ wistringstream
-            \ wostringstream
+
+syn keyword cControl
+            \ if
+            \ else
+            \ while
 
 syn match cConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match cDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
@@ -86,5 +74,6 @@ hi def link cStringFormat SpecialChar
 hi def link cTodo         Todo
 hi def link cType         Type
 hi def link cTypeModifier Keyword
+hi def link cControl Statement
 
 let b:current_syntax = "c"

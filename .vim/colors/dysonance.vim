@@ -7,17 +7,17 @@ set cursorline
 " Black   0    8
 " Red     1    9
 " Green   2    10
-" Blue    3    11
-" Yellow  4    12
+" Yellow  3    11
+" Blue    4    12
 " Magenta 5    13
 " Cyan    6    14
 " White   7    15
 ""==================
 
 " General highlighting
-highlight Normal       ctermfg=15   ctermbg=0    cterm=none
+highlight Normal       ctermfg=15   ctermbg=4    cterm=none
 highlight Cursor       ctermfg=none ctermbg=none cterm=none
-highlight CursorLine   ctermfg=none ctermbg=4    cterm=none
+highlight CursorLine   ctermfg=none ctermbg=0    cterm=none
 highlight CursorLineNR ctermfg=15   ctermbg=12   cterm=none
 highlight Function     ctermfg=11   ctermbg=none cterm=none
 highlight Identifier   ctermfg=15   ctermbg=none cterm=none
@@ -46,7 +46,7 @@ highlight Type         ctermfg=5    ctermbg=none cterm=none
 " Other random highlights
 highlight IncSearch    ctermfg=none ctermbg=2    cterm=bold
 highlight LineNR       ctermfg=8    ctermbg=none cterm=none
-highlight MatchParen   ctermfg=none ctermbg=none cterm=reverse
+highlight MatchParen   ctermfg=none ctermbg=12 cterm=none
 highlight Pmenu        ctermfg=7    ctermbg=0    cterm=none
 highlight PmenuSel     ctermfg=15   ctermbg=3    cterm=none
 highlight Search       ctermfg=none ctermbg=2    cterm=bold
