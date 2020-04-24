@@ -6,7 +6,9 @@ syn keyword goTodo
             \ NOTE
 
 syn keyword goKeyword
+            \ break
             \ const
+            \ defer
             \ for
             \ package
             \ range
