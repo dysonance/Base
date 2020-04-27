@@ -1,11 +1,11 @@
 package,version
 adns,1.5.1
-armadillo,9.860.2
+armadillo,9.870.2
 arpack,3.7.0_4
 autoconf,2.69
 automake,1.16.2
 awscli,2.0.9
-bat,0.14.0
+bat,0.15.0
 boost,1.72.0_2
 cairo,1.16.0_3
 cmake,3.17.1
@@ -85,7 +85,7 @@ pkg-config,0.29.2_3
 postgresql,12.2_1
 python,3.7.7
 python@3.8,3.8.2
-qt,5.14.1
+qt,5.14.2
 readline,8.0.4
 reattach-to-user-namespace,2.8
 rust,1.42.0
@@ -96,7 +96,7 @@ szip,2.1.1_1
 ta-lib,0.4.0
 tcl-tk,8.6.10
 tig,2.5.1
-tmux,3.0a_1
+tmux,3.1
 tree,1.8.0
 unbound,1.10.0
 unixodbc,2.3.7

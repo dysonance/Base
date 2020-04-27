@@ -64,3 +64,30 @@ ViState.input_mode = property(get_input_mode, set_input_mode)
 c.TerminalInteractiveShell.prompts_class = CustomPrompt
 c.TerminalInteractiveShell.colors = "linux"
 c.TerminalInteractiveShell.editing_mode = "vi"
+
+import token
+import tokenize
+from pygments.token import Token, Keyword, Name, Comment, String, Error, Number, Operator, Generic, Whitespace
+from IPython.utils import PyColorize
+from IPython.utils import coloransi
+from IPython.core import excolors, ultratb, debugger
+from IPython.core.excolors import exception_colors as exception_colors_orig
+
+color_scheme = "dysonance"
+c.InteractiveShell.colors = color_scheme
+c.TerminalInteractiveShell.highlighting_style_overrides = {
+    Token.Comment: "#888",
+    Token.Error: "#800",
+    Token.Keyword: "#088",
+    Token.Name.Class: "#f80",
+    Token.Name.Function: "#ff0",
+    Token.Name.Namespace: "#880",
+    Token.Number: "#f00",
+    Token.Operator: "#ff0",
+    Token.OutPrompt: "#888 bold",
+    Token.OutPromptNum: "#888 bold",
+    Token.Prompt: "#888",
+    Token.PromptNum: "#888",
+    Token.Punctuation: "#0ff",
+    Token.String: "#0f0",
+}

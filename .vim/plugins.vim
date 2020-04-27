@@ -357,7 +357,7 @@ let g:grepper = {
 
 " Close Tag {{{
 
-let g:closetag_filenames='*.html,*.tpl' " filetypes that activate the plugin
+let g:closetag_filenames='*.html,*.tpl,*.vue' " filetypes that activate the plugin
 let g:closetag_shortcut='>'             " shortcut for closing tags
 let g:closetag_close_shortcut=''        " add > at current position w/o closing current tag
 
