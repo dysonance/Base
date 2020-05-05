@@ -147,6 +147,7 @@ autocmd filetype cpp setlocal formatprg=clang-format\ -style=file\ -
 autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --stdin\ -
 autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc
+autocmd filetype javascript,vue setlocal formatprg=prettier\ --tab-width\ 4\ %
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1

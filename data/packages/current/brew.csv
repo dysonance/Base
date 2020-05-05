@@ -4,11 +4,11 @@ armadillo,9.870.2
 arpack,3.7.0_4
 autoconf,2.69
 automake,1.16.2
-awscli,2.0.9
+awscli,2.0.10
 bat,0.15.0
 boost,1.72.0_2
 cairo,1.16.0_3
-cmake,3.17.1
+cmake,3.17.2
 crush-tools,20150716
 cscope,15.9
 csvkit,1.0.5_1
@@ -88,8 +88,8 @@ python@3.8,3.8.2
 qt,5.14.2
 readline,8.0.4
 reattach-to-user-namespace,2.8
-rust,1.42.0
-sphinx-doc,2.4.4
+rust,1.43.0
+sphinx-doc,3.0.3
 sqlite,3.31.1
 swig,4.0.1
 szip,2.1.1_1
