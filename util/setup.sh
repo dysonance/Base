@@ -29,6 +29,7 @@ echo "setting up environment directories"
 setup_directory ~/.vim
 setup_directory ~/.config
 setup_directory ~/.config/alacritty
+setup_directory ~/.config/nvim
 setup_directory ~/.ipython
 setup_directory ~/.ipython/profile_default
 setup_directory ~/.tmux
@@ -40,7 +41,10 @@ ln -sf ~/Base/.vim/indent ~/.vim/indent
 ln -sf ~/Base/.vim/skeletons ~/.vim/skeletons
 ln -sf ~/Base/.vim/filetype.vim ~/.vim/
 ln -sf ~/Base/.vim/plugins.vim ~/.vim/
+ln -sf ~/Base/.vim/coc-settings.json ~/.vim/
+ln -sf ~/Base/.vim/coc-settings.json ~/.config/nvim/
 ln -sf ~/Base/config/.vimrc ~/.vimrc
+ln -sf ~/Base/config/init.vim ~/.config/nvim/
 ln -sf ~/Base/config/alacritty.yml ~/
 ln -sf ~/Base/config/.tmux.conf ~/
 ln -sf ~/Base/config/.tigrc ~/
