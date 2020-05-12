@@ -264,7 +264,9 @@ let g:airline_theme='simple' " see here for options: https://github.com/vim-airl
 
 let g:gitgutter_realtime=0 " dont update gutter in realtime to stop lag (will update on save)
 set updatetime=100         " redo gutter git diff every 100 ms (1/10 sec)
+let g:gitgutter_set_sign_backgrounds=0
 
+highlight! link SignColumn LineNr
 highlight GitGutterAdd ctermfg=DarkGreen ctermbg=NONE
 highlight GitGutterDelete ctermfg=DarkRed ctermbg=NONE
 highlight GitGutterChange ctermfg=Yellow ctermbg=NONE
