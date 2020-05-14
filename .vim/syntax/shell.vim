@@ -13,6 +13,7 @@ syn keyword shellBoolean
 
 syn keyword shellKeyword
             \ alias
+            \ eval
             \ exec
             \ export
             \ function

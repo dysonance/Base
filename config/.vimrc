@@ -151,6 +151,7 @@ autocmd filetype javascript,vue setlocal formatprg=prettier\ --parser\ vue\ --pr
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
+autocmd filetype bash,zsh,shell setlocal formatprg=shfmt\ -i\ 4
 
 " format keymap overrides
 autocmd filetype css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
