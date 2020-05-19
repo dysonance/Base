@@ -426,8 +426,8 @@ autocmd filetype sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<C
 autocmd filetype python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd filetype python nmap <F3> :execute ":SlimeSend1 test python"<CR>
 autocmd filetype python nmap <F4> :execute ":SlimeSend1 build python"<CR>
-autocmd filetype python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
-"autocmd filetype python nmap <F5> :execute ":SlimeSend1 %run " . bufname("%") ""<CR>
+"autocmd filetype python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
+autocmd filetype python nmap <F5> :execute ":SlimeSend1 %run " . bufname("%") ""<CR>
 
 autocmd filetype go nmap <F5> :execute ":SlimeSend1 go run " . bufname("%")<CR>
 

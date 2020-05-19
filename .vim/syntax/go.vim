@@ -69,7 +69,7 @@ syn match goMethod    "\(func (\w*)\)"
 syn match goNumber    "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
 syn match goFormat    "%\(d\|s\|f\|v\|T\|t\|x\|e\|E\|q\|x\|p\)\|\\n\|\\t" containedin=goString,goRawString
 
-syn region goString    start="\"" end="\""
+syn region goString    start="\"" end="\"" skip="\\\""
 syn region goRawString start="`"  end="`"
 syn region goComment   start="//" end="$" contains=goTodo
 

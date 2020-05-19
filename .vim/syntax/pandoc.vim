@@ -5,6 +5,7 @@ syn match pandocMathNumber "[0-9]\|[0-9.]" contained
 syn match pandocMathOperator "_\|\^\|+\|-\|/\|*" contained
 syn match pandocPreambleVariable "[a-z-]\+[:=]" contained
 syn match pandocCommand "\\\<\w\+\>\|^---$"
+syn match pandocHyperlink "\[.*\]\((\)\@="
 syn match pandocList "\*\|-"
 
 " regions
@@ -18,12 +19,13 @@ syn region pandocPreamble start="\%1l---$" end="^---$"
 syn region pandocCodeInline start="`" end="`"
 syn region pandocTodo start="\[ \]" end="$"
 syn region pandocDone start="\[x\]" end="$"
-syn region pandocHyperlink start="http://\|https://\|www\." end="\s"
+syn region pandocURL start="\((\)\?https://\|https://\|www\." end="\s\|$\|)"
 syn region pandocQuestion start="Q:" end="?\|$"
 
 " highlighting rules
 hi def link pandocList Operator
-highlight pandocHyperlink ctermfg=Blue ctermbg=NONE cterm=underline
+highlight pandocHyperlink ctermfg=Cyan ctermbg=NONE cterm=underline
+highlight pandocURL ctermfg=Blue ctermbg=NONE cterm=underline
 highlight pandocMathCommand ctermfg=Black ctermbg=DarkGreen
 highlight pandocMathCommandArgument ctermfg=DarkYellow ctermbg=DarkGreen
 highlight pandocMathNumber ctermfg=Red ctermbg=DarkGreen
