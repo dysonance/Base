@@ -21,7 +21,7 @@ export BREWDIR=/usr/local  # if installed conventionally
 export GOROOT=$BREWDIR/opt/go/libexec
 export GOPATH=$APPDIR/Go
 export EDITOR=vim
-alias vim="nvim"
+if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
 alias cxx=/usr/local/opt/llvm/bin/clang++
 alias cc=/usr/local/opt/llvm/bin/clang
 
