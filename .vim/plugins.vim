@@ -51,7 +51,7 @@ Plug 'plasticboy/vim-markdown'                                           " Markd
 Plug 'hashivim/vim-terraform'                                            " basic vim/terraform integration
 Plug 'pearofducks/ansible-vim'                                           " common ansible filetypes (j2, hosts, certain yaml)
 Plug 'mattn/emmet-vim'                                                   " web design workflow utilities
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " python workflow utilities (linting, completion, formatting)
+"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " python workflow utilities (linting, completion, formatting)
 
 " Linting/Completion {{{
 
@@ -66,9 +66,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 
 call plug#end()
-
-let b:ale_fixers = {'python': ['pyflakes', 'pylint'],}
-let g:ale_python_pylint_options = "--disable=all --enable=classes,imports,variables,typecheck,refactoring --disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks"
 
 " }}}
 

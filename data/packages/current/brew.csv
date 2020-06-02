@@ -6,10 +6,11 @@ autoconf,2.69
 automake,1.16.2
 awscli,2.0.17
 bat,0.15.4
-boost,1.72.0_2
+boost,1.72.0_3
 cairo,1.16.0_3
 clang-format,10.0.0
-cmake,3.17.2
+cmake,3.17.3
+cpanminus,1.9019
 crush-tools,20150716
 cscope,15.9
 csvkit,1.0.5_1
@@ -35,7 +36,7 @@ go@1.13,1.13.11
 hdf5,1.12.0
 htop,2.2.0_1
 hwloc,2.2.0
-icu4c,66.1
+icu4c,67.1
 isl,0.22.1
 jq,1.6
 jsonlint,1.6.0
@@ -45,7 +46,7 @@ libassuan,2.5.3
 libevent,2.1.11_1
 libffi,3.3
 libgcrypt,1.8.5
-libgpg-error,1.37
+libgpg-error,1.38
 libidn2,2.3.0
 libksba,1.4.0
 libmpc,1.1.0
@@ -70,7 +71,7 @@ mssql-tools,17.5.2.1
 ncurses,6.2
 nettle,3.6
 ninja,1.10.0
-node,14.3.0
+node,14.3.0_1
 npth,1.6
 oniguruma,6.9.5-rev1
 open-mpi,4.0.3
@@ -80,14 +81,15 @@ p11-kit,0.23.20_1
 parquet-tools,1.10.0
 pcre,8.44
 pcre2,10.35
+perl,5.30.2_1
 pgformatter,4.3
 pinentry,1.1.0_1
 pixman,0.40.0
 pkg-config,0.29.2_3
-postgresql,12.3_2
+postgresql,12.3_4
 prettier,2.0.5
 python,3.7.7
-python@3.8,3.8.2
+python@3.8,3.8.3
 qt,5.14.2
 readline,8.0.4
 reattach-to-user-namespace,2.8
@@ -95,7 +97,7 @@ ruby,2.7.1_2
 rust,1.43.1
 shfmt,3.1.1
 sphinx-doc,3.0.4
-sqlite,3.31.1
+sqlite,3.32.1
 swig,4.0.1
 szip,2.1.1_1
 ta-lib,0.4.0

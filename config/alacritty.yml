@@ -99,8 +99,8 @@ tabspaces: 4
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Input Mono Condensed
-    style: Extra Light
+    family: Input Mono Compressed
+    style: Light
   bold:
     #family: monospace
     style: Bold
