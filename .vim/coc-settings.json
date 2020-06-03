@@ -29,6 +29,7 @@
     ],
 
     "languageserver": {
+
         "golang": {
             "command": "gopls",
             "rootPatterns": [".git/", "go.mod", ".vim"],
@@ -39,6 +40,7 @@
                 "completeUnimported": true
             }
         },
+
         "julia": {
             "command": "julia",
             "args" : [
@@ -46,6 +48,14 @@
                 "using LanguageServer, Pkg, StaticLint; import SymbolServer; env_path=dirname(Pkg.Types.Context().env.project_file); debug=false; server=LanguageServer.LanguageServerInstance(stdin,stdout,debug,env_path,\"\"); server.runlinter=true; run(server);"
             ],
             "filetypes": ["julia"]
+        },
+
+        "shell": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh", "bash", "zsh", "shell"],
+            "ignoredRootPaths": ["~"]
         }
+
     }
 }

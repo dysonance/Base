@@ -87,15 +87,6 @@ window:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-# Spaces per Tab (changes require restart)
-#
-# This setting defines the width of a tab in cells.
-#
-# Some applications, like Emacs, rely on knowing about the width of a tab.
-# To prevent unexpected behavior in these applications, it's also required to
-# change the `it` value in terminfo when altering this setting.
-tabspaces: 4
-
 # Font configuration (changes require restart)
 font:
   normal:
@@ -181,17 +172,17 @@ colors:
   # Normal colors
   normal:
     black:   '0x000000'
-    red:     '0x880000'
-    green:   '0x008800'
-    yellow:  '0x888800'
-    blue:    '0x000044'
-    magenta: '0x880088'
-    cyan:    '0x008888'
-    white:   '0x888888'
+    red:     '0x800000'
+    green:   '0x008000'
+    yellow:  '0x808000'
+    blue:    '0x000080'
+    magenta: '0x800080'
+    cyan:    '0x008080'
+    white:   '0x808080'
 
   # Bright colors
   bright:
-    black:   '0x444444'
+    black:   '0x2b2b2b'
     red:     '0xff0000'
     green:   '0x00ff00'
     yellow:  '0xffff00'
@@ -515,8 +506,8 @@ key_bindings:
   - { key: Key0,        mods:   Command,   action: ResetFontSize    }
   - { key: Equals,      mods:   Command,   action: IncreaseFontSize }
   - { key: Minus,       mods:   Command,   action: DecreaseFontSize }
-  - { key: Paste,       action: Paste                               }
-  - { key: Copy,        action: Copy                                }
+  - { key: Paste,       action: Paste      }
+  - { key: Copy,        action: Copy       }
   - { key: L,           mods:   Control,   action: ClearLogNotice   }
   - { key: L,           mods:   Control,   chars:  "\x0c"           }
   - { key: Home,        chars:  "\x1bOH",  mode:   AppCursor        }
@@ -525,15 +516,15 @@ key_bindings:
   - { key: End,         chars:  "\x1b[F",  mode:   ~AppCursor       }
   - { key: PageUp,      mods:   Shift,     chars:  "\x1b[5;2~"      }
   - { key: PageUp,      mods:   Control,   chars:  "\x1b[5;5~"      }
-  - { key: PageUp,      chars:  "\x1b[5~"                           }
+  - { key: PageUp,      chars:  "\x1b[5~"  }
   - { key: PageDown,    mods:   Shift,     chars:  "\x1b[6;2~"      }
   - { key: PageDown,    mods:   Control,   chars:  "\x1b[6;5~"      }
-  - { key: PageDown,    chars:  "\x1b[6~"                           }
+  - { key: PageDown,    chars:  "\x1b[6~"  }
   - { key: Tab,         mods:   Shift,     chars:  "\x1b[Z"         }
-  - { key: Back,        chars:  "\x7f"                              }
+  - { key: Back,        chars:  "\x7f"     }
   - { key: Back,        mods:   Alt,       chars:  "\x1b\x7f"       }
-  - { key: Insert,      chars:  "\x1b[2~"                           }
-  - { key: Delete,      chars:  "\x1b[3~"                           }
+  - { key: Insert,      chars:  "\x1b[2~"  }
+  - { key: Delete,      chars:  "\x1b[3~"  }
   - { key: Left,        mods:   Shift,     chars:  "\x1b[1;2D"      }
   - { key: Left,        mods:   Control,   chars:  "\x1b[1;5D"      }
   - { key: Left,        mods:   Alt,       chars:  "\x1bb"          }
@@ -554,18 +545,18 @@ key_bindings:
   - { key: Down,        mods:   Alt,       chars:  "\x1b[1;3B"      }
   - { key: Down,        chars:  "\x1b[B",  mode:   ~AppCursor       }
   - { key: Down,        chars:  "\x1bOB",  mode:   AppCursor        }
-  - { key: F1,          chars:  "\x1bOP"                            }
-  - { key: F2,          chars:  "\x1bOQ"                            }
-  - { key: F3,          chars:  "\x1bOR"                            }
-  - { key: F4,          chars:  "\x1bOS"                            }
-  - { key: F5,          chars:  "\x1b[15~"                          }
-  - { key: F6,          chars:  "\x1b[17~"                          }
-  - { key: F7,          chars:  "\x1b[18~"                          }
-  - { key: F8,          chars:  "\x1b[19~"                          }
-  - { key: F9,          chars:  "\x1b[20~"                          }
-  - { key: F10,         chars:  "\x1b[21~"                          }
-  - { key: F11,         chars:  "\x1b[23~"                          }
-  - { key: F12,         chars:  "\x1b[24~"                          }
+  - { key: F1,          chars:  "\x1bOP"   }
+  - { key: F2,          chars:  "\x1bOQ"   }
+  - { key: F3,          chars:  "\x1bOR"   }
+  - { key: F4,          chars:  "\x1bOS"   }
+  - { key: F5,          chars:  "\x1b[15~" }
+  - { key: F6,          chars:  "\x1b[17~" }
+  - { key: F7,          chars:  "\x1b[18~" }
+  - { key: F8,          chars:  "\x1b[19~" }
+  - { key: F9,          chars:  "\x1b[20~" }
+  - { key: F10,         chars:  "\x1b[21~" }
+  - { key: F11,         chars:  "\x1b[23~" }
+  - { key: F12,         chars:  "\x1b[24~" }
   - { key: F1,          mods:   Shift,     chars:  "\x1b[1;2P"      }
   - { key: F2,          mods:   Shift,     chars:  "\x1b[1;2Q"      }
   - { key: F3,          mods:   Shift,     chars:  "\x1b[1;2R"      }
@@ -614,17 +605,59 @@ key_bindings:
   - { key: F10,         mods:   Super,     chars:  "\x1b[21;3~"     }
   - { key: F11,         mods:   Super,     chars:  "\x1b[23;3~"     }
   - { key: F12,         mods:   Super,     chars:  "\x1b[24;3~"     }
-  - { key: NumpadEnter, chars:  "\n"                                }
+  - { key: NumpadEnter, chars:  "\n"       }
+  - { key: A,           mods:   Alt,       chars:  "\x1ba"          }
   - { key: B,           mods:   Alt,       chars:  "\x1bb"          }
+  - { key: C,           mods:   Alt,       chars:  "\x1bc"          }
+  - { key: D,           mods:   Alt,       chars:  "\x1bd"          }
+  - { key: E,           mods:   Alt,       chars:  "\x1be"          }
   - { key: F,           mods:   Alt,       chars:  "\x1bf"          }
+  - { key: G,           mods:   Alt,       chars:  "\x1bg"          }
   - { key: H,           mods:   Alt,       chars:  "\x1bh"          }
+  - { key: I,           mods:   Alt,       chars:  "\x1bi"          }
   - { key: J,           mods:   Alt,       chars:  "\x1bj"          }
   - { key: K,           mods:   Alt,       chars:  "\x1bk"          }
   - { key: L,           mods:   Alt,       chars:  "\x1bl"          }
+  - { key: M,           mods:   Alt,       chars:  "\x1bm"          }
+  - { key: N,           mods:   Alt,       chars:  "\x1bn"          }
+  - { key: O,           mods:   Alt,       chars:  "\x1bo"          }
+  - { key: P,           mods:   Alt,       chars:  "\x1bp"          }
+  - { key: Q,           mods:   Alt,       chars:  "\x1bq"          }
+  - { key: R,           mods:   Alt,       chars:  "\x1br"          }
+  - { key: S,           mods:   Alt,       chars:  "\x1bs"          }
+  - { key: T,           mods:   Alt,       chars:  "\x1bt"          }
+  - { key: U,           mods:   Alt,       chars:  "\x1bu"          }
+  - { key: V,           mods:   Alt,       chars:  "\x1bv"          }
+  - { key: W,           mods:   Alt,       chars:  "\x1bw"          }
+  - { key: X,           mods:   Alt,       chars:  "\x1bx"          }
+  - { key: Y,           mods:   Alt,       chars:  "\x1by"          }
+  - { key: Z,           mods:   Alt,       chars:  "\x1bz"          }
+  - { key: A,           mods:   Alt|Shift, chars:  "\x1bA"          }
+  - { key: B,           mods:   Alt|Shift, chars:  "\x1bB"          }
   - { key: C,           mods:   Alt|Shift, chars:  "\x1bC"          }
-  - { key: R,           mods:   Alt|Shift, chars:  "\x1bR"          }
+  - { key: D,           mods:   Alt|Shift, chars:  "\x1bD"          }
+  - { key: E,           mods:   Alt|Shift, chars:  "\x1bE"          }
+  - { key: F,           mods:   Alt|Shift, chars:  "\x1bF"          }
+  - { key: G,           mods:   Alt|Shift, chars:  "\x1bG"          }
+  - { key: H,           mods:   Alt|Shift, chars:  "\x1bH"          }
+  - { key: I,           mods:   Alt|Shift, chars:  "\x1bI"          }
+  - { key: J,           mods:   Alt|Shift, chars:  "\x1bJ"          }
+  - { key: K,           mods:   Alt|Shift, chars:  "\x1bK"          }
+  - { key: L,           mods:   Alt|Shift, chars:  "\x1bL"          }
+  - { key: M,           mods:   Alt|Shift, chars:  "\x1bM"          }
   - { key: N,           mods:   Alt|Shift, chars:  "\x1bN"          }
+  - { key: O,           mods:   Alt|Shift, chars:  "\x1bO"          }
+  - { key: P,           mods:   Alt|Shift, chars:  "\x1bP"          }
+  - { key: Q,           mods:   Alt|Shift, chars:  "\x1bQ"          }
+  - { key: R,           mods:   Alt|Shift, chars:  "\x1bR"          }
+  - { key: S,           mods:   Alt|Shift, chars:  "\x1bS"          }
   - { key: T,           mods:   Alt|Shift, chars:  "\x1bT"          }
+  - { key: U,           mods:   Alt|Shift, chars:  "\x1bU"          }
+  - { key: V,           mods:   Alt|Shift, chars:  "\x1bV"          }
+  - { key: W,           mods:   Alt|Shift, chars:  "\x1bW"          }
+  - { key: X,           mods:   Alt|Shift, chars:  "\x1bX"          }
+  - { key: Y,           mods:   Alt|Shift, chars:  "\x1bY"          }
+  - { key: Z,           mods:   Alt|Shift, chars:  "\x1bZ"          }
   - { key: Backslash,   mods:   Alt|Shift, chars:  "\x1b|"          }
   - { key: Minus,       mods:   Alt|Shift, chars:  "\x1b_"          }
   - { key: Key1,        mods:   Alt,       chars:  "\x1b1"          }

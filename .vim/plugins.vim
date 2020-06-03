@@ -366,7 +366,7 @@ let g:closetag_close_shortcut=''        " add > at current position w/o closing 
 
 autocmd filetype html   let b:match_words='<div:</div>,<script:</script>,<table:</table>,<form:</form>,<thead:</thead>,<tbody:</tbody>,<tr:</tr>,<:>,<tag>:/tag>'
 autocmd filetype smarty let b:match_words='<div:</div>,<script:</script>,<table:</table>,<form:</form>,<thead:</thead>,<tbody:</tbody>,<tr:</tr>,<:>,<tag>:/tag>'
-autocmd filetype vue    let b:match_words='<div:</div>,<script:</script>,<table:</table>,<form:</form>,<thead:</thead>,<tbody:</tbody>,<tr:</tr>,<:>,<tag>:/tag>'
+autocmd filetype vue    let b:match_words='<div:</div>,<script:</script>,<table:</table>,<form:</form>,<thead:</thead>,<tbody:</tbody>,<tr:</tr>,<:>,<tag>:/tag>,<template>:</template>'
 
 " }}}
 

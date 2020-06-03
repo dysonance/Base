@@ -18,7 +18,7 @@ if [[ -z "${CPU}" ]]; then CPU=4; fi
 # build and save to applications
 if [ "$1" == "--force" ]; then
     make -j $CPU app
-    cp -r target/release/osx/Alacritty.app $HOME/Applications/Alacritty/Alacritty.app
+    mv target/release/osx/Alacritty.app $HOME/Applications/Alacritty/
 else
     CURRENT_COMMIT=$(git rev-parse @)
     git checkout master
@@ -28,7 +28,7 @@ else
     LATEST_COMMIT=$(git rev-parse @)
     if [ $CURRENT_COMMIT != $LATEST_COMMIT ]; then
         make -j $CPU app
-        cp -r target/release/osx/Alacritty.app $HOME/Applications/Alacritty/Alacritty.app
+        mv target/release/osx/Alacritty.app $HOME/Applications/Alacritty/
     fi
 fi
 
