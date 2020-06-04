@@ -51,7 +51,7 @@ highlight Pmenu        ctermfg=7    ctermbg=0    cterm=none
 highlight PmenuSel     ctermfg=15   ctermbg=3    cterm=none
 highlight Search       ctermfg=none ctermbg=2    cterm=bold
 highlight StatusLine   ctermfg=12   ctermbg=14   cterm=none
-highlight Visual       ctermfg=none ctermbg=8    cterm=none
+highlight Visual       ctermfg=none ctermbg=7    cterm=none
 " Errors and warnings highlighting
 highlight Error        ctermfg=none ctermbg=1    cterm=none
 highlight ErrorMsg     ctermfg=none ctermbg=1    cterm=none
