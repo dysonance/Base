@@ -14,6 +14,20 @@ set cursorline
 " White   7    15
 ""==================
 
+if has('nvim')
+    highlight ActiveWindow ctermbg=none
+    highlight InactiveWindow ctermbg=8
+    " Call method on window enter
+    augroup WindowManagement
+        autocmd!
+        autocmd WinEnter * call DimInactive()
+    augroup END
+    " Change highlight group of active/inactive windows
+    function! DimInactive()
+        setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+    endfunction
+endif
+
 " General highlighting
 highlight Normal       ctermfg=15   ctermbg=none cterm=none
 highlight Cursor       ctermfg=none ctermbg=none cterm=none
