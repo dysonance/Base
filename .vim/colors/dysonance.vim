@@ -15,8 +15,8 @@ set cursorline
 ""==================
 
 if has('nvim')
-    highlight ActiveWindow ctermbg=none
-    highlight InactiveWindow ctermbg=8
+    highlight ActiveWindow ctermfg=none
+    highlight InactiveWindow ctermfg=7
     " Call method on window enter
     augroup WindowManagement
         autocmd!
@@ -24,17 +24,17 @@ if has('nvim')
     augroup END
     " Change highlight group of active/inactive windows
     function! DimInactive()
-        setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+        setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow,StatusLine:ActiveWindow,StatusLineNC:InactiveWindow
     endfunction
 endif
 
 " General highlighting
-highlight Normal       ctermfg=15   ctermbg=none cterm=none
+highlight Normal       ctermfg=none ctermbg=4    cterm=none
 highlight Cursor       ctermfg=none ctermbg=none cterm=none
-highlight CursorLine   ctermfg=none ctermbg=8    cterm=none
-highlight CursorLineNR ctermfg=15   ctermbg=0   cterm=none
+highlight CursorLine   ctermfg=none ctermbg=0    cterm=none
+highlight CursorLineNR ctermfg=none ctermbg=none cterm=none
 highlight Function     ctermfg=11   ctermbg=none cterm=none
-highlight Identifier   ctermfg=15   ctermbg=none cterm=none
+highlight Identifier   ctermfg=none ctermbg=none cterm=none
 " Constant highlighting group
 highlight Boolean      ctermfg=9    ctermbg=none cterm=none
 highlight Character    ctermfg=10   ctermbg=none cterm=none
@@ -55,14 +55,14 @@ highlight Delimiter    ctermfg=14   ctermbg=none cterm=none
 highlight Special      ctermfg=3    ctermbg=none cterm=none
 highlight SpecialChar  ctermfg=2    ctermbg=none cterm=none
 highlight Tag          ctermfg=13   ctermbg=none cterm=none
-highlight Todo         ctermfg=11   ctermbg=12   cterm=bold
+highlight Todo         ctermfg=11   ctermbg=0    cterm=bold
 highlight Type         ctermfg=6    ctermbg=none cterm=none
 " Other random highlights
 highlight IncSearch    ctermfg=none ctermbg=2    cterm=bold
 highlight LineNR       ctermfg=12   ctermbg=none cterm=none
 highlight MatchParen   ctermfg=none ctermbg=2    cterm=none
 highlight Pmenu        ctermfg=7    ctermbg=0    cterm=none
-highlight PmenuSel     ctermfg=15   ctermbg=3    cterm=none
+highlight PmenuSel     ctermfg=none ctermbg=8    cterm=none
 highlight Search       ctermfg=none ctermbg=2    cterm=bold
 highlight StatusLine   ctermfg=12   ctermbg=14   cterm=none
 highlight Visual       ctermfg=none ctermbg=7    cterm=none

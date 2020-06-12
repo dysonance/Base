@@ -148,6 +148,7 @@ autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --stdin\ -
 autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc
 autocmd filetype javascript,vue setlocal formatprg=prettier\ --parser\ vue\ --print-width\ 150\ --tab-width\ 4\ --no-bracket-spacing\ --prose-wrap\ preserve\ %
+autocmd filetype javascript,vue setlocal indentexpr=GetJavascriptIndent()
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
 autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
@@ -386,6 +387,7 @@ autocmd filetype pandoc imap <C-G>W \Omega
 
 "nmap <F1> K
 nmap <silent> <F1> <Plug>DashSearch
+autocmd BufEnter * :syntax sync fromstart
 nmap <silent> <F12> :syntax sync fromstart<CR>
 
 autocmd filetype pandoc nmap <F4> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=xelatex<CR>
@@ -450,6 +452,43 @@ autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
 autocmd BufRead,BufNewFile */site.yml set filetype=ansible
 autocmd BufRead,BufNewFile */main.yml set filetype=ansible
 autocmd BufRead,BufNewFile */ansible/*.yml set filetype=ansible
+
+" }}}
+
+" Nested Language Definitions {{{
+
+" NOTE: copied from https://vim.fandom.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+" EXAMPLES: 
+" call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
+" call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
+" call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
+" call TextEnableCodeSnip('html' ,'#{{{html' ,'#html}}}', 'SpecialComment')
+
+function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
+    let ft=toupper(a:filetype)
+    let group='textGroup'.ft
+    if exists('b:current_syntax')
+        let s:current_syntax=b:current_syntax
+        " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
+        " do nothing if b:current_syntax is defined.
+        unlet b:current_syntax
+    endif
+    execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
+    try
+        execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
+    catch
+    endtry
+    if exists('s:current_syntax')
+        let b:current_syntax=s:current_syntax
+    else
+        unlet b:current_syntax
+    endif
+    execute 'syntax region textSnip'.ft.'
+                \ matchgroup='.a:textSnipHl.'
+                \ keepend
+                \ start="'.a:start.'" end="'.a:end.'"
+                \ contains=@'.group
+endfunction
 
 " }}}
 

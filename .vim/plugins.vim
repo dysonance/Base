@@ -45,12 +45,14 @@ Plug 'alvan/vim-closetag'             " make html editing less miserable
 
 " Language Support {{{
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }                       " go language support
-Plug 'vim-scripts/Vim-R-plugin'                                          " R language support improved
-Plug 'plasticboy/vim-markdown'                                           " Markdown language support
-Plug 'hashivim/vim-terraform'                                            " basic vim/terraform integration
-Plug 'pearofducks/ansible-vim'                                           " common ansible filetypes (j2, hosts, certain yaml)
-Plug 'mattn/emmet-vim'                                                   " web design workflow utilities
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
+Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
+Plug 'plasticboy/vim-markdown'                     " Markdown language support
+Plug 'hashivim/vim-terraform'                      " basic vim/terraform integration
+Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j2, hosts, certain yaml)
+Plug 'mattn/emmet-vim'                             " web design workflow utilities
+Plug 'pangloss/vim-javascript'                     " js syntax and indentation support
+
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " python workflow utilities (linting, completion, formatting)
 
 " Linting/Completion {{{

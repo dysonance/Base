@@ -186,6 +186,7 @@ syn match sqlNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]"
 syn match sqlDelimiter ";\|(\|)\|,"
 syn match sqlFunction  "\w\+\s*(\@=\|\w\+<.*>\s*(\@="
 syn match sqlSpecial   "\$\|\(\$\$\)\|\(\$\w\)"
+syn match sqlParameter "%s\|?"
 
 syn region sqlString  start=+"+  end=+"+
 syn region sqlString  start=+'+  end=+'+ contains=sqlBoolean keepend
@@ -205,5 +206,6 @@ hi def link sqlStatement   Statement
 hi def link sqlString      String
 hi def link sqlTodo        Todo
 hi def link sqlType        Type
+hi def link sqlParameter   Constant
 
 let b:current_syntax = "sql"
