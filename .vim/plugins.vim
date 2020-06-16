@@ -247,7 +247,7 @@ let g:localvimrc_ask=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline#extensions#coc#enabled=1
-let g:airline_theme='simple' " see here for options: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme='term' " see here for options: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
 " }}}
 
