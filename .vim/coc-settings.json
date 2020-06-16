@@ -12,6 +12,7 @@
     "suggest.minTriggerInputLength": 3,
     "suggest.timeout": 500,
 
+    "python.linting.flake8Enabled": true,
     "python.linting.pylintArgs": [
         "--disable=all",
         "--enable=classes,imports,variables,refactoring",

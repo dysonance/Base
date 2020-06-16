@@ -58,7 +58,7 @@ Plug 'pangloss/vim-javascript'                     " js syntax and indentation s
 " Linting/Completion {{{
 
 "Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
-Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
+"Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
