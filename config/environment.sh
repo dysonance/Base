@@ -32,7 +32,7 @@ export PATH=$APPDIR/NeoVim/build/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.6/bin:$PATH
-export PATH=$APPDIR/Julia/Julia-1.3.app/Contents/Resources/julia/bin:$PATH
+export PATH=$APPDIR/Julia/Julia-1.4.app/Contents/Resources/julia/bin:$PATH
 # path appends
 export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH=$PATH:$BREWDIR/sbin
