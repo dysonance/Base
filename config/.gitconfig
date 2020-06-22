@@ -52,3 +52,5 @@
     changed = diff --name-only
     # search file contents history for file
     dig = "!f() { git log -S $1 --stat -p --pretty=format:'%C(bold magenta)%an%C(reset) %C(bold white)%s%C(reset) %C(bold cyan)%ar%C(reset) %C(cyan)%ad%C(reset) %C(bold yellow)%h%C(reset)' --decorate -- $2; }; f"
+    # find and replace
+    findreplace = "!f() { git grep -l \"$1\" | xargs sed -i '' -e \"s/$1/$2/g\"; }; f"
