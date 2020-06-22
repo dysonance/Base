@@ -11,7 +11,8 @@ function dgformat()
 # aliases/shortcuts
 function abspath(){ echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")" ; }
 function path(){ echo $PATH | sed -e $'s/:/\\\n/g' ; }
-alias gg="git grep -nIi"
+alias ggi="git grep -nIi"
+alias gg="git grep -nI"
 
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
@@ -45,6 +46,8 @@ alias jln="$APPDIR/Julia/src/usr/bin/julia"
 alias jl="julia --optimize=3 --cpu-target native --banner=no --color=yes"
 alias py36="$APPDIR/Frameworks/Python.framework/Versions/3.6/bin/python3"
 alias pip36="$APPDIR/Frameworks/Python.framework/Versions/3.6/bin/pip3"
+alias py37="$APPDIR/Frameworks/Python.framework/Versions/3.7/bin/python3"
+alias pip37="$APPDIR/Frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3"
 alias pip38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/pip3"
 alias py="py38"

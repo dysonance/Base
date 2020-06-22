@@ -1,24 +1,10 @@
 # NOTE: place at ~/.config/flake8 on nix-like systems
+# Reference: https://flake8.pycqa.org/en/2.6.0/warnings.html
 
 [flake8]
-select = 
-    F
+select =
+    F, # pyflakes
+    E999, # syntax errors
 ignore =
-    E203, # whitespace before :
-    E225, # whitespace around operator
-    E265, # block comment should start with '# '
-    E501, # line too long
-    E731, # do not assign a lambda expression, use a def
-    E741, # ambiguous variable name
-    F401  # imported but unused
-    F812, # list comprehension redefines ...
-    H101, # Use TODO(NAME)
-    H202, # assertRaises Exception too broad
-    H233, # Python 3.x incompatible use of print operator
-    H301, # one import per line
-    H306, # imports not in alphabetical order (time, os)
-    H401, # docstring should not start with a space
-    H403, # multi line docstrings should end on a new line
-    H404, # multi line docstring should start without a leading new line
-    H405, # multi line docstring summary not separated with an empty line
-    H501  # Do not use self.__dict__ for string formatting
+    E,  # pycodestyle
+    W  # pycodestyle
