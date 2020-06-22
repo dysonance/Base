@@ -383,7 +383,7 @@ hi def link pythonType            Type
 highlight pythonFormat ctermfg=DarkGreen ctermbg=none
 
 call TextEnableCodeSnip('sql', 'query.=.\"\{3\}', '\"\{3\}', 'SqlQuery')
-call TextEnableCodeSnip('sql', 'query.=.\"\(\"\)\@!', '\"$', 'SqlQuery')
+call TextEnableCodeSnip('sql', 'query.=.\"\(\"\)\@!', '\"', 'SqlQuery')
 highlight SqlQuery ctermfg=3 ctermbg=8
 "highlight textSnipSQL ctermfg=none ctermbg=8
 
