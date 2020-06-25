@@ -14,11 +14,8 @@
     "suggest.timeout": 500,
 
     "python.linting.flake8Enabled": true,
-    "python.linting.pylintArgs": [
-        "--disable=all",
-        "--enable=classes,imports,variables,refactoring",
-        "--disable=missing-docstring,invalid-name,redefined-builtin,invalid-slice-index,too-many-nested-blocks,redefined-outer-name,unused-import"
-    ],
+    "python.linting.flake8Args": ["--config ~/.config/flake8.cfg"],
+    "python.linting.pylintArgs": ["--rcfile=~/.config/pylint.cfg"],
 
     "clangd.path": "/usr/local/opt/llvm/bin/clangd",
     "clangd.enabled": true,

@@ -204,7 +204,7 @@ nnoremap > >>
 nnoremap < <<
 
 " shortcut to delete line
-nnoremap D dd
+"nnoremap D dd
 
 " fast pane splitting and focus switching
 nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
@@ -323,7 +323,7 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 nnoremap <C-J> :b#<CR>
 nnoremap <C-H> :bprevious<CR>
 nnoremap <C-L> :bnext<CR>
-nnoremap <C-K> :bdelete<CR>
+nnoremap <C-K> :bwipeout<CR>
 
 " ctrl+t to access terminal
 nnoremap <C-T> :shell<CR>
