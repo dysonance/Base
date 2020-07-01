@@ -13,7 +13,8 @@ call plug#begin('~/.vim/plugged')
 
 " Editing Utilities {{{
 
-Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
+Plug 'tmsvg/pear-tree'            " smart auto-closing of delimiters/quotes
+"Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'         " easily surround chunks of text with delimiters
 Plug 'scrooloose/nerdcommenter'   " comment adding utility
 Plug 'junegunn/vim-easy-align'    " align blocks of code easily
@@ -247,7 +248,13 @@ let g:localvimrc_ask=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline#extensions#coc#enabled=1
-let g:airline_theme='term' " see here for options: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme='simple' " see here for options: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+
+" }}}
+
+" {{{ Pear Tree 
+
+let g:pear_tree_repeatable_expand=0
 
 " }}}
 
