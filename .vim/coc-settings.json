@@ -43,8 +43,17 @@
         "julia": {
             "command": "julia",
             "args" : [
-                "-e",
-                "using LanguageServer, Pkg, StaticLint; import SymbolServer; env_path=dirname(Pkg.Types.Context().env.project_file); server=LanguageServer.LanguageServerInstance(stdin,stdout,env_path,\"\"); server.runlinter=true; run(server);"
+                "--optimize=3",
+                "--inline=yes",
+                "--quiet",
+                "--code-coverage=none",
+                "--track-allocation=none",
+                "--math-mode=fast",
+                "--check-bounds=no",
+                "--startup-file=no",
+                "--history-file=no",
+                "--eval",
+                "using LanguageServer, Pkg, Sockets, SymbolServer; env_path=dirname(Pkg.Types.Context().env.project_file); server=LanguageServer.LanguageServerInstance(stdin,stdout,env_path,\"\"); server.runlinter=true; run(server);"
             ],
             "filetypes": ["julia"]
         }

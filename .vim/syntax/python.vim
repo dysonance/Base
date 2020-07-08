@@ -347,7 +347,7 @@ syn match pythonFunction   "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
 syn match pythonNumber     "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
 syn match pythonOperator   "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
 syn match pythonTodo       "TODO\|FIXME\|NOTE"
-syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)"
+syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(float\|int\|bool\|str\)."
 syn match pythonFormat     "\({}\)" contained containedin=pythonFormattedString
 
 syn region pythonFormat          start="{"      end="}"      contained containedin=pythonFormattedString keepend
@@ -357,6 +357,7 @@ syn region pythonString          start=+"+      end=+"+
 syn region pythonString          start=+'+      end=+'+
 syn region pythonFormattedString start=+f"+     end=+"+
 syn region pythonFormattedString start=+f'+     end=+'+
+syn region pythonFormattedString start=+f\"\"\"+     end=+\"\"\"+
 
 hi def link pythonBoolean         Boolean
 hi def link pythonBuiltin         Special
@@ -382,9 +383,9 @@ hi def link pythonType            Type
 
 highlight pythonFormat ctermfg=DarkGreen ctermbg=none
 
-call TextEnableCodeSnip('sql', 'query.=.\"\{3\}', '\"\{3\}', 'SqlQuery')
-call TextEnableCodeSnip('sql', 'query.=.\"\(\"\)\@!', '\"', 'SqlQuery')
-highlight SqlQuery ctermfg=3 ctermbg=8
+"call TextEnableCodeSnip('sql', 'query.=.\"\{3\}', '\"\{3\}', 'SqlQuery')
+"call TextEnableCodeSnip('sql', 'query.=.\"\(\"\)\@!', '\"', 'SqlQuery')
+"highlight SqlQuery ctermfg=3 ctermbg=8
 "highlight textSnipSQL ctermfg=none ctermbg=8
 
 let b:current_syntax = "python"
