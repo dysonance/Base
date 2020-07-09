@@ -10,7 +10,8 @@ function dgformat()
 
 # aliases/shortcuts
 function abspath(){ echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")" ; }
-function path(){ echo $PATH | sed -e $'s/:/\\\n/g' ; }
+function path(){ echo $PATH | sed -e $'s/:/\\\n/g' ; }  # show everything on path line by line
+function json(){ python -m json.tool $1 | vim -R -c ":set ft=json" - } # shortcut for viewing json data in readable format
 alias ggi="git grep -nIi"
 alias gg="git grep -nI"
 
