@@ -12,6 +12,13 @@ function dgformat()
 function abspath(){ echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")" ; }
 function path(){ echo $PATH | sed -e $'s/:/\\\n/g' ; }  # show everything on path line by line
 function json(){ python -m json.tool $1 | vim -R -c ":set ft=json" - } # shortcut for viewing json data in readable format
+function ipy(){
+    if [ -d "venv" ]; then
+        venv/bin/ipython
+    else
+        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython
+    fi
+}
 alias ggi="git grep -nIi"
 alias gg="git grep -nI"
 
@@ -53,7 +60,6 @@ alias py38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3"
 alias pip38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/pip3"
 alias py="py38"
 alias ipi="pip38"
-alias ipy="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython"
 alias l="ls -Alh"
 
 # shell convention/portability management
