@@ -182,7 +182,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '0x2b2b2b'
+    black:   '0x404040'
     red:     '0xff0000'
     green:   '0x00ff00'
     yellow:  '0xffff00'
@@ -238,14 +238,14 @@ colors:
 # Specifying a `duration` of `0` will disable the visual bell.
 visual_bell:
   animation: EaseOutExpo
-  duration: 0
+  duration: 1000
   color: '0xffffff'
 
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
+background_opacity: 1.0
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -267,7 +267,7 @@ visual_bell:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+unfocused_hollow: true
 
 # Live config reload (changes require restart)
 #live_config_reload: true
