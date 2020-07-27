@@ -1,6 +1,7 @@
+#!/bin/bash
+
 # data grip formatter with command line
-function dgformat()
-{
+function dgformat() {
     if [ "$1" == "" ]; then echo "no file target passed to formatter" && return; fi
     TARGET="$(abspath $1)"
     BINARY=$APPDIR/DataGrip.app/Contents/MacOS/datagrip
@@ -9,10 +10,13 @@ function dgformat()
 }
 
 # aliases/shortcuts
-function abspath(){ echo "$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")" ; }
-function path(){ echo $PATH | sed -e $'s/:/\\\n/g' ; }  # show everything on path line by line
-function json(){ python -m json.tool $1 | vim -R -c ":set ft=json" - } # shortcut for viewing json data in readable format
-function ipy(){
+function abspath() { echo "$(
+    cd "$(dirname "$1")"
+    pwd -P
+)/$(basename "$1")"; }
+function path() { echo $PATH | sed -e $'s/:/\\\n/g'; }
+function json() { python -m json.tool $1 | vim -R -c ":set ft=json" -; }
+function ipy() {
     if [ -d "venv" ]; then
         venv/bin/ipython
     else
@@ -25,8 +29,8 @@ alias gg="git grep -nI"
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
-export BREWDIR=$APPDIR/Brew/src  # if built in home directory
-export BREWDIR=/usr/local  # if installed conventionally
+export BREWDIR=$APPDIR/Brew/src # if built in home directory
+export BREWDIR=/usr/local       # if installed conventionally
 export GOROOT=$BREWDIR/opt/go/libexec
 export GOPATH=$APPDIR/Go
 export EDITOR=vim
@@ -47,7 +51,7 @@ export PATH=$PATH:/usr/local/opt/llvm/bin
 export PATH=$PATH:$BREWDIR/sbin
 
 # shell behavior
-stty -ixon  # disable terminal flow control to allow more vim keybindings
+stty -ixon # disable terminal flow control to allow more vim keybindings
 
 # convenience shortcuts
 alias jln="$APPDIR/Julia/src/usr/bin/julia"
@@ -63,11 +67,11 @@ alias ipi="pip38"
 alias l="ls -Alh"
 
 # shell convention/portability management
-if [ -n "$ZSH_VERSION" ]; then  # assume using zsh shell
-    unsetopt no_match  # treat wildcards (*) same way as bash
-    setopt nosharehistory  # dont share live history across tmux panes
-    export KEYTIMEOUT=1  # more responsive key sequences
-elif [ -n "$BASH_VERSION" ]; then  # assume using bash shell
+if [ -n "$ZSH_VERSION" ]; then    # assume using zsh shell
+    unsetopt no_match             # treat wildcards (*) same way as bash
+    setopt nosharehistory         # dont share live history across tmux panes
+    export KEYTIMEOUT=1           # more responsive key sequences
+elif [ -n "$BASH_VERSION" ]; then # assume using bash shell
     PROMPT_COLOR_DEFAULT="\[\e[m\]"
     PROMPT_COLOR_ENVIRONMENT="\[\e[0;35m\]"
     PROMPT_HOST="$PROMPT_COLOR_ENVIRONMENT\h$PROMPT_COLOR_DEFAULT"
