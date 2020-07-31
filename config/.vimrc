@@ -158,8 +158,6 @@ autocmd filetype bash,zsh,shell setlocal formatprg=shfmt\ -i\ 4
 autocmd filetype css nmap <leader>fmt :!prettier --write --parser css %<CR><CR>
 autocmd filetype go nmap <leader>fmt :GoFmt<CR>
 autocmd filetype html nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
-autocmd filetype python nmap <leader>fmt mmgggqG`mzz
-autocmd filetype sql nmap <leader>fmt m0gggqG`0
 autocmd filetype tpl nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
 
 " }}
