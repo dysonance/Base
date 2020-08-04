@@ -347,7 +347,7 @@ syn match pythonFunction   "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
 syn match pythonNumber     "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
 syn match pythonOperator   "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
 syn match pythonTodo       "TODO\|FIXME\|NOTE"
-syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(float\|int\|bool\|str\)."
+syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(float\|int\|bool\|str\).\|\(pd\.\)\@<=Timestamp\|\(np\.\)\@<=datetime64"
 syn match pythonFormat     "\({}\)" contained containedin=pythonFormattedString
 
 syn region pythonFormat          start="{"      end="}"      contained containedin=pythonFormattedString keepend

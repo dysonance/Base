@@ -9,7 +9,7 @@ bokeh,2.1.1
 bs4,0.0.1
 certifi,2020.6.20
 chardet,3.0.4
-cli-helpers,2.0.1
+cli-helpers,2.1.0
 click,7.1.2
 configobj,5.0.6
 cycler,0.10.0
@@ -23,9 +23,9 @@ humanize,2.5.0
 idna,2.10
 inflection,0.5.0
 ipdb,0.13.3
-ipython,7.16.1
+ipython,7.17.0
 ipython-genutils,0.2.0
-isort,5.2.0
+isort,5.2.2
 jdcal,1.4.1
 jedi,0.17.2
 Jinja2,2.11.2
@@ -41,7 +41,7 @@ mssql-cli,1.0.0
 numpy,1.19.1
 openpyxl,3.0.4
 packaging,20.4
-pandas,1.0.5
+pandas,1.1.0
 panel,0.9.7
 param,1.9.3
 parso,0.7.1
@@ -49,7 +49,7 @@ patsy,0.5.1
 pexpect,4.8.0
 pickleshare,0.7.5
 Pillow,7.2.0
-pip,20.1.1
+pip,20.2
 pluggy,0.13.1
 ply,3.11
 prompt-toolkit,3.0.5
@@ -74,7 +74,7 @@ Quandl,3.5.2
 requests,2.24.0
 scipy,1.5.2
 seaborn,0.10.1
-setuptools,49.2.0
+setuptools,49.2.1
 six,1.15.0
 soupsieve,2.0.1
 sqlparse,0.3.1
@@ -85,10 +85,10 @@ termcolor,1.1.0
 terminaltables,3.1.0
 toml,0.10.1
 tornado,6.0.4
-tqdm,4.48.0
+tqdm,4.48.2
 traitlets,4.3.3
 typing-extensions,3.7.4.2
-ujson,3.0.0
+ujson,3.1.0
 urllib3,1.25.10
 wcwidth,0.2.5
 wheel,0.34.2
