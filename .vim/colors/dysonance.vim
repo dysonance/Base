@@ -59,7 +59,7 @@ highlight Todo         ctermfg=11   ctermbg=0    cterm=bold
 highlight Type         ctermfg=6    ctermbg=none cterm=none
 " other random highlights
 highlight IncSearch    ctermfg=none ctermbg=2    cterm=bold
-highlight LineNR       ctermfg=12   ctermbg=none cterm=none
+highlight LineNR       ctermfg=8    ctermbg=none cterm=none
 highlight MatchParen   ctermfg=none ctermbg=2    cterm=none
 highlight Pmenu        ctermfg=7    ctermbg=0    cterm=none
 highlight PmenuSel     ctermfg=none ctermbg=8    cterm=none
