@@ -83,6 +83,7 @@ syn keyword cppType
             \ float
             \ function
             \ hash
+            \ ifstream
             \ int
             \ istringstream
             \ list

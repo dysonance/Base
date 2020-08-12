@@ -164,7 +164,64 @@ autocmd filetype tpl nmap <leader>fmt :!tidy -config ~/.tidyrc %<CR><CR>
 
 " }}}
 
-" Mappings {{{
+" Language-Specific {{{
+
+" lzz files interpreted as cpp files
+autocmd BufNewFile,BufRead *.lzz set filetype=cpp
+autocmd BufNewFile,BufRead *.scss set filetype=sass
+
+" treat yaml files uniquely with regards to indenting
+autocmd! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" detect ansible files
+autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
+autocmd BufRead,BufNewFile */site.yml set filetype=ansible
+autocmd BufRead,BufNewFile */main.yml set filetype=ansible
+autocmd BufRead,BufNewFile */ansible/*.yml set filetype=ansible
+
+" }}}
+
+" Nested Language Definitions {{{
+
+" NOTE: copied from https://vim.fandom.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+" EXAMPLES: 
+" call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
+" call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
+" call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
+" call TextEnableCodeSnip('html' ,'#{{{html' ,'#html}}}', 'SpecialComment')
+
+function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
+    let ft=toupper(a:filetype)
+    let group='textGroup'.ft
+    if exists('b:current_syntax')
+        let s:current_syntax=b:current_syntax
+        " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
+        " do nothing if b:current_syntax is defined.
+        unlet b:current_syntax
+    endif
+    execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
+    try
+        execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
+    catch
+    endtry
+    if exists('s:current_syntax')
+        let b:current_syntax=s:current_syntax
+    else
+        unlet b:current_syntax
+    endif
+    execute 'syntax region textSnip'.ft.'
+                \ matchgroup='.a:textSnipHl.'
+                \ keepend
+                \ start="'.a:start.'" end="'.a:end.'"
+                \ contains=@'.group
+endfunction
+
+" }}}
+
+" }}}
+
+" Keymap Tweaks {{{
 
 " General Mappings {{{
 
@@ -220,6 +277,10 @@ nmap ga <Plug>(EasyAlign)
 " }}}
 
 " Leader Mappings {{{
+
+" cpp header/source switching
+autocmd filetype cpp nmap <leader>hdr :e %:r.h<cr>
+autocmd filetype cpp nmap <leader>src :e %:r.cpp<cr>
 
 " debuggers
 autocmd filetype python nmap <leader>db oimport ipdb; ipdb.set_trace()<esc>
@@ -296,9 +357,6 @@ nnoremap <leader>pe :lN<CR>
 " syntastic reset shortcut
 nnoremap <leader>sr :SyntasticReset<CR>
 nnoremap <leader>st :SyntasticToggleMode<CR>
-
-" debugging shortcuts
-autocmd filetype python nnoremap <leader>db Oimport ipdb; ipdb.set_trace()<esc>
 
 " }}}
 
@@ -430,63 +488,6 @@ autocmd filetype python nmap <F4> :execute ":SlimeSend1 build python"<CR>
 autocmd filetype python nmap <F5> :execute ":SlimeSend1 %run " . bufname("%") ""<CR>
 
 autocmd filetype go nmap <F5> :execute ":SlimeSend1 go run " . bufname("%")<CR>
-
-" }}}
-
-" }}}
-
-" Language-Specific {{{
-
-" lzz files interpreted as cpp files
-autocmd BufNewFile,BufRead *.lzz set filetype=cpp
-autocmd BufNewFile,BufRead *.scss set filetype=sass
-
-" treat yaml files uniquely with regards to indenting
-autocmd! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-autocmd filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-" detect ansible files
-autocmd BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
-autocmd BufRead,BufNewFile */site.yml set filetype=ansible
-autocmd BufRead,BufNewFile */main.yml set filetype=ansible
-autocmd BufRead,BufNewFile */ansible/*.yml set filetype=ansible
-
-" }}}
-
-" Nested Language Definitions {{{
-
-" NOTE: copied from https://vim.fandom.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
-" EXAMPLES: 
-" call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
-" call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
-" call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
-" call TextEnableCodeSnip('html' ,'#{{{html' ,'#html}}}', 'SpecialComment')
-
-function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
-    let ft=toupper(a:filetype)
-    let group='textGroup'.ft
-    if exists('b:current_syntax')
-        let s:current_syntax=b:current_syntax
-        " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
-        " do nothing if b:current_syntax is defined.
-        unlet b:current_syntax
-    endif
-    execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
-    try
-        execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
-    catch
-    endtry
-    if exists('s:current_syntax')
-        let b:current_syntax=s:current_syntax
-    else
-        unlet b:current_syntax
-    endif
-    execute 'syntax region textSnip'.ft.'
-                \ matchgroup='.a:textSnipHl.'
-                \ keepend
-                \ start="'.a:start.'" end="'.a:end.'"
-                \ contains=@'.group
-endfunction
 
 " }}}
 
