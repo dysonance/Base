@@ -25,7 +25,7 @@ function ipy() {
 }
 alias ggi="git grep -nIi"
 alias gg="git grep -nI"
-alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd)"
+alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && export PYLINTHOME=$(pwd)/.pylint.d"
 
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"

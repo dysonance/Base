@@ -95,22 +95,23 @@ set backspace=indent,eol,start                  " make backspace work like most 
 
 " General {{{
 
-set mouse=a                                " enable use of scrolling with the mouse
-set noswapfile                             " dont create temporary swap files
-set autoindent                             " keep indent from current line when starting new line
-set smartindent                            " make indenting logic smarter using language syntax
-set ruler                                  " always show the current cursor position
-set incsearch                              " make search act like in modern web browsers
-set autoread                               " automatically read when a file is changed externally
-set regexpengine=1                         " newer regular expression engine (versions 7.4+)
-autocmd VimResized * :wincmd =             " automatically resize scale windows when terminal is resized
+set mouse=a                    " enable use of scrolling with the mouse
+set noswapfile                 " dont create temporary swap files
+set hidden                     " retain undo history when changing buffers
+set autoindent                 " keep indent from current line when starting new line
+set smartindent                " make indenting logic smarter using language syntax
+set ruler                      " always show the current cursor position
+set incsearch                  " make search act like in modern web browsers
+set autoread                   " automatically read when a file is changed externally
+set regexpengine=1             " newer regular expression engine (versions 7.4+)
+autocmd VimResized * :wincmd = " automatically resize scale windows when terminal is resized
 if has("clipboard")
-    set clipboard=unnamed                  " copy to system clipboard
+    set clipboard=unnamed      " copy to system clipboard
 endif
 if &diff
-    set diffopt+=iwhite                    " ignore whitespace in diff mode but not in standard vim
+    set diffopt+=iwhite        " ignore whitespace in diff mode but not in standard vim
 endif
-"set timeout timeoutlen=500 ttimeoutlen=100 " reduce lag/delay when switching between modes
+                               " set timeout timeoutlen=500 ttimeoutlen=100 " reduce lag/delay when switching between modes
 
 " change cursor shape dynamically (see https://stackoverflow.com/a/30199177/2271756)
 if exists('$TMUX')
