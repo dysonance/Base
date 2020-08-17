@@ -13,8 +13,8 @@ call plug#begin('~/.vim/plugged')
 
 " Editing Utilities {{{
 
-Plug 'tmsvg/pear-tree'            " smart auto-closing of delimiters/quotes
-"Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
+"Plug 'tmsvg/pear-tree'            " smart auto-closing of delimiters/quotes
+Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'         " easily surround chunks of text with delimiters
 Plug 'scrooloose/nerdcommenter'   " comment adding utility
 Plug 'junegunn/vim-easy-align'    " align blocks of code easily

@@ -3,49 +3,50 @@ syn keyword vueConstant
             \ undefined
 
 syn keyword vueKeyword
-            \ new
-            \ continue
-            \ var
-            \ let
-            \ for
-            \ in
-            \ if
-            \ else
-            \ return
             \ const
+            \ continue
+            \ else
+            \ for
             \ function
+            \ if
+            \ in
+            \ let
+            \ new
+            \ return
             \ this
+            \ var
 
 syn keyword vuePreProc
-            \ import
             \ export
             \ from
+            \ import
             \ require
 
 syn keyword vueTodo contained
-            \ TODO
             \ FIXME
-            \ XXX
             \ NOTE
+            \ TODO
+            \ XXX
 
 syn keyword vueBoolean
-            \ true
             \ false
+            \ true
 
 syn keyword vueType
-            \ String
-            \ Number
-            \ Boolean
-            \ Object
             \ Array
+            \ Boolean
+            \ Number
+            \ Object
+            \ String
 
 syn keyword vueBuiltin
-            \ props
-            \ mounted
-            \ data
             \ components
-            \ methods
             \ console
+            \ data
+            \ methods
+            \ mounted
+            \ name
+            \ props
 
 syn match vueConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match vueDelimiter "(\|)\|\[\|\]\|;\|,\|{\|}"
