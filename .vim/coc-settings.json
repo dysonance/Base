@@ -1,30 +1,36 @@
 {
+    "diagnostic.checkCurrentLine": true,
     "diagnostic.enableMessage": "always",
     "diagnostic.errorSign": "E",
-    "diagnostic.warningSign": "W",
-    "diagnostic.infoSign": "I",
     "diagnostic.hintSign": "H",
-    "diagnostic.checkCurrentLine": true,
+    "diagnostic.infoSign": "I",
+    "diagnostic.warningSign": "W",
 
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.triggerAfterInsertEnter": true,
-    "suggest.maxCompleteItemCount": 25,
     "suggest.autoTrigger": "always",
-    "suggest.minTriggerInputLength": 3,
+    "suggest.maxCompleteItemCount": 25,
+    "suggest.minTriggerInputLength": 2,
     "suggest.timeout": 500,
+    "suggest.triggerAfterInsertEnter": true,
 
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--config ~/.config/flake8.cfg"],
+    "python.analysis.diagnosticPublishDelay": 100,
+    "python.analysis.symbolsHierarchyDepthLimit": 10,
+    "python.linting.enabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Args": ["--config", "~/.config/flake8.cfg"],
     "python.linting.pylintArgs": ["--rcfile=~/.config/pylint.cfg"],
+    "python.workspaceSymbols.rebuildOnFileSave": false,
+    "python.workspaceSymbols.rebuildOnStart": true,
 
     "clangd.path": "/usr/local/opt/llvm/bin/clangd",
     "clangd.enabled": true,
+    "clangd.disableDiagnostics": true,
     "clangd.arguments": [
         "--background-index",
         "--clang-tidy",
         "--pretty",
-        "--limit-results=50",
-        "-j=28"
+        "--limit-results=50"
     ],
 
     "languageserver": {
@@ -41,4 +47,5 @@
         }
 
     }
+
 }

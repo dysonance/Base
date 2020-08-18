@@ -60,6 +60,7 @@ Plug 'pangloss/vim-javascript'                     " js syntax and indentation s
 
 "Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
 "Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -83,6 +84,38 @@ runtime macros/matchit.vim  " extended `%` logical navigation
 " Coc {{{
 
 nmap <leader>cd :CocList diagnostics<CR>
+
+" }}}
+
+" ALE {{{
+
+" completion
+let g:ale_completion_enabled=0
+let g:ale_completion_max_suggestions=25
+let g:ale_completion_autoimport=1
+"set completeopt=menu,menuone,preview,noselect,noinsert  " see :h ale-completion-completeopt-bug
+"set omnifunc=ale#completion#OmniFunc
+
+" linting
+let g:ale_open_list=0
+let g:ale_lint_on_save=1
+let g:ale_lint_on_text_changed=1
+let g:ale_linters=
+            \ {
+            \ 'python': ['flake8', 'pylint'],
+            \ 'javascript': ['eslint'],
+            \ 'vue': ['vls'],
+            \ 'cpp': ['clang', 'clangd']
+            \ }
+" python
+let g:ale_python_pylint_options='--rcfile=~/.config/pylint.cfg'
+let g:ale_python_flake8_options='--config ~/.config/flake8.cfg'
+let g:ale_python_auto_pipenv=1
+let g:ale_python_pylint_auto_pipenv=1
+let g:ale_python_flake8_auto_pipenv=1
+" c/cpp
+let g:ale_cpp_clangd_options='--background-index --clang-tidy --pretty --limit-results=50'
+let g:ale_cpp_clang_options='-I/usr/local/opt/llvm/include/c++/v1 -L/usr/local/opt/llvm/lib'
 
 " }}}
 
@@ -269,7 +302,6 @@ let g:pear_tree_repeatable_expand=0
 " Git Gutter {{{
 
 let g:gitgutter_realtime=0 " dont update gutter in realtime to stop lag (will update on save)
-set updatetime=100         " redo gutter git diff every 100 ms (1/10 sec)
 let g:gitgutter_set_sign_backgrounds=0
 
 highlight! link SignColumn LineNr

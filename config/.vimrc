@@ -95,6 +95,7 @@ set backspace=indent,eol,start                  " make backspace work like most 
 
 " General {{{
 
+set updatetime=125             " increase responsiveness for event triggering
 set mouse=a                    " enable use of scrolling with the mouse
 set noswapfile                 " dont create temporary swap files
 set hidden                     " retain undo history when changing buffers
@@ -181,8 +182,6 @@ autocmd BufRead,BufNewFile */site.yml set filetype=ansible
 autocmd BufRead,BufNewFile */main.yml set filetype=ansible
 autocmd BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 
-" }}}
-
 " Nested Language Definitions {{{
 
 " NOTE: copied from https://vim.fandom.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
@@ -217,6 +216,8 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
                 \ start="'.a:start.'" end="'.a:end.'"
                 \ contains=@'.group
 endfunction
+
+" }}}
 
 " }}}
 
@@ -278,6 +279,14 @@ nmap ga <Plug>(EasyAlign)
 " }}}
 
 " Leader Mappings {{{
+
+" location list opening/closing/navigation
+nmap <leader>lc :lclose<CR>
+nmap <leader>lo :lopen<CR>
+nmap <leader>ln :lnext<CR>
+nmap <leader>lp :lprevious<CR>
+nmap <leader>ll :llast<CR>
+nmap <leader>lf :lfirst<CR>
 
 " cpp header/source switching
 autocmd filetype cpp nmap <leader>hdr :e %:r.h<cr>
