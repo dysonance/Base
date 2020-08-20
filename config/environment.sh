@@ -23,6 +23,13 @@ function ipy() {
         $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython
     fi
 }
+function py() {
+    if [ -d "venv" ]; then
+        venv/bin/python $@
+    else
+        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython $@
+    fi
+}
 alias ggi="git grep -nIi"
 alias gg="git grep -nI"
 alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && export PYLINTHOME=$(pwd)/.pylint.d"
@@ -63,7 +70,6 @@ alias py37="$APPDIR/Frameworks/Python.framework/Versions/3.7/bin/python3"
 alias pip37="$APPDIR/Frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3"
 alias pip38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/pip3"
-alias py="py38"
 alias ipi="pip38"
 alias l="ls -Alh"
 
