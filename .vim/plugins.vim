@@ -60,7 +60,7 @@ Plug 'pangloss/vim-javascript'                     " js syntax and indentation s
 
 "Plug 'Valloric/YouCompleteMe'     " code completion functionality (see pre-requisites on GitHub)
 "Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -114,8 +114,8 @@ let g:ale_python_auto_pipenv=1
 let g:ale_python_pylint_auto_pipenv=1
 let g:ale_python_flake8_auto_pipenv=1
 " c/cpp
-let g:ale_cpp_clangd_options='--background-index --clang-tidy --pretty --limit-results=50'
 let g:ale_cpp_clang_options='-I/usr/local/opt/llvm/include/c++/v1 -L/usr/local/opt/llvm/lib'
+let g:ale_cpp_clangd_options='--background-index --clang-tidy --pretty --limit-results=50'
 
 " }}}
 

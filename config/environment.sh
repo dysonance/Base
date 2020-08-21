@@ -55,7 +55,7 @@ export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.6/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 export PATH=$APPDIR/Julia/Julia-1.5.app/Contents/Resources/julia/bin:$PATH
 # path appends
-export PATH=$PATH:/usr/local/opt/llvm/bin
+export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=$PATH:$BREWDIR/sbin
 
 # shell behavior
