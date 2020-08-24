@@ -22,7 +22,7 @@ future,0.18.2
 greenlet,0.4.16
 humanize,2.6.0
 idna,2.10
-inflection,0.5.0
+inflection,0.5.1
 ipdb,0.13.3
 ipython,7.17.0
 ipython-genutils,0.2.0
@@ -40,7 +40,7 @@ more-itertools,8.4.0
 msgpack,1.0.0
 mssql-cli,1.0.0
 numpy,1.19.1
-openpyxl,3.0.4
+openpyxl,3.0.5
 packaging,20.4
 pandas,1.1.1
 panel,0.9.7
@@ -58,10 +58,10 @@ psycopg2,2.8.5
 ptyprocess,0.6.0
 pycodestyle,2.6.0
 pyct,0.4.6
-pydocstyle,5.0.2
+pydocstyle,5.1.0
 pyflakes,2.2.0
 Pygments,2.6.1
-pylint,2.5.3
+pylint,2.6.0
 pyls,0.1.6
 pynvim,0.4.1
 pyodbc,4.0.30
@@ -91,7 +91,7 @@ toml,0.10.1
 tornado,6.0.4
 tqdm,4.48.2
 traitlets,4.3.3
-typing-extensions,3.7.4.2
+typing-extensions,3.7.4.3
 ujson,3.1.0
 urllib3,1.25.10
 wcwidth,0.2.5
