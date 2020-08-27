@@ -37,6 +37,8 @@
         "--limit-results=50"
     ],
 
+    "r.lsp.diagnostics": false,
+
     "languageserver": {
 
         "golang": {

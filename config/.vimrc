@@ -466,6 +466,7 @@ nmap <F6> msvip:SlimeSend<CR>`s
 vmap <F6> :SlimeSend<CR>gv
 nmap <F7> :SlimeSendCurrentLine<CR>j
 nmap <F8> :SlimeSendCurrentLine<CR>
+imap <F7> <esc>:SlimeSendCurrentLine<CR>o
 imap <F8> <esc><F8>a
 nmap <F9> ggV``<F6>V
 

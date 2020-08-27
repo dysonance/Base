@@ -4,7 +4,7 @@ armadillo,9.900.2
 arpack,3.7.0_5
 autoconf,2.69
 automake,1.16.2_1
-awscli,2.0.42
+awscli,2.0.43
 bat,0.15.4
 boost,1.73.0
 cairo,1.16.0_3
@@ -15,7 +15,7 @@ crush-tools,20150716
 cscope,15.9
 csvkit,1.0.5_1
 ctags,5.8_1
-doxygen,1.8.19
+doxygen,1.8.20
 eigen,3.3.7
 eslint,7.7.0
 fd,8.1.1
@@ -103,7 +103,7 @@ pinentry,1.1.0_1
 pixman,0.40.0
 pkg-config,0.29.2_3
 postgresql,12.4
-prettier,2.0.5
+prettier,2.1.1
 python@3.8,3.8.5
 qt,5.15.0
 readline,8.0.4

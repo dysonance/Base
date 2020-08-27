@@ -27,7 +27,7 @@ function py() {
     if [ -d "venv" ]; then
         venv/bin/python $@
     else
-        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython $@
+        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3 $@
     fi
 }
 alias ggi="git grep -nIi"
