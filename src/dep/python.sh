@@ -84,11 +84,11 @@ ln -sf $PYTHON_VERSION Current
 # install pip
 cd $INSTALL_DIRECTORY/../..
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-$INSTALL_DIRECTORY/bin/python3 get-pip.py
+$INSTALL_DIRECTORY/bin/python$(echo $PYTHON_VERSION | sed 's/\..*//g') get-pip.py
 
 # install python packages
 cd $FRAMEWORK_DIRECTORY/Python.Framework/Versions/Current/bin
-./pip3 install --force-reinstall $(cat $HOME/Base/data/packages/required/pip.txt)
+./pip$(echo $PYTHON_VERSION | sed 's/\..*//g') install --force-reinstall $(cat $HOME/Base/data/packages/required/pip.txt)
 
 # cleanup
 if [ -d $APPDIR/IDLE.app ]; then rm -rf $APPDIR/IDLE.app; fi
