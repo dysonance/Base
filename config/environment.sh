@@ -23,6 +23,13 @@ function ipy() {
         $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython
     fi
 }
+function ipi() {
+    if [ -d "venv" ]; then
+        venv/bin/pip $@
+    else
+        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/pip $@
+    fi
+}
 function py() {
     if [ -d "venv" ]; then
         venv/bin/python $@
@@ -70,7 +77,6 @@ alias py37="$APPDIR/Frameworks/Python.framework/Versions/3.7/bin/python3"
 alias pip37="$APPDIR/Frameworks/Python.framework/Versions/3.7/bin/pip3"
 alias py38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3"
 alias pip38="$APPDIR/Frameworks/Python.framework/Versions/3.8/bin/pip3"
-alias ipi="pip38"
 alias l="ls -Alh"
 
 # shell convention/portability management
