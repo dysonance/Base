@@ -486,7 +486,7 @@ autocmd filetype cpp nmap <F5> :execute ":SlimeSend1 run cpp"<CR>
 
 autocmd filetype shell nmap <silent> <leader><F1> :!man <cword><CR>
 autocmd filetype shell nmap <F4> :execute ":SlimeSend1 ./" . bufname("%") . ""<CR>
-autocmd filetype shell nmap <F5> :execute ":SlimeSend1 . " . bufname("%") . ""<CR>
+autocmd filetype shell nmap <F5> :execute ":SlimeSend1 source " . bufname("%") . ""<CR>
 
 autocmd filetype sql nmap <silent> <leader><F1> :!psql postgres -c "\\h <cword>"<CR>
 autocmd filetype sql nmap <F4> :execute ":SlimeSend1 sql -f " . bufname("%") . ""<CR>
