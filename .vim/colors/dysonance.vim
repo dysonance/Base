@@ -16,7 +16,7 @@ set cursorline
 
 if has('nvim')
     highlight ActiveWindow ctermfg=none
-    highlight InactiveWindow ctermfg=7
+    highlight InactiveWindow ctermfg=7 ctermbg=8
     " call method on window enter
     augroup WindowManagement
         autocmd!
@@ -29,9 +29,9 @@ if has('nvim')
 endif
 
 " general highlighting
-highlight Normal       ctermfg=none ctermbg=4    cterm=none
+highlight Normal       ctermfg=none ctermbg=none    cterm=none
 highlight Cursor       ctermfg=none ctermbg=none cterm=none
-highlight CursorLine   ctermfg=none ctermbg=0    cterm=none
+highlight CursorLine   ctermfg=none ctermbg=4    cterm=none
 highlight CursorLineNR ctermfg=none ctermbg=12   cterm=none
 highlight Function     ctermfg=11   ctermbg=none cterm=none
 highlight Identifier   ctermfg=none ctermbg=none cterm=none
@@ -55,13 +55,13 @@ highlight Delimiter    ctermfg=14   ctermbg=none cterm=none
 highlight Special      ctermfg=3    ctermbg=none cterm=none
 highlight SpecialChar  ctermfg=2    ctermbg=none cterm=none
 highlight Tag          ctermfg=13   ctermbg=none cterm=none
-highlight Todo         ctermfg=11   ctermbg=0    cterm=bold
-highlight Type         ctermfg=6    ctermbg=none cterm=none
+highlight Todo         ctermfg=11   ctermbg=4    cterm=bold
+highlight Type         ctermfg=208  ctermbg=none cterm=none
 " other random highlights
 highlight IncSearch    ctermfg=none ctermbg=2    cterm=bold
-highlight LineNR       ctermfg=8    ctermbg=none cterm=none
+highlight LineNR       ctermfg=7    ctermbg=none cterm=none
 highlight MatchParen   ctermfg=none ctermbg=2    cterm=none
-highlight Pmenu        ctermfg=7    ctermbg=0    cterm=none
+highlight Pmenu        ctermfg=7    ctermbg=4    cterm=none
 highlight PmenuSel     ctermfg=none ctermbg=8    cterm=none
 highlight Search       ctermfg=none ctermbg=2    cterm=bold
 highlight StatusLine   ctermfg=12   ctermbg=14   cterm=none
@@ -69,7 +69,7 @@ highlight Visual       ctermfg=none ctermbg=7    cterm=none
 " errors and warnings highlighting
 highlight Error        ctermfg=none ctermbg=1    cterm=none
 highlight ErrorMsg     ctermfg=none ctermbg=1    cterm=none
-highlight WarningMsg   ctermfg=none ctermbg=0    cterm=none
+highlight WarningMsg   ctermfg=none ctermbg=1    cterm=none
 " diff highlights
 highlight DiffAdd      ctermfg=10   ctermbg=2    cterm=none
 highlight DiffChange   ctermfg=none ctermbg=none cterm=none
