@@ -1,3 +1,5 @@
+syn keyword pythonIdentifier _
+
 syn keyword pythonStatement
             \ assert
             \ break
@@ -53,10 +55,9 @@ syn keyword pythonBoolean
             \ False
             \ True
 
-syn keyword pythonType
-            \ AssertionError
+syn keyword pythonBaseType
             \ Exception
-            \ ValueError
+            \ List Union
             \ bool
             \ bytes
             \ complex
@@ -90,7 +91,7 @@ syn keyword pythonCustomLibrary
             \ numpy np
             \ pandas pd
             \ plotly
-            \ psycopg2
+            \ psycopg2 psql
             \ pylab
             \ quandl
             \ requests
@@ -339,16 +340,17 @@ syn keyword pythonStandardLibrary
             \ zipimport
             \ zlib
 
-syn match pythonIdentifier "\<\w\+\>"
-syn match pythonConstant   "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
-syn match pythonDecorator  "@\@<=\w*\|@"
-syn match pythonDelimiter  "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match pythonFunction   "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
-syn match pythonNumber     "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
-syn match pythonOperator   "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
-syn match pythonTodo       "TODO\|FIXME\|NOTE"
-syn match pythonCustomType "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(float\|int\|bool\|str\).\|\(pd\.\)\@<=Timestamp\|\(np\.\)\@<=datetime64"
-syn match pythonFormat     "\({}\)" contained containedin=pythonFormattedString
+syn match pythonConstant      "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
+syn match pythonDecorator     "@\@<=\w*\|@"
+syn match pythonDelimiter     "\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match pythonFunction      "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
+syn match pythonNumber        "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
+syn match pythonOperator      "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
+syn match pythonTodo          "TODO\|FIXME\|NOTE"
+syn match pythonCustomType    "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(float\|int\|bool\|str\).\|\(pd\.\)\@<=Timestamp\|\(np\.\)\@<=datetime64"
+syn match pythonCustomLibrary "\(np\.\)\@<=linalg"
+syn match pythonFormat        "\({}\)" contained containedin=pythonFormattedString
+syn match pythonType          "\<[A-Z]\w\+Error\>"
 
 syn region pythonFormat          start="{"      end="}"      contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"      end="\n"     contains=pythonTodo
@@ -359,6 +361,7 @@ syn region pythonFormattedString start=+f"+     end=+"+
 syn region pythonFormattedString start=+f'+     end=+'+
 syn region pythonFormattedString start=+f\"\"\"+     end=+\"\"\"+
 
+hi def link pythonIdentifier      Normal
 hi def link pythonBoolean         Boolean
 hi def link pythonBuiltin         Special
 hi def link pythonComment         Comment
@@ -379,7 +382,7 @@ hi def link pythonStatement       Statement
 hi def link pythonString          String
 hi def link pythonFormattedString String
 hi def link pythonTodo            Todo
-hi def link pythonType            Type
+hi def link pythonBaseType        Type
 
 highlight pythonFormat ctermfg=DarkGreen ctermbg=none
 

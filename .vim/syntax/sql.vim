@@ -149,7 +149,7 @@ syn keyword sqlOperator
 syn keyword sqlType
             \ bool
             \ boolean
-            \ char
+            \ char character
             \ datetime
             \ decimal
             \ double
@@ -167,7 +167,7 @@ syn keyword sqlType
             \ text
             \ time
             \ timestamp
-            \ varchar
+            \ varchar varying
             \ view
 
 syn keyword sqlFunction

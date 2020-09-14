@@ -153,7 +153,7 @@ autocmd filetype javascript,vue setlocal formatprg=prettier\ --parser\ vue\ --pr
 autocmd filetype javascript,vue setlocal indentexpr=GetJavascriptIndent()
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
-autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 1\ --function-case\ 1
+autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 2\ --function-case\ 3\ --type-case\ 3\ --no-extra-line\ --wrap-limit\ 80\ --wrap-after\ 80\ --format-type
 autocmd filetype bash,zsh,shell setlocal formatprg=shfmt\ -i\ 4
 
 " format keymap overrides
