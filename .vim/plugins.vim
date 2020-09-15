@@ -41,6 +41,7 @@ Plug 'rizzatti/dash.vim'              " mac dash documentation app integration
 Plug 'tweekmonster/braceless.vim'     " smarter navigation of code that doesnt use braces for scope
 Plug 'tmhedberg/matchit'              " extent the % to match HTML, LaTeX, and other languages
 Plug 'alvan/vim-closetag'             " make html editing less miserable
+Plug 'python-rope/ropevim'            " python refactoring tools
 
 " }}}
 
