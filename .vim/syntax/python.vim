@@ -55,9 +55,9 @@ syn keyword pythonBoolean
             \ False
             \ True
 
-syn keyword pythonBaseType
+syn keyword pythonType
             \ Exception
-            \ List Union
+            \ List Union Collection Tuple
             \ bool
             \ bytes
             \ complex
@@ -71,13 +71,12 @@ syn keyword pythonBaseType
             \ set
             \ str
             \ tuple
-
-syn keyword pythonCustomType
             \ DataFrame Series Index
             \ array ndarray
             \ vector matrix cube
 
-syn keyword pythonCustomLibrary
+syn keyword pythonLibrary
+            \ math
             \ black
             \ bokeh
             \ boto3
@@ -85,272 +84,38 @@ syn keyword pythonCustomLibrary
             \ cvxpy cp
             \ gnupg
             \ ipdb
+            \ logging log
             \ matplotlib pyplot mpl plt
             \ nose
             \ numba
             \ numpy np
+            \ os
             \ pandas pd
             \ plotly
             \ psycopg2 psql
             \ pylab
             \ quandl
+            \ re
             \ requests
             \ scipy
             \ seaborn sns
             \ sklearn
             \ talib
-
-syn keyword pythonStandardLibrary
-            \ __future__
-            \ __main__
-            \ _dummy_thread
-            \ _thread
-            \ abc
-            \ aifc
-            \ argparse
-            \ ast
-            \ asynchat
-            \ asyncio
-            \ asyncore
-            \ atexit
-            \ audioop
-            \ base64
-            \ bdb
-            \ binascii
-            \ binhex
-            \ bisect
-            \ builtins
-            \ bz2
-            \ calendar
-            \ cgi
-            \ cgitb
-            \ chunk
-            \ cmath
-            \ cmd
-            \ code
-            \ codecs
-            \ codeop
-            \ collections
-            \ collections.abc
-            \ colorsys
-            \ compileall
-            \ concurrent.futures
-            \ configparser
-            \ contextlib
-            \ contextvars
-            \ copy
-            \ copyreg
-            \ crypt
-            \ csv
-            \ ctypes
-            \ curses
-            \ curses.ascii
-            \ curses.panel
-            \ curses.textpad
-            \ dataclasses
             \ datetime dt
-            \ dbm
-            \ decimal
-            \ difflib
-            \ dis
-            \ distutils
-            \ doctest
-            \ dummy_threading
-            \ email
-            \ ensurepip
-            \ enum
-            \ errno
-            \ faulthandler
-            \ fcntl
-            \ filecmp
-            \ fileinput
-            \ fnmatch
-            \ fractions
-            \ ftplib
-            \ functools
-            \ gc
-            \ getopt
-            \ getpass
-            \ gettext
-            \ glob
-            \ grp
-            \ gzip
-            \ hashlib
-            \ heapq
-            \ hmac
-            \ html
-            \ html.entities
-            \ html.parser
-            \ http
-            \ http.client
-            \ http.cookiejar
-            \ http.cookies
-            \ http.server
-            \ imaplib
-            \ imghdr
-            \ imp
-            \ importlib
-            \ inspect
-            \ io
-            \ ipaddress
-            \ itertools
             \ json
-            \ keyword
-            \ linecache
-            \ locale
-            \ logging log
-            \ logging.config
-            \ logging.handlers
-            \ lzma
-            \ macpath
-            \ mailbox
-            \ mailcap
-            \ marshal
-            \ math
-            \ mimetypes
-            \ mmap
-            \ modulefinder
-            \ msilib
-            \ msvcrt
-            \ multiprocessing
-            \ netrc
-            \ nis
-            \ nntplib
-            \ numbers
-            \ operator
-            \ optparse
-            \ os
-            \ os
-            \ os.path
-            \ ossaudiodev
-            \ parser
-            \ pathlib
-            \ pdb
-            \ pickle
-            \ pickletools
-            \ pipes
-            \ pkgutil
-            \ platform
-            \ plistlib
-            \ poplib
-            \ posix
-            \ pprint
-            \ pty
-            \ pwd
-            \ py_compile
-            \ pyclbr
-            \ pydoc
-            \ queue
-            \ quopri
-            \ random
-            \ re
-            \ readline
-            \ reprlib
-            \ resource
-            \ rlcompleter
-            \ runpy
-            \ sched
-            \ secrets
-            \ selectors
-            \ shelve
-            \ shlex
-            \ shutil
-            \ signal
-            \ site
-            \ smtpd
-            \ smtplib
-            \ sndhdr
-            \ socket
-            \ socketserver
-            \ spwd
-            \ sqlite3
-            \ ssl
-            \ stat
-            \ statistics
-            \ string
-            \ stringprep
-            \ struct
-            \ subprocess
-            \ sunau
-            \ symbol
-            \ symtable
-            \ sys
-            \ sysconfig
-            \ syslog
-            \ tabnanny
-            \ tarfile
-            \ telnetlib
-            \ tempfile
-            \ termios
-            \ test
-            \ test.support
-            \ test.support.script_helper
-            \ textwrap
-            \ threading
-            \ time
-            \ timeit
-            \ tkinter
-            \ tkinter.scrolledtext
-            \ tkinter.tix
-            \ tkinter.ttk
-            \ token
-            \ tokenize
-            \ trace
-            \ traceback
-            \ tracemalloc
-            \ tty
-            \ turtle
-            \ types
             \ typing
-            \ unicodedata
-            \ unittest
-            \ unittest.mock
-            \ unittest.mock
-            \ urllib
-            \ urllib.error
-            \ urllib.parse
-            \ urllib.request
-            \ urllib.response
-            \ urllib.robotparser
-            \ uu
-            \ uuid
-            \ venv
-            \ warnings
-            \ wave
-            \ weakref
-            \ webbrowser
-            \ winreg
-            \ winsound
-            \ wsgiref
-            \ xdrlib
-            \ xml.dom
-            \ xml.dom.minidom
-            \ xml.dom.pulldom
-            \ xml.etree.ElementTree
-            \ xml.parsers.expat
-            \ xml.sax
-            \ xml.sax.handler
-            \ xml.sax.saxutils
-            \ xml.sax.xmlreader
-            \ xmlrpc
-            \ xmlrpc.client
-            \ xmlrpc.server
-            \ zipapp
-            \ zipfile
-            \ zipimport
-            \ zlib
 
-syn match pythonConstant      "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
-syn match pythonDecorator     "@\@<=\w*\|@"
-syn match pythonDelimiter     "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match pythonFunction      "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
-syn match pythonNumber        "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
-syn match pythonOperator      "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
-syn match pythonTodo          "TODO\|FIXME\|NOTE"
-syn match pythonCustomType    "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(float\|int\|bool\|str\).\|\(pd\.\)\@<=Timestamp\|\(np\.\)\@<=datetime64"
-syn match pythonCustomLibrary "\(np\.\)\@<=linalg"
-syn match pythonFormat        "\({}\)" contained containedin=pythonFormattedString
-syn match pythonType          "\<[A-Z]\w\+Error\>"
+syn match pythonConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
+syn match pythonDecorator "@\@<=\w*\|@"
+syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
+syn match pythonNumber    "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
+syn match pythonOperator  "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
+syn match pythonTodo      "TODO\|FIXME\|NOTE"
+syn match pythonType      "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(float\|int\|bool\|str\).\|\(pd\.\)\@<=Timestamp\|\(np\.\)\@<=datetime64"
+syn match pythonLibrary   "\(np\.\)\@<=linalg"
+syn match pythonFormat    "\({}\)" contained containedin=pythonFormattedString
+syn match pythonType      "\<[A-Z]\w\+Error\>"
 
 syn region pythonFormat          start="{"      end="}"      contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"      end="\n"     contains=pythonTodo
@@ -367,8 +132,8 @@ hi def link pythonBuiltin         Special
 hi def link pythonComment         Comment
 hi def link pythonConstant        Constant
 hi def link pythonControl         Statement
-hi def link pythonCustomLibrary   PreProc
-hi def link pythonCustomType      Type
+hi def link pythonLibrary         PreProc
+hi def link pythonType            Type
 hi def link pythonDecorator       PreProc
 hi def link pythonFormat          SpecialChar
 hi def link pythonDelimiter       Delimiter
@@ -382,7 +147,7 @@ hi def link pythonStatement       Statement
 hi def link pythonString          String
 hi def link pythonFormattedString String
 hi def link pythonTodo            Todo
-hi def link pythonBaseType        Type
+hi def link pythonType            Type
 
 highlight pythonFormat ctermfg=DarkGreen ctermbg=none
 
