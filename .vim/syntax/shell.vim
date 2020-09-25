@@ -55,10 +55,11 @@ syn keyword shellConstant
 syn keyword shellFunction
             \ cat
             \ cd
+            \ clear
             \ cmake
             \ cp
             \ curl
-            \ rm
+            \ deactivate
             \ echo
             \ expr
             \ git
@@ -71,11 +72,12 @@ syn keyword shellFunction
             \ printf
             \ python
             \ python3
-            \ deactivate
+            \ rm
             \ scp
             \ sed
             \ ssh
             \ tail
+            \ touch
             \ wc
             \ wget
 

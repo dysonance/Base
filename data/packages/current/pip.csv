@@ -28,7 +28,7 @@ inflection,0.5.1
 ipdb,0.13.3
 ipython,7.18.1
 ipython-genutils,0.2.0
-isort,5.5.2
+isort,5.5.3
 jdcal,1.4.1
 jedi,0.17.2
 Jinja2,2.11.2
@@ -67,7 +67,7 @@ pycodestyle,2.6.0
 pyct,0.4.8
 pydocstyle,5.1.1
 pyflakes,2.2.0
-Pygments,2.7.0
+Pygments,2.7.1
 pylint,2.6.0
 pyls,0.1.6
 pynvim,0.4.2
@@ -75,13 +75,15 @@ pyodbc,4.0.30
 pyparsing,2.4.7
 python-dateutil,2.8.1
 python-jsonrpc-server,0.4.0
-python-language-server,0.35.0
+python-language-server,0.35.1
 pytz,2020.1
 pyviz-comms,0.7.6
 PyYAML,5.3.1
 Quandl,3.5.2
 requests,2.24.0
 rope,0.17.0
+ropemode,0.5
+ropevim,0.8.0
 scipy,1.5.2
 seaborn,0.11.0
 setuptools,50.3.0

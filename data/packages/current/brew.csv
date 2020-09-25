@@ -4,7 +4,7 @@ armadillo,9.900.3
 arpack,3.7.0_5
 autoconf,2.69
 automake,1.16.2_1
-awscli,2.0.48
+awscli,2.0.50
 bat,0.15.4
 bdw-gc,8.0.4
 boost,1.73.0
@@ -29,7 +29,7 @@ gcovr,4.2
 gd,2.3.0
 gdbm,1.18.1_1
 gettext,0.21
-gh,0.12.0
+gh,1.0.0
 git,2.28.0
 glances,3.1.4.1
 glew,2.1.0_1
@@ -49,7 +49,7 @@ gts,0.7.6_2
 guile,3.0.4
 harfbuzz,2.7.2
 hdf5,1.12.0_1
-htop,3.0.1
+htop,3.0.2
 hwloc,2.2.0
 icu4c,67.1
 isl,0.22.1
@@ -92,7 +92,7 @@ ncurses,6.2
 netpbm,10.86.16
 nettle,3.6
 ninja,1.10.1_1
-node,14.10.1
+node,14.11.0
 npth,1.6
 oniguruma,6.9.5-rev1
 open-mpi,4.0.5
@@ -100,7 +100,7 @@ openblas,0.3.10_1
 openjdk,14.0.1
 openssl@1.1,1.1.1g
 p11-kit,0.23.21
-pango,1.46.1
+pango,1.46.2
 parquet-tools,1.11.1
 pcre,8.44
 pcre2,10.35
@@ -110,7 +110,7 @@ pinentry,1.1.0_1
 pixman,0.40.0
 pkg-config,0.29.2_3
 postgresql,12.4
-prettier,2.1.1
+prettier,2.1.2
 python@3.8,3.8.5
 qt,5.15.1
 readline,8.0.4

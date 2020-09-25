@@ -1,10 +1,14 @@
+Pygments
 appnope
 backcall
+black
 cycler
 decorator
+flake8
 ipython
 ipython-genutils
 jedi
+jupyter
 kiwisolver
 matplotlib
 numpy
@@ -15,7 +19,7 @@ pickleshare
 pip
 prompt-toolkit
 ptyprocess
-Pygments
+pylint
 pyparsing
 python-dateutil
 pytz

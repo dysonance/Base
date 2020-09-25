@@ -41,6 +41,7 @@ syn keyword vueType
 
 syn keyword vueBuiltin
             \ components
+            \ computed
             \ console
             \ data
             \ methods
