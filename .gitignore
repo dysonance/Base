@@ -3,3 +3,5 @@
 tmp*
 tags
 a.out
+**/.ipynb_checkpoints
+**/*.ipynb
