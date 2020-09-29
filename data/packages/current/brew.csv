@@ -10,7 +10,7 @@ bdw-gc,8.0.4
 boost,1.73.0
 cairo,1.16.0_3
 clang-format,10.0.1
-cmake,3.18.2
+cmake,3.18.3
 cpanminus,1.9019
 crush-tools,20150716
 cscope,15.9
@@ -18,7 +18,7 @@ csvkit,1.0.5_1
 ctags,5.8_1
 doxygen,1.8.20
 eigen,3.3.7
-eslint,7.9.0
+eslint,7.10.0
 fd,8.1.1
 fontconfig,2.13.1
 freetype,2.10.2
@@ -91,8 +91,8 @@ mssql-tools,17.6.1.1
 ncurses,6.2
 netpbm,10.86.16
 nettle,3.6
-ninja,1.10.1_1
-node,14.11.0
+ninja,1.10.1_2
+node,14.12.0
 npth,1.6
 oniguruma,6.9.5-rev1
 open-mpi,4.0.5
@@ -111,6 +111,7 @@ pixman,0.40.0
 pkg-config,0.29.2_3
 postgresql,12.4
 prettier,2.1.2
+psqlodbc,12.02.0000
 python@3.8,3.8.5
 qt,5.15.1
 readline,8.0.4

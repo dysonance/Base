@@ -430,19 +430,25 @@ autocmd filetype pandoc imap <C-C> \left<C-V>\{\right<C-V>\}<esc>%a<Space><Space
 " greek letter shortcuts for pandoc markdown files
 autocmd filetype pandoc imap <C-G>a \alpha
 autocmd filetype pandoc imap <C-G>b \beta
-autocmd filetype pandoc imap <C-G>s \sigma
-autocmd filetype pandoc imap <C-G>g \gamma
-autocmd filetype pandoc imap <C-G>m \mu
+autocmd filetype pandoc imap <C-G>c \gamma
+autocmd filetype pandoc imap <C-G>d \delta
 autocmd filetype pandoc imap <C-G>f \phi
+autocmd filetype pandoc imap <C-G>g \gamma
+autocmd filetype pandoc imap <C-G>l \lambda
+autocmd filetype pandoc imap <C-G>m \mu
 autocmd filetype pandoc imap <C-G>p \pi
+autocmd filetype pandoc imap <C-G>s \sigma
 autocmd filetype pandoc imap <C-G>w \omega
 autocmd filetype pandoc imap <C-G>A \Alpha
 autocmd filetype pandoc imap <C-G>B \Beta
-autocmd filetype pandoc imap <C-G>S \Sigma
-autocmd filetype pandoc imap <C-G>G \Gamma
-autocmd filetype pandoc imap <C-G>m \Mu
+autocmd filetype pandoc imap <C-G>C \Gamma
+autocmd filetype pandoc imap <C-G>D \Delta
 autocmd filetype pandoc imap <C-G>F \Phi
+autocmd filetype pandoc imap <C-G>G \Gamma
+autocmd filetype pandoc imap <C-G>L \Lambda
+autocmd filetype pandoc imap <C-G>M \Mu
 autocmd filetype pandoc imap <C-G>P \Pi
+autocmd filetype pandoc imap <C-G>S \Sigma
 autocmd filetype pandoc imap <C-G>W \Omega
 
 " }}}
@@ -456,8 +462,8 @@ nmap <silent> <F1> <Plug>DashSearch
 autocmd BufEnter * :syntax sync fromstart
 nmap <silent> <F12> :syntax sync fromstart<CR>
 
-autocmd filetype pandoc nmap <F4> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=xelatex<CR>
-autocmd filetype pandoc nmap <F5> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=xelatex --verbose && open %:r.pdf<CR>
+autocmd filetype pandoc nmap <F4> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex<CR>
+autocmd filetype pandoc nmap <F5> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex --verbose && open %:r.pdf<CR>
 
 nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>

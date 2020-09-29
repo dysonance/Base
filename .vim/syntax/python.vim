@@ -109,12 +109,14 @@ syn keyword pythonLibrary
             \ pylab
             \ pyodbc
             \ quandl
+            \ random
             \ rapidjson
             \ re
             \ requests
             \ scipy sp
             \ seaborn sns
             \ sklearn
+            \ statsmodels sm
             \ subprocess
             \ sys
             \ talib
