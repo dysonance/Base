@@ -58,7 +58,7 @@ syn keyword pythonBoolean
 syn keyword pythonType
             \ DataFrame Series Index
             \ Exception
-            \ List Union Collection Tuple Enum
+            \ List Union Collection Tuple Enum, Dict
             \ array ndarray
             \ bool
             \ bytes
@@ -124,6 +124,8 @@ syn keyword pythonLibrary
             \ typing
             \ unittest
             \ urllib
+            \ csv
+            \ collections
 
 syn match pythonConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
