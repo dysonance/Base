@@ -35,6 +35,7 @@ if ! [ -d "Python" ]; then mkdir Python; fi
 cd Python
 if ! [ -d "src" ]; then git clone https://github.com/python/cpython src; fi
 cd src
+git clean -xfd
 git checkout master --quiet
 git pull --quiet
 if [ "$PYTHON_VERSION" == "" ]; then PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g'); fi

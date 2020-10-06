@@ -16,9 +16,10 @@ function setup_directory()
 set -e
 cd ~/Base
 echo "************ ENVIRONMENT SETUP COMMENCED ************"
+setup_directory ~/Applications
 
 # shell
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if ! [ -d ~/.oh-my-zsh ]; then sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; fi
 setup_directory ~/Applications/Shell
 mv ~/.oh-my-zsh ~/Applications/Shell/
 ln -sf ~/Base/config/dysonance.zsh-theme ~/Applications/Shell/.oh-my-zsh/themes/

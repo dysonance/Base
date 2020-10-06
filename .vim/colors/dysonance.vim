@@ -29,7 +29,7 @@ if has('nvim')
 endif
 
 " general highlighting
-highlight Normal       ctermfg=none ctermbg=none    cterm=none
+highlight Normal       ctermfg=none ctermbg=none cterm=none
 highlight Cursor       ctermfg=none ctermbg=none cterm=none
 highlight CursorLine   ctermfg=none ctermbg=4    cterm=none
 highlight CursorLineNR ctermfg=none ctermbg=12   cterm=none
@@ -50,7 +50,7 @@ highlight PreProc      ctermfg=3    ctermbg=none cterm=none
 highlight Repeat       ctermfg=13   ctermbg=none cterm=none
 highlight Statement    ctermfg=13   ctermbg=none cterm=none
 " special highlighting group
-highlight Comment      ctermfg=12   ctermbg=none cterm=none
+highlight Comment      ctermfg=8    ctermbg=none cterm=none
 highlight Delimiter    ctermfg=14   ctermbg=none cterm=none
 highlight Special      ctermfg=3    ctermbg=none cterm=none
 highlight SpecialChar  ctermfg=2    ctermbg=none cterm=none
