@@ -44,14 +44,13 @@ alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && ex
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
+export R_LIBS_USER=$HOME/Library/R
 #export BREWDIR=$APPDIR/Brew/src # if built in home directory
 export BREWDIR=/usr/local       # if installed conventionally
 export GOROOT=$BREWDIR/opt/go/libexec
 export GOPATH=$APPDIR/Go
 export EDITOR=vim
 if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
-alias cxx=/usr/local/opt/llvm/bin/clang++
-alias cc=/usr/local/opt/llvm/bin/clang
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH

@@ -110,7 +110,7 @@ let g:ale_linters=
             \ }
 " python
 let g:ale_python_pylint_options='--rcfile=~/.config/pylint.cfg'
-let g:ale_python_flake8_options='--config ~/.config/flake8.cfg'
+let g:ale_python_flake8_options='--config /usr/local/share/flake8.cfg'
 let g:ale_python_auto_pipenv=1
 let g:ale_python_pylint_auto_pipenv=1
 let g:ale_python_flake8_auto_pipenv=1

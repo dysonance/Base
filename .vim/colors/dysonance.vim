@@ -50,7 +50,7 @@ highlight PreProc      ctermfg=3    ctermbg=none cterm=none
 highlight Repeat       ctermfg=13   ctermbg=none cterm=none
 highlight Statement    ctermfg=13   ctermbg=none cterm=none
 " special highlighting group
-highlight Comment      ctermfg=8    ctermbg=none cterm=none
+highlight Comment      ctermfg=12   ctermbg=7    cterm=none
 highlight Delimiter    ctermfg=14   ctermbg=none cterm=none
 highlight Special      ctermfg=3    ctermbg=none cterm=none
 highlight SpecialChar  ctermfg=2    ctermbg=none cterm=none
@@ -71,7 +71,7 @@ highlight Error        ctermfg=none ctermbg=1    cterm=none
 highlight ErrorMsg     ctermfg=none ctermbg=1    cterm=none
 highlight WarningMsg   ctermfg=none ctermbg=1    cterm=none
 " diff highlights
-highlight DiffAdd      ctermfg=10   ctermbg=2    cterm=none
-highlight DiffChange   ctermfg=none ctermbg=none cterm=none
-highlight DiffDelete   ctermfg=9    ctermbg=1    cterm=none
-highlight DiffText     ctermfg=11   ctermbg=3    cterm=bold,underline
+highlight DiffAdd      ctermfg=none ctermbg=2    cterm=bold
+highlight DiffChange   ctermfg=none ctermbg=none cterm=bold
+highlight DiffDelete   ctermfg=9    ctermbg=1    cterm=bold
+highlight DiffText     ctermfg=none ctermbg=3    cterm=bold,underline

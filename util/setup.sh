@@ -35,6 +35,7 @@ setup_directory ~/.ipython
 setup_directory ~/.ipython/profile_default
 setup_directory ~/.tmux
 setup_directory ~/.tmux/plugins
+setup_directory ~/Library/R
 echo "linking configuration files"
 ln -sf ~/Base/.vim/colors ~/.vim/colors
 ln -sf ~/Base/.vim/syntax ~/.vim/syntax
@@ -52,10 +53,15 @@ ln -sf ~/Base/config/.tigrc ~/
 ln -sf ~/Base/config/.psqlrc ~/
 ln -sf ~/Base/config/ipython_config.py ~/.ipython/profile_default/
 ln -sf ~/Base/config/.Rprofile ~/
+ln -sf ~/Base/config/pylint.cfg ~/.config/
+ln -sf ~/Base/config/flake8.cfg ~/.config/
+ln -sf ~/Base/config/flake8.cfg /usr/local/share/
 
 # install preliminary dependencies
 echo "installing homebrew"
 ./src/dep/brew.sh > log/brew.log
+brew tap homebrew/cask-fonts
+brew cask install $(cat data/packages/required/fonts.txt)
 
 # setup alacritty terminal
 echo "installing alacritty"

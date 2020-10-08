@@ -85,12 +85,12 @@ window:
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  multiplier: 3
+  multiplier: 5
 
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Input Mono Narrow
+    family: Input Mono
     style: Regular
   bold:
     #family: monospace

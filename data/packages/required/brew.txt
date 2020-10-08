@@ -35,6 +35,7 @@ rust
 saulpw/vd/visidata
 sphinx-doc
 sqlite
+svn
 tcl-tk
 tmux
 wget
