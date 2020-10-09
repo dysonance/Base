@@ -28,7 +28,7 @@ else
     LATEST_COMMIT=$(git rev-parse @)
     if [ $CURRENT_COMMIT != $LATEST_COMMIT ]; then
         make -j $CPU app
-        mv target/release/osx/Alacritty.app $HOME/Applications/Alacritty/
+        mv target/release/osx/Alacritty.app $HOME/Applications/Alacritty/Alacritty.app
     fi
 fi
 

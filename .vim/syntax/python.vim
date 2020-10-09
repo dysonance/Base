@@ -126,6 +126,7 @@ syn keyword pythonLibrary
             \ urllib
             \ csv
             \ collections
+            \ threading
 
 syn match pythonConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
