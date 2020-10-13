@@ -141,7 +141,7 @@ syn match pythonLibrary   "\(np\.\)\@<=\(linalg\|random\)\|\(sp\.\)\@<=\(stats\)
 syn match pythonFormat    "\({}\)" contained containedin=pythonFormattedString
 syn match pythonType      "\<[A-Z]\w\+Error\>"
 
-syn region pythonFormat          start="{"       end="}"  contained containedin=pythonFormattedString keepend
+syn region pythonFormat          start="{"       end="}"  contains=ALL contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"       end="\n" contains=pythonTodo
 syn region pythonString          start="\"\"\""  end="\"\"\""
 syn region pythonString          start=+"+       end=+"+

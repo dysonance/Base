@@ -32,9 +32,9 @@ function ipi() {
 }
 function py() {
     if [ -d "venv" ]; then
-        venv/bin/python $@
+        PYTHONPATH=$(pwd) venv/bin/python $@
     else
-        $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/python3 $@
+        PYTHONPATH=$(pwd) $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/python3 $@
     fi
 }
 alias ggi="git grep -nIi"

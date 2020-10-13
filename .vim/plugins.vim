@@ -90,10 +90,13 @@ nmap <leader>cd :CocList diagnostics<CR>
 
 " ALE {{{
 
-" completion
-let g:ale_completion_enabled=0
-let g:ale_completion_max_suggestions=25
-let g:ale_completion_autoimport=1
+let g:ale_completion_enabled=0    " leave completion to coc-vim
+let g:ale_completion_autoimport=1 " automatically import external modules when linting
+let g:ale_lint_on_text_changed=0  " stop constant linting on the fly before finishing a thought
+let g:ale_lint_on_insert_leave=1  " run linters after leaving insert mode
+let g:ale_lint_on_enter=1         " run linters when opening a new file
+let g:ale_lint_on_save=1          " run linters when saving files
+
 "set completeopt=menu,menuone,preview,noselect,noinsert  " see :h ale-completion-completeopt-bug
 "set omnifunc=ale#completion#OmniFunc
 

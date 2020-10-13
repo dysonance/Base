@@ -24,23 +24,43 @@ syn region pandocQuestion start="Q:" end="?\|$"
 
 " highlighting rules
 hi def link pandocList Operator
-highlight pandocHyperlink ctermfg=Cyan ctermbg=NONE cterm=underline
-highlight pandocURL ctermfg=Blue ctermbg=NONE cterm=underline
-highlight pandocMathCommand ctermfg=Black ctermbg=DarkGreen
-highlight pandocMathCommandArgument ctermfg=DarkYellow ctermbg=DarkGreen
-highlight pandocMathNumber ctermfg=Red ctermbg=DarkGreen
-highlight pandocMathOperator ctermfg=Yellow ctermbg=DarkGreen
-highlight pandocMathInline ctermfg=Green ctermbg=DarkGreen
-highlight pandocMathDisplay ctermfg=Green ctermbg=DarkGreen
-highlight pandocEmphasis ctermbg=Black cterm=Bold
-highlight pandocSection ctermfg=DarkYellow cterm=underline
-highlight pandocCodeBlock ctermfg=Black ctermbg=DarkGrey
-highlight pandocCodeInline ctermfg=Black ctermbg=DarkGrey
-highlight pandocCommand ctermfg=Cyan ctermbg=DarkCyan
-highlight pandocPreamble ctermbg=Black ctermfg=DarkRed
-highlight pandocTodo ctermfg=DarkRed ctermbg=NONE
-highlight pandocDone ctermfg=DarkGreen ctermbg=NONE
-highlight pandocQuestion ctermfg=Green ctermbg=Black
+if has('nvim')
+    highlight pandocHyperlink guifg=Cyan guibg=none gui=underline
+    highlight pandocURL guifg=Blue guibg=none gui=underline
+    highlight pandocMathCommand guifg=Black guibg=DarkGreen
+    highlight pandocMathCommandArgument guifg=DarkYellow guibg=DarkGreen
+    highlight pandocMathNumber guifg=Red guibg=DarkGreen
+    highlight pandocMathOperator guifg=Yellow guibg=DarkGreen
+    highlight pandocMathInline guifg=Green guibg=DarkGreen
+    highlight pandocMathDisplay guifg=Green guibg=DarkGreen
+    highlight pandocEmphasis guibg=Black gui=Bold
+    highlight pandocSection guifg=DarkYellow gui=underline
+    highlight pandocCodeBlock guifg=Black guibg=DarkGrey
+    highlight pandocCodeInline guifg=Black guibg=DarkGrey
+    highlight pandocCommand guifg=Cyan guibg=DarkCyan
+    highlight pandocPreamble guibg=Black guifg=DarkRed
+    highlight pandocTodo guifg=DarkRed guibg=none
+    highlight pandocDone guifg=DarkGreen guibg=none
+    highlight pandocQuestion guifg=Green guibg=Black
+else
+    highlight pandocHyperlink ctermfg=Cyan ctermbg=none cterm=underline
+    highlight pandocURL ctermfg=Blue ctermbg=none cterm=underline
+    highlight pandocMathCommand ctermfg=Black ctermbg=DarkGreen
+    highlight pandocMathCommandArgument ctermfg=DarkYellow ctermbg=DarkGreen
+    highlight pandocMathNumber ctermfg=Red ctermbg=DarkGreen
+    highlight pandocMathOperator ctermfg=Yellow ctermbg=DarkGreen
+    highlight pandocMathInline ctermfg=Green ctermbg=DarkGreen
+    highlight pandocMathDisplay ctermfg=Green ctermbg=DarkGreen
+    highlight pandocEmphasis ctermbg=Black cterm=Bold
+    highlight pandocSection ctermfg=DarkYellow cterm=underline
+    highlight pandocCodeBlock ctermfg=Black ctermbg=DarkGrey
+    highlight pandocCodeInline ctermfg=Black ctermbg=DarkGrey
+    highlight pandocCommand ctermfg=Cyan ctermbg=DarkCyan
+    highlight pandocPreamble ctermbg=Black ctermfg=DarkRed
+    highlight pandocTodo ctermfg=DarkRed ctermbg=none
+    highlight pandocDone ctermfg=DarkGreen ctermbg=none
+    highlight pandocQuestion ctermfg=Green ctermbg=Black
+endif
 
 " syntax options
 syn case match
