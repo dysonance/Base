@@ -263,8 +263,8 @@ vnoremap gq gqgv
 nnoremap > >>
 nnoremap < <<
 
-" shortcut to delete line
-"nnoremap D dd
+" search word under cursor without moving location
+nnoremap * *N
 
 " fast pane splitting and focus switching
 nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'

@@ -6,7 +6,6 @@ syn keyword pythonStatement
             \ continue
             \ def
             \ del
-            \ from
             \ import
             \ pass
             \ raise
@@ -31,6 +30,7 @@ syn keyword pythonKeyword
             \ catch
             \ class
             \ cls
+            \ from
             \ global
             \ lambda
             \ local
@@ -129,19 +129,24 @@ syn keyword pythonLibrary
             \ unittest
             \ urllib
 
-syn match pythonConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
-syn match pythonDecorator "@\@<=\w*\|@"
-syn match pythonDelimiter "\[\|\]\|(\|)\|,\|{\|}\|;"
-syn match pythonFunction  "\w*(\@=\|\.\@<=\w*\["     contains=pythonDelimiter
-syn match pythonNumber    "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
-syn match pythonOperator  "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
-syn match pythonTodo      "TODO\|FIXME\|NOTE"
-syn match pythonType      "\(pd\.\)\@<=[A-Z].\w\+Index\|\(\<dt\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)\|\(np\.\)\@<=\(\<float_\>\|\<int_\>\|\<bool_\>\|\<str_\>\).\|\(pd\.\)\@<=Timestamp\|\(np\.\)\@<=datetime64"
-syn match pythonLibrary   "\(np\.\)\@<=\(linalg\|random\)\|\(sp\.\)\@<=\(stats\)\|\(os\.\)\@<=\(path\)"
-syn match pythonFormat    "\({}\)" contained containedin=pythonFormattedString
-syn match pythonType      "\<[A-Z]\w\+Error\>"
+syn match pythonConstant        "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
+syn match pythonDecorator       "@\@<=\w*\|@"
+syn match pythonDelimiter       "\[\|\]\|(\|)\|,\|{\|}\|;"
+syn match pythonFunction        "\w*(\@=\|\.\@<=\w*\[" contains=pythonDelimiter
+syn match pythonBuiltinFunction "\(bytes\|eval\|enumerate\|eval\|exec\|getattr\|globals\|hasattr\|hash\|id\|isinstance\|issubclass\|iter\|len\|locals\|map\|next\|object\|open\|ord\|print\|property\|range\|repr\|reversed\|setattr\|slice\|sorted\|type\|vars\|zip\)(\@=" contains=pythonDelimiter
+syn match pythonNumber          "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
+syn match pythonOperator        "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
+syn match pythonTodo            "TODO\|FIXME\|NOTE"
+syn match pythonType            "\<[A-Z]\w\+Error\>"
+syn match pythonType            "\(\<\(dt\|datetime\)\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)"
+syn match pythonType            "\(\<\(np\|numpy\)\>\.\)\@<=\(float\(_\|ing\|16\|32\|64\|128\)\|int\(_\|eger\|c\|p\|0\|8\|16\|32\|64\)\|bool\(_\|8\)\|str\(_\|ing_\|0\)\|datetime64\)"
+syn match pythonType            "\(\<\(pd\|pandas\)\>\.\)\@<=\(\([A-Z].\w\+Index\)\|Timestamp\)"
+syn match pythonLibrary         "\(\<\(np\|numpy\)\>\.\)\@<=\(linalg\|random\)\|\(sp\.\)\@<=\(stats\)\|\(os\.\)\@<=\(path\)"
+syn match pythonLibrary         "\(\<\(sp\|scipy\)\>\.\)\@<=\(stats\)"
+syn match pythonLibrary         "\(\<os\>\.\)\@<=\(path\)"
+syn match pythonFormat          "\({}\)\|%s\|%d\|%n\|%c\|?" contained containedin=pythonFormattedString,pythonString
 
-syn region pythonFormat          start="{"       end="}"  contains=ALL contained containedin=pythonFormattedString keepend
+syn region pythonFormat          start="{"       end="}" contains=ALL contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"       end="\n" contains=pythonTodo
 syn region pythonString          start="\"\"\""  end="\"\"\""
 syn region pythonString          start=+"+       end=+"+
@@ -154,6 +159,7 @@ hi def link pythonLibrary         PreProc
 hi def link pythonIdentifier      Normal
 hi def link pythonBoolean         Boolean
 hi def link pythonBuiltin         Special
+hi def link pythonBuiltinFunction Special
 hi def link pythonComment         Comment
 hi def link pythonConstant        Constant
 hi def link pythonControl         Statement
@@ -171,7 +177,7 @@ hi def link pythonFormattedString String
 hi def link pythonTodo            Todo
 hi def link pythonType            Type
 
-highlight pythonFormat ctermfg=DarkGreen ctermbg=none
+"highlight pythonFormat ctermfg=DarkGreen ctermbg=none
 
 "call TextEnableCodeSnip('sql', 'query.=.\"\{3\}', '\"\{3\}', 'SqlQuery')
 "call TextEnableCodeSnip('sql', 'query.=.\"\(\"\)\@!', '\"', 'SqlQuery')

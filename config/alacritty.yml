@@ -90,7 +90,7 @@ window:
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Input Mono
+    family: Anonymous Pro
     style: Regular
   bold:
     #family: monospace
