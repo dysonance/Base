@@ -16,9 +16,10 @@ function setup_directory()
 set -e
 cd ~/Base
 echo "************ ENVIRONMENT SETUP COMMENCED ************"
+setup_directory ~/Applications
 
 # shell
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if ! [ -d ~/.oh-my-zsh ]; then sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; fi
 setup_directory ~/Applications/Shell
 mv ~/.oh-my-zsh ~/Applications/Shell/
 ln -sf ~/Base/config/dysonance.zsh-theme ~/Applications/Shell/.oh-my-zsh/themes/
@@ -34,6 +35,7 @@ setup_directory ~/.ipython
 setup_directory ~/.ipython/profile_default
 setup_directory ~/.tmux
 setup_directory ~/.tmux/plugins
+setup_directory ~/Library/R
 echo "linking configuration files"
 ln -sf ~/Base/.vim/colors ~/.vim/colors
 ln -sf ~/Base/.vim/syntax ~/.vim/syntax
@@ -51,10 +53,15 @@ ln -sf ~/Base/config/.tigrc ~/
 ln -sf ~/Base/config/.psqlrc ~/
 ln -sf ~/Base/config/ipython_config.py ~/.ipython/profile_default/
 ln -sf ~/Base/config/.Rprofile ~/
+ln -sf ~/Base/config/pylint.cfg ~/.config/
+ln -sf ~/Base/config/flake8.cfg ~/.config/
+ln -sf ~/Base/config/flake8.cfg /usr/local/share/
 
 # install preliminary dependencies
 echo "installing homebrew"
 ./src/dep/brew.sh > log/brew.log
+brew tap homebrew/cask-fonts
+brew cask install $(cat data/packages/required/fonts.txt)
 
 # setup alacritty terminal
 echo "installing alacritty"

@@ -237,6 +237,9 @@ nmap gR gDVG::s/<C-R>///gc<Left><Left><Left>
 " Global variable replacement
 "nnoremap gR gD::%s/<C-R>///gc<left><left><left>
 
+" yank/copy from cursor to end of line
+nnoremap Y y$
+
 " shortcut to replace word by pasting before it, deleting it, and adding a space
 nnoremap R Pldwi<esc>bye
 

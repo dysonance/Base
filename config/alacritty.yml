@@ -85,13 +85,13 @@ window:
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  multiplier: 3
+  multiplier: 5
 
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Input Mono Compressed
-    style: Light
+    family: Input Mono
+    style: Regular
   bold:
     #family: monospace
     style: Bold
@@ -236,7 +236,7 @@ colors:
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 1000
   color: '0xffffff'

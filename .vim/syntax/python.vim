@@ -83,6 +83,8 @@ syn keyword pythonLibrary
             \ boto3
             \ bs4 BeautifulSoup
             \ calendar
+            \ collections
+            \ csv
             \ cvxpy cp
             \ dataclasses
             \ datetime dt
@@ -115,18 +117,17 @@ syn keyword pythonLibrary
             \ requests
             \ scipy sp
             \ seaborn sns
+            \ shutil
             \ sklearn
             \ statsmodels sm
             \ subprocess
             \ sys
             \ talib
+            \ threading
             \ time
             \ typing
             \ unittest
             \ urllib
-            \ csv
-            \ collections
-            \ threading
 
 syn match pythonConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator "@\@<=\w*\|@"
@@ -140,7 +141,7 @@ syn match pythonLibrary   "\(np\.\)\@<=\(linalg\|random\)\|\(sp\.\)\@<=\(stats\)
 syn match pythonFormat    "\({}\)" contained containedin=pythonFormattedString
 syn match pythonType      "\<[A-Z]\w\+Error\>"
 
-syn region pythonFormat          start="{"       end="}"  contained containedin=pythonFormattedString keepend
+syn region pythonFormat          start="{"       end="}"  contains=ALL contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"       end="\n" contains=pythonTodo
 syn region pythonString          start="\"\"\""  end="\"\"\""
 syn region pythonString          start=+"+       end=+"+

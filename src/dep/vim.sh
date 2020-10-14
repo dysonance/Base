@@ -3,7 +3,7 @@
 INSTALL_DIRECTORY=$APPDIR/Vim/src
 
 # for manual python source builds
-PYTHON_VERSION=3.8.0
+PYTHON_VERSION=$(python3 -V | sed 's/Python //g')
 PYTHON_BINARY=$APPDIR/Python/Versions/$PYTHON_VERSION/bin/python3
 PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
 PYTHON_CONFIG_DIR=$APPDIR/Frameworks/Python.framework/Versions/$PYTHON_VERSION_SHORT/lib/python$PYTHON_VERSION_SHORT/config-${PYTHON_VERSION_SHORT}m-darwin
@@ -12,6 +12,7 @@ cd $APPDIR
 if ! [ -d "Vim" ]; then mkdir Vim; fi
 cd $APPDIR/Vim
 if ! [ -d src ]; then git clone https://github.com/vim/vim.git src; fi
+if ! [ -d bin ]; then mkdir bin; fi
 cd src
 
 function BuildVim()

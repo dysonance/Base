@@ -81,7 +81,7 @@ syn keyword shellFunction
             \ wc
             \ wget
 
-syn match shellCommand   "^\<\w\+\>\(\s\)\@="
+syn match shellCommand   "^\<\w\+\>"
 syn match shellConstant  "\<[A-Z0-9_]\{2,}\>\((\)\@!"
 syn match shellProgram   "\(^\|\s\)\@<=\(vim\|brew\|python\+\|pip\+\|clang\|clang++\|gcc\|g++\|psql\|sql\|tar\)\>"
 syn match shellNumber    "\<\d\+\>"

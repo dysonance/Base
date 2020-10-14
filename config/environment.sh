@@ -20,21 +20,21 @@ function ipy() {
     if [ -d "venv" ]; then
         venv/bin/ipython
     else
-        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/ipython
+        $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/ipython
     fi
 }
 function ipi() {
     if [ -d "venv" ]; then
         venv/bin/pip $@
     else
-        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/pip $@
+        $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/pip $@
     fi
 }
 function py() {
     if [ -d "venv" ]; then
-        venv/bin/python $@
+        PYTHONPATH=$(pwd) venv/bin/python $@
     else
-        $APPDIR/Frameworks/Python.framework/Versions/3.8/bin/python3 $@
+        PYTHONPATH=$(pwd) $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/python3 $@
     fi
 }
 alias ggi="git grep -nIi"
@@ -44,14 +44,13 @@ alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && ex
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
-export BREWDIR=$APPDIR/Brew/src # if built in home directory
+export R_LIBS_USER=$HOME/Library/R
+#export BREWDIR=$APPDIR/Brew/src # if built in home directory
 export BREWDIR=/usr/local       # if installed conventionally
 export GOROOT=$BREWDIR/opt/go/libexec
 export GOPATH=$APPDIR/Go
 export EDITOR=vim
 if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
-alias cxx=/usr/local/opt/llvm/bin/clang++
-alias cc=/usr/local/opt/llvm/bin/clang
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH
@@ -59,8 +58,7 @@ export PATH=$BREWDIR/bin:$PATH
 export PATH=$APPDIR/NeoVim/build/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.6/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
-export PATH=$APPDIR/Julia/Julia-1.5.app/Contents/Resources/julia/bin:$PATH
+export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.9/bin:$PATH
 # path appends
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=$PATH:$BREWDIR/sbin
@@ -94,3 +92,25 @@ elif [ -n "$BASH_VERSION" ]; then # assume using bash shell
     PROMPT="$PROMPT_COLOR_ENVIRONMENT\n\\$ $PROMPT_COLOR_DEFAULT"
     export PS1="[$PROMPT_HOST][$PROMPT_TIME][$PROMPT_FOLDER][$PROMPT_BRANCH]$PROMPT"
 fi
+
+function VENV(){
+    if [ -d venv ]; then
+        echo "entering virtual environment: $(pwd)/venv"
+        source venv/bin/activate
+    elif [ -d ~/venv ]; then
+        echo "entering virtual environment: $(pwd)/venv"
+        source venv/bin/activate
+    else
+        echo "no virtual environment found in current or home directory"
+    fi
+}
+
+function UTIL(){
+    if [ -f chest/utilities.sh ]; then
+        source chest/utilities.sh
+    elif [ -f util/utils.sh ]; then
+        source util/utils.sh
+    else
+        echo "no utilities file found"
+    fi
+}
