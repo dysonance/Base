@@ -81,16 +81,16 @@ window:
 #scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 10000
+  history: 0
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
   multiplier: 5
 
-# Font configuration (changes require restart)
+# Font configuration
 font:
   normal:
-    family: Anonymous Pro
+    family: Menlo
     style: Regular
   bold:
     #family: monospace
@@ -103,7 +103,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10
+  size: 9
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

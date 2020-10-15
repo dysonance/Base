@@ -1,42 +1,11 @@
 #!/bin/bash
 
-# data grip formatter with command line
-function dgformat() {
-    if [ "$1" == "" ]; then echo "no file target passed to formatter" && return; fi
-    TARGET="$(abspath $1)"
-    BINARY=$APPDIR/DataGrip.app/Contents/MacOS/datagrip
-    STYLES=$APPDIR/DataGrip.app/Contents/Resources/Custom.xml
-    $BINARY format -s $STYLES $TARGET
-}
-
-# aliases/shortcuts
-function abspath() { echo "$(
-    cd "$(dirname "$1")"
-    pwd -P
-)/$(basename "$1")"; }
+# utility functions/aliases
 function path() { echo $PATH | sed -e $'s/:/\\\n/g'; }
 function json() { python -m json.tool $1 | vim -R -c ":set ft=json" -; }
-function ipy() {
-    if [ -d "venv" ]; then
-        venv/bin/ipython
-    else
-        $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/ipython
-    fi
-}
-function ipi() {
-    if [ -d "venv" ]; then
-        venv/bin/pip $@
-    else
-        $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/pip $@
-    fi
-}
-function py() {
-    if [ -d "venv" ]; then
-        PYTHONPATH=$(pwd) venv/bin/python $@
-    else
-        PYTHONPATH=$(pwd) $APPDIR/Frameworks/Python.framework/Versions/3.9/bin/python3 $@
-    fi
-}
+function ipy() { if [ -d "venv" ]; then venv/bin/ipython; else ipython; fi; }
+function ipi() { if [ -d "venv" ]; then venv/bin/pip $@; else pip3 $@; fi; }
+function py() { if [ -d "venv" ]; then PYTHONPATH=$(pwd) venv/bin/python $@; else PYTHONPATH=$(pwd) python3 $@; fi; }
 alias ggi="git grep -nIi"
 alias gg="git grep -nI"
 alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && export PYLINTHOME=$(pwd)/.pylint.d"
@@ -45,23 +14,15 @@ alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && ex
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
 export R_LIBS_USER=$HOME/Library/R
-#export BREWDIR=$APPDIR/Brew/src # if built in home directory
-export BREWDIR=/usr/local       # if installed conventionally
-export GOROOT=$BREWDIR/opt/go/libexec
-export GOPATH=$APPDIR/Go
+export BREWDIR=/usr/local # if installed conventionally
 export EDITOR=vim
 if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
 
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH
-export PATH=$BREWDIR/bin:$PATH
 export PATH=$APPDIR/NeoVim/build/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.6/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.9/bin:$PATH
 # path appends
 export PATH=/usr/local/opt/llvm/bin:$PATH
-export PATH=$PATH:$BREWDIR/sbin
 
 # shell behavior
 stty -ixon # disable terminal flow control to allow more vim keybindings
@@ -93,7 +54,7 @@ elif [ -n "$BASH_VERSION" ]; then # assume using bash shell
     export PS1="[$PROMPT_HOST][$PROMPT_TIME][$PROMPT_FOLDER][$PROMPT_BRANCH]$PROMPT"
 fi
 
-function VENV(){
+function VENV() {
     if [ -d venv ]; then
         echo "entering virtual environment: $(pwd)/venv"
         source venv/bin/activate
@@ -105,7 +66,7 @@ function VENV(){
     fi
 }
 
-function UTIL(){
+function UTIL() {
     if [ -f chest/utilities.sh ]; then
         source chest/utilities.sh
     elif [ -f util/utils.sh ]; then
