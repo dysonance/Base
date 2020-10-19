@@ -83,7 +83,7 @@ syn keyword cppType
             \ float
             \ function
             \ hash
-            \ ifstream
+            \ ifstream ofstream
             \ int
             \ istringstream
             \ list
@@ -96,6 +96,7 @@ syn keyword cppType
             \ ostringstream
             \ pair
             \ random_device
+            \ set
             \ shared_ptr
             \ static
             \ string
