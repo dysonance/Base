@@ -29,6 +29,17 @@ for dep in "${BREW_DEPENDENCIES[@]}"; do
     fi
 done
 
+# match version given possibly undefined preferred version input
+function findversion() {
+    local filter=$1
+    if [ "$filter" == "" ]; then
+        version=$(git tag --sort=creatordate | grep -v "rc\|[ab][0-9]" | tail -n1)
+    else
+        version=$(git tag --sort=creatordate | grep $filter | grep -v "rc\|[ab][0-9]" | tail -n1)
+    fi
+    echo $version
+}
+
 # checkout source code and setup directories
 cd $APPDIR
 if ! [ -d "Python" ]; then mkdir Python; fi
@@ -38,7 +49,9 @@ cd src
 git clean -xfd
 git checkout master --quiet
 git pull --quiet
-if [ "$PYTHON_VERSION" == "" ]; then PYTHON_VERSION=$(git tag | grep -v rc | grep -v "[ab][0-9]" | tail -n1 | sed 's/v//g'); fi
+PYTHON_VERSION=$(findversion $PYTHON_VERSION | sed 's/v//g')
+git checkout v$PYTHON_VERSION --quiet
+git clean -xfd
 INSTALL_DIRECTORY="$APPDIR/Python/Versions/$PYTHON_VERSION"
 if ! [ -d "$INSTALL_DIRECTORY" ]; then mkdir -p $INSTALL_DIRECTORY; fi
 
@@ -50,10 +63,6 @@ export CPPFLAGS=$CFLAGS
 export LDFLAGS=$LDFLAGS
 export CC=clang
 if [ "$(command -v llvm-lto)" ]; then lto_option='--with-lto'; else lto_option='--without-lto'; fi
-git checkout master
-git pull
-git checkout v$PYTHON_VERSION --quiet
-git clean -xfd
 echo "configuring python build"
 ./configure \
     --prefix=$INSTALL_DIRECTORY \

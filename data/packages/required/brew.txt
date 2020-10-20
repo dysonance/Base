@@ -36,6 +36,7 @@ saulpw/vd/visidata
 sphinx-doc
 sqlite
 svn
+ta-lib
 tcl-tk
 tmux
 wget
