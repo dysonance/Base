@@ -120,6 +120,8 @@ let g:ale_python_flake8_auto_pipenv=1
 " c/cpp
 let g:ale_cpp_clang_options='-I/usr/local/opt/llvm/include/c++/v1 -L/usr/local/opt/llvm/lib'
 let g:ale_cpp_clangd_options='--background-index --clang-tidy --pretty --limit-results=50'
+" go
+let g:ale_go_golint_executable=''
 
 " }}}
 
