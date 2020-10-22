@@ -39,19 +39,13 @@
 
     "r.lsp.diagnostics": false,
 
-    "languageserver": {
-
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": [".git/", "go.mod", ".vim"],
-            "filetypes": ["go"],
-            "disableWorkspaceFolders": true,
-            "initializationOptions": {
-                "usePlaceholders": true,
-                "completeUnimported": true
-            }
-        }
-
+    "go.enable": true,
+    "go.disable": {
+        "completion": false,
+        "diagnostic": true,
+        "workspaceFolders": false
+    },
+    "go.goplsOptions":{
+        "deepCompletion": false
     }
-
 }

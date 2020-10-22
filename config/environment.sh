@@ -23,8 +23,9 @@ export PATH=$APPDIR/Vim/src/bin:$PATH
 export PATH=$APPDIR/NeoVim/build/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
-# path appends
 export PATH=/usr/local/opt/llvm/bin:$PATH
+# path appends
+export PATH=$PATH:$APPDIR/Go/bin
 
 # shell behavior
 stty -ixon # disable terminal flow control to allow more vim keybindings
