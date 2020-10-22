@@ -59,6 +59,7 @@ syn keyword goPackage
             \ time
 
 syn keyword goConstant
+            \ iota
             \ nil
 
 syn match goConstant  "\<[A-Z_]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
