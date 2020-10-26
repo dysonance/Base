@@ -31,13 +31,6 @@ syn keyword vueBoolean
             \ false
             \ true
 
-syn keyword vueType
-            \ Array
-            \ Boolean
-            \ Number
-            \ Object
-            \ String
-
 syn keyword vueBuiltin
             \ components
             \ computed
@@ -53,6 +46,13 @@ syn keyword vueModule
             \ Math
             \ String
             \ _
+
+syn keyword vueType
+            \ Array
+            \ Boolean
+            \ Number
+            \ Object
+            \ String
 
 syn match vueConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match vueDelimiter "(\|)\|\[\|\]\|;\|,\|{\|}"
