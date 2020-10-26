@@ -54,6 +54,7 @@ Plug 'hashivim/vim-terraform'                      " basic vim/terraform integra
 Plug 'pearofducks/ansible-vim'                     " common ansible filetypes (j2, hosts, certain yaml)
 Plug 'mattn/emmet-vim'                             " web design workflow utilities
 Plug 'pangloss/vim-javascript'                     " js syntax and indentation support
+Plug 'posva/vim-vue'                               " vue syntax highlighting
 
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " python workflow utilities (linting, completion, formatting)
 

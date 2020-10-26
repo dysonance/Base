@@ -16,11 +16,9 @@ syn keyword vueKeyword
             \ return
             \ this
             \ var
-
-syn keyword vuePreProc
-            \ export
-            \ from
             \ import
+            \ from
+            \ export
             \ require
 
 syn keyword vueTodo contained
@@ -50,11 +48,17 @@ syn keyword vueBuiltin
             \ name
             \ props
 
+syn keyword vueModule
+            \ Array
+            \ Math
+            \ String
+            \ _
+
 syn match vueConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 syn match vueDelimiter "(\|)\|\[\|\]\|;\|,\|{\|}"
 syn match vueFunction  "\w\+\s*(\@=\|\w\+<.*>\s*(\@="
 syn match vueNumber    "\<[0-9.]\+\>\|[0-9]e[0-9-]\|\.\d\+\|\d\@<=\.[0-9 ]\@="
-syn match vueOperator  "+\|-\|*\|/\|%\|=\|!\|:\|>\|<\|?\|[A-z]\@<=\.[A-z]\@=\|&&\|||"
+syn match vueOperator  "\.\|+\|-\|*\|/\|%\|=\|!\|:\|>\|<\|?\|[A-z]\@<=\.[A-z]\@=\|&&\|||"
 syn match vueQuery     "\$"
 
 " NOTE: these template regions must be defined before the string regions
@@ -77,6 +81,7 @@ hi def link vueFunction       Function
 hi def link vueKeyword        Keyword
 hi def link vueNumber         Number
 hi def link vueOperator       Operator
+hi def link vueModule         PreProc
 hi def link vuePreProc        PreProc
 hi def link vueQuery          Special
 hi def link vueString         String
@@ -85,7 +90,7 @@ hi def link vueTemplateString String
 hi def link vueTodo           Todo
 hi def link vueType           Type
 
-function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
+function! TextEnableCodeSnip(filetype, start, end, textSnipHl) abort
     let ft=toupper(a:filetype)
     let group='textGroup'.ft
     if exists('b:current_syntax')
@@ -110,7 +115,6 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort
                 \ start="'.a:start.'" end="'.a:end.'"
                 \ contains=@'.group
 endfunction
-
 call TextEnableCodeSnip("html", "<template>", "<\/template>", 'SpecialComment')
 
 let b:current_syntax="vue"
