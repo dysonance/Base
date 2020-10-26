@@ -7,6 +7,7 @@ syn keyword vueKeyword
             \ continue
             \ else
             \ for
+            \ of
             \ function
             \ if
             \ in
