@@ -63,8 +63,8 @@ if has('nvim')
     highlight IncSearch             guifg=none    guibg=#008000 gui=bold
     highlight LineNR                guifg=#808080 guibg=none    gui=none
     highlight MatchParen            guifg=none    guibg=#008000 gui=none
-    highlight Pmenu                 guifg=#808080 guibg=4       gui=none
-    highlight PmenuSel              guifg=none    guibg=8       gui=none
+    highlight Pmenu                 guifg=#808080 guibg=#000080 gui=none
+    highlight PmenuSel              guifg=none    guibg=#0000ff gui=none
     highlight Search                guifg=none    guibg=#008000 gui=bold
     highlight StatusLine            guifg=#0000ff guibg=#00ffff gui=none
     highlight Visual                guifg=none    guibg=#808080 gui=none
@@ -78,10 +78,13 @@ if has('nvim')
     highlight DiffDelete            guifg=#ff0000 guibg=#800000 gui=bold
     highlight DiffText              guifg=none    guibg=#808000 gui=bold,underline
     " plugin-specific
-    highlight GitGutterAdd          guifg=#008000 guibg=none
-    highlight GitGutterChange       guifg=#808000 guibg=none
-    highlight GitGutterDelete       guifg=#800000 guibg=none
-    highlight GitGutterChangeDelete guifg=#808000 guibg=none
+    highlight GitGutterAdd          guifg=#008000 guibg=none    gui=none
+    highlight GitGutterChange       guifg=#808000 guibg=none    gui=none
+    highlight GitGutterDelete       guifg=#800000 guibg=none    gui=none
+    highlight GitGutterChangeDelete guifg=#808000 guibg=none    gui=none
+    " misc
+    highlight Folded                guifg=#808080 guibg=#0000ff gui=none
+    highlight FoldColumn            guifg=#808080 guibg=#0000ff gui=none
 
 else
 

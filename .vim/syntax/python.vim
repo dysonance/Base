@@ -58,7 +58,7 @@ syn keyword pythonBoolean
 syn keyword pythonType
             \ DataFrame Series Index
             \ Exception
-            \ List Union Collection Tuple Enum, Dict
+            \ List Union Collection Tuple Enum Dict Callable Any
             \ array ndarray
             \ bool
             \ bytes
