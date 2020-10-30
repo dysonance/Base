@@ -77,15 +77,17 @@ set tabstop=4                                   " number of visual spaces per ta
 set softtabstop=4                               " number of spaces in tab when editing
 set shiftwidth=4                                " number of columns for reindent operations (<< and >>)
 set expandtab                                   " coerce tabs to spaces
-autocmd filetype r setlocal tabstop=2           " R-language specific formatting settings
-autocmd filetype r setlocal softtabstop=2       " R-language specific formatting settings
-autocmd filetype r setlocal shiftwidth=2        " R-language specific formatting settings
-autocmd filetype fortran setlocal shiftwidth=3  " fortran-specific formatting settings
-autocmd filetype fortran setlocal tabstop=3     " fortran-specific formatting settings
-autocmd filetype fortran setlocal softtabstop=3 " fortran-specific formatting settings
-"autocmd filetype md setlocal spell              " dont check spelling in markdown files
-"autocmd filetype pandoc setlocal spell          " dont check spelling in markdown files
 set backspace=indent,eol,start                  " make backspace work like most apps
+" language-specific whitespace settings
+autocmd filetype r setlocal tabstop=2
+autocmd filetype r setlocal softtabstop=2
+autocmd filetype r setlocal shiftwidth=2
+"autocmd filetype vue setlocal tabstop=2
+"autocmd filetype vue setlocal softtabstop=2
+"autocmd filetype vue setlocal shiftwidth=2
+autocmd filetype fortran setlocal shiftwidth=3
+autocmd filetype fortran setlocal tabstop=3
+autocmd filetype fortran setlocal softtabstop=3
 
 " }}}
 

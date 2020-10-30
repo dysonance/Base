@@ -27,6 +27,7 @@ syn keyword sqlKeyword
             \ constraint
             \ cross
             \ database
+            \ default
             \ desc
             \ each
             \ else
@@ -80,6 +81,7 @@ syn keyword sqlKeyword
             \ with
 
 syn keyword sqlStatement
+            \ add
             \ alter
             \ analyze
             \ audit
