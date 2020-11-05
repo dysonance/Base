@@ -35,8 +35,10 @@ syn keyword goType
 
 syn keyword goControl
             \ case
+            \ default
             \ else
             \ if
+            \ switch
             \ while
 
 syn keyword goBoolean

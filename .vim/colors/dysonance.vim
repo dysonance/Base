@@ -16,8 +16,8 @@ set cursorline
 
 if has('nvim')
 
-    highlight ActiveWindow ctermfg=none
-    highlight InactiveWindow ctermfg=7 ctermbg=8
+    highlight ActiveWindow guifg=none guibg=none
+    highlight InactiveWindow guifg=#808080 guibg=#404040
     " call method on window enter
     augroup WindowManagement
         autocmd!
