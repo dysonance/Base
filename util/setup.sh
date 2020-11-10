@@ -56,6 +56,7 @@ ln -sf ~/Base/config/.Rprofile ~/
 ln -sf ~/Base/config/pylint.cfg ~/.config/
 ln -sf ~/Base/config/flake8.cfg ~/.config/
 ln -sf ~/Base/config/flake8.cfg /usr/local/share/
+ln -sf ~/Base/config/.pg_format ~/.pg_format
 
 # install preliminary dependencies
 echo "installing homebrew"

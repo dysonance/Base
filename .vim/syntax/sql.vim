@@ -76,6 +76,7 @@ syn keyword sqlKeyword
             \ user
             \ using
             \ values
+            \ verbose
             \ view
             \ where
             \ with
