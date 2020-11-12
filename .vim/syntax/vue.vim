@@ -37,7 +37,7 @@ syn keyword vueBuiltin
             \ console
             \ data
             \ methods
-            \ mounted
+            \ created mounted updated destroyed
             \ name
             \ props
 

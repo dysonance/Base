@@ -58,7 +58,7 @@ syn keyword pythonBoolean
 syn keyword pythonType
             \ DataFrame Series Index
             \ Exception
-            \ List Union Collection Tuple Enum Dict Callable Any
+            \ List Union Collection Tuple Enum Dict Callable Any Hashable
             \ array ndarray
             \ bool
             \ bytes
@@ -133,7 +133,7 @@ syn match pythonConstant        "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\
 syn match pythonDecorator       "@\@<=\w*\|@"
 syn match pythonDelimiter       "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match pythonFunction        "\w*(\@=\|\.\@<=\w*\[" contains=pythonDelimiter
-syn match pythonBuiltinFunction "\(bytes\|eval\|enumerate\|eval\|exec\|getattr\|globals\|hasattr\|hash\|id\|isinstance\|issubclass\|iter\|len\|locals\|map\|next\|object\|open\|ord\|print\|property\|range\|repr\|reversed\|setattr\|slice\|sorted\|type\|vars\|zip\)(\@=" contains=pythonDelimiter
+syn match pythonBuiltinFunction "\(\.\)\@<!\(abs\|bytes\|eval\|enumerate\|eval\|exec\|getattr\|globals\|hasattr\|hash\|id\|isinstance\|issubclass\|iter\|len\|locals\|map\|next\|object\|open\|ord\|print\|property\|range\|repr\|reversed\|round\|setattr\|slice\|sorted\|type\|vars\|zip\)(\@=" contains=pythonDelimiter
 syn match pythonNumber          "\<[0-9_.]\+\>\|[0-9_]\+e[0-9-]\+"
 syn match pythonOperator        "+\|-\|*\|\/\|\/\/\(\/\)\@!\|->\|<\|>\|=\||\|&\|!\|:\|%\|\.\|\~\|\<is\>\|\<not\>\|\<or\>\|\<and\>"
 syn match pythonTodo            "TODO\|FIXME\|NOTE"

@@ -16,7 +16,7 @@ LATEST_VERSION=$(git tag | tail -n 1)
 
 # dependency configuration
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.9/bin:$PATH
+export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 DEPENDENCIES=(ninja libtool automake autoconf cmake pkg-config gettext lua luajit)
 brew install $DEPENDENCIES
 
