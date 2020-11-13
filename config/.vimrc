@@ -266,7 +266,9 @@ nnoremap > >>
 nnoremap < <<
 
 " search word under cursor without moving location
-nnoremap * *N
+nnoremap <leader>// *N
+" fast case-insenstive search
+nnoremap <C-F> /\c<left><left>
 
 " fast pane splitting and focus switching
 nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
