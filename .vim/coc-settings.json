@@ -24,6 +24,7 @@
     "python.workspaceSymbols.rebuildOnStart": true,
     "python.linting.flake8Args": ["--config", "/usr/local/share/flake8.cfg"],
     "python.linting.pylintArgs": ["--rcfile=~/.config/pylint.cfg"],
+    "python.venvPath": "~/.pyenv",
     "python.analysis.diagnosticPublishDelay": 100,
     "python.analysis.symbolsHierarchyDepthLimit": 10,
 

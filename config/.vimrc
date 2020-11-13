@@ -148,14 +148,14 @@ nmap <leader>fmt m0gggqG`0
 " language-specific formatting programs
 autocmd filetype c setlocal formatprg=clang-format\ -style=file\ -
 autocmd filetype cpp setlocal formatprg=clang-format\ -style=file\ -
-autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --stdin\ -
+autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --print-width\ 120\ --tab-width\ 4
 autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc
-autocmd filetype javascript,vue setlocal formatprg=prettier\ --parser\ vue\ --print-width\ 150\ --tab-width\ 4\ --no-bracket-spacing\ --prose-wrap\ preserve\ %
+autocmd filetype javascript,vue setlocal formatprg=prettier\ --parser\ vue\ --print-width\ 120\ --tab-width\ 4\ --no-bracket-spacing\ --prose-wrap\ preserve\ --trailing-comma\ all
 autocmd filetype javascript,vue setlocal indentexpr=GetJavascriptIndent()
 autocmd filetype python setlocal formatprg=black\ --line-length\ 120\ --quiet\ -
 autocmd filetype r setlocal formatprg=python\ $R_LIBS_USER/rfmt/python/rfmt.py\ \--margin1\ 120\ --indent\ 2\ --space_arg_eq\ False
-autocmd filetype sql setlocal formatprg=pg_format\ -\ --keyword-case\ 2\ --function-case\ 3\ --type-case\ 3\ --no-extra-line\ --wrap-limit\ 80\ --wrap-after\ 80\ --format-type
+autocmd filetype sql setlocal formatprg=pg_format\ -
 autocmd filetype bash,zsh,shell setlocal formatprg=shfmt\ -i\ 4
 
 " format keymap overrides
