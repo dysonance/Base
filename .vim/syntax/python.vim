@@ -56,9 +56,10 @@ syn keyword pythonBoolean
             \ True
 
 syn keyword pythonType
+            \ ArgumentParser
             \ DataFrame Series Index
             \ Exception
-            \ List Union Collection Tuple Enum Dict Callable Any Hashable
+            \ List Tuple Dict Callable Union Collection Enum Any Hashable Iterable Type
             \ array ndarray
             \ bool
             \ bytes
@@ -88,6 +89,7 @@ syn keyword pythonLibrary
             \ cvxpy cp
             \ dataclasses
             \ datetime dt
+            \ dateutil
             \ docker
             \ enum
             \ functools
@@ -107,6 +109,7 @@ syn keyword pythonLibrary
             \ pathlib
             \ pickle
             \ plotly
+            \ psutil
             \ psycopg2 psql
             \ pylab
             \ pyodbc
@@ -125,6 +128,7 @@ syn keyword pythonLibrary
             \ talib
             \ threading
             \ time
+            \ traceback
             \ typing
             \ unittest
             \ urllib
@@ -146,7 +150,7 @@ syn match pythonLibrary         "\(\<\(sp\|scipy\)\>\.\)\@<=\(stats\)"
 syn match pythonLibrary         "\(\<os\>\.\)\@<=\(path\)"
 syn match pythonFormat          "\({}\)\|%s\|%d\|%n\|%c\|?" contained containedin=pythonFormattedString,pythonString
 
-syn region pythonFormat          start="{"       end="}" contains=ALL contained containedin=pythonFormattedString keepend
+syn region pythonFormat          start="{"       end="}"  contains=ALL contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"       end="\n" contains=pythonTodo
 syn region pythonString          start="\"\"\""  end="\"\"\""
 syn region pythonString          start=+"+       end=+"+
@@ -154,6 +158,8 @@ syn region pythonString          start=+'+       end=+'+
 syn region pythonFormattedString start=+f"+      end=+"+
 syn region pythonFormattedString start=+f'+      end=+'+
 syn region pythonFormattedString start=+f\"\"\"+ end=+\"\"\"+
+syn region pythonRegexString     start=+r"+      end=+"+
+syn region pythonRegexString     start=+r'+      end=+'+
 
 hi def link pythonLibrary         PreProc
 hi def link pythonIdentifier      Normal
@@ -174,6 +180,7 @@ hi def link pythonOperator        Operator
 hi def link pythonStatement       Statement
 hi def link pythonString          String
 hi def link pythonFormattedString String
+hi def link pythonRegexString     String
 hi def link pythonTodo            Todo
 hi def link pythonType            Type
 
