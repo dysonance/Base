@@ -5,6 +5,7 @@ syn keyword vueConstant
 syn keyword vueKeyword
             \ const
             \ continue
+            \ default
             \ else
             \ for
             \ of

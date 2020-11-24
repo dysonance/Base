@@ -469,8 +469,8 @@ nmap <silent> <F1> <Plug>DashSearch
 autocmd BufEnter * :syntax sync fromstart
 nmap <silent> <F12> :syntax sync fromstart<CR>
 
-autocmd filetype pandoc nmap <F4> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex<CR>
-autocmd filetype pandoc nmap <F5> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex --verbose && open %:r.pdf<CR>
+autocmd filetype pandoc nmap <F4> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex --filter pandoc-eqnos<CR>
+autocmd filetype pandoc nmap <F5> :!pandoc % -o %:r.pdf --metadata date="`date '+\%B \%e, \%Y'`" --pdf-engine=pdflatex --verbose --filter pandoc-eqnos && open %:r.pdf<CR>
 
 nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
