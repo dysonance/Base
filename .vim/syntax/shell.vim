@@ -15,19 +15,19 @@ syn keyword shellKeyword
             \ alias
             \ eval
             \ exec
+            \ exit
             \ export
             \ function
+            \ let
             \ local
+            \ return
             \ set
             \ setopt
             \ shopt
             \ source
-            \ exit
-            \ return
             \ stty
             \ unset
             \ unsetopt
-            \ let
 
 syn keyword shellRepeat
             \ do
@@ -63,13 +63,16 @@ syn keyword shellFunction
             \ echo
             \ expr
             \ git
+            \ go
             \ head
             \ ln
             \ make
             \ man
             \ mkdir
             \ mv
+            \ popd
             \ printf
+            \ pushd
             \ python
             \ python3
             \ rm

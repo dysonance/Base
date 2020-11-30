@@ -92,6 +92,7 @@ syn keyword pythonLibrary
             \ datetime dt
             \ dateutil
             \ docker
+            \ ecr
             \ enum
             \ functools
             \ getpass
