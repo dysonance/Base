@@ -20,6 +20,7 @@ c.InteractiveShell.confirm_exit = False
 c.InteractiveShell.editor = "vim"
 c.InteractiveShell.ast_node_interactivity = "last_expr_or_assign"  # print last assignment (like julia or matlab)
 c.InteractiveShellApp.exec_lines = [
+    "%pdb on"
     "%load_ext autoreload",
     "%autoreload 2",
     "import os",
@@ -29,8 +30,6 @@ c.InteractiveShellApp.exec_lines = [
     "from pylab import *",
     "import matplotlib.pyplot as mpl",
     "ion()",
-    "def summarize_dataframe(self): print(self.info()); return self.describe(include='all')",
-    "setattr(pd.DataFrame, 'str', summarize_dataframe)",
 ]
 
 
