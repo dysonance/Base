@@ -66,6 +66,7 @@ syn keyword sqlKeyword
             \ row
             \ schema
             \ select
+            \ serial
             \ session
             \ size
             \ table

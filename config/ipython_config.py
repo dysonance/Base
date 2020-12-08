@@ -20,7 +20,7 @@ c.InteractiveShell.confirm_exit = False
 c.InteractiveShell.editor = "vim"
 c.InteractiveShell.ast_node_interactivity = "last_expr_or_assign"  # print last assignment (like julia or matlab)
 c.InteractiveShellApp.exec_lines = [
-    "%pdb on"
+    #"%pdb on"
     "%load_ext autoreload",
     "%autoreload 2",
     "import os",
