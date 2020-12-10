@@ -143,7 +143,7 @@ autocmd filetype python set foldmethod=indent " overwrite pymode indent method
 " Formatters {{{
 
 " format current file
-nmap <leader>fmt m0gggqG`0
+nmap <leader>fmt m0gggqG`0zz
 
 " language-specific formatting programs
 autocmd filetype c setlocal formatprg=clang-format\ -style=file\ -

@@ -60,7 +60,7 @@ syn keyword pythonType
             \ DataFrame Series Index
             \ Exception
             \ List Tuple Dict Callable Union Collection Enum Any Hashable Iterable Type
-            \ SimpleNamespace BuiltinFunctionType BuiltinMethodType FunctionType GeneratorType LambdaType MethodType ModuleType
+            \ Namespace SimpleNamespace BuiltinFunctionType BuiltinMethodType FunctionType GeneratorType LambdaType MethodType ModuleType
             \ array ndarray
             \ bool
             \ bytes

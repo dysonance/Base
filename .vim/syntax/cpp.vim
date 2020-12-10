@@ -132,7 +132,7 @@ syn keyword cppCustomType
 
 syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*$"
 syn match cppCast           "\<\(const\|static\|dynamic\|reinterpret\)_cast\s*<"me=e-1
-syn match cppConstant       "\<[A-Z_]\{2,}\>\((\)\@!"
+syn match cppConstant       "\<[A-Z_0-9]\{2,}\>\((\)\@!"
 syn match cppDelimiter      "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match cppFunction       "\w\+\s*(\@=\|\w\+<.*>\s*(\@="  contains=cppType,cppCustomType,cppNamespace,cppScopeDelimiter
 syn match cppMemberVariable "\(\.\|-_\)\h\w*"

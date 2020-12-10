@@ -358,7 +358,7 @@ let NERDTreeRespectWildIgnore=1
 let g:NERDSpaceDelims = 1            " add spaces after comment delimiters by default
 let g:NERDCompactSexyComs = 1        " use compact syntax for prettified multi-line comments
 let g:NERDDefaultAlign = 'left'      " align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDCommentEmptyLines = 0      " allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1      " allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDTrimTrailingWhitespace = 1 " enable trimming of trailing whitespace when uncommenting
 let g:NERDCustomDelimiters = {
             \ 'c': { 'left': '/**','right': '*/' },
