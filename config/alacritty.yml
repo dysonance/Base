@@ -90,7 +90,7 @@ window:
 # Font configuration
 font:
   normal:
-    family: Menlo
+    family: Input Mono
     style: Regular
   bold:
     #family: monospace
