@@ -41,5 +41,6 @@ sklearn
 statsmodels
 ta-lib
 traitlets
+visidata
 wcwidth
 wheel
