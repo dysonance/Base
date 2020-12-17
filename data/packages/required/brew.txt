@@ -27,6 +27,7 @@ openssl@1.1
 pgformatter
 pkg-config
 postgresql
+pyenv
 python
 qt
 readline

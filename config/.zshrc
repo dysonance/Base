@@ -25,3 +25,6 @@ zle-keymap-select () {
         fi
     fi
 }
+
+# disable automatic directory navigation
+unsetopt autocd

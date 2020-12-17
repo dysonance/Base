@@ -21,8 +21,10 @@ if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
 # path prepends
 export PATH=$APPDIR/Vim/src/bin:$PATH
 export PATH=$APPDIR/NeoVim/build/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+# export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
+# export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH=$HOME/.pyenv/versions/3.8.6/bin:$PATH
+export PATH=$HOME/.pyenv/versions/2.7.18/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 # path appends
 export PATH=$PATH:$APPDIR/Go/bin
