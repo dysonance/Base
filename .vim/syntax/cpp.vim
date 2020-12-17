@@ -80,6 +80,7 @@ syn keyword cppType
             \ deque
             \ double
             \ enum
+            \ exception
             \ float
             \ function
             \ hash
