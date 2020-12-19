@@ -1,7 +1,7 @@
 " Setup {{{
 
 let $PYTHON_VERSION='3.8'
-let $PYTHON_BINARY=$HOME."/Applications/Frameworks/Python.framework/Versions/".$PYTHON_VERSION."/bin/python3"
+let $PYTHON_BINARY=$HOME."/.pyenv/versions/3.8.6/bin/python3"
 
 set nocompatible
 filetype off
