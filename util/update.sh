@@ -27,6 +27,6 @@ vim -c ":PlugUpdate | :qa"
 
 # save package information
 echo "package,version" > data/packages/current/brew.csv
-brew list --full-name --versions | sed "s/ /,/g" >> data/packages/current/brew.csv
+brew list --versions | sed "s/ /,/g" >> data/packages/current/brew.csv
 echo "package,version" > data/packages/current/pip.csv
 ipi list --format=freeze | sed "s/==/,/g" >> data/packages/current/pip.csv
