@@ -80,3 +80,5 @@ function UTIL() {
         echo "no utilities file found"
     fi
 }
+
+export PYTHONPATH=$(pwd)
