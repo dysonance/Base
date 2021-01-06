@@ -3,4 +3,6 @@
 # reference: http://matplotlib.org/3.1.1/tutorials/introductory/customizing.html#customizing-with-matplotlibrc-files
 
 # backends
-backend : MacOSX
+backend : TkAgg
+font.family : STIXGeneral
+mathtext.fontset : stix

@@ -1,3 +1,5 @@
+pycairo
+PyQt5
 Pygments
 Quandl
 appnope
