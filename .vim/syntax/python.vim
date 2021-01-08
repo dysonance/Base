@@ -110,6 +110,7 @@ syn keyword pythonLibrary
             \ pandas pd
             \ pathlib
             \ pickle
+            \ posixpath
             \ plotly
             \ psutil
             \ psycopg2 psql
@@ -152,6 +153,7 @@ syn match pythonType            "\(\<\(pd\|pandas\)\>\.\)\@<=\(\([A-Z].\w\+Index
 syn match pythonLibrary         "\(\<\(np\|numpy\)\>\.\)\@<=\(linalg\|random\)\|\(sp\.\)\@<=\(stats\)\|\(os\.\)\@<=\(path\)"
 syn match pythonLibrary         "\(\<\(sp\|scipy\)\>\.\)\@<=\(stats\)"
 syn match pythonLibrary         "\(\<os\>\.\)\@<=\(path\)"
+syn match pythonLibrary         "\(^import \)\@<=\(\w\|\.\)\+\|\(^import.*as \)\@<=\w\+"
 syn match pythonFormat          "\({}\)\|%s\|%d\|%n\|%c\|?" contained containedin=pythonFormattedString,pythonString
 
 syn region pythonFormat          start="{"       end="}"  contains=ALL contained containedin=pythonFormattedString keepend

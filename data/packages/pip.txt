@@ -41,6 +41,7 @@ setuptools
 six
 sklearn
 statsmodels
+sympy
 ta-lib
 traitlets
 visidata

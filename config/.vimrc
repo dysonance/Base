@@ -476,7 +476,7 @@ nnoremap <leader><F3> :execute ":SlimeSend1 TEST"<CR>
 nnoremap <leader><F4> :execute ":SlimeSend1 BUILD"<CR>
 nnoremap <leader><F5> :execute ":SlimeSend1 RUN"<CR>
 nmap <F6> msvip:SlimeSend<CR>`s
-vmap <F6> :SlimeSend<CR>gv
+vmap <F6> <C-C><C-C>gv
 nmap <F7> :SlimeSendCurrentLine<CR>j
 nmap <F8> :SlimeSendCurrentLine<CR>
 imap <F7> <esc>:SlimeSendCurrentLine<CR>o
