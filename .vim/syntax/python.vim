@@ -156,16 +156,18 @@ syn match pythonLibrary         "\(\<os\>\.\)\@<=\(path\)"
 syn match pythonLibrary         "\(^import \)\@<=\(\w\|\.\)\+\|\(^import.*as \)\@<=\w\+"
 syn match pythonFormat          "\({}\)\|%s\|%d\|%n\|%c\|?" contained containedin=pythonFormattedString,pythonString
 
-syn region pythonFormat          start="{"       end="}"  contains=ALL contained containedin=pythonFormattedString keepend
-syn region pythonComment         start="#"       end="\n" contains=pythonTodo
-syn region pythonString          start="\"\"\""  end="\"\"\""
-syn region pythonString          start=+"+       end=+"\|$+
-syn region pythonString          start=+'+       end=+'\|$+
-syn region pythonFormattedString start=+f"+      end=+"\|$+
-syn region pythonFormattedString start=+f'+      end=+'\|$+
-syn region pythonFormattedString start=+f\"\"\"+ end=+\"\"\"+
-syn region pythonRegexString     start=+r"+      end=+"+
-syn region pythonRegexString     start=+r'+      end=+'+
+syn region pythonFormat          start="{"            end="}" contains=ALL contained containedin=pythonFormattedString keepend
+syn region pythonComment         start="#"            end="$" contains=pythonTodo
+syn region pythonString          start=+\"\{1\}+      end=+\"\|$+
+syn region pythonString          start=+\'\{1\}+      end=+\'\|$+
+syn region pythonFormattedString start=+f\(\"\)\{1\}+ end=+\"\|$+
+syn region pythonFormattedString start=+f\(\'\)\{1\}+ end=+\'\|$+
+syn region pythonString          start=+\(\"\)\{3\}+  end=+\(\"\)\{3\}+
+syn region pythonString          start=+\(\'\)\{3\}+  end=+\(\'\)\{3\}+
+syn region pythonFormattedString start=+f\(\"\)\{3\}+ end=+\"\{3\}+
+syn region pythonFormattedString start=+f\(\'\)\{3\}+ end=+\'\{3\}+
+syn region pythonRegexString     start=+r\(\"\)\{1\}+ end=+\"+
+syn region pythonRegexString     start=+r\(\'\)\{1\}+ end=+\'+
 
 hi def link pythonLibrary         PreProc
 hi def link pythonIdentifier      Normal
