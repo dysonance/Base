@@ -3,26 +3,29 @@
 #     path = ~/Base/config/.gitconfig
 
 [core]
-    editor = vim
+    editor = nvim
     pager = less -F -X -R
+[github]
+    user = dysonance
+    email = jamos125@gmail.com
+[pull]
+	rebase = false
+
 [diff]
-    tool = vimdiff
-[difftool]
+    tool = nvimdiff
+[difftool "nvimdiff"]
     # use vim as the diff tool
-    cmd = vimdiff
+    cmd = nvim -d "$LOCAL" "$REMOTE"
     # dont ask before launching the diff tool
     prompt = false
     # abort entire diff tool session with `:cquit` or `:cq`
     trustExitCode = true
-[pull]
-	rebase = false
-[github]
-    user = dysonance
-    email = jamos125@gmail.com
+
 [merge]
-    tool = vimdiff
-[mergetool]
-    prompt = false
+    tool = nvimdiff
+[mergetool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED"
+
 [alias]
     # open current branch in bitbucket
     bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
