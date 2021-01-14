@@ -6,7 +6,7 @@ function json() { python -m json.tool $1 | vim -R -c ":set ft=json" -; }
 function ipy() { if [ -d "venv" ]; then venv/bin/ipython; else ipython; fi; }
 function ipi() { if [ -d "venv" ]; then venv/bin/pip $@; else pip3 $@; fi; }
 function py() { if [ -d "venv" ]; then PYTHONPATH=$(pwd) venv/bin/python $@; else PYTHONPATH=$(pwd) python3 $@; fi; }
-function gls() { git ls-files ${@:2} | grep $1 }
+function gls() { git ls-files ${@:2} | grep $1; }
 alias ggi="git grep -nIi"
 alias gg="git grep -nI"
 alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && export PYLINTHOME=$(pwd)/.pylint.d"
@@ -20,12 +20,12 @@ export EDITOR=vim
 if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
 
 # path prepends
-export PATH=$APPDIR/Vim/src/bin:$PATH
+export PATH=$APPDIR/Vim/bin:$PATH
 export PATH=$APPDIR/NeoVim/build/bin:$PATH
+export PATH=$HOME/.pyenv/versions/3.8.7/bin:$PATH
+export PATH=$HOME/.pyenv/versions/2.7.18/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
-#export PATH=$HOME/.pyenv/versions/3.8.6/bin:$PATH
-#export PATH=$HOME/.pyenv/versions/2.7.18/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 # path appends
 export PATH=$PATH:$APPDIR/Go/bin

@@ -37,11 +37,12 @@ function BuildVim()
     if [[ -z "${CPU}" ]]; then CPU=4; fi
     make -j $CPU
     make -j $CPU install
-    cp src/ex bin/
-    cp src/rview bin/
-    cp src/rvim bin/
-    cp src/view bin/
-    cp src/vimdiff bin/
+    cp bin/ex ../bin/
+    cp bin/rview ../bin/
+    cp bin/rvim ../bin/
+    cp bin/view ../bin/
+    cp bin/vimdiff ../bin/
+    cp bin/vim ../bin/
 }
 
 if [ "$1" == "--force" ]; then
@@ -62,5 +63,5 @@ else
 fi
 
 # make `vi` point to same binary as vim
-cd $APPDIR/Vim/src/bin
+cd $APPDIR/Vim/bin
 ln -sf vim vi

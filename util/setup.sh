@@ -94,6 +94,8 @@ echo "installing alacritty"
 
 # setup python environment (required for vim and compatibility with other tech)
 echo "installing python"
+pyenv install 3.8.7
+pyenv install 2.7.18
 ./src/dep/python.sh 3.8.7 > log/python3.log
 ./src/dep/python.sh 2.7.18 > log/python2.log
 
