@@ -20,12 +20,10 @@
     prompt = false
     # abort entire diff tool session with `:cquit` or `:cq`
     trustExitCode = true
-
 [merge]
     tool = nvimdiff
 [mergetool "nvimdiff"]
     cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED"
-
 [alias]
     # open current branch in bitbucket
     bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
