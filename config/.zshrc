@@ -28,3 +28,5 @@ zle-keymap-select () {
 
 # disable automatic directory navigation
 unsetopt autocd
+
+source $HOME/environment.sh
