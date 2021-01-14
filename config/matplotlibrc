@@ -2,6 +2,21 @@
 # to be placed at ~/.matplotlib/matplotlibrc
 # reference: http://matplotlib.org/3.1.1/tutorials/introductory/customizing.html#customizing-with-matplotlibrc-files
 
+# environment
 backend : TkAgg
-font.family : STIXGeneral
-mathtext.fontset : stix
+
+# fonts
+font.family : Input Sans
+font.monospace : Input Mono
+font.sans-serif : Input Sans
+font.serif : Input Serif
+mathtext.fontset : cm
+
+# layout
+axes.grid: True
+figure.autolayout : True  # use tight layout by default
+
+# colors
+grid.alpha : 0.25
+legend.facecolor : black
+legend.framealpha : 0.125

@@ -59,7 +59,7 @@ syn keyword pythonType
             \ ArgumentParser
             \ DataFrame Series Index
             \ Exception
-            \ List Tuple Dict Callable Union Collection Enum Any Hashable Iterable Type
+            \ List Tuple Dict Callable Union Collection Enum Any Hashable Iterable Type Optional
             \ Namespace SimpleNamespace BuiltinFunctionType BuiltinMethodType FunctionType GeneratorType LambdaType MethodType ModuleType
             \ array ndarray
             \ bool
@@ -159,10 +159,10 @@ syn match pythonFormat          "\({}\)\|%s\|%d\|%n\|%c\|?" contained containedi
 syn region pythonFormat          start="{"       end="}"  contains=ALL contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"       end="\n" contains=pythonTodo
 syn region pythonString          start="\"\"\""  end="\"\"\""
-syn region pythonString          start=+"+       end=+"+
-syn region pythonString          start=+'+       end=+'+
-syn region pythonFormattedString start=+f"+      end=+"+
-syn region pythonFormattedString start=+f'+      end=+'+
+syn region pythonString          start=+"+       end=+"\|$+
+syn region pythonString          start=+'+       end=+'\|$+
+syn region pythonFormattedString start=+f"+      end=+"\|$+
+syn region pythonFormattedString start=+f'+      end=+'\|$+
 syn region pythonFormattedString start=+f\"\"\"+ end=+\"\"\"+
 syn region pythonRegexString     start=+r"+      end=+"+
 syn region pythonRegexString     start=+r'+      end=+'+
