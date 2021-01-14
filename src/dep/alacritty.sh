@@ -1,5 +1,6 @@
 #!/bin/bash
 
+APPDIR=$HOME/Applications
 cd $APPDIR
 if ! [ -d "Alacritty" ]; then mkdir Alacritty; fi
 cd Alacritty
@@ -18,7 +19,7 @@ if [[ -z "${CPU}" ]]; then CPU=4; fi
 # build and save to applications
 if [ "$1" == "--force" ]; then
     make -j $CPU app
-    mv target/release/osx/Alacritty.app $HOME/Applications/Alacritty/
+    mv target/release/osx/Alacritty.app $APPDIR/Alacritty/
 else
     CURRENT_COMMIT=$(git rev-parse @)
     git checkout master
@@ -28,7 +29,7 @@ else
     LATEST_COMMIT=$(git rev-parse @)
     if [ $CURRENT_COMMIT != $LATEST_COMMIT ]; then
         make -j $CPU app
-        mv target/release/osx/Alacritty.app $HOME/Applications/Alacritty/Alacritty.app
+        mv target/release/osx/Alacritty.app $APPDIR/Alacritty/Alacritty.app
     fi
 fi
 

@@ -14,6 +14,8 @@
     prompt = false
     # abort entire diff tool session with `:cquit` or `:cq`
     trustExitCode = true
+[pull]
+	rebase = false
 [github]
     user = dysonance
     email = jamos125@gmail.com

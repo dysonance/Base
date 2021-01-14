@@ -3,6 +3,7 @@ autoconf
 automake
 bat
 boost
+bzip2
 cmake
 ctags
 doxygen
@@ -26,6 +27,7 @@ libssh2
 libtool
 libunistring
 llvm
+lnav
 make
 ncurses
 ninja
@@ -46,6 +48,7 @@ sqlite
 svn
 ta-lib
 tcl-tk
+tig
 tmux
 wget
 xz

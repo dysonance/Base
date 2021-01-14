@@ -2,7 +2,9 @@
 
 BASEDIR=$HOME/Base
 APPDIR=$HOME/Applications
-if [ "$1" == "local" ]; then
+if [ -x "$(command -v brew)" ]; then
+    echo "brew already installed"
+elif [ "$1" == "local" ]; then
     # custom local/user directory environment
     HOMEBREW_REPO="https://github.com/Homebrew/brew"
     if ! [ -d "$APPDIR/Brew" ]; then mkdir $APPDIR/Brew; fi
@@ -18,16 +20,17 @@ fi
 # fetch current versions for brew and all packages
 brew update
 
-BREW_PACKAGES=$(cat $BASEDIR/data/packages/required/brew.csv)
+BREW_PACKAGES=$(cat $BASEDIR/data/packages/brew.txt)
 echo "===== BEGINNING BREW PACKAGE INSTALLATION ====="
+brew tap homebrew/cask-fonts
 brew install htop tmux reattach-to-user-namespace  # prioritize useful pkgs w/ quick installs
-BREW_INSTALLED=$(brew list)
+BREW_INSTALLED=$(brew list --formula)
 for pkg in $BREW_PACKAGES; do
-    if [ "$(brew list | grep $pkg)" == "" ]; then
+    if [ "$(brew list --formula | grep $pkg)" == "" ]; then
         echo "== installation attempt beginning: $pkg =="
         brew install $pkg --verbose
         echo "== installation attempt finished: $pkg =="
-        BREW_INSTALLED=$(brew list)
+        BREW_INSTALLED=$(brew list --formula)
     else
         echo "== skipping unnecessary installation: $pkg =="
     fi
