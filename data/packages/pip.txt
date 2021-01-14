@@ -1,4 +1,3 @@
-pycairo
 PyQt5
 Pygments
 Quandl
@@ -42,7 +41,6 @@ six
 sklearn
 statsmodels
 sympy
-ta-lib
 traitlets
 visidata
 wcwidth

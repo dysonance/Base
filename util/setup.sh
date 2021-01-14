@@ -25,17 +25,42 @@ mv ~/.oh-my-zsh ~/Applications/Shell/
 ln -sf ~/Base/config/dysonance.zsh-theme ~/Applications/Shell/.oh-my-zsh/themes/
 ln -sf ~/Base/config/.zshrc ~/.zshrc
 
+# environment initialization
+if ! [ -f ~/environment.sh ]; then
+    touch ~/environment.sh
+    chmod +x ~/environment.sh
+    echo "#!/usr/bin/env sh" >> ~/environment.sh
+    echo "source ~/Base/config/environment.sh" >> 
+    echo "export CPU=$(sysctl -n hw.ncpu)" >> ~/environment.sh
+fi
+if ! [ -f ~/.bash_profile ]; then touch ~/.bash_profile; fi
+if [ "$(cat ~/.bash_profile | grep environment\\.sh)" = "" ]; then echo "source ~/environment.sh" >> ~/.bash_profile; fi
+if ! [ -f ~/.zprofile ]; then touch ~/.zprofile; fi
+if [ "$(cat ~/.zprofile | grep environment\\.sh)" = "" ]; then echo "source ~/environment.sh" >> ~/.zprofile; fi
+if ! [ -f ~/.gitconfig ]; then touch ~/.gitconfig; fi
+if [ "$(cat ~/.gitconfig | grep "include")" = "" ]; then echo "[include]\n    path = ~/Base/config/.gitconfig" >> ~/.gitconfig; fi
+if ! [ -f ~/.ssh/id_ed25519 ]; then
+    ssh-keygen -t ed25519 -C "jamos125@gmail.com"
+    echo "Host *\n    AddKeysToAgent yes\n    UseKeychain yes\n    IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
+    eval "$(ssh-agent -s)"
+fi
+
 # environment configurations
 echo "setting up environment directories"
 setup_directory ~/.vim
 setup_directory ~/.config
 setup_directory ~/.config/alacritty
 setup_directory ~/.config/nvim
+setup_directory ~/.matplotlib
 setup_directory ~/.ipython
 setup_directory ~/.ipython/profile_default
+setup_directory ~/.psql_history
 setup_directory ~/.tmux
 setup_directory ~/.tmux/plugins
 setup_directory ~/Library/R
+setup_directory ~/Code
+setup_directory ~/Code/Side
+if ! [ -d ~/.tmux/plugins/tpm ]; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm; fi
 echo "linking configuration files"
 ln -sf ~/Base/.vim/colors ~/.vim/colors
 ln -sf ~/Base/.vim/syntax ~/.vim/syntax
@@ -57,29 +82,27 @@ ln -sf ~/Base/config/pylint.cfg ~/.config/
 ln -sf ~/Base/config/flake8.cfg ~/.config/
 ln -sf ~/Base/config/flake8.cfg /usr/local/share/
 ln -sf ~/Base/config/.pg_format ~/.pg_format
+ln -sf ~/Base/config/matplotlibrc ~/.matplotlib/
 
 # install preliminary dependencies
 echo "installing homebrew"
 ./src/dep/brew.sh > log/brew.log
-brew tap homebrew/cask-fonts
-brew cask install $(cat data/packages/required/fonts.txt)
 
 # setup alacritty terminal
 echo "installing alacritty"
 ./src/dep/alacritty.sh > log/alacritty.log
 
-# setup llvm dep (required for later python 3 version configurations)
-echo "installing llvm toolset"
-./src/dep/llvm.sh > log/llvm.log
-
 # setup python environment (required for vim and compatibility with other tech)
 echo "installing python"
-./src/dep/python.sh > log/python.log
-ipi install $(cat data/python_packages.csv | sed "s/,.*$//g" | grep -v "package") >> log/python.log
+pyenv install 3.8.7
+pyenv install 2.7.18
+./src/dep/python.sh 3.8.7 > log/python3.log
+./src/dep/python.sh 2.7.18 > log/python2.log
 
 # setup vim environment
 echo "installing vim"
 ./src/dep/vim.sh > log/vim.log
+./src/dep/nvim.sh > log/nvim.log
 echo "initializing vim package manager"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 echo "installing vim packages"

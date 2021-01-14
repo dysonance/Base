@@ -6,10 +6,11 @@ set -e
 # define variables/settings to build as desired
 PYTHON_VERSION=$1
 APPDIR=$HOME/Applications
+if [ "$PYTHON_VERSION" = "" ]; then echo "python version unspecified" && return 1; fi
 
 # install dependencies
-BREW_DEPENDENCIES=(openssl sqlite zlib qt freetype tcl-tk xz)
-BREW_INSTALLED=$(brew list)
+BREW_DEPENDENCIES=(openssl sqlite zlib qt freetype tcl-tk xz bzip2)
+BREW_INSTALLED=$(brew list --formula)
 for dep in "${BREW_DEPENDENCIES[@]}"; do
     echo "setting up dependency: $dep"
     if [ "$(echo $BREW_INSTALLED | grep $dep)" == "" ]; then
@@ -98,7 +99,7 @@ $INSTALL_DIRECTORY/bin/python$(echo $PYTHON_VERSION | sed 's/\..*//g') get-pip.p
 
 # install python packages
 cd $FRAMEWORK_DIRECTORY/Python.Framework/Versions/Current/bin
-./pip$(echo $PYTHON_VERSION | sed 's/\..*//g') install --force-reinstall $(cat $HOME/Base/data/packages/required/pip.txt)
+./pip$(echo $PYTHON_VERSION | sed 's/\..*//g') install --force-reinstall $(cat $HOME/Base/data/packages/pip.txt)
 
 # cleanup
 if [ -d $APPDIR/IDLE.app ]; then rm -rf $APPDIR/IDLE.app; fi
