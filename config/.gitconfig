@@ -9,21 +9,23 @@
     user = dysonance
     email = jamos125@gmail.com
 [pull]
-	rebase = false
-
+    rebase = false
 [diff]
     tool = nvimdiff
-[difftool "nvimdiff"]
-    # use vim as the diff tool
-    cmd = nvim -d "$LOCAL" "$REMOTE"
+    #tool = vimdiff
+[difftool]
     # dont ask before launching the diff tool
     prompt = false
     # abort entire diff tool session with `:cquit` or `:cq`
     trustExitCode = true
+[difftool "nvimdiff"]
+    # use vim as the diff tool
+    cmd = nvim -d $LOCAL $REMOTE
 [merge]
     tool = nvimdiff
+    #tool = vimdiff
 [mergetool "nvimdiff"]
-    cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED"
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
     # open current branch in bitbucket
     bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
