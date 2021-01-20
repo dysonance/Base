@@ -506,8 +506,8 @@ key_bindings:
   - { key: Key0,        mods:   Command,   action: ResetFontSize    }
   - { key: Equals,      mods:   Command,   action: IncreaseFontSize }
   - { key: Minus,       mods:   Command,   action: DecreaseFontSize }
-  - { key: Paste,       action: Paste      }
-  - { key: Copy,        action: Copy       }
+  - { key: Paste,       action: Paste                               }
+  - { key: Copy,        action: Copy                                }
   - { key: L,           mods:   Control,   action: ClearLogNotice   }
   - { key: L,           mods:   Control,   chars:  "\x0c"           }
   - { key: Home,        chars:  "\x1bOH",  mode:   AppCursor        }
@@ -516,15 +516,15 @@ key_bindings:
   - { key: End,         chars:  "\x1b[F",  mode:   ~AppCursor       }
   - { key: PageUp,      mods:   Shift,     chars:  "\x1b[5;2~"      }
   - { key: PageUp,      mods:   Control,   chars:  "\x1b[5;5~"      }
-  - { key: PageUp,      chars:  "\x1b[5~"  }
+  - { key: PageUp,      chars:  "\x1b[5~"                           }
   - { key: PageDown,    mods:   Shift,     chars:  "\x1b[6;2~"      }
   - { key: PageDown,    mods:   Control,   chars:  "\x1b[6;5~"      }
-  - { key: PageDown,    chars:  "\x1b[6~"  }
+  - { key: PageDown,    chars:  "\x1b[6~"                           }
   - { key: Tab,         mods:   Shift,     chars:  "\x1b[Z"         }
-  - { key: Back,        chars:  "\x7f"     }
+  - { key: Back,        chars:  "\x7f"                              }
   - { key: Back,        mods:   Alt,       chars:  "\x1b\x7f"       }
-  - { key: Insert,      chars:  "\x1b[2~"  }
-  - { key: Delete,      chars:  "\x1b[3~"  }
+  - { key: Insert,      chars:  "\x1b[2~"                           }
+  - { key: Delete,      chars:  "\x1b[3~"                           }
   - { key: Left,        mods:   Shift,     chars:  "\x1b[1;2D"      }
   - { key: Left,        mods:   Control,   chars:  "\x1b[1;5D"      }
   - { key: Left,        mods:   Alt,       chars:  "\x1bb"          }
@@ -545,18 +545,18 @@ key_bindings:
   - { key: Down,        mods:   Alt,       chars:  "\x1b[1;3B"      }
   - { key: Down,        chars:  "\x1b[B",  mode:   ~AppCursor       }
   - { key: Down,        chars:  "\x1bOB",  mode:   AppCursor        }
-  - { key: F1,          chars:  "\x1bOP"   }
-  - { key: F2,          chars:  "\x1bOQ"   }
-  - { key: F3,          chars:  "\x1bOR"   }
-  - { key: F4,          chars:  "\x1bOS"   }
-  - { key: F5,          chars:  "\x1b[15~" }
-  - { key: F6,          chars:  "\x1b[17~" }
-  - { key: F7,          chars:  "\x1b[18~" }
-  - { key: F8,          chars:  "\x1b[19~" }
-  - { key: F9,          chars:  "\x1b[20~" }
-  - { key: F10,         chars:  "\x1b[21~" }
-  - { key: F11,         chars:  "\x1b[23~" }
-  - { key: F12,         chars:  "\x1b[24~" }
+  - { key: F1,          chars:  "\x1bOP"                            }
+  - { key: F2,          chars:  "\x1bOQ"                            }
+  - { key: F3,          chars:  "\x1bOR"                            }
+  - { key: F4,          chars:  "\x1bOS"                            }
+  - { key: F5,          chars:  "\x1b[15~"                          }
+  - { key: F6,          chars:  "\x1b[17~"                          }
+  - { key: F7,          chars:  "\x1b[18~"                          }
+  - { key: F8,          chars:  "\x1b[19~"                          }
+  - { key: F9,          chars:  "\x1b[20~"                          }
+  - { key: F10,         chars:  "\x1b[21~"                          }
+  - { key: F11,         chars:  "\x1b[23~"                          }
+  - { key: F12,         chars:  "\x1b[24~"                          }
   - { key: F1,          mods:   Shift,     chars:  "\x1b[1;2P"      }
   - { key: F2,          mods:   Shift,     chars:  "\x1b[1;2Q"      }
   - { key: F3,          mods:   Shift,     chars:  "\x1b[1;2R"      }
@@ -605,7 +605,7 @@ key_bindings:
   - { key: F10,         mods:   Super,     chars:  "\x1b[21;3~"     }
   - { key: F11,         mods:   Super,     chars:  "\x1b[23;3~"     }
   - { key: F12,         mods:   Super,     chars:  "\x1b[24;3~"     }
-  - { key: NumpadEnter, chars:  "\n"       }
+  - { key: NumpadEnter, chars:  "\n"                                }
   - { key: A,           mods:   Alt,       chars:  "\x1ba"          }
   - { key: B,           mods:   Alt,       chars:  "\x1bb"          }
   - { key: C,           mods:   Alt,       chars:  "\x1bc"          }
