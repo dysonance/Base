@@ -402,14 +402,14 @@ nnoremap <C-K> :bwipeout<CR>
 nnoremap <C-T> :shell<CR>
 
 " ctrl+s to save
-nnoremap <silent> <C-S> :w<CR>
-inoremap <silent> <C-S> <esc>:w<CR>a
+nnoremap <C-S> :w<CR>
+inoremap <C-S> <esc>:w<CR>a
 
 " ctrl+e to refresh file
-nnoremap <silent> <C-E> :e<CR>
+nnoremap <C-E> :e<CR>
 
 " ctrl+q to quit
-nnoremap <silent> <C-Q> :q<CR>
+nnoremap <C-Q> :q<CR>
 
 
 " }}}

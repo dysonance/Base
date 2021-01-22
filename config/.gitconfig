@@ -25,7 +25,7 @@
     tool = nvimdiff
     #tool = vimdiff
 [mergetool "nvimdiff"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
     # open current branch in bitbucket
     bb = "!f() { open $(git config remote.origin.url | sed \"s/:/\\//g\" | sed \"s/git@/https:\\/\\//g\")/branch/$(git branch | grep \\* | sed \"s/\\* //g\"); }; f"
