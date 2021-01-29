@@ -1,28 +1,33 @@
 #!/bin/bash
 
-INSTALL_DIRECTORY=$APPDIR/Vim/src
+# build environment parameters
+PREFIX=$APPDIR/Vim
+# python 2
+PY2_PREFIX=$(python2 -c 'import sys; print(sys.prefix)')
+PY2_COMMAND=$PY2_PREFIX/bin/python2
+PY2_VERSION=$($PY2_COMMAND -c "import sys; print(sys.prefix.split('/')[-1])")
+PY2_CONFDIR=$PY2_PREFIX/lib/python$PY2_VERSION/config-${PY2_VERSION}-darwin
+# python 3
+PY3_PREFIX=$(python3 -c 'import sys; print(sys.prefix)')
+PY3_COMMAND=$PY3_PREFIX/bin/python3
+PY3_VERSION=$($PY3_COMMAND -c "import sys; print(sys.prefix.split('/')[-1])")
+PY3_CONFDIR=$PY3_PREFIX/lib/python$PY3_VERSION/config-${PY3_VERSION}-darwin
+# ruby
+RUBY_COMMAND=/usr/local/opt/ruby/bin/ruby
 
-# for manual python source builds
-PYTHON_VERSION=$(python3 -V | sed 's/Python //g')
-PYTHON_BINARY=$APPDIR/Python/Versions/$PYTHON_VERSION/bin/python3
-PYTHON_VERSION_SHORT="$(echo $PYTHON_VERSION | cut -c 1-3)"
-PYTHON_CONFIG_DIR=$APPDIR/Frameworks/Python.framework/Versions/$PYTHON_VERSION_SHORT/lib/python$PYTHON_VERSION_SHORT/config-${PYTHON_VERSION_SHORT}m-darwin
 
 cd $APPDIR
 if ! [ -d "Vim" ]; then mkdir Vim; fi
 cd $APPDIR/Vim
 if ! [ -d src ]; then git clone https://github.com/vim/vim.git src; fi
-if ! [ -d bin ]; then mkdir bin; fi
 cd src
 
 function BuildVim()
 {
     make clean
-    if [ -f src/auto/config.cache ]; then
-        rm src/auto/config.cache
-    fi
+    if [ -f src/auto/config.cache ]; then rm src/auto/config.cache; fi
     ./configure \
-        --prefix=$INSTALL_DIRECTORY \
+        --prefix=$PREFIX \
         --with-features=huge \
         --enable-cscope=yes \
         --enable-gui=no \
@@ -30,19 +35,17 @@ function BuildVim()
         --enable-multibyte=yes \
         --enable-perlinterp=yes \
         --enable-rubyinterp=yes \
+        --enable-pythoninterp=yes \
         --enable-python3interp=yes \
-        --with-python-config-dir=$PYTHON_CONFIG_DIR \
-        --with-python3-command=$PYTHON_BINARY \
+        --with-python-config-dir=$PY2_CONFDIR \
+        --with-python3-config-dir=$PY3_CONFDIR \
+        --with-python-command=$PY2_COMMAND \
+        --with-python3-command=$PY3_COMMAND \
+        --with-ruby-command=$RUBY_COMMAND \
         --without-x
-    if [[ -z "${CPU}" ]]; then CPU=4; fi
+    if [[ -z "${CPU}" ]]; then CPU=$(sysctl -n hw.ncpu); fi
     make -j $CPU
     make -j $CPU install
-    cp bin/ex ../bin/
-    cp bin/rview ../bin/
-    cp bin/rvim ../bin/
-    cp bin/view ../bin/
-    cp bin/vimdiff ../bin/
-    cp bin/vim ../bin/
 }
 
 if [ "$1" == "--force" ]; then
@@ -61,7 +64,3 @@ else
         echo "vim is up-to-date at version $LOCAL_VERSION"
     fi
 fi
-
-# make `vi` point to same binary as vim
-cd $APPDIR/Vim/bin
-ln -sf vim vi

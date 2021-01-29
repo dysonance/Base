@@ -17,6 +17,7 @@ export APPDIR=$HOME/Applications
 export R_LIBS_USER=$HOME/Library/R
 export BREWDIR=/usr/local # if installed conventionally
 export EDITOR=vim
+alias vi="$APPDIR/Vim/bin/vim"
 if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
 
 # path prepends

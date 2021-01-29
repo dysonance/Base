@@ -90,11 +90,11 @@ syn match shellProgram   "\(^\|\s\)\@<=\(vim\|brew\|python\+\|pip\+\|clang\|clan
 syn match shellNumber    "\<\d\+\>"
 syn match shellOperator  "\.\|=\|\\\/\|!\|\\\|\.\/\||\|>\|&\||"
 syn match shellDelimiter "\[\|\]\|;\|:\|\~\|/\|{\|}\|(\|)"
-syn match shellArgument  "\(\s\)\@<=-\w\+\|\(\s\)\@<=--[A-z\-_]\+\|\$[0-9]\|\$@"
+syn match shellArgument  "\(\s\)\@<=-\w\+\|\(\s\)\@<=--[A-z\-_0-9]\+\|\$[0-9]\|\$@"
 syn match shellKeyword   "\(^\|\s\)\@<=\(\.\/\S\+\|sh\|bash\|zsh\)\>"
 syn match shellFunction  "\(function \)\@<=\w\+"
-syn match shellFormat    "\(\$[A-z#]\+\)\|\\t\|\\n" contained
-syn match shellVariable  "\(\$[A-z#]\+\)\|\\t\|\\n"
+syn match shellFormat    "\(\$[A-z0-9]\+\)\|\\t\|\\n" contained
+syn match shellVariable  "\(\$[A-z0-9]\+\)\|\\t\|\\n"
 
 syn region shellComment   start=+#+   end="$" contains=shellTodo
 syn region shellExpand    start="\${" end="}" contains=ALL keepend
