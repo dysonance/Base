@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
 
 " Editing Utilities {{{
 
-"Plug 'tmsvg/pear-tree'            " smart auto-closing of delimiters/quotes
 Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'         " easily surround chunks of text with delimiters
 Plug 'scrooloose/nerdcommenter'   " comment adding utility
@@ -47,6 +46,7 @@ Plug 'python-rope/ropevim'            " python refactoring tools
 
 " Language Support {{{
 
+Plug 'JuliaEditorSupport/julia-vim'                " julia language support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go language support
 Plug 'vim-scripts/Vim-R-plugin'                    " R language support improved
 Plug 'plasticboy/vim-markdown'                     " Markdown language support

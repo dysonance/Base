@@ -52,6 +52,7 @@ syn keyword juliaCustomModule
             \ BenchmarkTools
             \ Colors
             \ ColorTypes
+            \ Combinatorics
             \ DataFrames
             \ DataStreams
             \ Distributions
@@ -164,6 +165,7 @@ syn keyword juliaFunction
             \ cos cosh acos
             \ tan tanh atan
 
+syn match juliaConstant  "\<[A-Z_0-9]\{2,}\>\((\)\@!"
 syn match juliaDelimiter ">\((\|;\)\@=\|\(\w\)\@<=<\|\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match juliaFormat    "\$\<\w*\>"                                           contained
 syn match juliaFormat    "\\n\|\\t\|\$\<\w\+\>\|\(\$(.*\)\@<=\()\)"            containedin=juliaString
@@ -176,7 +178,6 @@ syn match juliaSpecial   "[$@]\(\w\)+\|`"
 syn match juliaSymbol    "\([:<>0-9]\|\>\)\@<!:\<\w\+\>"
 syn match juliaType      "\(::\|<:\|<:\s\)\@<=\<\w*\>\|\<\w*\>\@=\(<:\|\s<:\)" contains=juliaOperator
 syn match juliaCharacter "'.'"
-syn match juliaConstant  "\<[A-Z_]\{2,}\>\((\)\@!"
 
 syn region juliaType    start="{"      end="}"                  contains=juliaDelimiter,juliaOperator,juliaConstant extend keepend
 syn region juliaComment start="#"      end="$"                  contains=juliaTodo
