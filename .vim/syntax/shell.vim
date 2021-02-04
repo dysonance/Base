@@ -62,6 +62,7 @@ syn keyword shellFunction
             \ deactivate
             \ echo
             \ expr
+            \ find
             \ git
             \ go
             \ head
@@ -83,6 +84,7 @@ syn keyword shellFunction
             \ touch
             \ wc
             \ wget
+            \ xargs
 
 syn match shellCommand   "^\<\w\+\>"
 syn match shellConstant  "\<[A-Z0-9_]\{2,}\>\((\)\@!"
