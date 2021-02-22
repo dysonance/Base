@@ -36,6 +36,7 @@ stty -ixon # disable terminal flow control to allow more vim keybindings
 
 # convenience shortcuts
 alias jln="$APPDIR/Julia/src/usr/bin/julia"
+alias py36="$APPDIR/Python/Versions/3.6.5/bin/python3"
 alias jl="julia --optimize=3 --cpu-target native --banner=no --color=yes"
 alias ijl="jupyter console --kernel=julia-1.5 --no-confirm-exit --ZMQTerminalInteractiveShell.editing_mode=vi"
 alias l="ls -Alh"

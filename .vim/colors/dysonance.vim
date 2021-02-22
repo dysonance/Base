@@ -74,10 +74,10 @@ highlight Error                 ctermfg=NONE ctermbg=1    cterm=NONE           g
 highlight ErrorMsg              ctermfg=NONE ctermbg=1    cterm=NONE           guifg=NONE    guibg=#800000 gui=NONE
 highlight WarningMsg            ctermfg=NONE ctermbg=1    cterm=NONE           guifg=NONE    guibg=#800000 gui=NONE
 " diff highlights
-highlight DiffAdd               ctermfg=NONE ctermbg=2    cterm=bold           guifg=NONE    guibg=#008000 gui=bold
+highlight DiffAdd               ctermfg=NONE ctermbg=2    cterm=bold           guifg=NONE    guibg=#004000 gui=bold
 highlight DiffChange            ctermfg=NONE ctermbg=NONE cterm=bold           guifg=NONE    guibg=NONE    gui=bold
-highlight DiffDelete            ctermfg=9    ctermbg=1    cterm=bold           guifg=#ff0000 guibg=#800000 gui=bold
-highlight DiffText              ctermfg=NONE ctermbg=3    cterm=bold,underline guifg=NONE    guibg=#808000 gui=bold,underline
+highlight DiffDelete            ctermfg=9    ctermbg=1    cterm=bold           guifg=#400000 guibg=#400000 gui=bold
+highlight DiffText              ctermfg=NONE ctermbg=3    cterm=bold,underline guifg=NONE    guibg=#404000 gui=bold,underline
 " plugin-specific
 highlight GitGutterAdd          ctermfg=2    ctermbg=NONE cterm=NONE           guifg=#008000 guibg=NONE    gui=NONE
 highlight GitGutterChange       ctermfg=3    ctermbg=NONE cterm=NONE           guifg=#808000 guibg=NONE    gui=NONE

@@ -6,16 +6,15 @@
 backend : TkAgg
 
 # fonts
-font.family : Input Sans
-font.monospace : Input Mono
-font.sans-serif : Input Sans
-font.serif : Input Serif
+font.family : Halis R
+font.sans-serif : Halis R
+font.serif : Halis R
 mathtext.fontset : cm
 
 # layout
 axes.grid: True
 grid.color: 808080
-figure.autolayout : True  # use tight layout by default
+# figure.autolayout : True  # use tight layout by default
 
 # colors
 grid.alpha : 0.25
