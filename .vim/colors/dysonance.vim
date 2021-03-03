@@ -16,8 +16,8 @@ set cursorline
 
 if has('nvim')
     set termguicolors
-    highlight ActiveWindow ctermfg=15 ctermbg=4 guifg=NONE guibg=#000040
-    highlight InactiveWindow ctermfg=7 ctermbg=NONE guifg=#808080 guibg=#000020
+    highlight ActiveWindow ctermfg=15 ctermbg=NONE guifg=NONE guibg=NONE
+    highlight InactiveWindow ctermfg=7 ctermbg=NONE guifg=NONE guibg=#404040
     " call method on window enter
     augroup WindowManagement
         autocmd!
@@ -32,9 +32,9 @@ else
 endif
 
 " general highlighting
-highlight Normal                ctermfg=NONE ctermbg=4 cterm=NONE           guifg=NONE    guibg=#000040    gui=NONE
+highlight Normal                ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
 highlight Cursor                ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
-highlight CursorLine            ctermfg=NONE ctermbg=0    cterm=NONE           guifg=NONE    guibg=#000000 gui=NONE
+highlight CursorLine            ctermfg=NONE ctermbg=4    cterm=NONE           guifg=NONE    guibg=#000040 gui=NONE
 highlight CursorLineNR          ctermfg=NONE ctermbg=12   cterm=NONE           guifg=NONE    guibg=#0000ff gui=NONE
 highlight Identifier            ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
 " constant highlighting group
