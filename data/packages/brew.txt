@@ -1,55 +1,105 @@
-adns
-autoconf
-automake
-bat
-boost
-bzip2
-cmake
-ctags
-doxygen
-font-anonymous-pro
-font-computer-modern
-font-dm-mono
-font-fira-code
-font-juliamono
-font-latin-modern
-freetype
-gdbm
-gettext
-git
-htop
-icu4c
-julia
-libevent
-libidn2
-libpng
-libssh2
-libtool
-libunistring
-llvm
-lnav
-make
-ncurses
-ninja
-node
-openssl@1.1
-pgformatter
-pkg-config
-postgresql
-pyenv
-python
-qt
-readline
-reattach-to-user-namespace
-rust
-saulpw/vd/visidata
-sphinx-doc
-sqlite
-svn
-ta-lib
-tcl-tk
-tig
-tmux
-wget
-xz
-zlib
+tap "github/gh"
+tap "golangci/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "microsft/mssql-release", "https://github.com/Microsoft/homebrew-mssql-release"
+tap "microsoft/mssql-release"
+tap "saulpw/vd"
+brew "adns"
+brew "gcc"
+brew "libevent"
+brew "openblas"
+brew "gdbm"
+brew "gettext"
+brew "tcl-tk"
+brew "autoconf"
+brew "automake"
+brew "awscli"
+brew "bat"
+brew "boost"
+brew "freetype"
+brew "cairo"
+brew "clang-format"
+brew "cmake"
+brew "cpanminus"
+brew "crush-tools", link: false
+brew "cscope"
+brew "csvkit"
+brew "ctags"
+brew "doxygen"
+brew "node"
+brew "eslint"
+brew "fd"
+brew "fzf"
+brew "gcovr"
+brew "gh"
+brew "git"
+brew "glances"
+brew "libtool"
+brew "pkg-config"
+brew "libidn2"
+brew "gnupg"
+brew "qt", link: false
+brew "gnuplot"
+brew "go", link: false
+brew "go@1.14", link: true
+brew "googletest"
+brew "gource"
+brew "graphviz"
+brew "gsl"
+brew "gtk+"
+brew "hdf5"
+brew "htop"
+brew "jq"
+brew "jsonlint"
+brew "lapack"
+brew "libssh2"
+brew "llvm"
+brew "lnav"
+brew "log4cpp"
+brew "luajit"
+brew "make"
+brew "markdown"
+brew "mbedtls"
+brew "ninja"
+brew "parquet-tools"
+brew "perl"
+brew "pgformatter"
+brew "postgresql", restart_service: true
+brew "postgresql@12"
+brew "prettier"
+brew "unixodbc"
+brew "psqlodbc"
+brew "pyenv"
+brew "reattach-to-user-namespace"
+brew "ruby"
+brew "rust"
+brew "rustup-init"
+brew "shfmt"
+brew "snappy"
+brew "sphinx-doc"
+brew "ta-lib"
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "watch"
+brew "wget"
+brew "zlib"
+brew "golangci/tap/golangci-lint"
+brew "microsft/mssql-release/mssql-tools"
+brew "saulpw/vd/visidata"
+cask "atom"
+cask "firefox"
+cask "font-anonymous-pro"
+cask "font-dm-mono"
+cask "font-fira-code"
+cask "font-juliamono"
+cask "font-latin-modern"
+cask "google-chrome"
+cask "julia"
+cask "microsoft-auto-update"
+cask "signal"

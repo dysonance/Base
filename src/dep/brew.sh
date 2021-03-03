@@ -20,19 +20,7 @@ fi
 # fetch current versions for brew and all packages
 brew update
 
-BREW_PACKAGES=$(cat $BASEDIR/data/packages/brew.txt)
 echo "===== BEGINNING BREW PACKAGE INSTALLATION ====="
-brew tap homebrew/cask-fonts
 brew install htop tmux reattach-to-user-namespace  # prioritize useful pkgs w/ quick installs
-BREW_INSTALLED=$(brew list --formula)
-for pkg in $BREW_PACKAGES; do
-    if [ "$(brew list --formula | grep $pkg)" == "" ]; then
-        echo "== installation attempt beginning: $pkg =="
-        brew install $pkg --verbose
-        echo "== installation attempt finished: $pkg =="
-        BREW_INSTALLED=$(brew list --formula)
-    else
-        echo "== skipping unnecessary installation: $pkg =="
-    fi
-done
+brew bundle install --file=$BASEDIR/data/packages/brew.txt
 echo "===== BREW PACKAGE INSTALLATION FINISHED ====="
