@@ -44,7 +44,7 @@
     # show verbose diagnostics to better understand git operations (useful when git lags)
     debug = "!f() { set -x; GIT_TRACE=2 GIT_CURL_VERBOSE=2 GIT_TRACE_PERFORMANCE=2 GIT_TRACE_PACK_ACCESS=2 GIT_TRACE_PACKET=2 GIT_TRACE_PACKFILE=2 GIT_TRACE_SETUP=2 GIT_TRACE_SHALLOW=2 git $@ ; set +x; }; f"
     # open all files changed from one reference to another in diff tool editor
-    review = "!f() { vim $(git diff --name-only $1); }; f"
+    review = "!f() { if [ -z $1 ]; then git difftool master; else git difftool $1; fi; }; f"
     # run merges from one central branch to multiple child branches
     update = "!f() { refbranch=$(git branch | grep \\* | sed \"s/\\* //\"); branches=$@; echo \"updating $refbranch\n\"; git checkout $refbranch --quiet; git pull --quiet; for branch in ${branches[@]}; do if [ \"$branch\" != \"$refbranch\" ]; then git checkout $branch --quiet; echo \"updating $branch\"; git pull --quiet; echo \"merging $refbranch into $branch\"; git merge $refbranch --commit --quiet; if [ \"$?\" != \"0\" ]; then echo \"merge conflict on $branch\"; git reset --hard --quiet; fi; echo \"\"; fi; done; }; f"
     # get the current branch
