@@ -32,10 +32,8 @@
     "clangd.disableDiagnostics": true,
     "clangd.path": "/usr/local/opt/llvm/bin/clangd",
     "clangd.arguments": [
-        "--background-index",
-        "--clang-tidy",
-        "--pretty",
-        "--limit-results=50"
+        "--limit-results=25",
+        "--pch-storage=disk"
     ],
 
     "r.lsp.diagnostics": false,

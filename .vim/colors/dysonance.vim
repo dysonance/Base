@@ -15,8 +15,9 @@ set cursorline
 ""==================
 
 if has('nvim')
-    highlight ActiveWindow guifg=NONE guibg=NONE
-    highlight InactiveWindow guifg=#808080 guibg=#404040
+    set termguicolors
+    highlight ActiveWindow ctermfg=15 ctermbg=4 guifg=NONE guibg=#000040
+    highlight InactiveWindow ctermfg=7 ctermbg=NONE guifg=#808080 guibg=#000020
     " call method on window enter
     augroup WindowManagement
         autocmd!
@@ -26,17 +27,15 @@ if has('nvim')
     function! DimInactive()
         setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow,StatusLine:ActiveWindow,StatusLineNC:InactiveWindow
     endfunction
-    set termguicolors
 else
     set notermguicolors
 endif
 
 " general highlighting
-highlight Normal                ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
+highlight Normal                ctermfg=NONE ctermbg=4 cterm=NONE           guifg=NONE    guibg=#000040    gui=NONE
 highlight Cursor                ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
-highlight CursorLine            ctermfg=NONE ctermbg=4    cterm=NONE           guifg=NONE    guibg=#202020 gui=NONE
+highlight CursorLine            ctermfg=NONE ctermbg=0    cterm=NONE           guifg=NONE    guibg=#000000 gui=NONE
 highlight CursorLineNR          ctermfg=NONE ctermbg=12   cterm=NONE           guifg=NONE    guibg=#0000ff gui=NONE
-highlight Function              ctermfg=11   ctermbg=NONE cterm=NONE           guifg=#ffff00 guibg=NONE    gui=NONE
 highlight Identifier            ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
 " constant highlighting group
 highlight Boolean               ctermfg=9    ctermbg=NONE cterm=NONE           guifg=#ff0000 guibg=NONE    gui=NONE
@@ -53,8 +52,9 @@ highlight PreProc               ctermfg=3    ctermbg=NONE cterm=NONE           g
 highlight Repeat                ctermfg=13   ctermbg=NONE cterm=NONE           guifg=#ff00ff guibg=NONE    gui=NONE
 highlight Statement             ctermfg=13   ctermbg=NONE cterm=NONE           guifg=#ff00ff guibg=NONE    gui=NONE
 " special highlighting group
-highlight Comment               ctermfg=12   ctermbg=NONE cterm=NONE           guifg=#808080 guibg=NONE    gui=NONE
+highlight Comment               ctermfg=12   ctermbg=NONE cterm=NONE           guifg=#0000ff guibg=NONE    gui=NONE
 highlight Delimiter             ctermfg=14   ctermbg=NONE cterm=NONE           guifg=#00ffff guibg=NONE    gui=NONE
+highlight Function              ctermfg=11   ctermbg=NONE cterm=NONE           guifg=#ffff00 guibg=NONE    gui=NONE
 highlight Special               ctermfg=3    ctermbg=NONE cterm=NONE           guifg=#808000 guibg=NONE    gui=NONE
 highlight SpecialChar           ctermfg=2    ctermbg=NONE cterm=NONE           guifg=#804000 guibg=NONE    gui=NONE
 highlight Tag                   ctermfg=13   ctermbg=NONE cterm=NONE           guifg=#ff00ff guibg=NONE    gui=NONE
