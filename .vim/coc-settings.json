@@ -36,6 +36,8 @@
         "--pch-storage=disk"
     ],
 
+    "vetur.ignoreProjectWarning": true,
+
     "r.lsp.diagnostics": false,
 
     "go.enable": true,
