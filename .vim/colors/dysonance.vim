@@ -75,7 +75,7 @@ highlight ErrorMsg              ctermfg=NONE ctermbg=1    cterm=NONE           g
 highlight WarningMsg            ctermfg=NONE ctermbg=1    cterm=NONE           guifg=NONE    guibg=#800000 gui=NONE
 " diff highlights
 highlight DiffAdd               ctermfg=NONE ctermbg=2    cterm=bold           guifg=NONE    guibg=#004000 gui=bold
-highlight DiffChange            ctermfg=NONE ctermbg=NONE cterm=bold           guifg=NONE    guibg=NONE    gui=bold
+highlight DiffChange            ctermfg=NONE ctermbg=12   cterm=bold           guifg=NONE    guibg=#000080 gui=bold
 highlight DiffDelete            ctermfg=9    ctermbg=1    cterm=bold           guifg=#400000 guibg=#400000 gui=bold
 highlight DiffText              ctermfg=NONE ctermbg=3    cterm=bold,underline guifg=NONE    guibg=#404000 gui=bold,underline
 " plugin-specific
