@@ -154,7 +154,7 @@ syn match pythonLibrary         "\(\<\(np\|numpy\)\>\.\)\@<=\(linalg\|random\)\|
 syn match pythonLibrary         "\(\<\(sp\|scipy\)\>\.\)\@<=\(stats\)"
 syn match pythonLibrary         "\(\<os\>\.\)\@<=\(path\)"
 syn match pythonLibrary         "\(^import \)\@<=\(\w\|\.\)\+\|\(^import.*as \)\@<=\w\+"
-syn match pythonFormat          "\({}\)\|%s\|%d\|%n\|%c\|?" contained containedin=pythonFormattedString,pythonString
+syn match pythonFormat          "\({}\)\|%[A-z]\|?" contained containedin=pythonFormattedString,pythonString
 
 syn region pythonFormat          start="{"            end="}" contains=ALL contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"            end="$" contains=pythonTodo
