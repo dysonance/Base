@@ -106,7 +106,7 @@ let g:ale_lint_on_save=1
 let g:ale_lint_on_text_changed=0
 let g:ale_linters=
             \ {
-            \ 'python': ['flake8', 'pylint', 'pyright', 'pyre'],
+            \ 'python': ['flake8', 'pylint', 'mypy'],
             \ 'javascript': ['eslint'],
             \ 'vue': ['vls'],
             \ 'cpp': ['clang', 'clangd']
@@ -189,7 +189,9 @@ let g:syntastic_cpp_check_header=1
 let g:syntastic_cpp_auto_refresh_includes=1
 
 " Python
-let g:syntastic_python_checkers=['python3', 'pyflakes']
+let g:syntastic_python_checkers=['python3', 'flake8', 'pylint']
+let g:syntastic_python_pylint_args=' --rcfile=~/.config/pylint.cfg'
+let g:syntastic_python_flake8_args=' --config /usr/local/share/flake8.cfg'
 
 " Go
 let g:go_highlight_functions = 1

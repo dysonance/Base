@@ -14,7 +14,7 @@ mathtext.fontset : cm
 # layout
 axes.grid: True
 grid.color: 808080
-# figure.autolayout : True  # use tight layout by default
+figure.autolayout : True  # use tight layout by default
 
 # colors
 grid.alpha : 0.25
