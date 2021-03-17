@@ -52,7 +52,7 @@ highlight PreProc               ctermfg=3    ctermbg=NONE cterm=NONE           g
 highlight Repeat                ctermfg=13   ctermbg=NONE cterm=NONE           guifg=#ff00ff guibg=NONE    gui=NONE
 highlight Statement             ctermfg=13   ctermbg=NONE cterm=NONE           guifg=#ff00ff guibg=NONE    gui=NONE
 " special highlighting group
-highlight Comment               ctermfg=12   ctermbg=NONE cterm=NONE           guifg=#0000ff guibg=NONE    gui=NONE
+highlight Comment               ctermfg=7    ctermbg=NONE cterm=NONE           guifg=#808080 guibg=NONE    gui=NONE
 highlight Delimiter             ctermfg=14   ctermbg=NONE cterm=NONE           guifg=#00ffff guibg=NONE    gui=NONE
 highlight Function              ctermfg=11   ctermbg=NONE cterm=NONE           guifg=#ffff00 guibg=NONE    gui=NONE
 highlight Special               ctermfg=3    ctermbg=NONE cterm=NONE           guifg=#808000 guibg=NONE    gui=NONE

@@ -21,6 +21,7 @@
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": true,
     "python.workspaceSymbols.rebuildOnFileSave": false,
+    "python.linting.pytypeEnabled": true,
     "python.workspaceSymbols.rebuildOnStart": true,
     "python.linting.flake8Args": ["--config", "/usr/local/share/flake8.cfg"],
     "python.linting.pylintArgs": ["--rcfile=~/.config/pylint.cfg"],
