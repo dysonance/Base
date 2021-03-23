@@ -187,7 +187,7 @@ autocmd BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 " Nested Language Definitions {{{
 
 " NOTE: copied from https://vim.fandom.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
-" EXAMPLES: 
+" EXAMPLES:
 " call TextEnableCodeSnip(  'c',   '@begin=c@',   '@end=c@', 'SpecialComment')
 " call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@', 'SpecialComment')
 " call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment')
@@ -356,7 +356,7 @@ nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gdh :Gdiff HEAD<CR>
 nnoremap <leader>gdm :Gdiff master<CR>zRgg]czz
-nnoremap <leader>gdo :Gdiff 
+nnoremap <leader>gdo :Gdiff
 nnoremap <leader>gda :Gdiff<Up><CR>
 
 " easier grepper command accessibility
@@ -507,8 +507,8 @@ autocmd filetype sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<C
 
 autocmd filetype python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd filetype python nmap <F3> :execute ":SlimeSend1 test python"<CR>
-autocmd filetype python nmap <F4> :execute ":SlimeSend1 build python"<CR>
-"autocmd filetype python nmap <F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
+autocmd filetype python nmap <F4> :execute ":SlimeSend1 from " . substitute(expand('%:r'), "/", ".", "") . " import *"<CR>
+autocmd filetype python nmap <leader><F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
 autocmd filetype python nmap <F5> :execute ":SlimeSend1 %run " . bufname("%") ""<CR>
 
 autocmd filetype go nmap <F5> :execute ":SlimeSend1 go run " . bufname("%")<CR>
