@@ -97,6 +97,7 @@ autocmd filetype fortran setlocal softtabstop=3
 
 " General {{{
 
+set diffopt+=horizontal,iwhite " split diffs horizontally (top/bottom) and ignore whitespace
 set updatetime=125             " increase responsiveness for event triggering
 set mouse=a                    " enable use of scrolling with the mouse
 set noswapfile                 " dont create temporary swap files
@@ -111,10 +112,8 @@ autocmd VimResized * :wincmd = " automatically resize scale windows when termina
 if has("clipboard")
     set clipboard=unnamed      " copy to system clipboard
 endif
-if &diff
-    set diffopt+=iwhite        " ignore whitespace in diff mode but not in standard vim
-endif
-                               " set timeout timeoutlen=500 ttimeoutlen=100 " reduce lag/delay when switching between modes
+
+" set timeout timeoutlen=500 ttimeoutlen=100 " reduce lag/delay when switching between modes
 
 " change cursor shape dynamically (see https://stackoverflow.com/a/30199177/2271756)
 if exists('$TMUX')
@@ -507,7 +506,7 @@ autocmd filetype sql nmap <F5> :execute ":SlimeSend1 \\i " . bufname("%") . ""<C
 
 autocmd filetype python nmap <silent> <leader><F1> :!ipython -c "?<cword>"<CR>
 autocmd filetype python nmap <F3> :execute ":SlimeSend1 test python"<CR>
-autocmd filetype python nmap <F4> :execute ":SlimeSend1 from " . substitute(expand('%:r'), "/", ".", "") . " import *"<CR>
+autocmd filetype python nmap <F4> :execute ":SlimeSend1 from " . substitute(expand('%:r'), "/", ".", "g") . " import *"<CR>
 autocmd filetype python nmap <leader><F5> :execute ":SlimeSend1 exec(open('" . bufname("%") . "').read())"<CR>
 autocmd filetype python nmap <F5> :execute ":SlimeSend1 %run " . bufname("%") ""<CR>
 
