@@ -2,7 +2,6 @@
     "diagnostic.enable": true,
     "diagnostic.checkCurrentLine": true,
     "diagnostic.displayByAle": false,
-    "diagnostic.refreshAfterSave": true,
     "diagnostic.refreshOnInsertMode": false,
     "diagnostic.enableSign": true,
     "diagnostic.enableMessage": "always",
@@ -19,7 +18,6 @@
     "suggest.timeout": 500,
 
     "pyright.enable": true,
-    "python.analysis.stubPath": ".typings",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": true,
@@ -29,10 +27,6 @@
     "python.linting.pylintArgs": ["--rcfile=~/.config/pylint.cfg"],
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": ["--line-length", "120", "--quiet"],
-    "python.workspaceSymbols.rebuildOnFileSave": false,
-    "python.workspaceSymbols.rebuildOnStart": true,
-    "python.analysis.diagnosticPublishDelay": 100,
-    "python.analysis.symbolsHierarchyDepthLimit": 10,
 
     "clangd.enabled": true,
     "clangd.disableDiagnostics": false,
