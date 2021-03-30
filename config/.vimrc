@@ -97,7 +97,7 @@ autocmd filetype fortran setlocal softtabstop=3
 
 " General {{{
 
-set diffopt+=horizontal,iwhite " split diffs horizontally (top/bottom) and ignore whitespace
+set diffopt+=iwhite            " split diffs horizontally (top/bottom) and ignore whitespace
 set updatetime=125             " increase responsiveness for event triggering
 set mouse=a                    " enable use of scrolling with the mouse
 set noswapfile                 " dont create temporary swap files
