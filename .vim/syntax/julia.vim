@@ -49,7 +49,9 @@ syn keyword juliaModule
             \ Test
 
 syn keyword juliaCustomModule
+            \ AbstractPlotting
             \ BenchmarkTools
+            \ CairoMakie
             \ Colors
             \ ColorTypes
             \ Combinatorics
@@ -66,6 +68,7 @@ syn keyword juliaCustomModule
             \ JuMP
             \ JuliaDB
             \ LibPQ
+            \ GLMakie
             \ MIDI
             \ MusicManipulations
             \ OhMyREPL
@@ -79,6 +82,7 @@ syn keyword juliaCustomModule
             \ Strategems
             \ Temporal
             \ TimeSeries
+            \ WGLMakie
 
 syn keyword juliaKeyword
             \ abstract
