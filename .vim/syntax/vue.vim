@@ -41,6 +41,7 @@ syn keyword vueBuiltin
             \ created mounted updated destroyed
             \ name
             \ props
+            \ watch
 
 syn keyword vueModule
             \ Array

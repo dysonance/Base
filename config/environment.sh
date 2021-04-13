@@ -11,6 +11,17 @@ alias ggi="git grep -nIi"
 alias gg="git grep -nI"
 alias pp="echo 'setting python path to $(pwd)' && export PYTHONPATH=$(pwd) && export PYLINTHOME=$(pwd)/.pylint.d"
 
+function genstubs() {
+    if [ -d "venv" ]; then source venv/bin/activate; fi
+    local pkgs=$(git ls-files | grep __init__\\.py$ | sed "s/\/.*//g" | uniq)
+    for pkg in $pkgs; do
+        if [ "$pkg" = "." ]; then continue; fi
+        echo "generating python type stubs for $pkg"
+        stubgen -o .typings -p $pkg
+    done
+    if [ -d "venv" ]; then deactivate; fi
+}
+
 # miscellaneous environment variables
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications

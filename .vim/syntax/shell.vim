@@ -41,6 +41,9 @@ syn keyword shellConditional
             \ fi
             \ if
             \ then
+            \ continue
+            \ break
+            \ while
 
 syn keyword shellConstant
             \ EDITOR
