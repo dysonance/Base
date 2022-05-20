@@ -147,6 +147,7 @@ nmap <leader>fmt m0gggqG`0zz
 " language-specific formatting programs
 autocmd filetype c setlocal formatprg=clang-format\ -style=file\ -
 autocmd filetype cpp setlocal formatprg=clang-format\ -style=file\ -
+autocmd filetype rust setlocal formatprg=rustfmt\ --edition\ 2021
 autocmd filetype css setlocal formatprg=prettier\ --parser\ css\ --print-width\ 120\ --tab-width\ 4
 autocmd filetype fortran setlocal formatprg=fprettify\ --silent\ -
 autocmd filetype html setlocal formatprg=tidy\ -config\ $HOME/.tidyrc

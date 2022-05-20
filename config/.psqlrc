@@ -10,7 +10,7 @@
 \set VERBOSITY verbose
 \set ON_ERROR_STOP on
 \set ON_ERROR_ROLLBACK interactive
-\set HISTFILE ~/.psql_history/:DBNAME
+\set HISTFILE ~/.history/psql/:DBNAME
 \set HISTCONTROL ignoredups
 
 -- color psql prompt (first line bright cyan following lines dark cyan)

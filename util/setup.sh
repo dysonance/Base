@@ -47,6 +47,9 @@ fi
 
 # environment configurations
 echo "setting up environment directories"
+setup_directory ~/.history
+setup_directory ~/.history/psql
+setup_directory ~/.history/zsh
 setup_directory ~/.vim
 setup_directory ~/.config
 setup_directory ~/.config/alacritty
