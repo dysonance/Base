@@ -23,6 +23,7 @@ function genstubs() {
 }
 
 # miscellaneous environment variables
+export HISTFILE="$HOME/.history/zsh/$USER"
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
 export APPDIR=$HOME/Applications
 export R_LIBS_USER=$HOME/Library/R
@@ -39,6 +40,7 @@ export PATH=$HOME/.pyenv/versions/2.7.18/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 # path appends
 export PATH=$PATH:$APPDIR/Go/bin
 # contextual paths
@@ -53,6 +55,9 @@ alias py36="$APPDIR/Python/Versions/3.6.5/bin/python3"
 alias jl="julia --optimize=3 --cpu-target native --banner=no --color=yes"
 alias ijl="jupyter console --kernel=julia-1.5 --no-confirm-exit --ZMQTerminalInteractiveShell.editing_mode=vi"
 alias l="ls -Alh"
+
+# fuzzy history search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # shell convention/portability management
 if [ -n "$ZSH_VERSION" ]; then    # assume using zsh shell

@@ -90,8 +90,8 @@ window:
 # Font configuration
 font:
   normal:
-    family: Input Mono Narrow
-    style: Regular
+    family: Cascadia Code
+    style: Light
   bold:
     #family: monospace
     style: Bold
