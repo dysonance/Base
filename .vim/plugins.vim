@@ -13,7 +13,8 @@ call plug#begin('~/.vim/plugged')
 
 " Editing Utilities {{{
 
-Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
+Plug 'Raimondi/delimitMate'       " (smarter) auto-insertion of brackets/quotes
+"Plug 'jiangmiao/auto-pairs'       " auto-insertion of brackets/quotes
 Plug 'tpope/vim-surround'         " easily surround chunks of text with delimiters
 Plug 'scrooloose/nerdcommenter'   " comment adding utility
 Plug 'junegunn/vim-easy-align'    " align blocks of code easily
@@ -63,8 +64,6 @@ Plug 'pangloss/vim-javascript'                     " js syntax and indentation s
 "Plug 'vim-syntastic/syntastic'        " Linter/syntax checker for Vim
 "Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " }}}
 
@@ -85,6 +84,27 @@ runtime macros/matchit.vim  " extended `%` logical navigation
 " Coc {{{
 
 nmap <leader>cd :CocList diagnostics<CR>
+nmap <leader>cr :CocRestart<CR>
+
+imap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+imap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+
+if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+else
+    inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+"inoremap <silent><expr> <Tab>
+"            \ coc#pum#visible() ? coc#pum#next(1) :
+"            \ CheckBackspace() ? "\<Tab>" :
+"            \ coc#refresh()
 
 " }}}
 
@@ -296,6 +316,15 @@ let g:airline_theme='simple' " see here for options: https://github.com/vim-airl
 " {{{ Pear Tree 
 
 let g:pear_tree_repeatable_expand=0
+
+" }}}
+
+" delimitMate {{{
+
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
+let g:delimitMateAutoClose=1
+let g:delimitMate_jump_expansion=1
 
 " }}}
 

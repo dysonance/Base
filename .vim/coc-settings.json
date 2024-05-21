@@ -10,6 +10,7 @@
     "diagnostic.infoSign": "I",
     "diagnostic.warningSign": "W",
 
+    "suggest.noselect": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.autoTrigger": "always",

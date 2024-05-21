@@ -1,0 +1,13 @@
+{
+    "@replit/pyright-extended": "*",
+    "coc-clangd": "*",
+    "coc-cmake": "*",
+    "coc-json": "*",
+    "coc-pyright": "*",
+    "coc-rust-analyzer": "*",
+    "coc-sh": "*",
+    "coc-sql": "*",
+    "coc-vimlsp": "*",
+    "coc-yaml": "*",
+    "pyright": "*"
+}
