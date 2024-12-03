@@ -45,10 +45,10 @@ syn keyword pythonBuiltin
             \ __name__
             \ __repr__
             \ __setattr__
+            \ None
 
 syn keyword pythonConstant
             \ inf
-            \ None
             \ nan NaN
 
 syn keyword pythonBoolean
@@ -138,7 +138,6 @@ syn keyword pythonLibrary
             \ urllib
             \ zipfile
 
-syn match pythonConstant        "\<[A-Z_0-9]\{2,}\>\((\)\@!\|\<nan\>\|\<NaN\>\|\<NA\>"
 syn match pythonDecorator       "@\@<=\w*\|@"
 syn match pythonDelimiter       "\[\|\]\|(\|)\|,\|{\|}\|;"
 syn match pythonFunction        "\w*(\@=\|\.\@<=\w*\[" contains=pythonDelimiter
@@ -150,11 +149,13 @@ syn match pythonType            "\<[A-Z]\w\+Error\>"
 syn match pythonType            "\(\<\(dt\|datetime\)\>\.\)\@<=\(\<date\>\|\<datetime\>\|\<timedelta\>\|time\)"
 syn match pythonType            "\(\<\(np\|numpy\)\>\.\)\@<=\(float\(_\|ing\|16\|32\|64\|128\)\|int\(_\|eger\|c\|p\|0\|8\|16\|32\|64\)\|bool\(_\|8\)\|str\(_\|ing_\|0\)\|datetime64\)"
 syn match pythonType            "\(\<\(pd\|pandas\)\>\.\)\@<=\(\([A-Z].\w\+Index\)\|Timestamp\)"
+syn match pythonType            "\<[A-Z][A-z]\+\>"
 syn match pythonLibrary         "\(\<\(np\|numpy\)\>\.\)\@<=\(linalg\|random\)\|\(sp\.\)\@<=\(stats\)\|\(os\.\)\@<=\(path\)"
 syn match pythonLibrary         "\(\<\(sp\|scipy\)\>\.\)\@<=\(stats\)"
 syn match pythonLibrary         "\(\<os\>\.\)\@<=\(path\)"
 syn match pythonLibrary         "\(^import \)\@<=\(\w\|\.\)\+\|\(^import.*as \)\@<=\w\+"
 syn match pythonFormat          "\({}\)\|%[A-z]\|?" contained containedin=pythonFormattedString,pythonString
+syn match pythonConstant        "\<[A-Z_0-9]\{2,\}\>"
 
 syn region pythonFormat          start="{"            end="}" contains=ALL contained containedin=pythonFormattedString keepend
 syn region pythonComment         start="#"            end="$" contains=pythonTodo

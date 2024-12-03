@@ -24,7 +24,7 @@ highlight Identifier            ctermfg=NONE ctermbg=NONE cterm=NONE           g
 " constant highlighting group
 highlight Boolean               ctermfg=9    ctermbg=NONE cterm=NONE           guifg=#ff0000 guibg=NONE    gui=NONE
 highlight Character             ctermfg=10   ctermbg=NONE cterm=NONE           guifg=#00ff00 guibg=NONE    gui=NONE
-highlight Constant              ctermfg=1    ctermbg=NONE cterm=NONE           guifg=#800000 guibg=NONE    gui=NONE
+highlight Constant              ctermfg=1    ctermbg=NONE cterm=NONE           guifg=#ffffff guibg=#804000 gui=NONE
 highlight Float                 ctermfg=9    ctermbg=NONE cterm=NONE           guifg=#ff0000 guibg=NONE    gui=NONE
 highlight Number                ctermfg=9    ctermbg=NONE cterm=NONE           guifg=#ff0000 guibg=NONE    gui=NONE
 highlight String                ctermfg=10   ctermbg=NONE cterm=NONE           guifg=#00ff00 guibg=NONE    gui=NONE
