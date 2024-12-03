@@ -14,25 +14,9 @@ set cursorline
 " White   7    15
 ""==================
 
-if has('nvim')
-    set termguicolors
-    highlight ActiveWindow ctermfg=15 ctermbg=NONE guifg=NONE guibg=NONE
-    highlight InactiveWindow ctermfg=7 ctermbg=NONE guifg=NONE guibg=#404040
-    " call method on window enter
-    augroup WindowManagement
-        autocmd!
-        autocmd WinEnter * call DimInactive()
-    augroup END
-    " change highlight group of active/inactive windows
-    function! DimInactive()
-        setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow,StatusLine:ActiveWindow,StatusLineNC:InactiveWindow
-    endfunction
-else
-    set notermguicolors
-endif
-
 " general highlighting
 highlight Normal                ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
+highlight NormalNC              ctermfg=7    ctermbg=NONE guifg=NONE           guifg=NONE    guibg=#404040 gui=NONE
 highlight Cursor                ctermfg=NONE ctermbg=NONE cterm=NONE           guifg=NONE    guibg=NONE    gui=NONE
 highlight CursorLine            ctermfg=NONE ctermbg=4    cterm=NONE           guifg=NONE    guibg=#000040 gui=NONE
 highlight CursorLineNR          ctermfg=NONE ctermbg=12   cterm=NONE           guifg=NONE    guibg=#0000ff gui=NONE

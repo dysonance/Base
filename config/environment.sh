@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
+
+export HOSTNAME="$(hostname)"
 
 # utility functions/aliases
 function path() { echo $PATH | sed -e $'s/:/\\\n/g'; }
@@ -25,6 +27,10 @@ function genstubs() {
 # miscellaneous environment variables
 export HISTFILE="$HOME/.history/zsh/$USER"
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications --fontdir=~/Library/Fonts"
+if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    source "/usr/local/opt/nvm/nvm.sh"
+fi
 export APPDIR=$HOME/Applications
 export R_LIBS_USER=$HOME/Library/R
 export BREWDIR=/usr/local # if installed conventionally
@@ -35,12 +41,10 @@ if [ "$(command -v nvim)" ]; then alias vim="nvim"; fi
 # path prepends
 export PATH=$APPDIR/Vim/bin:$PATH
 export PATH=$APPDIR/NeoVim/build/bin:$PATH
-export PATH=$HOME/.pyenv/versions/3.8.7/bin:$PATH
-export PATH=$HOME/.pyenv/versions/2.7.18/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/3.8/bin:$PATH
-export PATH=$APPDIR/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH=$HOME/.pyenv/versions/3.12.7/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.rustup/toolchains/nightly-x86_64-apple-darwin/bin:$PATH
 # path appends
 export PATH=$PATH:$APPDIR/Go/bin
 # contextual paths
@@ -51,10 +55,16 @@ stty -ixon # disable terminal flow control to allow more vim keybindings
 
 # convenience shortcuts
 alias jln="$APPDIR/Julia/src/usr/bin/julia"
-alias py36="$APPDIR/Python/Versions/3.6.5/bin/python3"
 alias jl="julia --optimize=3 --cpu-target native --banner=no --color=yes"
 alias ijl="jupyter console --kernel=julia-1.5 --no-confirm-exit --ZMQTerminalInteractiveShell.editing_mode=vi"
-alias l="ls -Alh"
+#alias l="ls -Alh"
+#alias ll='ls -lh'
+#alias lt='ls -altrh'
+alias l='eza --long --all --group --header --git --sort=name '
+alias ll='eza --long --group --header --git --sort=name '
+alias lt='eza --long --group --header --git --sort=modified '
+alias lr="eza --tree --ignore-glob='.git|__pycache__|*.pyc|*.pyi|.types'"
+export EXA_COLORS="da=35:gm=33"
 
 # fuzzy history search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

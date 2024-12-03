@@ -30,3 +30,6 @@ zle-keymap-select () {
 unsetopt autocd
 
 source $HOME/environment.sh
+
+eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"

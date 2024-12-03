@@ -75,6 +75,7 @@ ln -sf ~/Base/.vim/coc-settings.json ~/.vim/
 ln -sf ~/Base/.vim/coc-settings.json ~/.config/nvim/
 ln -sf ~/Base/config/.vimrc ~/.vimrc
 ln -sf ~/Base/config/init.vim ~/.config/nvim/
+ln -sf ~/Base/config/starship.toml 
 ln -sf ~/Base/config/alacritty.yml ~/
 ln -sf ~/Base/config/.tmux.conf ~/
 ln -sf ~/Base/config/.tigrc ~/

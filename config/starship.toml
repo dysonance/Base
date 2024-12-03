@@ -1,0 +1,70 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = '''
+\[${username}@${hostname}:${directory}\]\[${custom.date}@${custom.time}@${custom.timezone}\](\[${git_branch}(:${git_status})\])
+$character
+'''
+
+[character]
+success_symbol = '[\$](fg:#00ff00)'
+error_symbol = '[\$](fg:#ff0000)'
+vimcmd_symbol = '[\$](bg:#0000ff)'
+disabled = false
+
+[username]
+format = '[$user]($style)'
+style_user = 'fg:#808000'
+style_root = 'fg:#800000 bg:#ff0000'
+detect_env_vars = ['USER']
+disabled = false
+
+[hostname]
+format = '[$hostname]($style)'
+style = 'fg:#008000'
+ssh_only = false
+disabled = false
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = 'fg:#800080'
+[directory.substitutions]
+'~/git/' = ''
+'~/Code/' = ''
+
+[git_branch]
+format = '[$branch](fg:#804000)'
+disabled = false
+
+[git_status]
+format = '$staged$modified$deleted$untracked$renamed'
+staged = '[+](fg:#008000)'
+modified = '[~](fg:#808000)'
+deleted = '[-](fg:#800000)'
+untracked = '[?](fg:#0000ff)'
+renamed = '[=](fg:#00ffff)'
+conflicted = '[x](fg:#800000 bg:#ff0000)'
+ignore_submodules = true
+disabled = false
+
+[custom.date]
+format = '[$output]($style)'
+style = 'fg:#008080'
+command = '/bin/date +%Y-%m-%d'
+when = true
+disabled = false
+
+[custom.time]
+format = '[$output]($style)'
+style = 'fg:#00ffff'
+command = '/bin/date +%H%:%M:%S'
+when = true
+disabled = false
+
+[custom.timezone]
+format = '[$output]($style)'
+style = 'fg:#004040'
+command = '/bin/date +%Z'
+when = true
+disabled = false
